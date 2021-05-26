@@ -1,0 +1,203 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{macros, setspace}
+
+\author{Owen Gwilliam and Brian R. Williams}
+\date{\today}
+\title{What is a holomorphic field theory}
+
+\def\g{{\mathfrak g}}
+
+\def\brian#1{{\textcolor{blue!65!red}{BRW: {#1}}}}
+\def\owen#1{{\textcolor{green!65!black}{BRW: {#1}}}}
+
+\usepackage[upint]{stix}
+
+\begin{document}
+\maketitle
+
+\spacing{1.25}
+
+
+%"classical field theory", don't mention BV.
+
+%the way we discussed previously, this section seemed to be mostly geometric.
+
+%Motivational overview
+
+The most important field theories in physics involve a metric on a manifold (whether Riemannian or Lorentzian), and hence geometry has had a clear role in physics.
+In recent decades attention has expanded to include {\em topological} field theories (or TFTs), 
+in which --- to simplify --- only the underlying smooth topology of the manifold matters.
+There are, however, theories that depend on a complex structure on the manifold,
+and as one might hope, these are particularly beautiful, 
+just as complex variables is a particularly beautiful wing of analysis.
+In essence, such {\em holomorphic} field theories have variational PDE (or ``equations of motion'') that are holomorphic:
+the PDE only involves derivatives in the holomorphic coordinates (i.e., the $\partial/\partial z_j$) and has holomorphic coefficients.
+These theories admit independent motivations from mathematics and physics,
+which we sketch before giving more careful definitions.
+
+The mathematical motivation is simple:
+for most holomorphic classical field theories, the solutions to the equations of motion form a moduli space of natural interest to complex geometers,
+and it is natural to hope that its quantization is equally interesting.
+A well-known example is holomorphic Chern-Simons theory,
+which lives on a Calabi-Yau 3-fold $X$ and involves the {\em derived} moduli space $\RR\Bun_G(X)$ of holomorphic principal $G$-bundles on $X$.
+As a somewhat mundane example, let $\RR\Hol(X,V)$ denote the derived moduli space of holomorphic maps from some complex manifold $X$ to another complex manifold $V$.
+(For $V$ a vector space, a ``derived'' enhancement is familiar as the higher dimensional cohomology $H^*(X, \cO) \otimes V$.)
+One can take a ``shifted cotangent bundle'' $T^*[-1] \RR\Hol(X,V)$,
+and this derived moduli space encodes solutions to
+a theory known as the $\beta\gamma$ system with target $V$.
+(The name is silly: it's due to the original notation people used.)
+Every question one asks about the classical physics of the $\beta\gamma$ theory translates into a question about this moduli space.
+
+An essential example for us is ``holomorphic BF theory,''
+which is a gauge theory for holomorphic principal $G$-bundles on a complex manifold $X$.
+From the perspective of derived geometry, its solutions form the derived moduli space~$T^*[-1] \RR\Bun_G(X)$. 
+
+A physical motivation comes from supersymmetric field theories, 
+which (loosely speaking) are theories on $\RR^n$ whose symmetries include not only the isometries of $\RR^n$, but an extension to a Lie supergroup known as a super Poincar\'e group.
+The relevant extension is often labeled by $\cN=1, 2,$ and so on, 
+with larger $\cN$ denoting a bigger supergroup. 
+Thanks to the enhanced symmetry, such theories can often be understood in greater detail than non-supersymmetric theories.
+
+For us, the crucial point is that supersymmetric theories admit ``twists'' (in essence, deformations) that are holomorphic field theories, 
+even when they do not admit twists to TFTs (such as the famed A- and B-models of mirror symmetry) \cite{CosHol}.
+As an example, $\cN=1$ supersymmetric Yang-Mills theory admits no topological twist, but does admit a twist to holomorphic field theory, namely a holomorphic BF theory.
+It is natural to wonder how the myriad tools and computations deployed on the supersymmetric theory carry over to this twist and conversely whether information can flow back from a holomorphically twisted theory to the untwisted one, 
+much as TFTs have enriched the understanding of supersymmetric theories.
+In short, a holomorphic twist contains the ``holomorphic sector'' of the untwisted theory just as a topological twist contains its ``topological sector.''
+
+As a final motivational remark, we note in one complex dimension (i.e., working on Riemann surfaces), holomorphic field theories appear as chiral conformal field theories (CFTs) on 2-dimensional manifolds --- whose manifestations in mathematics include vertex algebras, affine Lie algebras, and loop groups --- and have had a strong impact in mathematics.
+It is natural to explore higher-dimensional analogs.
+
+The overarching goal of this paper is \owen{continue}
+
+
+cluster of projects is to bring into sharp mathematical form some of the deep insights into gauge theory offered by physics.
+So far, most mathematical effort has focused on classical gauge theory,
+but the quantum aspects are profoundly interesting.
+We expect that these holomorphic examples will be particularly tractable and beautiful but also useful in offering insights even for non-holomorphic theories.
+
+\subsection{Preliminary notions}
+
+%complex geometry, dolbeault, dg stuff.
+
+\subsection{Precise definitions}
+
+%this section aimed at mathematicians
+%emphasize connection with (derived) complex geometry
+
+\subsection{Examples from physics}
+%this section aimed at physicists
+%twists of SUSY theories
+%Owen has some nice thoughts about globalization as it related to SUSY/THF.
+
+
+Every supersymmetric field theory produces HFTs through a process called {\em twisting},
+so we have a wealth of examples to study that are intimately connected to theories of genuine interest in physics.
+As we will explain later, many interesting phenomena for supersymmetric theories have analogs for HFTs.
+ 
+By definition, a supersymmetric field theory on $\RR^d$ is a theory that is acted upon by a super Poincar\'{e} algebra. 
+In this paper we restrict our attention to Euclidean field theories and work in Riemannian signature,
+hence for us the ``super Poincar\'{e} algebra'' is a super Lie algebra of the form
+\[
+\mathfrak{so}(d) \ltimes \ft
+\]
+where $\ft$ is the super Lie algebra of {\em supertranslations} whose even part $\ft^0 = \RR^d$ is the Lie algebra of ordinary translations and whose odd part $\ft^1$ is a sum of spin representations. 
+While the Lie algebra $\RR^d$ of ordinary translations is abelian, the Lie algebra $\ft$ carries a nontrivial (super) Lie bracket,
+and this Lie bracket is defined in terms of a $\mathfrak{so}(d)$-equivariant non-degenerate symmetric pairing
+\[
+\Gamma : {\rm Sym}^2(\ft^{1}) \to {\rm Sym}(\ft^0) \cong \RR^d 
+\]
+by the formula $[Q, Q'] = \Gamma(Q, Q')$. 
+
+By a {\em supercharge}, one means an odd supertranslation $Q \in \ft$, and
+a {\em twist} is a (nonzero) supercharge $Q$ such that $[Q,Q] = Q^2 = 0$. 
+The classification of all twists is a completely algebraic question,
+and we refer to~\autocite{ESsusy} for a complete classification of all twists in dimensions from $1$ to~$10$. 
+
+If a Lagrangian field theory $\cT$ has $\ft$ as a symmetry, 
+then a choice of twist $Q$ determines a deformation of the theory that we call a {\em twisted supersymmetric theory} $\cT^Q$.
+If $S$ denotes the action functional of $\cT$, then the action functional $S^Q$ of $\cT^Q$ has the form
+\[
+S^Q(\varphi) = S(\varphi) + \int_{\RR^d} \varphi  \left(Q \cdot \varphi \right) + \cdots 
+\]
+where the deformation arises from how $Q$ acts on the theory 
+(the $\cdots$ leaves room for terms non-linear in $Q$).
+For extensive details on how the twisted theory is defined we refer to~\autocite{CostelloHolomorphic, ESW}. 
+
+Building upon the physical literature, Elliott, Safronov, and the second author have given a complete characterization of the all twisted supersymmetric Yang--Mills theories in dimensions $2 \leq d \leq 10$ \autocite{ESW}. 
+These twisted theories are analogs of BF theory and Chern--Simons theory,
+exactly the kinds of theories we have already discussed, so long as one includes purely topological and purely holomorphic theories. 
+We will describe a few examples in detail in the BV formalism in Section~\ref{sec:twistedsusybv},
+but we want to indicate now what our main theorem implies about some interesting examples.
+
+For our purposes here, a crucial property of a twist $Q$ is the dimension $k_Q$ of its image ${\rm Im} \; \Gamma(Q, \cdot) \subset \RR^d$,
+which we call the number of {\em invariant} directions of~$Q$.
+By the non-degeneracy of the pairing $\Gamma$, it follows that $k_Q \geq \frac{d}{2}$.
+If the number of invariant directions is maximal with $k_Q = d$, then the twisted theory $\cT^Q$ is purely topological. 
+If the number of invariant directions is minimal with $k_Q = \frac{d}{2}$, then the twisted theory $\cT^Q$ is purely holomorphic. 
+
+As a representative example of how twisting behaves, 
+consider four-dimensional supersymmetric Yang--Mills theory with $\cN=2$ supersymmetry,
+which means the odd part $\ft^1$ is eight-dimensional. 
+%The sum of two copies of the spin representations.
+%\owen{Did I get that right?}
+We only consider here the pure gauge theory with Lie algebra~$\fg$. 
+Then we have the bounds $2 \leq k_Q \leq 4$, and each value gives a different, well-known field theory:
+\begin{itemize}
+\item When $k_Q = 4$, the twisted theory is the topological field theory on $\RR^4$ known as {\it Donaldson--Witten theory} \autocite{WittenTQFT};
+\item When $k_Q = 3$, the twisted theory is the THFT studied by Kapustin in \autocite{Kapustin};
+\item When $k_Q = 2$, the twisted theory is holomorphic BF theory on $\CC^2$ with values in a graded Lie algebra $\fg[\ep]$, where $\ep$ is a parameter of cohomological degree~$1$.
+\end{itemize}
+We will describe these theories completely later in Section~\ref{sec:twistedsusybv},
+but our main theorem implies the following.
+
+\begin{thm}[\owen{cite GRW, maybe also mention our work with Chris?}]
+Donaldson--Witten theory, the Kapustin twist, and holomorphic BF theory for $\fg[\epsilon]$ each admit an exact and finite quantization at one loop.
+\end{thm}
+
+In other words, by a judicious choice of gauge-fixing, 
+we find that the one-loop Feynman diagrams have no UV divergences.
+Moreover, no higher loop diagrams appear (for combinatorial reasons),
+and the action functional satisfies the quantum master equation.
+See Section~\ref{sec: susytwist revisited} for some further discussion.
+
+
+
+\subsection{Background}
+
+Although holomorphic field theories had already appeared in practice,
+my collaborator Brian Williams was the first to lay a systematic, mathematical foundations (cf. his thesis \cite{BWthesis} and its offshoot \cite{BWhol}).
+He did the following:
+\begin{itemize}
+\item gave a precise definition of a holomorphic field theory in the BV formalism,
+modeled on and compatible with Costello's approach;
+\item established key analytic results about holomorphic renormalization, 
+showing that it is highly manageable, with no counterterms to 1-loop; and
+\item characterized the one-loop anomalies  (i.e., obstructions to BV quantization).
+\end{itemize}
+These apply to all holomorphic theories on $\CC^n$,
+but the techniques typically extend to more general complex manifolds.
+
+This foundational work was motivated in large part by our joint effort to generalize to complex $n$-folds results about chiral conformal theories on Riemann surfaces.
+A first fruit of our work \cite{GWcurr} is an examination of higher-dimensional {\em current algebras},
+which are factorization algebras that generalize the Kac-Moody vertex algebras that play a crucial role in contemporary representation theory.
+We show, for instance, that these current algebras arise as the quantization of symmetries of holomorphic field theories, 
+much as the affine Lie algebras are symmetries of CFTs on Riemann surfaces.
+In addition, we show that encoded in our factorization algebras are the higher Kac-Moody Lie algebras $\widehat{\g}_{d,\theta}$ of Faonte-Hennion-Kapranov~\cite{FHK}. 
+It is striking to find this rigid skeleton of algebra under the meat of our analysis,
+as our work is strongly differential-geometric in flavor.
+Moreover, as their work provides a direct connection with the derived algebraic geometry of $\RR Bun_G(X)$,
+there emerges a beautiful generalization of the fertile interactions between algebraic geometry, representation theory, and physics that have grown around bundles on Riemann surfaces.
+(The prospect looms that in higher dimensions,
+one might find a correspondence between conformal blocks and nonabelian theta functions.)
+
+A second fruit is a collaboration of Williams with the physicist Ingmar Saberi \cite{SabWil1,SabWil2}.
+They have carefully worked out the holomorphic twists of several supersymmetric theories
+and given a novel approach, via factorization algebras, to the results of Beem et al \cite{Beem}.
+Particularly important for this proposal,
+they have shown how important invariants (notably the ``supersymmetric index") of the untwisted, supersymmetric theory can be computed simply in the holomorphic twist.
+
+
+
+\end{document}
