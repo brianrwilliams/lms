@@ -566,6 +566,66 @@ such as asymptotic freedom \cite{EWY}, current algebras \cite{GWcurr}, the Ander
 In each case this enriched mathematical language offers a new and (we would argue) clarifying point of view.
 In turn, physics offers new vistas or rich applications for mathematicians to explore.
 
+\subsection{$E_n$ algebras from topological field theories}
+
+Although our focus in this paper is on holomorphic field theories and factorization algebras,
+it might be helpful to describe some motivating results about topological field theories and factorization algebras.
+Elliott and Safronov have \owen{not sure how much to say here, but I'm going to take a stab at writing a synoptic theorem}
+
+If one examines theories like Chern-Simons theory on $\RR^3$ or the Poisson $\sigma$-model on $\RR^2$, 
+one discovers a general format for constructing theories that was formalized by \cite{AKSZ}.
+In a nutshell, the field theory is factored into two parts: 
+the de Rham complex of the source or ``spacetime'' manifold, 
+and a Lie algebra-type object encoding a gauge Lie algebra or a ``target'' for a $\sigma$-model.
+
+\begin{dfn}
+A classical {\em AKSZ-type theory} on $\RR^d$ is a determined by an $L_\infty$-algebra $\fg$ equipped with a cyclic pairing $\langle-,-\rangle$ of degree $3-d$.
+Its {\em equation of motion} is the Maurer-Cartan equation 
+\[
+0 = \d A + \frac{1}{2} [A,A] + \frac{1}{3!}[A,A,A]_3 + \cdots = \sum_{k=1}^\infty \frac{1}{k!} [A, \ldots, A]_k
+\]
+of the $L_\infty$ algebra $\Omega^*(\RR^d) \otimes \fg$ with $k$-ary brackets $[-]_k$.
+The {\em action functional} is the expression
+\[
+S(A) = \int_{\RR^d} \sum_{k=1}^\infty \frac{1}{{k+1}!} \langle A, [A, \ldots, A]_k \rangle
+\]
+\end{dfn}
+
+Ordinary Chern-Simons theory on $\RR^3$ arises from taking $\fg$ to be a semisimple Lie algebra and a choice of invariant pairing.
+In that case, and using $\Tr$ to denote the pairing, the action functional is the familiar
+\[
+S(A) = \int_{\RR^3}  \frac{1}{2}\Tr ( A, \d A ) + \frac{1}{3!} \Tr( A, [A, A])
+\]
+and the equation of motion asks for connections with zero curvature.
+
+Many other theories can be expressed in this style, and we suggest \owen{lots of papers} for examples.
+Elliott and Safronov characterize and exhibit topological twists of supersymmetric theories as AKSZ-type theories.
+
+\begin{thm}[\cite{CG2;ElliottSafronov}]
+For a classical AKSZ-type theory on $\RR^d$, the observables 
+\[
+\Obs^{cl}(U) = \clie^*(\Omega^*(U) \otimes \fg)
+\]
+form a locally constant factorization algebra and hence determine an $E_d$ algebra~$\cA^{cl}$.
+A quantization, if it exists, determines a deformation $\cA^q$ of this $E_d$ algebra.
+
+Given a homotopical trivialization of the action of $SO(d)$, then $\cA^q$ is a framed $E_d$ algebra.
+More generally, given a map of Lie groups $G \to SO(d)$ and a compatible $G$-action on the theory, a homotopical trivialization of this action on the quantum theory equips $\cA^q$ with the structure of a $G$-framed $E_d$ algebra.
+\end{thm}
+
+Scheimbauer's thesis then provides a functorial field theory in the sense of Atiyah, Segal, and Lurie.
+
+\begin{thm}
+Given a homotopically $SO(d)$-trivial quantization of a classical AKSZ theory on $\RR^d$, 
+factorization homology of the quantum observables 
+\[
+\int_{-} \cA^q : {\rm Bord}^{or}_d \to {\rm Alg}^{or}_d
+\]
+determines a fully extended oriented $d$-dimensional field theory with values in a higher Morita $(\infty,d)$-category of framed $E_d$ algebras.
+\end{thm}
+
+\owen{I should double-check whether Claudia or someone else has described this oriented Morita category ...}
+
 \subsection{Chiral conformal field theories and vertex algebras}
 
 \owen{I want to discuss how VOAs relate to factorization algebras, notably our CDO project, Si's results, and Brueggeman's thesis. We should also gesture at the Beilinson-Drinfeld approach.}
