@@ -32,14 +32,55 @@
 
 So what role  factorization algebras appear in holomorphic field theories?
 
+\subsection{Holomorphic factorization algebras}
+
+We restrict ourselves to theories defined on complex affine space.
+Let 
+\beqn\label{eqn:affine}
+\U(n) \ltimes \RR^{2n} \subset {\rm Aff}(\RR^{2n}) .
+\eeqn
+be the unitary affine group. 
+A holomorphic factorization algebra on $\CC^n$ is a factorization algebra with an action by the unitary affine group where the anti-holomorphic translations act trivially (at least up to homotopy).
+
+The (complexified) Lie algebra of \eqref{eqn:affine} is $\mathfrak{gl}(n) \ltimes \CC^{2n}$
+with $\CC^{2n}$ spanned by the holomorphic and anti-holomorphic translations $\{\partial_{z_i}, \partial_{\zbar_i}\}$. 
+A homotopical way to encode holomorphicity is to introduce the {\em dg} Lie algebra $\CC^{n}_{\rm hol}$ which in degree zero is the $2n$-dimensional space spanned by all translations $\{\partial_{z_i}, \partial_{\zbar_i}\}$, and in degree $(-1)$ is an $n$-dimensional space spanned by elements $\{\Bar{\eta}_i\}$. 
+The differential is simply $\d \Bar{\eta}_i = \partial_{\zbar_i}$. 
+Its immediate to see that $\CC^n_{\rm hol}$ is quasi-isomorphic to the abelian Lie algebra spanned by the {\em holomorphic} translations $\{\partial_{z_i}\}$. 
+
+\begin{dfn}
+An $n$-dimensional {\em holomorphic factorization algebra} is a smoothly~\footnote{\brian{recall smooth}} affine equivariant factorization algebra $\cF$ on $\CC^n$ together with an extension of the complex Lie algebra of infinitesimal symmetries
+to the dg Lie algebra $
+\mathfrak{gl}(n) \ltimes \CC^{n}_{\rm hol}$. 
+\end{dfn}
+
+As an example, consider the `enveloping' type factorization algebra which is built out of the Dolbeault complex on $\CC^n$; it assigns to an open set $U \subset \CC^n$ the cochain complex
+\[
+{\rm Sym} \left(\Omega^{0,\bu}_c(U)\right) .
+\]
+This factorization algebra is clearly affine equivariant. 
+Trivialization for the anti-holomorphic translation $\frac{\partial}{\partial \zbar_i}$ is given by the contraction of a Dolbeault form by the corresponding vector field:
+\beqn\label{eqn:triv}
+\Bar{\eta}_i = \frac{\partial}{\partial \zbar_i} \vee (-).
+\eeqn
 
 \subsection{Chiral conformal field theories and vertex algebras}
 
 \owen{I want to discuss how VOAs relate to factorization algebras, notably our CDO project, Si's results, and Brueggeman's thesis. We should also gesture at the Beilinson-Drinfeld approach.}
 
-\subsection{Higher Kac-Moody algebras and their free field realizations}
-
 \subsection{Holomorphic $\sigma$-models and higher-dimensional chiral differential operators}
+
+From a geometric perspective, holomorphic $\sigma$-models form an extremely natural class of holomorphic field theories defined in arbitrary complex dimensions. 
+
+We turn our attention to the holomorphic $\sigma$-model of maps $\CC^n$ to the $(n-1)$-shifted cotangent bundle $\T^*[n-1] Y$ of a complex manifold $X$. 
+Being a holomorphic AKSZ model, this theory a priori depends on the holomorphic volume form on $\CC^n$; but there is a 
+\brian{not sure if this is discussed elsewhere}
+\[
+{\rm Map}(\CC^n, \T^*[n-1] X) \simeq \T^*[-1] {\rm Map}(\CC^n, X) .
+\]
+
+
+\subsection{Higher Kac-Moody algebras and their free field realizations}
 
 \subsection{Work with Ingmar \owen{not the title}}
 
