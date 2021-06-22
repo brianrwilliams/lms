@@ -216,12 +216,34 @@ In other words, we wish to explain how the affine Lie algebras $\widehat{\fg}$ a
 Suppose now that $G$ is a complex Lie group and it acts on the symplectic complex vector space $V$ by holomorphic symplectomorphisms.
 Then $G$ also acts on the algebraic loop space $V[z,z^{-1}]$ and also on formal loops $V((z))$ as a ``global'' symmetry:
 the action is independent of $z$.
-On the other hand, if we consider the infinitesimal action $\fg \to {\rm SympVect}(V)$,
-there is, in fact, a natural extension to a ``local'' symmetry $\fg[z,z^{-1}] \to {\rm SympVect}(V((z)))$.
-Geometrically, we let a $\fg$-valued function $x(z)$ act pointwise (on the formal disk) on the formal loop space.
+On the other hand, if we consider the infinitesimal action $\rho: \fg \to {\rm SympVect}(V)$,
+there is, in fact, a natural extension to a ``local'' symmetry $\rho^{\rm loc}: \fg[z,z^{-1}] \to {\rm SympVect}(V((z)))$.
+Geometrically, a $\fg$-valued function $x(z)$ acts pointwise (with respect to the formal disk) on the formal loop space.
+(Although the algebraic loop space is not symplectic in a strict sense,
+there is still a local symmetry as $\fg[z,z^{-1}]$ maps to vector fields on the algebraic loop space.)
+This action factors through a map $H_\rho^{\rm loc}: \fg[z,z^{-1}] \to \cO(V((z)))$,
+and hence is Hamiltonian.
+Thus the loop algebra $\fg[z,z^{-1}]$ arises naturally as symmetries of a classical holomorphic field theory.
 
-\owen{OK, my plan is to say that there is an obstruction to lifting the moment map to a quantum moment map, leading to the central extension.}
-
+When we try to quantize, we run into an interesting phenomenon:
+the Hamiltonian action $H_\rho^{\rm loc}$ does not extend as a Lie algebra map into the Weyl algebra $W_V$,
+although it makes sense as a linear map.
+The failure to respect the brackets determines, however, a cocycle on the loop algebra
+by
+\[
+\alpha_V( x \otimes f(z) , y \otimes g(z)) = \Tr_V(xy) \Res(f \, \partial_z g).
+\]
+\owen{Check conventions.}
+There is thus a central extension of the loop algebra 
+\[
+\CC c \to \widehat{\fg} \to \fg[z,z^{-1}]
+\]
+with a Lie algebra map
+\[
+\widehat{H}^{\rm loc}_\rho: \widehat{\fg} \to W_V,
+\]
+sometimes called {\em free field realization} of the affine Lie algebra~$\widehat{\fg}$.
+This relationship --- and its extension to a map between the vertex algebras associated to $\widehat{\fg}$ and $V$ --- is a modest \owen{better adjective?} extract of the rich dialogue that has developed between representation theory, the physics of chiral conformal field theory, and the complex geometry of Riemann surfaces.
 
 
 \subsection{Algebras in higher dimensions }
