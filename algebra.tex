@@ -99,6 +99,18 @@ After all, for any manifold $X$, the algebra of differential operators $D_X$ is 
 Hence, for any $G$-manifold $X$, it is natural to ask whether there is a representation $\fg \to D_X$ deforming the canonical Poisson representation.
 In this spirit, we will search for analogues of the kind of mathematics that has grown out of results by Beilinson-Bernstein \owen{cite}, Kashiwara \owen{cite}, and others.
 
+\begin{rmk}
+We have only spoken of symplectic manifolds, and emphasized vector spaces,
+but fermions play a crucial role in quantum mechanics too.
+Here the symmetric algebra on a symplectic vector space (as classical observables) 
+is replaced by an exterior algebra on an inner product space,
+which can be seen as a symmetric algebra on an {\em odd} vector space
+(i.e., a super vector space with purely odd component).
+The deformation quantization of the exterior algebra is then a Clifford algebra.
+We will set fermions aside for the remainder of this section,
+but the discussion below extends easily to them and fermions appear naturally in the study of holomorphic field theories.
+\end{rmk}
+
 \subsection{A first step in the holomorphic direction}
 
 What could provide the {\em holomorphic} analog of the story above?
@@ -184,31 +196,31 @@ where
 On this subalgebra, the naive Poisson bracket makes sense: it is given by extending the nondegenerate skew-symmetric pairing $\omega^* \otimes \Res$ on $V^* [z,z^{-1}]$.
 Hence for $\cO(V((z)))$, we can ask for a deformation quantization,
 and there is a nice answer: 
-the Heisenberg commutation relations determine a Weyl algebra $W_{V}$ for this formal loop space.
-As a vector space $W_V$ is isomorphic to $\cO(V((z)))$, 
+the Heisenberg commutation relations determine a Weyl algebra $W[V]$ for this formal loop space.
+As a vector space $W[V]$ is isomorphic to $\cO(V((z)))$, 
 just as the simplest Weyl algebra is isomorphic to $\CC[p,q]$ as a vector space,
 but the product structure is modified by quantization.
 We expect, by analogy with the simplest case, that any quantization of a bigger algebra (e.g., for observables of the holomorphic loop space) contains this quantization as its algebraic skeleton.
 
 The subspace of ``contractible formal loops" $V[[z]]$ inside $V((z))$ produces a module for $\cO(V((z)))$ given by $\cO(V[[z]]$. 
 (This module is in fact a quotient algebra.)
-One can quantize this module to a module ${\rm Vac}_V$ for $W_V$,
+One can quantize this module to a module ${\rm Vac}[V]$ for $W[V]$,
 where as a vector space, it is still $\cO(V[[z]])$.
-This module structure means there is a map of algebras $W_V \to \End({\rm Vac}_V)$,
-so we have a natural ``Hilbert space'' or Fock module for~$W_V$.
+This module structure means there is a map of algebras $W[V] \to \End({\rm Vac}[V])$,
+so we have a natural ``Hilbert space'' or Fock module for~$W[V]$.
 
 It is a remarkable fact, suggested by physicists, that there is also a map
 \[
-Y: {\rm Vac}_V \to \End({\rm Vac}_V)[[z, z^{-1}]],
+Y: {\rm Vac}[V] \to \End({\rm Vac}[V])[[z, z^{-1}]],
 \]
 known as the {\em vertex operator} or {\em state-field correspondence},
-which is closely related to the $W_V$-action.
+which is closely related to the $W[V]$-action.
 The intuition behind $Y$ is that for any map $\phi: \CC^\times \to V$ and for any point $w \in \CC^\times$, 
 there is a restriction of $\phi$ to a little disk around $w$.
 That is, there is a restriction map $r_w: V[z,z^{-1}] \to V[[t]]$, where $t$ is the local coordinate $t = z-w$.
 Hence there is a $w$-dependent map $\cO(V[[t]]) \to \cO(V[z,z^{-1}])$ by pulling back a function along $r_w$;
 this map determines a $w$-dependent action of $\cO(V[[t]])$ on $\cO(V[[z]])$.
-One can, in essence, quantize this map, by trying to extend the formulas of the $W_V$-action,
+One can, in essence, quantize this map, by trying to extend the formulas of the $W[V]$-action,
 and this leads to the map~$Y$.
 If one axiomatizes the behavior of $Y$, one is led to the notion of a vertex algebra.
 
@@ -228,7 +240,7 @@ and hence is Hamiltonian.
 Thus the loop algebra $\fg[z,z^{-1}]$ arises naturally as symmetries of a classical holomorphic field theory.
 
 When we try to quantize, we run into an interesting phenomenon:
-the Hamiltonian action $H_\rho^{\rm loc}$ does not extend as a Lie algebra map into the Weyl algebra $W_V$,
+the Hamiltonian action $H_\rho^{\rm loc}$ does not extend as a Lie algebra map into the Weyl algebra $W[V]$,
 although it makes sense as a linear map.
 The failure to respect the brackets determines, however, a cocycle on the loop algebra
 by
@@ -246,7 +258,7 @@ so that
 \]
 and there is a Lie algebra map
 \[
-\widehat{H}^{\rm loc}_\rho: \widehat{\fg} \to W_V,
+\widehat{H}^{\rm loc}_\rho: \widehat{\fg} \to W[V],
 \]
 sometimes called {\em free field realization} of the affine Lie algebra~$\widehat{\fg}$.
 This relationship --- and its extension to a map between the vertex algebras associated to $\widehat{\fg}$ and $V$ --- is a modest \owen{better adjective?} extract of the rich dialogue that has developed between complex analysis, representation theory, and the physics of chiral conformal field theory.
@@ -396,7 +408,7 @@ There are natural central extensions of this sphere algebra as {\em $L_\infty$ a
 parallel to the affine Lie algebras appearing as central extensions of the loop algebra.
 An $L_\infty$ algebra is a generalization of a Lie algebra;
 it is graded vector space $L$ equipped with a countable collection of ``higher brackets'' $[-]_k: L^{\otimes k} \to L$ that satisfy a system of equations generalizing the Jacobi condition for a standard Lie algebra.
-For an overview (and actual definition!) we recommend \owen{add citations}.
+For an overview (and an actual definition!) we recommend \owen{add citations}.
 
 In our setting of $\fg^\bullet_d$, Faonte-Hennion-Kapranov introduced central extensions that only affect the $d$-bracket.
 For any $\fg$-invariant degree $d+1$ polynomial  $\theta \in \Sym^{d+1}(\fg^*)^\fg$,  the FHK  cocycle is
@@ -412,5 +424,41 @@ This cocycle has cohomological degree $2$ and so determines an unshifted central
 \CC c \to \widetilde{\fg}^\bullet_{d, \theta} \to \fg^\bullet_d ,
 \]
 so that the usual bracket (the 2-bracket) of $\fg^\bullet_d$ is unchanged but there is now a nontrivial $d$-bracket defined by~$\theta_{\rm FHK}$.
+They dubbed these the {\em higher Kac-Moody algebras}, 
+as they specialize to the affine Lie algebras when~$d =1$.
+
+These $L_\infty$ algebras are not just introduced on a whim.
+In \cite{FHK} they are shown to appear naturally in various contexts,
+notably in studying the derived moduli of $G$-bundles on a complex varieties of dimension~$d$.
+\owen{Other applications?}
+
+In addition to the higher Kac-Moody algebras, there are also natural higher analogs of the Weyl algebra of the loop space.
+These appear as the observables for a holomorphic field theory known as a $\beta\gamma$ system.
+
+Let $V$ be a symplectic complex vector space and consider the formal sphere algebra $A^{\wedge}_d \otimes V$,
+where $A^{\wedge}_d$ denotes the completion of $A_d$ (i.e., where polynomials in $z_j$ and $z_j^*$ are replaced by formal power series).
+\owen{Should we introduce a pithy notation?}
+Then there is a dg commutative algebra of functions on this space,
+which we denote $\cO(A^{\wedge}_d \otimes  V)$,
+and it has a kind of Poisson bracket, arising from the residue pairing on $A^{\wedge}_d$ and the symplectic form on $V$,
+just as $\cO(V((z)))$ has a Poisson bracket.
+It will not surprise the reader to learn that there is a natural deformation quantization $W_d[V]$ into a dg Weyl algebra.
+A physicist would interpret this algebra as the canonical and radial quantization of the theory on~$\CC^d - \{0\}$.
+
+If $V$ is a representation of a Lie algebra $\fg$,
+there is a local symmetry 
+\[
+\fg^\bullet_d \to \cO(A^{\wedge}_d \otimes V),
+\]
+just as $\fg[z,z^{-1}]$ acts on $\cO(V((z)))$. 
+One can ask if this action lifts to a quantum symmetry.
+The obstruction is, remarkably, an FHK cocycle:
+\[
+\alpha_{V,d}(x_1 \otimes f_1, \ldots, x_{d+1} \otimes f_{d+1}) = \Tr_V( x_1 \cdots x_{d+1}) \Res(f_1 \partial f_2 \cdots \partial f_{d+1}).
+\]
+\owen{Fix conventions}
+In this sense, the higher Kac-Moody algebras admit a higher free field realization,
+but a richer story is possible once we have a higher version of vertex algebras.
+We will return to this topic once we have the rich language of factorization algebras.
 
 \end{document}
