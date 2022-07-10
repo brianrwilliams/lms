@@ -1,0 +1,1705 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{macros, setspace}
+
+\spacing{1.25}
+
+\usepackage{parskip}
+\setlength{\parindent}{18pt}
+\setlength{\parindent}{0cm}
+
+
+\author{Owen Gwilliam and Brian R. Williams}
+\date{\today}
+%\title{Part I}
+
+\def\g{{\mathfrak g}}
+\def\U{{\rm U}}
+\def\mc{\mathcal}
+\def\mcol{\, | \,}
+\def\ot{\otimes}
+\def\Disj{\operatorname{Disj}}
+\def\Open{\operatorname{Open}}
+\def\Vect{\operatorname{Vect}}
+\def\pAA{\mathring{\AA}}
+\def\jou{{\mathtt{j}}}
+\def\bgamma{{\mathbf{\gamma}}}
+\def\bbeta{{\mathbf{\beta}}}
+\def\CDO{{\cC\cD}}
+\def\SU{{\rm SU}}
+\def\sfa{\mathsf{a}}
+
+\renewcommand{\op}{\operatorname}
+
+\def\brian#1{{\textcolor{blue!65!red}{BW: {#1}}}}
+\def\owen#1{{\textcolor{violet!65!black}{OG: {#1}}}}
+
+%\usepackage[upint]{stix}
+
+\begin{document}
+%\maketitle
+
+\owen{Notation to explain: dg = differential graded, PDE = partial differential equations}
+
+
+\section{What is a holomorphic field theory? Why study them?}
+
+The most important field theories in physics involve a metric on a manifold (whether Riemannian or Lorentzian), and hence geometry has had a clear role in physics.
+In recent decades attention has expanded to include {\em topological} field theories (or TFTs), 
+in which --- to simplify --- only the underlying smooth topology of the manifold matters.
+There are, however, theories that depend on a complex structure on the manifold,
+and as one might hope, these are particularly beautiful, 
+just as complex variables is a particularly beautiful wing of analysis.
+In essence, such {\em holomorphic} field theories have variational PDE (or ``equations of motion'') that are holomorphic:
+the PDE only involves derivatives in the holomorphic coordinates (i.e., the $\partial/\partial z_j$) and has holomorphic coefficients.
+These theories admit independent motivations from mathematics and physics,
+which we sketch before giving more careful definitions.
+
+The mathematical motivation is simple:
+for most classical holomorphic field theories, the solutions to the equations of motion form a moduli space of natural interest to complex geometers,
+and it is natural to hope that its quantization is equally interesting.
+A well-known example is holomorphic Chern-Simons theory,
+which lives on a Calabi-Yau 3-fold $X$ and involves the {\em derived} moduli space $\RR\Bun_G(X)$ of holomorphic principal $G$-bundles on $X$.
+Other classes of examples are afforded by holomorphic variants of familiar AKSZ $\sigma$-models; the relevant moduli space being the derived mapping space between complex manifolds. 
+
+A physical motivation comes from supersymmetric field theories, 
+which (loosely speaking) are theories on $\RR^n$ whose symmetries include not only the isometries of $\RR^n$, but an extension to a Lie supergroup known as a super Poincar\'e group.
+%The relevant extension is often labeled by $\cN=1, 2,$ and so on, 
+%with larger $\cN$ denoting a bigger supergroup. 
+Thanks to the enhanced symmetry, such theories can often be understood in greater detail than non-supersymmetric theories.
+The relevance to the models we study is that supersymmetric theories admit ``twists'' (in essence, deformations) that are holomorphic field theories, 
+even when they do not admit twists to TFTs (such as the famed A- and B-models of mirror symmetry) \cite{CosHol}.
+As an example, four-dimensional minimally supersymmetric Yang-Mills theory admits no topological twist, but does admit a twist to holomorphic field theory whose moduli space is described, in part, by $\RR \Bun_G(X)$. 
+It is natural to wonder how the myriad tools and computations deployed on the supersymmetric theory carry over to this twist and conversely whether information can flow back from a holomorphically twisted theory to the untwisted one, 
+much as TFTs have enriched the understanding of supersymmetric theories.
+In short, a holomorphic twist contains the ``holomorphic sector'' of the untwisted theory just as a topological twist contains its ``topological sector.''
+
+As a final motivational remark, we note in one complex dimension (i.e., working on Riemann surfaces), holomorphic field theories appear as chiral conformal field theories (CFTs) on 2-dimensional manifolds --- whose manifestations in mathematics include vertex algebras, affine Lie algebras, and loop groups --- and have had a strong impact in mathematics.
+It is natural to explore higher-dimensional analogs.
+
+The overarching goal of this paper is \owen{continue}
+a cluster of projects is to bring into sharp mathematical form some of the deep insights into gauge theory offered by physics.
+So far, most mathematical effort has focused on classical gauge theory,
+but the quantum aspects are profoundly interesting.
+We expect that these holomorphic examples will be particularly tractable and beautiful but also useful in offering insights even for non-holomorphic theories.
+
+\subsection{Preliminary notions}
+
+%complex geometry, dolbeault, dg stuff.
+
+\subsection{Precise definitions}
+
+Let us begin with the example of holomorphic Chern--Simons theory, 
+which we have already said describes the moduli space of Maurer--Cartan elements describe deformations of the trivial holomorphic $G$-bundle. 
+When $X$ is a Calabi--Yau three-fold and $\fg$ is equipped with an invariant pairing, 
+this formal moduli space has a very special property: 
+it arises from the variational problem of an action functional, namely
+\[
+S = \int_X \Omega \wedge {\rm CS}(A) 
+\]
+where $\Omega$ is the holomorphic volume form and ${\rm CS}(A)$ is the Chern--Simons Lagrangian for the connection $(0,1)$-form $A$.
+
+We turn to a formal definition underpinning the formal moduli spaces of the holomorphic field theories that we will be considering. 
+
+\begin{dfn}
+A {\em holomorphic dg Lie algebra} on a complex manifold $X$ is
+\begin{itemize}
+\item a graded holomorphic vector bundle $V$ on $X$ whose sheaf of holomorphic functions is $\cV^{hol}$, and
+\item a holomorphic differential operator $Q^{hol} \colon \cV^{hol} \to \cV^{hol}$ of cohomological degree one and a holomorphic bidifferential operator $[\cdot,\cdot] \colon \cV^{hol} \times \cV^{hol} \to \cV^{hol}$. 
+\end{itemize}
+This data is required to endow $(\cV^{hol}, Q^{hol}, [\cdot,\cdot])$ with the structure of a dg Lie algebra.
+\end{dfn}
+
+Any holomorphic vector bundle has an associated Dolbeault complex $\Omega^{0,\bu}(X,V)$. 
+If $V$ is a holomorphic dg Lie algebra, 
+then $\Omega^{0,\bu}(X, V)$ is a dg Lie algebra. 
+The differential is of the form $\dbar + Q^{hol}$ and the bracket is given by extending the bracket on $\cV^{hol}$ with the wedge product of differential forms. 
+
+Formal moduli spaces arise from the space of Maurer--Cartan elements of a dg Lie algebra.
+In our case, this dg Lie algebra will always be of the form $\Omega^{0,\bu}(X, V)$.
+For example, the Maurer--Cartan elements of the dg Lie algebra $\Omega^{0,\bu}(X, \fg)$ recovers formal deformations of the trivial holomorphic $G$-bundle.  
+This arises from the holomorphic Lie algebra on $X$ whose underlying vector bundle is trivial with fiber $\fg$. 
+
+As another example, consider the holomorphic tangent bundle $V = \T_X$. 
+The Lie bracket of vector fields endows this with the structure of a holomorphic Lie algebra (with zero differential). 
+A Maurer--Cartan element in $\Omega^{0,\bu}(X, \T_X)$ is an element $\mu \in \Omega^{0,1}(X, \T_X)$ satisfying the equation
+\[
+\dbar \mu + \frac12 [\mu,\mu] = 0 .
+\]
+This recovers the classical picture describing formal deformations of complex structures on~$X$.
+
+
+
+%this section aimed at mathematicians
+%emphasize connection with (derived) complex geometry
+
+\subsection{Examples from physics}
+%this section aimed at physicists
+%twists of SUSY theories
+%Owen has some nice thoughts about globalization as it related to SUSY/THF.
+
+\owen{Mention main classes of field theories (scalar and sigma models, fermions as matter, gauge theories for ``forces'', gravity, and their combinations) and how there are holomorphic analogs}
+
+\subsection{Examples from supersymmetric field theories}
+
+
+Any even dimensional supersymmetric field theory produces a holomorphic field theory through a process called twisting,
+so we have a wealth of examples to study that are intimately connected to theories of genuine interest in physics.\footnote{Strictly speaking, this requires the existence of of more than two chiral supercharges. So, theories with 2d $\cN = (n,m)$ supersymmetry, $n,m \leq 1$, do not admit holomorphic twists.}
+As we will explain later, many interesting phenomena for supersymmetric theories have analogs in holomorphic field theory.
+ 
+By definition, a supersymmetric field theory on $\RR^d$ is a theory that is acted upon by a super Poincar\'{e} algebra. 
+We focus on Euclidean field theories and work in Riemannian signature,
+hence for us the ``super Poincar\'{e} algebra'' is a super Lie algebra of the form
+$\mathfrak{so}(d) \ltimes \ft$
+where $\ft$ is the super Lie algebra of {\em supertranslations} whose even part $\ft^0 = \RR^d$ is the Lie algebra of ordinary translations and whose odd part $\ft^1$ is a sum of spin representations. 
+While the Lie algebra $\RR^d$ of ordinary translations is abelian, the Lie algebra $\ft$ carries a nontrivial (super) Lie bracket,
+and this Lie bracket is defined in terms of a $\mathfrak{so}(d)$-equivariant non-degenerate symmetric pairing
+\[
+\Gamma : {\rm Sym}^2(\ft^{1}) \to {\rm Sym}(\ft^0) \cong \RR^d 
+\]
+by the formula $[Q, Q'] = \Gamma(Q, Q')$. 
+
+By a {\em supercharge}, one means an odd supertranslation $Q \in \ft$, and
+a {\em twist} is a (nonzero) supercharge $Q$ such that $[Q,Q] = Q^2 = 0$. 
+The classification of all twists is a completely algebraic question,
+and we refer to~\autocite{ESsusy} for a complete classification of all twists in dimensions from $1$ to~$10$. 
+
+If a Lagrangian field theory $\cT$ has $\ft$ as a symmetry, 
+then a choice of twist $Q$ determines a deformation of the theory that we call a {\em twisted supersymmetric theory} $\cT^Q$.
+If $S$ denotes the action functional of $\cT$, then the action functional $S^Q$ of $\cT^Q$ has the form
+\[
+S^Q(\varphi) = S(\varphi) + \int_{\RR^d} \varphi  \left(Q \cdot \varphi \right) + \cdots 
+\]
+where the deformation arises from how $Q$ acts on the theory 
+(the $\cdots$ leaves room for terms non-linear in $Q$).
+For extensive details on how the twisted theory is defined we refer to~\autocite{CostelloHolomorphic, ESW}. 
+
+Building upon the physical literature, Elliott, Safronov, and the second author have given a complete characterization of the all twisted supersymmetric Yang--Mills theories in dimensions $2 \leq d \leq 10$ \autocite{ESW}. 
+These twisted theories are analogs of BF theory and Chern--Simons theory, so long as one includes purely topological and purely holomorphic theories. 
+We will describe a few examples in detail in the BV formalism in Section~\ref{sec:twistedsusybv},
+but we want to indicate now what our main theorem implies about some interesting examples.
+
+For our purposes here, a crucial property of a twist $Q$ is the dimension $k_Q$ of its image ${\rm Im} \; \Gamma(Q, \cdot) \subset \RR^d$,
+which we call the number of {\em invariant} directions of~$Q$.
+By the non-degeneracy of the pairing $\Gamma$, it follows that $k_Q \geq \frac{d}{2}$.
+If the number of invariant directions is maximal with $k_Q = d$, then the twisted theory $\cT^Q$ is purely topological. 
+If the number of invariant directions is minimal with $k_Q = \frac{d}{2}$, then the twisted theory $\cT^Q$ is purely holomorphic. 
+
+As a representative example of how twisting behaves, 
+consider four-dimensional supersymmetric Yang--Mills theory with $\cN=2$ supersymmetry,
+which means the odd part $\ft^1$ is eight-dimensional. 
+%The sum of two copies of the spin representations.
+%\owen{Did I get that right?}
+We only consider here the pure gauge theory with Lie algebra~$\fg$. 
+Then we have the bounds $2 \leq k_Q \leq 4$, and each value gives a different, well-known field theory:
+\begin{itemize}
+\item When $k_Q = 4$, the twisted theory is the topological field theory on $\RR^4$ known as {\it Donaldson--Witten theory} \autocite{WittenTQFT};
+\item When $k_Q = 3$, the twisted theory is the THFT studied by Kapustin in \autocite{Kapustin};
+\item When $k_Q = 2$, the twisted theory is holomorphic BF theory on $\CC^2$ with values in a graded Lie algebra $\fg[\ep]$, where $\ep$ is a parameter of cohomological degree~$1$.
+\end{itemize}
+We will describe these theories completely later in Section~\ref{sec:twistedsusybv},
+but our main theorem implies the following.
+
+\begin{thm}[\owen{cite GRW, maybe also mention our work with Chris?}]
+Donaldson--Witten theory, the Kapustin twist, and holomorphic BF theory for $\fg[\epsilon]$ each admit an exact and finite quantization at one loop.
+\end{thm}
+
+In other words, by a judicious choice of gauge-fixing, 
+we find that the one-loop Feynman diagrams have no UV divergences.
+Moreover, no higher loop diagrams appear (for combinatorial reasons),
+and the action functional satisfies the quantum master equation.
+See Section~\ref{sec: susytwist revisited} for some further discussion.
+
+
+
+\subsection{Background}
+
+Although holomorphic field theories had already appeared in practice,
+my collaborator Brian Williams was the first to lay a systematic, mathematical foundations (cf. his thesis \cite{BWthesis} and its offshoot \cite{BWhol}).
+He did the following:
+\begin{itemize}
+\item gave a precise definition of a holomorphic field theory in the BV formalism,
+modeled on and compatible with Costello's approach;
+\item established key analytic results about holomorphic renormalization, 
+showing that it is highly manageable, with no counterterms to 1-loop; and
+\item characterized the one-loop anomalies  (i.e., obstructions to BV quantization).
+\end{itemize}
+These apply to all holomorphic theories on $\CC^n$,
+but the techniques typically extend to more general complex manifolds.
+
+This foundational work was motivated in large part by our joint effort to generalize to complex $n$-folds results about chiral conformal theories on Riemann surfaces.
+A first fruit of our work \cite{GWcurr} is an examination of higher-dimensional {\em current algebras},
+which are factorization algebras that generalize the Kac-Moody vertex algebras that play a crucial role in contemporary representation theory.
+We show, for instance, that these current algebras arise as the quantization of symmetries of holomorphic field theories, 
+much as the affine Lie algebras are symmetries of CFTs on Riemann surfaces.
+In addition, we show that encoded in our factorization algebras are the higher Kac-Moody Lie algebras $\widehat{\g}_{d,\theta}$ of Faonte-Hennion-Kapranov~\cite{FHK}. 
+It is striking to find this rigid skeleton of algebra under the meat of our analysis,
+as our work is strongly differential-geometric in flavor.
+Moreover, as their work provides a direct connection with the derived algebraic geometry of $\RR Bun_G(X)$,
+there emerges a beautiful generalization of the fertile interactions between algebraic geometry, representation theory, and physics that have grown around bundles on Riemann surfaces.
+(The prospect looms that in higher dimensions,
+one might find a correspondence between conformal blocks and nonabelian theta functions.)
+
+A second fruit is a collaboration of Williams with the physicist Ingmar Saberi \cite{SabWil1,SabWil2}.
+They have carefully worked out the holomorphic twists of several supersymmetric theories
+and given a novel approach, via factorization algebras, to the results of Beem et al \cite{Beem}.
+Particularly important for this proposal,
+they have shown how important invariants (notably the ``supersymmetric index") of the untwisted, supersymmetric theory can be computed simply in the holomorphic twist.
+
+\subsection{More examples of holomorphic field theories}
+
+\begin{itemize}
+\item Target space field theories of topological string theories give rich classes of holomorphic field theories. 
+For instance, the closed string field theory of the topological B-model is Kodaira--Spencer theory, first proposed in \cite{BCOV}. 
+This theory is defined on any Calabi--Yau manifold. 
+The perspective of Kodaira--Spencer theory as a holomorphic field theory has been explored with great success by Kevin Costello and Si Li \cite{CL1, CL2, CL3}.  
+\item The `pure spinor' method of Cederwall and Berkovits \cite{Cederwall, Berkovits} starts with a field or string theory defined on the (sometimes singular) nilpotence variety of the super Poincar\'e algebra and uses the action of supersymmetry to produce ordinary (non-twisted) supersymmetric field theories. 
+Often, the theory you start with on the nilpotence variety is holomorphic \cite{SWpure}. 
+\item Similar in spirit to the pure spinor formalism is a systematic relationship between holomorphic field theories on (super) twistor space and ordinary (Riemannian) field theories.
+For instance, holomorphic BF theory on twistor space associated to $\RR^4$ is equivalent to a self-dual limit of Yang--Mills theory. 
+\end{itemize}
+
+
+\section{Algebra and holomorphic field theories}
+
+In this section we describe  associative algebras and their ``higher'' generalizations, like $A_\infty$ algebras, related to holomorphic field theories,
+following the relationship of associative algebras to quantum mechanics and of vertex algebras to chiral conformal field theory.
+A particular focus is upon higher Kac-Moody algebras \cite{FHK},
+as these offer a tantalizing direction to explore in search of analogs of the rich connections between representation theory, algebraic geometry, and physics familiar to those who have worked with loop groups.
+In a later section --- and it is a central point of this survey --- we will explain how factorization algebras provide a direct conduit from holomorphic field theories to these algebraic constructions.
+Throughout this section, we will be a bit cavalier with certain subtleties (e.g., about infinite-dimensional spaces and functions on them), 
+emphasizing concepts and motivations over mathematical precision.
+We will be a bit long-winded in the first two subsections, to provide motivations,
+so that in the final subsection, we can rapidly sketch these higher Kac-Moody and Weyl algebras.
+
+\subsection{Algebras in mechanics}
+
+A key feature of quantum mechanics is that the observables (or operators) live in an associative algebra.
+In many cases this associative algebra is a deformation of a commutative algebra, typically arising as functions on a manifold or variety.
+The quintessential example is the Weyl algebra
+\[
+\CC \langle x, p \rangle /(xp - px = i \hbar),
+\] 
+which is generated by observables $x$ (``position'') and $p$ (``momentum'') for a quantum particle moving along a line.
+There is a parameter $\hbar$, which if sent to zero, recovers a commutative algebra $\CC [ x, p ]$ of complex-valued polynomial functions on the cotangent bundle $T^* \RR$ of the real line~$\RR$.
+This example will be a model for much of what we discuss in this paper.
+So far we have ignored a lot of features of quantum mechanics (e.g., $\ast$-structures, Hilbert spaces, unitarity) that are important in physics,
+and we will continue to do so.
+Note as well that there are many more observables and we have only discussed subalgebras of all observables (at the classical level, just polynomials in $p$, $q$);
+we will often focus on such tractable subalgebras. 
+
+There are some features of this example that we would like to foreground. 
+First, the commutative algebra arises as functions on a {\em symplectic} space,
+which is the usual mathematical setting for classical mechanics (aside from more subtle situations that require Poisson geometry).
+Second, the symplectic form $\omega = \d x \wedge \d p$ equips this algebra 
+with a Poisson bracket where $\{ x, p \} = 1$,
+which controls the deformation to the Weyl algebra: following Dirac, we promote the Poisson relation to a commutator relation.
+These two features motivate the deformation quantization problem: 
+given a symplectic (or Poisson) manifold,
+describe deformations of its commutative algebra of functions to an associative algebra with the requirement that, to first order,  the commutator recovers the Poisson bracket.
+Thanks to Kontsevich \cite{KonDQ}, there is a beautiful answer to this question, which has spawned a mountain of fascinating mathematics (see, e.g., \owen{what?} as a starting place).
+
+Our view on field theory is motivated by this perspective on quantum theory (we discuss it further in Section~\owen{ref the general overview}), 
+and it might help the reader to bear in mind a variant of this question:
+given a classical holomorphic field theory, what are the natural deformations of its algebra of functions?
+Many of the results we discuss later can be seen as generalizations of phenomena associated with deformation quantization.
+
+In particular, consider how symmetries appear in mechanics.
+Let $X$ be a symplectic manifold encoding the ``phase space'' of a classical mechanical system,
+and let $\{-,-\}$ denote the Poisson bracket on $C^\infty(X)$.
+If a Lie group $G$ acts on $X$ by symplectomorphisms (i.e., respects the symplectic structure),
+there is a map of Lie algebras $\rho: \fg \to {\rm SympVect}(X)$ so that an ``infinitesimal symmetry'' $x \in \fg$ acts by a symplectic vector field.
+In many cases, such infinitesimal symmetries are realized as observables: 
+there is a map of Lie algebras $H_\rho: \fg \to C^\infty(X)$ such that $\{ H_\rho(x), - \} = \rho(x)$.
+One says that each element $x$ has a Hamiltonian function $H_\rho(x)$ whose associated Hamiltonian vector field is $\rho(X)$.
+Classic examples include the momenta for $T^* \RR^n$ arising from translation and rotational symmetry.
+
+How does this set-up fit into the deformation quantization view?
+First, note that the free commutative algebra $\Sym(\fg)$ has a canonical Poisson bracket by defining $ \{x, y \}   = [x, y]$ for generators $x, y \in \fg$ and extending by the Leibniz rule.
+Hence the Hamiltonian map $H_\rho$ extends to a Poisson map $H_\rho: \Sym(\fg) \to C^\infty(X)$.
+We can then ask: does this map quantize? That is, can we compatibly deform the domain and range of the maps to interesting associative algebras as well as deforming to a map of associative algebras?
+Here it might be useful to recognize that the enveloping algebra $U\fg$ is a natural deformation quantization of $\Sym(\fg)$, thanks to the Poincar\'e-Birkhoff-Witt theorem.
+Thus our question might be reformulated to asking whether there is an associative algebra map $H^q_\rho: U\fg \to C^\infty(X)^q$, where $C^\infty(X)^q$ is a deformation quantization, such that $H^q_\rho$ recovers $H_\rho$ in the classical limit.
+Such a map is sometimes called a {\em quantum moment map},
+as $H_\rho$ is the pullback of (polynomial) functions along a moment map~$\mu_\rho: X \to \fg^*$.
+
+This class of questions appears throughout mathematics,
+and it has played a key role in geometric representation theory and the theory of $D$-modules, where $D$ denotes a ring of differential operators.
+After all, for any manifold $X$, the algebra of differential operators $D_X$ is a natural deformation quantization of functions on $T^* X$.
+Hence, for any $G$-manifold $X$, it is natural to ask whether there is a representation $\fg \to D_X$ deforming the canonical Poisson representation.
+In this spirit, we will search for analogues of the kind of mathematics that has grown out of results by Beilinson-Bernstein \owen{cite}, Kashiwara \owen{cite}, and others.
+
+\begin{rmk}
+We have only spoken of symplectic manifolds, and emphasized vector spaces,
+but fermions play a crucial role in quantum mechanics too.
+Here the symmetric algebra on a symplectic vector space (as classical observables) 
+is replaced by an exterior algebra on an inner product space,
+which can be seen as a symmetric algebra on an {\em odd} vector space
+(i.e., a super vector space with purely odd component).
+The deformation quantization of the exterior algebra is then a Clifford algebra.
+We will set fermions aside for the remainder of this section,
+but the discussion below extends easily to them and fermions appear naturally in the study of holomorphic field theories.
+\end{rmk}
+
+\subsection{A first step in the holomorphic direction}
+
+What could provide the {\em holomorphic} analog of the story above?
+Let us indicate one possible answer before we motivate it.
+
+\owen{Add pictures!}
+
+Let $V$ be a finite-dimensional complex vector space, equipped with a symplectic pairing $\omega$ that is complex-valued.
+We can view $V$ as $T^* L$ for some Lagrangian vector subspace $L \subset V$, if we wish.
+Then we posit for the relevant phase space, the ``symplectic complex manifold'' $V[z,z^{-1}]$,
+by which we mean the $V$-valued Laurent polynomials in a coordinate $z$ on the punctured plane $\CC^\times = \CC -\{0\}$.
+The space encodes algebraic maps from the variety $\CC^\times$ to $V$,
+so we view it as a kind of algebraic loop space of~$V$.
+(There are clearly variations on this idea, such as the holomorphic loop space of all holomorphic maps from $\CC^\times$ to~$V$.)
+
+Observables for this classical theory then consist of algebraic functions on $V[z,z^{-1}]$, 
+which happens to be a vector space.
+That is, we want to produce a symmetric algebra on the linear dual to this vector space.
+Recall that Laurent series $\CC((z))$ provide a model of the linear dual to Laurent polynomials via the residue pairing: if $p(z) = \sum_{n = -i}^j a_n z^n$ is a Laurent polynomial and $f(z) = \sum_{m = -k}^\infty b_m z^m$ is a Laurent series, then the pairing is
+\[
+(f, p) = \Res_{z=0}(f p) = \sum_{m+n=-1} a_n b_m.
+\]
+Thus $V^* ((z))$, the $V^*$-valued Laurent series, are a linear dual to $V[z,z^{-1}]$ by combining the residue pairing with the evaluation pairing between $V$ and its linear dual~$V^*$.
+The symmetric algebra $\Sym(V^* ((z)))$ thus encodes a class of observables that we will denote $\cO(V[z,z^{-1}])$.
+(Again, there are clearly alternative algebras to consider.)
+When we quantize, this algebra will be related to a well-known vertex algebra.
+
+There is one last feature we would like to point out, before we turn to explaining our interest in this space and algebra.
+The inclusion $\CC^\times \hookrightarrow \CC$ means that any algebraic map  $\phi: \CC \to V$ restricts to an algebraic map $\phi: \CC^\times \to V$.
+In our notation, this restriction map is the inclusion $V[z] \hookrightarrow V[z,z^{-1}]$ of $V$-valued polynomials in $V$-valued Laurent polynomials.
+In terms of observables, there is a quotient map $\cO(V[z,z^{-1}]) \to \cO(V[z])$, since observables on the loop space restrict to observables on~$V[z]$.
+When we quantize, this relationship will produce the underlying vector space (or Fock space, or vacuum module) of the vertex algebra.
+
+Now we will discuss why we might focus on these constructions,
+and in what sense they are holomorphic versions of usual mechanics.
+
+Let us start by offering a motivation for the ``answers'' (e.g., $\RR[q,p]$ as classical observables) in the setting of standard classical mechanics.
+The model problem in mechanics is to describe a point particle moving in $\RR^n$,
+subject to some forces that specify the differential equations governing the particle's motion.
+(We call these the ``equations of motion.'')
+Newton's law says that this equation is second order, so that a solution (i.e., trajectory) is specified by giving the position and velocity of a particle at one instant in time.
+
+There is another view, which generalizes more naturally to field theories and which is dubbed the Lagrangian formalism.
+Here one notes that there is a space of all imaginable trajectories, namely the path space ${\rm Map}(\RR, \RR^n)$, where we view the source $\RR$ as ``time,''
+and there is a subspace of trajectories realized by the particle, namely solutions to the equations of motion.
+This subspace is, in some sense, the critical set of an action functional; 
+the variational calculus provides the relevant mathematical framework.
+The space of solutions is naturally isomorphic to $T \RR^n$,
+where an isomorphism is given by fixing an instant $t_0$ in time $\RR$ and then sending a solution $\phi$ to the pair $(\phi(t_0), \dot{\phi}(t_0))$, the position and velocity of the solution at~$t_0$.
+With a little care, one finds that the variational calculus equips $T \RR^n$ with a natural symplectic form and a symplectomorphism $T\RR^n \cong T^* \RR^n$, with its canonical symplectic form. 
+Putting everything together, we have a natural symplectomorphism of $T^* \RR^n$ with the space of solutions.
+The observables of the classical system are the algebra of functions on the space of solutions,
+and so this isomorphism tells us that functions on $T^* \RR^n$ provide the observables.
+The polynomial functions on $T^* \RR^n$ are a subalgebra of all observables, 
+and they suffice to distinguish distinct solutions.
+
+This view generalizes nicely to the holomorphic setting,
+and it amounts to using the Lagrangian formalism to study the holomorphic field theories we have already introduced.
+In this model case, we replace the path space ${\rm Map}(\RR, \RR^n)$ by ${\rm Map}(\CC^\times, \CC^n)$ or, if one wishes, ${\rm Map}(S, \CC^n)$ with $S$ a Riemann surface.
+We start with $\CC^\times$ since it has a ``time'' direction given by the radial coordinate ($t$ becomes $r = e^t)$),
+letting us view ${\rm Map}(\CC^\times, \CC^n)$ as  ${\rm Map}(\RR, \Map(S^1,\CC^n))$, namely mechanics into the loop space of $\CC^n$.
+We replace Newton's equations of motion with a holomorphic version
+so that the space of solutions is given by holomorphic maps from $\CC^\times$ into $\CC^n$.
+If we wish to focus on a more algebraic version, as we did at the beginning,
+we could restrict to the algebraic maps from $\CC^\times$ into~$\CC^n$,
+which sit inside the holomorphic maps.
+
+A confession is necessary here, because this replacement is a bit misleading.
+The holomorphic version of the model case, known as the free $\beta\gamma$ system,
+actually has holomorphic maps into $T^* \CC^n$ as the space of solutions.
+The algebraic maps are precisely $T^* \CC^n$-valued Laurent polynomials.
+
+We now turn to quantization, and our phase space will be, for simplicity, the algebraic loop space $V[z,z^{-1}]$ of a symplectic complex vector space $V$.
+Following the case of mechanics, we might ask for a deformation of $\cO(V[z,z^{-1}])$ into an associative algebra.
+A subtlety here is that $\cO(V[z,z^{-1}])$ does not possess a Poisson bracket, 
+due to the  infinite-dimensionality of $V[z,z^{-1}]$.
+The naive formulas from functions on a finite-dimensional symplectic vector space only make sense on a subset of observables here.
+One workaround is to replace $V[z,z^{-1}]$ with $V((z))$, the $V$-valued Laurent series,
+which we view as ``formal loops in $V$.''
+There is manifestly an inclusion $V[z,z^{-1}] \hookrightarrow V((z))$ and hence an algebra map $\cO(V((z))) \to \cO(V[z,z^{-1}])$
+where 
+\[
+\cO(V((z))) = \Sym(V^* [z,z^{-1}]).
+\]
+On this subalgebra, the naive Poisson bracket makes sense: it is given by extending the nondegenerate skew-symmetric pairing $\omega^* \otimes \Res$ on $V^* [z,z^{-1}]$.
+Hence for $\cO(V((z)))$, we can ask for a deformation quantization,
+and there is a nice answer: 
+the Heisenberg commutation relations determine a Weyl algebra $W[V]$ for this formal loop space.
+As a vector space $W[V]$ is isomorphic to $\cO(V((z)))$, 
+just as the simplest Weyl algebra is isomorphic to $\CC[p,q]$ as a vector space,
+but the product structure is modified by quantization.
+We expect, by analogy with the simplest case, that any quantization of a bigger algebra (e.g., for observables of the holomorphic loop space) contains this quantization as its algebraic skeleton.
+
+The subspace of ``contractible formal loops" $V[[z]]$ inside $V((z))$ produces a module for $\cO(V((z)))$ given by $\cO(V[[z]]$. 
+(This module is in fact a quotient algebra.)
+One can quantize this module to a module ${\rm Vac}[V]$ for $W[V]$,
+where as a vector space, it is still $\cO(V[[z]])$.
+This module structure means there is a map of algebras $W[V] \to \End({\rm Vac}[V])$,
+so we have a natural ``Hilbert space'' or Fock module for~$W[V]$.
+
+It is a remarkable fact, suggested by physicists, that there is also a map
+\[
+Y: {\rm Vac}[V] \to \End({\rm Vac}[V])[[z, z^{-1}]],
+\]
+known as the {\em vertex operator} or {\em state-field correspondence},
+which is closely related to the $W[V]$-action.
+The intuition behind $Y$ is that for any map $\phi: \CC^\times \to V$ and for any point $w \in \CC^\times$, 
+there is a restriction of $\phi$ to a little disk around $w$.
+That is, there is a restriction map $r_w: V[z,z^{-1}] \to V[[t]]$, where $t$ is the local coordinate $t = z-w$.
+Hence there is a $w$-dependent map $\cO(V[[t]]) \to \cO(V[z,z^{-1}])$ by pulling back a function along $r_w$;
+this map determines a $w$-dependent action of $\cO(V[[t]])$ on $\cO(V[[z]])$.
+One can, in essence, quantize this map, by trying to extend the formulas of the $W[V]$-action,
+and this leads to the map~$Y$.
+If one axiomatizes the behavior of $Y$, one is led to the notion of a vertex algebra.
+
+Let us briefly comment on how symmetries extend to the holomorphic setting.
+In other words, we wish to explain how the affine Lie algebras $\widehat{\fg}$ and free field realizations arise in analogy with our discussion of quantum moment maps.
+
+Suppose now that $G$ is a complex Lie group and it acts on the symplectic complex vector space $V$ by holomorphic symplectomorphisms.
+Then $G$ also acts on the algebraic loop space $V[z,z^{-1}]$ and also on formal loops $V((z))$ as a ``global'' symmetry:
+the action is independent of $z$.
+On the other hand, if we consider the infinitesimal action $\rho: \fg \to {\rm SympVect}(V)$,
+there is, in fact, a natural extension to a ``local'' symmetry $\rho^{\rm loc}: \fg[z,z^{-1}] \to {\rm SympVect}(V((z)))$.
+Geometrically, a $\fg$-valued function $x(z)$ acts pointwise (with respect to the formal disk) on the formal loop space.
+(Although the algebraic loop space is not symplectic in a strict sense,
+there is still a local symmetry as $\fg[z,z^{-1}]$ maps to vector fields on the algebraic loop space.)
+This action factors through a map $H_\rho^{\rm loc}: \fg[z,z^{-1}] \to \cO(V((z)))$,
+and hence is Hamiltonian.
+Thus the loop algebra $\fg[z,z^{-1}]$ arises naturally as symmetries of a classical holomorphic field theory.
+
+When we try to quantize, we run into an interesting phenomenon:
+the Hamiltonian action $H_\rho^{\rm loc}$ does not extend as a Lie algebra map into the Weyl algebra $W[V]$,
+although it makes sense as a linear map.
+The failure to respect the brackets determines, however, a cocycle on the loop algebra
+by
+\[
+\alpha_V( x \otimes f(z) , y \otimes g(z)) = \Tr_V(xy) \Res(f \, \partial_z g).
+\]
+\owen{Check conventions.}
+There is thus a central extension of the loop algebra 
+\[
+\CC c \to \widehat{\fg} \to \fg[z,z^{-1}]
+\]
+so that 
+\[
+[x \otimes f, y \otimes g] = [x,y] \otimes fg + \alpha_V( x \otimes f , y \otimes g) c,
+\]
+and there is a Lie algebra map
+\[
+\widehat{H}^{\rm loc}_\rho: \widehat{\fg} \to W[V],
+\]
+sometimes called {\em free field realization} of the affine Lie algebra~$\widehat{\fg}$.
+This relationship --- and its extension to a map between the vertex algebras associated to $\widehat{\fg}$ and $V$ --- is a modest \owen{better adjective?} extract of the rich dialogue that has developed between complex analysis, representation theory, and the physics of chiral conformal field theory.
+(To get Riemann surfaces into the game, we will need a richer framework than ordinary algebra.)
+
+\owen{Discuss modules?}
+
+\subsection{Algebras in higher dimensions }
+
+The story we have just told admits a natural extension to higher complex dimensions,
+but it requires a first step in the direction of derived geometry.
+
+Let $V$ denote a complex vector space (no longer required to be symplectic).
+The naive idea is to replace the algebraic loop space $\Map(\CC^\times,  V)$ with a higher-dimensional analog $\Map(\CC^d -\{0\}, V)$.
+If one considers ordinary algebraic or holomorphic maps for $d > 1$, 
+then every such map extends across the origin, by Hartogs' lemma,
+so this seems uninteresting.
+One should notice, however, that punctured affine space $\mathring{\AA}^d = \CC^d -\{0\}$ is, as a scheme, not affine, 
+and so the {\em derived} global sections of the structure sheaf $\cO_{\rm alg}$ are interesting:
+\[
+H^*(\RR \Gamma(\pAA^d, \cO_{\rm alg})) = H^* (\mathring{\AA}^d, \cO_{\rm alg}) 
+= \begin{cases} 
+0, & * \neq 0, d-1 \\ 
+\CC[z_1,\ldots,z_d], & * = 0 \\ 
+\CC[z_1^{-1},\ldots,z_d^{-1}] \frac{1}{z_1 \cdots z_d}, & * = d-1 
+\end{cases},
+\]
+where we are providing a natural basis for the cohomology 
+that aims to emphasize analogies with the $d=1$ case.
+When $d=1$, note that this computation recovers the Laurent polynomials,
+so when $d > 1$, 
+we view the cohomology in degree $d-1$ as providing the derived replacement of the polar part of the Laurent polynomials.
+Checking this computation is a straightforward exercise in algebraic geometry;
+for instance, use the cover by the affine opens of the form $\AA^d \setminus \{z_i =0\}$.
+\owen{I want to discuss the module structure on the $d-1$-component.}
+
+A similar result holds in analytic geometry, of course,
+so that we have a natural map
+\[
+\RR \Gamma(\pAA^d, \cO_{\rm alg}) \to \RR \Gamma(\pAA^d, \cO_{\rm an}) \simeq \Omega^{0,*}(\pAA^d)
+\]
+that replaces our inclusion of Laurent polynomials into the Dolbeault complex on~$\pAA^d$.
+
+There is a natural analog of the residue map as well.
+Just as $\CC^\times$ deformation-retracts onto the unit circle,
+the punctured affine space $\pAA^d$ retracts onto the unit sphere $S^{2d-1}$.
+The Bochner-Martinelli kernel 
+\[
+\omega_{BM} = \frac{(d-1)!}{(2 \pi i)^d} \frac{1}{(z\zbar)^d} \sum_{i=1}^d (-1)^{i-1} \zbar_i\, \d \zbar_1 \wedge \cdots \wedge \Hat{\d \zbar_i} \wedge \cdots \wedge \d \zbar_d
+\]
+determines a cohomology class of degree $d-1$, and we identify it with $1/z_1 \cdots z_d$ in our basis above,
+so that $\omega_{BM}$ generates its cohomology group under multiplication by polynomials in the $z_j^{-1}$.
+When $d = 1$, note that $\omega_{BM} = (1/2\pi i)\d z/z$, the kernel in the Cauchy residue formula.
+It is also quick to check that
+\[
+\omega_{BM} \wedge \d z_1 \wedge \cdots \wedge \d z_d
+\]
+pulls back to a volume form on the unit sphere $S^{2d-1}$.
+Hence, we define a residue map
+\[
+\Res: \RR \Gamma(\pAA^d, \cO_{\rm alg})  \to \CC
+\]
+by
+\[
+\Res(\alpha) = \oint_{S^{2d-1}} \alpha \wedge \d z_1 \wedge \cdots \wedge \d z_d.
+\]
+When $d =1$, this formula reduces to the usual residue map.
+\owen{That's a bit misleading, maybe, but the integral really does only care about the cohomology class.}
+
+The ingredients are thus in place to mimic the construction of the Weyl algebra for the formal loop space, of the affine Lie algebras, and of free field realization, but now with $\pAA^d$ in place of $\pAA^1 = \CC^\times$.
+Reversing our treatment above, we first discuss the higher Kac-Moody algebras, 
+following Faonte-Hennion-Kapranov \cite{FHK},
+before discussing holomorphic field theory.
+
+It is important to have an explicit dg commutative algebra that models the derived global sections,
+and not just the cohomology groups.
+There is a beautiful, explicit dg model $A_d$ for the algebraic version derived global sections due to Faonte-Hennion-Kapranov \cite{FHK} and based on the Jouanolou method for resolving singularities. 
+In fact, they provide a model $A^{p,*}_d$ for the algebraic $p$-forms as well.
+We will gloss their definition, referring the interested reader to their lucid paper for details.
+
+Let $a_d$ denote the algebra  
+\[
+\CC[z_1,\ldots,z_d, z_1^*,\ldots,z_d^*][(z z^*)^{-1}]
+\]
+defined by localizing the polynomial algebra with respect to $zz^* = \sum_i z_i z^*_i$.
+View this algebra $a_d$ as concentrated in bidegree $(0,0)$.
+Consider the bigraded-commutative algebra $R^{*,*}_d$ over $a_d$ that is freely generated in bidegree $(1,0)$ by elements
+\[
+\d z_1,\ldots , \d z_d,
+\] 
+and in bidegree $(0,1)$ by
+\[
+\d z_1^*,\ldots, \d z_d^*.
+\]
+Note the close resemblance with the Dolbeault complex $\Omega^{*,*}(\CC^d)$ by thinking of $z_j^*$ as $\zbar_j$.
+There is a subalgebra $A^{*,*}_d$ inside $\omega \in R^{p,m}_d$ and a natural pair of differentials $\partial$ and $\dbar$ that behave like the corresponding differentials in the Dolbeault complex.
+We denote the subcomplex with $p=0$~by 
+\[
+(A_d, \dbar) = (\bigoplus_{q = 0}^d A_d^{q}[-q], \dbar),
+\] 
+and it has the structure of a dg commutative algebra.
+For $p>0$, the complex $A^{p,*}_d = (\oplus_q A^{p,q}[-q], \dbar)$ is a dg module for $(A_d, \dbar)$.
+
+The following proposition summarizes key properties of the dg algebra $A_d$ and its dg modules $A_{d}^{p,*}$,
+by aggregating several results of~\cite{FHK}.
+
+\begin{prop}[\cite{FHK}, Section 1]
+\label{prop: Ad} $\;$
+\begin{enumerate}
+\item
+The dg commutative algebra $(A_d,\dbar)$ is a model for $\RR \Gamma(\pAA^d, \sO_{\rm alg})$:
+\[
+A_d \simeq \RR\Gamma(\pAA^{d}, \sO^{alg}) .
+\]
+Similarly, $(A_d^{p,*},\dbar) \simeq \RR \Gamma(\pAA^{d}, \Omega^{p}_{\rm alg})$.
+\item There is a dense map of commutative bigraded algebras
+\[
+\jou : A^{*,*}_d \to \Omega^{*,*}(\CC^d \setminus \{0\}),
+\]
+and the map intertwines with the $\dbar$ and $\partial$ differentials on both sides.
+\item There is a unique $\GL_d$-equivariant residue map
+\[
+{\rm Res}_{z=0} : A_d^{d,d-1} \to \CC
+\]
+such that for any $\omega \in A^{d,d-1}_d$,
+\[
+{\rm Res}_{z=0} (\omega) = \oint_{S^{2d-1}} \jou(\omega)
+\]
+where $S^{2d-1}$ is any sphere centered at the origin in $\CC^d$. 
+\item There is a representative $\omega_{BM}^{\rm alg}$ of the Bochner-Martinelli kernel such that
+\[
+\Res_{z=0} \left(f(z) \omega_{BM}^{alg}(z,z^*) \d z_1 \cdots \d z_d\right) = f(0)
+\]
+for any $f (z) \in \CC[z_1,\ldots,z_d]$. 
+\end{enumerate}
+\end{prop}
+
+We can use this algebra and its nice properties to define a kind of ``sphere algebra'' $\Map(\pAA^d,\fg)$ of algebraic maps from the punctured affine space (or the punctured formal disk) into $\fg$,
+just as $\fg[z,z^{-1}]$ provides a kind of loop algebra.
+
+\begin{dfn}
+For a Lie algebra $\fg$, the {\em sphere algebra} in complex dimension $d$ is the dg Lie algebra~$A_d \otimes \fg$.
+Following \cite{FHK} we denote it by~$\fg^\bullet_d$.
+\end{dfn}
+
+There are natural central extensions of this sphere algebra as {\em $L_\infty$ algebras},
+parallel to the affine Lie algebras appearing as central extensions of the loop algebra.
+An $L_\infty$ algebra is a generalization of a Lie algebra;
+it is graded vector space $L$ equipped with a countable collection of ``higher brackets'' $[-]_k: L^{\otimes k} \to L$ that satisfy a system of equations generalizing the Jacobi condition for a standard Lie algebra.
+For an overview (and an actual definition!) we recommend \owen{add citations}.
+
+In our setting of $\fg^\bullet_d$, Faonte-Hennion-Kapranov introduced central extensions that only affect the $d$-bracket.
+For any $\fg$-invariant degree $d+1$ polynomial  $\theta \in \Sym^{d+1}(\fg^*)^\fg$,  the FHK  cocycle is
+\[
+\label{fhk cocycle}
+\begin{array}{cccc}
+\theta_{\rm FHK} : & (A_d \tensor \fg)^{\tensor (d+1)} & \to & \CC\\ 
+& a_0 \otimes \cdots \otimes a_d & \mapsto & \Res_{z=0} \theta(a_0,\partial a_1,\ldots,\partial a_d)
+\end{array}.
+\]
+This cocycle has cohomological degree $2$ and so determines an unshifted central extension as $L_\infty$ algebras
+\[
+\CC c \to \widetilde{\fg}^\bullet_{d, \theta} \to \fg^\bullet_d ,
+\]
+so that the usual bracket (the 2-bracket) of $\fg^\bullet_d$ is unchanged but there is now a nontrivial $d$-bracket defined by~$\theta_{\rm FHK}$.
+They dubbed these the {\em higher Kac-Moody algebras}, 
+as they specialize to the affine Lie algebras when~$d =1$.
+
+These $L_\infty$ algebras are not just introduced on a whim.
+In \cite{FHK} they are shown to appear naturally in various contexts,
+notably in studying the derived moduli of $G$-bundles on a complex varieties of dimension~$d$.
+\owen{Other applications?}
+
+In addition to the higher Kac-Moody algebras, there are also natural higher analogs of the Weyl algebra of the loop space.
+These appear as the observables for a holomorphic field theory known as a $\beta\gamma$ system.
+
+Let $V$ be a symplectic complex vector space and consider the formal sphere algebra $A^{\wedge}_d \otimes V$,
+where $A^{\wedge}_d$ denotes the completion of $A_d$ (i.e., where polynomials in $z_j$ and $z_j^*$ are replaced by formal power series).
+\owen{Should we introduce a pithy notation?}
+Then there is a dg commutative algebra of functions on this space,
+which we denote $\cO(A^{\wedge}_d \otimes  V)$,
+and it has a kind of Poisson bracket, arising from the residue pairing on $A^{\wedge}_d$ and the symplectic form on $V$,
+just as $\cO(V((z)))$ has a Poisson bracket.
+It will not surprise the reader to learn that there is a natural deformation quantization $W_d[V]$ into a dg Weyl algebra.
+A physicist would interpret this algebra as the canonical and radial quantization of the theory on~$\CC^d - \{0\}$.
+
+If $V$ is a representation of a Lie algebra $\fg$,
+there is a local symmetry 
+\[
+\fg^\bullet_d \to \cO(A^{\wedge}_d \otimes V),
+\]
+just as $\fg[z,z^{-1}]$ acts on $\cO(V((z)))$. 
+One can ask if this action lifts to a quantum symmetry.
+The obstruction is, remarkably, an FHK cocycle:
+\[
+\alpha_{V,d}(x_1 \otimes f_1, \ldots, x_{d+1} \otimes f_{d+1}) = \Tr_V( x_1 \cdots x_{d+1}) \Res(f_1 \partial f_2 \cdots \partial f_{d+1}).
+\]
+\owen{Fix conventions}
+In this sense, the higher Kac-Moody algebras admit a higher free field realization,
+but a richer story is possible once we have a higher version of vertex algebras.
+We will return to this topic once we have the rich language of factorization algebras.
+
+\section{Factorization algebras and holomorphic field theories}
+\label{prefactorization_algebras}
+
+A key idea for us is that much of the content in field theories --- both classical and quantum --- are captured by factorization algebras.
+We will introduce that concept now, in the style that sheaves are defined, so first we describe {\em pre}\/factorization algebras and then impose a local-to-global condition to characterize factorization algebras.
+With the notion in hand, we will describe several examples and several situations where factorization algebras have already appeared in mathematics and physics, 
+albeit in a different formulation.
+Finally, we will sketch the main theorem of \cite{CG2}, 
+which explains a precise and general relationship between quantum field theories and factorization algebras.
+
+\subsection{The essential idea of a prefactorization algebra}
+
+Let $M$ be a topological space and let $\mc{C}^\otimes$ be a symmetric monoidal category. 
+In this paper $M$ is always a smooth manifold (typically a complex manifold) and $\mc{C}$ is ${\rm Vect}$ or ${\rm dgVect}$, with the usual tensor product as the symmetric monoidal product.
+
+A {\em prefactorization algebra} $\cF$ on $M$ taking values in cochain complexes is a rule that assigns a cochain complex $\cF(U)$ to each open set $U \subset M$ along with the following maps and compatibilities.
+\begin{itemize}
+\item  There is a cochain map $m_V^U: \cF(U) \rightarrow \cF(V)$ for each inclusion $U \subset V$.
+
+\item There is a cochain map $m_V^{U_1,\ldots,U_n} : \cF(U_1) \otimes \cdots \otimes \cF(U_n) \rightarrow \cF(V)$ for every finite collection of open sets where each $U_i \subset V$ and the $U_i$ are pairwise disjoint. The following picture represents the situation.
+\begin{center}
+ \begin{minipage}[c]{3cm}
+ \begin{tikzpicture}[scale=0.25]
+ \draw (0,0) circle (5);
+ \draw (-1.5,2) circle(1.3) node {$U_1$};
+ \draw (-2.2,-1.5) circle (1.5) node {$U_2$};
+ \draw (0, -3) node {\tiny$\dots$};
+ \draw (2.1,-1) circle (1.8) node {$U_n$};
+ \draw (2.1, 3) node {$V$};
+ \end{tikzpicture}
+ \end{minipage}
+\hspace{0.7cm} $\rightsquigarrow$ \hspace{0.5cm}
+ \begin{minipage}[c]{8cm}
+$\cF(U_1)\otimes\dots\otimes\cF(U_n)\xto{m_V^{U_1,\ldots,U_n}}\cF(V),$
+ \end{minipage}
+\end{center}
+
+\item The maps are compatible in the obvious way, so that if $U_{i,1}\sqcup\cdots\sqcup U_{i,n_i}\subseteq V_i$ and $V_1\sqcup\cdots\sqcup V_k\subseteq W$, the following diagram commutes.
+\begin{center}
+\begin{tikzcd}[column sep=small]
+{\bigotimes}^{k}_{i=1}{\bigotimes}^{n_i}_{j=1}\cF(U_j) \arrow{dr} \arrow{rr} &   &{\bigotimes}^k_{i=1}\cF(V_i) \arrow{dl}\\
+&\cF(W)  &
+\end{tikzcd}
+\end{center}
+\end{itemize}
+
+For an explicit example of the associativity, consider the following picture.
+\begin{center}
+\hspace{-1cm}
+\begin{minipage}{3cm}
+{\tiny
+\begin{center}
+\begin{tikzpicture}[scale=0.35]
+ % big circle:
+\draw (0,0) circle (6);
+\draw (2.4, 3.3) node {$W$};
+ % circle V_1:
+\draw [style=loosely dashed] (-2.2,1.6) circle (2.5);
+\draw (-2.4, 2.8) node {$V_1$};
+ % circle V_2:
+\draw [style=loosely dashed] (2.4,-1.5) circle (2.6);
+\draw (3.2, 0) node {$V_2$};
+ % small circles:
+\draw (-2.5, 0.8) circle (1) node {$U_{1,1}$};
+\draw (-0.8, 1.8) circle (0.8) node {$U_{1,2}$};
+\draw (2.5,-1.5) circle (0.9) node {$U_{2,1}$};
+%\draw (2.9, -2.1) circle (1.1) node {$U_{2,2}$};
+\end{tikzpicture}
+\end{center}
+}
+ \end{minipage}
+ \hspace{1.3cm} $\rightsquigarrow$ \hspace{-0.1cm}
+\begin{minipage}{8cm}
+\begin{tikzcd}[column sep=small]
+\cF(U_{1,1}) \otimes \cF(U_{1,2}) \otimes \cF(U_{2,1}) \arrow{dr} \arrow{r}  & \cF(V_1) \otimes \cF(V_2) \arrow{d}\\
+&\cF(W) 
+\end{tikzcd}
+\end{minipage}
+
+The case of $k=n_1=2$, $n_2 = 1$.
+\end{center}
+
+This definition bears analogies to familiar objects in mathematics.
+On the one hand, $\cF$ resembles a {\em precosheaf}, which is a functor from opens in $M$ to a category like ${\rm Vect}$ or ${\rm dgVect}$.
+(A presheaf is a functor out of the opposite category to opens in $M$.) 
+Here, however, $\cF$ also assign values to disjoint unions of opens, and it uses the tensor product rather than direct sum.
+This feature leads to the other analogy: $\cF$ resembles an algebra, as
+the multilinear maps look like multiplications.
+These maps let us multiply elements from disjoint regions to get an element in a larger region.
+
+Note that these axioms imply that $\cF(\emptyset)$ is a commutative algebra. 
+We say that $\cF$ is a \emph{unital} prefactorization algebra  if $\cF(\emptyset)$ is a unital commutative algebra. In this case, $\cF(U)$ is a pointed cochain complex by the image of the unit $1 \in \cF(\emptyset)$ under the structure map $\cF(\emptyset) \to \cF(U)$. In practice, for our examples, $\cF(\emptyset)$ is $\CC$, $\RR$, $\CC[[\hbar]]$, or $\RR[[\hbar]]$. 
+
+\begin{eg}\label{ex:associativealgebra}
+The crucial example to bear in mind is an associative algebra. Every associative algebra $A$ defines a prefactorization algebra $\cF_A$ on $\RR$, as follows. To each open interval $(a,b)$, we set $\cF_A( (a,b) ) = A$. To any open set $U = \coprod_j I_j$, where each $I_j$ is an open interval, we set $\cF(U) = \bigotimes_j A$. The structure maps simply arise from the multiplication map for $A$. Figure ~\ref{fig:assasfact} displays the structure of $\cF_A$. Notice the resemblance to the notion of an $E_1$ or $A_\infty$ algebra. 
+%(One takes an infinite tensor products of unital algebras, as follows. Given an infinite set $I$, consider the poset of finite subsets of $I$, ordered by inclusion. For each finite subset $J \subset I$, we can take the tensor product $A^J = \bigotimes_{j \in J} A$. For $J \hookrightarrow J'$, we define a map $A^J \to A^{J'}$ by tensoring with the identity $1 \in A$ for every $j \in J' \backslash J$. Then $A^I$ is the colimit over this poset.) 
+~\hfill$\Diamond$
+\end{eg}
+
+%\begin{figure}
+%\begin{center}
+% \begin{minipage}{3cm}
+% \begin{tikzpicture}[scale=0.75]
+% \begin{scope}[line cap=round,ultra thick]
+% \draw (-2.5,0) -- (-1.5,0); 
+% \draw (-1,0) -- (-0.5,0); 
+% \draw (1,0) -- (2,0); 
+% \draw[->,semithick] (0,-0.5) -- (0,-1.5);
+% \draw (-2.75,-2) -- (-0.25,-2); 
+% \draw (0.75,-2) -- (2.5,-2);  
+% \draw[->,semithick] (0,-2.5) -- (0,-3.5);
+% \draw (-3,-4) -- (3,-4); 
+% \end{scope}
+% \end{tikzpicture}
+% \end{minipage}
+%\hspace{2cm} $\rightsquigarrow$ \hspace{0.5cm}
+% \begin{minipage}{8cm}
+% \begin{tikzcd}[cramped,column sep=tiny]
+%a \otimes b \otimes c \arrow[mapsto]{d} & \in & A \otimes A \otimes A \arrow{d} \\
+%ab \otimes c \arrow[mapsto]{d} & \in & A \otimes A \arrow{d} \\
+%abc  & \in &A 
+%\end{tikzcd}
+%\end{minipage}
+%\end{center}
+
+\begin{figure}
+\begin{center}
+ \begin{tikzpicture} 
+ \begin{scope}[line cap=round,ultra thick]
+ \draw (-2.5,1) -- (-1.5,1); 
+ \draw (-1,1) -- (-0.5,1); 
+ \draw (1,1) -- (2,1); 
+ \draw[->,semithick] (0,0.75) -- (0,0.25);
+ \draw (-2.75,-0.1) -- (-0.25,-0.1); 
+ \draw (0.75,-0.1) -- (2.5,-0.1);  
+ \draw[->,semithick] (0,-0.35) -- (0,-0.85);
+ \draw (-3,-1.2) -- (3,-1.2); 
+ \end{scope}
+ 
+\node at (4,0) {$\rightsquigarrow$ };
+
+\node at (7,0){
+\begin{tikzcd}[cramped,column sep=tiny]
+a \otimes b \otimes c \arrow[mapsto]{d} & \in & A \otimes A \otimes A \arrow{d} \\
+ab \otimes c \arrow[mapsto]{d} & \in & A \otimes A \arrow{d} \\
+abc  & \in &A 
+\end{tikzcd}
+};
+\end{tikzpicture}
+\end{center}
+\caption{The prefactorization algebra $\cF_A$ of an associative algebra $A$}
+\label{fig:assasfact}
+\end{figure}
+
+\begin{eg}\label{ex:SymOfCosheaf}
+Another important example for us is the symmetric algebra of a precosheaf. 
+Let $F$ be a precosheaf of vector spaces on a space $X$. 
+For example, consider $F = C^\infty_c$ the compactly supported smooth functions on a manifold. The functor $\cF  = \Sym F: U \mapsto \Sym(F(U))$ defines a precosheaf of commutative algebras, but it also a prefactorization algebra. For instance, if $U$ and $V$ are disjoint opens, we see that
+\begin{align*}
+\cF(U \sqcup V) = \Sym F(U \sqcup V) & \cong \Sym (F(U) \oplus F(V)) \\ & \cong \Sym(F(U)) \otimes \Sym(F(V)) = \cF(U) \otimes \cF(V),
+\end{align*}
+and these isomorphisms provide the structure maps for $\cF$.~\hfill$\Diamond$
+\end{eg}
+
+We will now sketch another way of phrasing this idea, but the reader who is content with this definition and eager to see examples should feel free to jump ahead, referring back as needed.
+
+\subsection{Prefactorization algebras as algebras over an operad}
+\label{sec:disj}
+
+The language of colored operads offers a convenient way to formalize the notion of prefactorization algebra.
+A colored operad is a generalization of the idea of a category, where one allows many-to-one maps, and so the term ``multicategory'' is sometimes used. 
+See \owen{add citations}
+
+\begin{dfn}
+Let $\Disj_M$ denote the following colored operad associated to~$M$: 
+\begin{itemize}
+\item The colors (or objects) consist of all open subsets of $M$. 
+\item For every (possibly empty) finite collection of open sets $\{U_\alpha\}_{\alpha \in A}$ and open set $V$, there is a set of maps $\Disj_M( \{U_\alpha\}_{\alpha \in A} \mcol V)$. If the $U_\alpha$ are pairwise disjoint and all are contained in $V$, then the set of maps is a single point. Otherwise, the set of maps is empty.
+\item The composition of maps is defined in the obvious way. 
+\end{itemize}
+\end{dfn}
+
+\begin{dfn}
+Let $\mc{C}$ be a colored operad. 
+A \emph{prefactorization algebra}  on $M$ taking values in $\mc{C}$ is a map of colored operads from $\Disj_M$ to~$\mc{C}$. 
+\end{dfn}
+
+In other words, a prefactorization algebra \emph{is} an algebra over the colored operad $\Disj_M$.
+Since symmetric monoidal categories are special kinds of multicategories, this definition makes sense for symmetric monoidal categories. 
+
+\begin{rmk} 
+If $\mc{C}$ is a symmetric monoidal category under coproduct, then a precosheaf on $M$ with values in $\mc{C}$ defines a prefactorization algebra valued in $\mc{C}$. 
+Hence, our definition broadens the idea of ``inclusion of open sets leads to inclusion of sections'' by allowing more general monoidal structures to ``combine'' the sections on disjoint open sets.
+~\hfill$\Diamond$ 
+\end{rmk}
+
+Note that if $\cF$ is any prefactorization algebra, then $\cF(\emptyset)$ is a commutative algebra object of $\mc{C}$. 
+
+\begin{dfn}
+We say a prefactorization algebra $\cF$ is \emph{unital} if the commutative algebra $\cF(\emptyset)$ is unital. 
+\end{dfn}
+
+\subsection{Encoding ordinary algebras and modules using prefactorization algebras on $\RR$}
+\label{AssAsFact}
+
+We explained above how an associative algebra provides a prefactorization algebra on the real line. There are, however, prefactorization algebras on $\RR$ that do {\em not} come from associative algebras. Here we will characterize those that do arise from associative algebras.
+ 
+\begin{dfn}
+Let $\cF$ be a prefactorization algebra on $\RR$ taking values in the category of vector spaces (without any grading).   
+We say $\cF$ is \emph{locally constant} if the map $\cF(U) \to \cF(V)$ is an isomorphism for any  inclusion of open intervals $U \subset V$. 
+\end{dfn}
+
+It is an illuminating exercise to check that this property ensures a prefactorization algebra encodes an associative algebra.
+
+\begin{lem}\label{locally_constant_is_associative}
+Let $\cF$ be a locally constant, unital prefactorization algebra on $\RR$ taking values in vector spaces. 
+Let $A = \cF(\RR)$. Then $A$ has a natural structure of an associative algebra.  
+\end{lem}
+
+One can got further, however, and also capture modules, essentially by marking the line with points.
+For simplicity, we will continue to work with ordinary vector spaces with the tensor product as symmetric monoidal structure.
+
+Let $A$ and $B$ be associative algebras and $M$ an $A-B$-bimodule, i.e., $M$ is a left $A$-module and a right $B$-module and these structures are compatible in that $(am)b = a(mb)$ for all $a \in A$, $b \in B$, and $m \in M$. 
+We now construct a prefactorization algebra $\cF_M$ on $\RR$ that encodes this bimodule structure. 
+
+Pick a point $p \in \RR$. On the half-line $\{x \in \RR \mid x < p\}$, $\cF_M$ is given by $\cF_A$: to an interval $I = (t_0,t_1)$ with $t_1 <p$, $\cF_M(I) = A$, and the structure map for inclusion of finitely many disjoint intervals into a bigger interval is determined by multiplication in $A$. Likewise, on the half-line $\{x \in \RR \mid p < x\}$, $\cF_M$ is given by $\cF_B$. Intervals containing $p$ are determined, though, by $M$. When we consider an interval $I = (t_0,t_1)$ such that $t_0 < p < t_1$, we set $\cF_M(I)  = M$. The structure maps are also determined by the bimodule structure. For example, given 
+\[
+s_0 < s_1 < t_0 < p < t_1 < u_0 < u_1,
+\]
+we have
+\begin{align*}
+\cF_M((s_0,s_1) \sqcup (t_0, t_1) \sqcup (u_0 , u_1)) 
+&= \cF_M((s_0,s_1)) \ot \cF_M((t_0, t_1)) \ot \cF_M((u_0 , u_1)) \\
+&= A \ot M \ot B
+\end{align*}
+and the inclusion of these three intervals into $(s_0,u_1)$ is the map
+\[
+\begin{array}{ccc}
+\cF_M((s_0,s_1)) \ot \cF_M((t_0, t_1)) \ot \cF_M((u_0 , u_1)) & \to & \cF_M((s_0,u_1)) \\
+a \ot m \ot b & \mapsto & amb
+\end{array}.
+\]
+The definition of a bimodule ensures that we have a prefactorization algebra. See Figure ~\ref{fig:bimodasfact}.
+
+%\begin{figure}
+%\begin{center}
+% \begin{minipage}{3cm}
+% \begin{tikzpicture}[scale=0.75]
+% \begin{scope}[line cap=round,ultra thick]
+% \draw (-2.5,0) -- (-1.5,0); 
+% \draw (-1,0) -- (0.5,0); 
+% \draw[fill=black] (0,0) circle (0.07);
+% \draw (1.5,0) -- (2.5,0); 
+% \draw[->,semithick] (0,-0.5) -- (0,-1.5);
+% \draw (-2.75,-2) -- (0.75,-2); 
+% \draw[fill=black] (0,-2) circle (0.07);
+% \draw (1.25,-2) -- (2.75,-2);  
+% \draw[->,semithick] (0,-2.5) -- (0,-3.5);
+% \draw (-3,-4) -- (3,-4);
+% \draw[fill=black] (0,-4) circle (0.07); 
+% \end{scope}
+% \end{tikzpicture}
+% \end{minipage}
+%\hspace{2cm} $\rightsquigarrow$ \hspace{0.5cm}
+% \begin{minipage}{8cm}
+% \begin{tikzcd}[cramped,column sep=tiny]
+%a \otimes m \otimes b \arrow[mapsto]{d} & \in & A \otimes M \otimes B \arrow{d} \\
+%am \otimes b \arrow[mapsto]{d} & \in & M \otimes B \arrow{d} \\
+%amb  & \in &M 
+%\end{tikzcd}
+%\end{minipage}
+%\end{center}
+%\caption{The prefactorization algebra $\cF_M$ for the $A-B$-bimodule $M$}
+%\label{fig:bimodasfact}
+%\end{figure}
+
+\begin{figure}
+\begin{center}
+ \begin{tikzpicture}
+ \begin{scope}[line cap=round,ultra thick]
+ \draw (-2.5,1) -- (-1.5,1); 
+ \draw (-1,1) -- (0.5,1); 
+ \draw[fill=black] (0,1) circle (0.07);
+ \draw (1.5,1) -- (2.5,1); 
+ \draw[->,semithick] (0,0.75) -- (0,0.25);
+ \draw (-2.75,-0.1) -- (0.75,-0.1); 
+ \draw[fill=black] (0,-0.1) circle (0.07);
+ \draw (1.25,-0.1) -- (2.75,-0.1);  
+ \draw[->,semithick] (0,-0.35) -- (0,-0.85);
+ \draw (-3,-1.2) -- (3,-1.2);
+ \draw[fill=black] (0,-1.2) circle (0.07); 
+ \end{scope}
+
+\node at (4,0){$\rightsquigarrow$};
+
+\node at (7,0) {
+\begin{tikzcd}[cramped,column sep=tiny]
+a \otimes m \otimes b \arrow[mapsto]{d} & \in & A \otimes M \otimes B \arrow{d} \\
+am \otimes b \arrow[mapsto]{d} & \in & M \otimes B \arrow{d} \\
+amb  & \in &M 
+\end{tikzcd}
+};
+
+\end{tikzpicture}
+\end{center}
+\caption{The prefactorization algebra $\cF_M$ for the $A-B$-bimodule $M$}
+\label{fig:bimodasfact}
+\end{figure}
+
+\subsection{Factorization algebras}
+
+We are now in a position to define factorization algebras,
+which are prefactorization algebras whose behavior on large open sets is determined by their behavior on small open sets.
+To give a precise description, we introduce a Grothendieck topology due to Michael Weiss~\owen{cite  \cite{Weiss} and it is explained nicely and further developed in \cite{BoavidaWeiss}}.
+
+\begin{dfn}
+Let $U$ be an open set. A collection of open sets $\mathfrak{U} = \{ U_i \mid i \in I\}$ is a {\em Weiss cover} of $U$ if for any finite collection of points $\{x_1,\ldots,x_k\}$ in $U$, there is an open set $U_i \in \mathfrak{U}$ such that $\{x_1,\ldots,x_k\} \subset U_i$.
+\end{dfn}
+
+The Weiss covers define a Grothendieck topology on $\Open(M)$, the poset category of open subsets of a space $M$. We call it the {\em Weiss topology} of~$M$. 
+
+\begin{rmk}
+A Weiss cover is certainly a cover in the usual sense, but a Weiss cover typically contains an enormous number of opens. It is a kind of ``exponentiation" of the usual notion of cover, because a Weiss cover is well-suited to studying all configuration spaces of finitely many points in $U$. For instance, given a Weiss cover $\mathfrak{U}$ of $U$, the collection 
+\[
+\{ U_i^n \mid i \in I\}
+\]
+provides a cover in the usual sense of $U^n \subset M^n$ for every positive integer~$n$.\hfill$\Diamond$ 
+\end{rmk}
+
+\begin{eg}\label{WeissAsExponential}
+For a smooth $n$-manifold $M$, there are several simple ways to construct a Weiss cover for $M$. One construction is simply to take the collection of open sets in $M$ diffeomorphic to a disjoint union of finitely many copies of the open $n$-disk. Alternatively, the collection of opens $\{ M \setminus q \mcol q \in M\}$ is a Weiss cover of $M$. One can also produce a Weiss cover of a manifold with countably many elements. Fix a Riemannian metric on $M$. Pick a collection of points $\{q_n\in M \mcol n \in \NN\}$ such that the union of the unit ``discs'' $D_1(q_n) = \{ q \in M \mcol \d(q_n,q) < 1\}$ covers $M$. (Such an open may not be homeomorphic to a disc if the injectivity radius of $q_n$ is less than 1.)  Consider the collection of all ``discs'' $\fD = \{ D_{1/m}(q_n) \mcol m \in \NN, n \in \NN\}$.  The collection of all finite, pairwise disjoint union of elements of $\fD$ is a countable Weiss cover.~\hfill $\Diamond$ 
+\end{eg}
+
+Now that we have a notion of cover, we can formulate the local-to-global property for factorization algebras,
+which amounts to being a cosheaf for the Weiss topology.
+For concreteness' sake, we will continue to have our prefactorization algebras take values in ${\rm dgVect}$,
+but it is straightforward to generalize by allowing the values to live in, say, a symmetric monoidal $\infty$-category.
+
+Let us provide the definition of a homotopy cosheaf. 
+Let $\Phi$ be a precosheaf on $M$ with values in cochain complexes. Let $\mathfrak{U} = \{U_i \mid i \in I\}$ be a cover of some open subset $U$ of $M$.  Consider the cochain complex with values in cochain complexes whose $-k$th term is 
+\[
+\bigoplus_{\stackrel{j_0,\ldots, j_k \in I}{j_i \text{ all distinct}}} \Phi (U_{j_0} \cap \cdots \cap U_{j_k}),
+\]
+and note that this term has an ``internal'' differential arising from $\Phi$. The ``external'' differential is the alternating sum of the structure maps arising from inclusion of $k+1$-fold intersections into $k$-fold intersections. The \emph{\v{C}ech complex of $\mathfrak{U}$ with coefficients in $\Phi$} is the totalization of this double complex:
+$$
+\check{C}(\mathfrak{U}, \Phi) = \bigoplus_{k=0}^\infty \left( \bigoplus_{\stackrel{j_0,\ldots, j_k \in I}{j_i \text{ all distinct}}} \Phi (U_{j_0} \cap \cdots \cap U_{j_k}) [ k]   \right).
+$$
+There is a natural map from the $0$th term (of the double complex) to $\Phi(U)$ given by the sum of the structure maps $\Phi(U_i) \to \Phi(U)$. Thus, the \v{C}ech complex possesses a natural map to $\Phi(U)$. We say that $\Phi$ is a \emph{homotopy cosheaf} if the natural map from the \v{C}ech complex to $\Phi(U)$ is a quasi-isomorphism for every open $U \subset M$ and every open cover of $U$. This \v{C}ech complex is simply the dual of the \v{C}ech complex for sheaves of cochain complexes.
+In more sophisticated language, the \v{C}ech complex describes the homotopy colimit of $\Phi$ on this simplicial diagram.
+
+We can now define our main object of interest. 
+
+\begin{dfn}
+A \emph{factorization algebra} is a prefactorization algebra $\cF$ on $M$ valued in $\Ch$ \owen{change to dgVect?}, with the property that for every open set $U \subset X$ and Weiss cover $\mathfrak{U}$ of $U$, the natural map
+$$
+\check{C}(\mathfrak{U},\cF) \to \cF(U)
+$$
+is a quasi-isomorphism. That is, $\cF$ is a homotopy cosheaf with respect to the Weiss topology.
+\end{dfn}
+
+We also formulate a multiplicativity condition, as follows. 
+
+\begin{dfn}
+A factorization algebra $\cF$ is \emph{multiplicative} if for every pair $U,V$ of disjoint open subsets of $M$, the structure map
+$$
+\cF(U) \otimes \cF(V) \to \cF(U \sqcup V) 
+$$
+is a quasi-isomorphism.
+\end{dfn}
+
+As verification that this notion has some real content, let's consider a first, interesting case.
+We already explained how to produce a locally constant prefactorization algebra $\cF_A$ on $\RR$ from a dg associative algebra $A$.
+We could ask about working on the circle $S^1$ instead of $\RR$.
+This construction tells us what to assign to every proper open subset of $S^1$: for instance, to each open interval, we assign $A$.
+The \v{C}ech complex should then tell us what to assign to the whole circle.
+Remarkably, this construction recovers a well-known invariant: the Hochschild chains ${\rm Hoch}_*(A)$ of~$A$.
+
+\begin{thm}[\owen{citations}]
+The prefactorization algebra $\cF_A$ extends to a factorization algebra on $S^1$, and
+\[
+{\rm Hoch}_*(A) \simeq \check{C}(\mathfrak{U},\cF_A)
+\]
+for any Weiss cover of~$S^1$.
+\end{thm}
+
+The reader can check by hand that for an ordinary algebra $A$, the value on the circle is $A/[A,A] = {\rm HH}_0(A)$.
+This theorem tells us that factorization homology can be seen as a generalization of Hochschild homology,
+where one simultaneously generalizes the circle to an arbitrary closed manifold and an algebra to a factorization algebra.
+
+It can be hard to check whether a given $\cF$ is a homotopy cosheaf, since computing the \v{C}ech complex is typically difficult.
+There are some useful abstract results, such as the fact that a factorization algebra is determined by its behavior on a basis for the Weiss topology.
+But there is also a rich source of examples in differential geometry, and hence from physics.
+
+Given a vector bundle $E \to M$ (possibly a graded vector bundle), 
+let $E^{\boxtimes m} \to M^m$ denote the external product of $E$ with itself $m$ times.
+Let $\cE_c(U)$ denote compactly supported sections of $E$ over $U$, 
+and similarly let $\cE^{\boxtimes m}_c(U^m)$ denote compactly supported sections of $E^{\boxtimes m}$ over $U^m$.
+Let $\Sym^m(\cE_c)(U)$ denote the sections that are invariant under the action of the symmetric group $S_m$ on~$U^m$.
+We define a functor $\Sym(\cE_c): \Open(M) \to \Vect$ by
+\[
+\Sym(\cE_c)(U) = \bigoplus_m \Sym^m(\cE_c)(U),
+\]
+which is a kind of symmetric algebra on $\cE_c(U)$.
+(Those familiar with functional analysis will note that taking sections of the product bundles is a nice way of completing the algebraic tensor product of sections on each component bundle.)
+This construction is actually a cosheaf for the Weiss topology, just as $\cE_c$ is a cosheaf for the ordinary topology;
+in this sense, the Weiss topology is an ``exponentiation'' of the ordinary topology just as $\Sym(V)$ is an ``exponentiation'' of a vector space~$V$.
+We have seen in Example~\ref{ex:SymOfCosheaf} how $\Sym(\cE_c)$ determines a prefactorization algebra,
+so the following theorem should be plausible.
+
+\begin{thm}[\owen{cite book}]
+For $E \to M$ a graded vector bundle, the functor $\Sym(\cE_c)$ encodes a factorization algebra on $M$.
+If we equip $\cE_c$ with a differential operator $d$ of degree 1 suc that $d^2 = 0$ so that $(\cE_c, d)$ is a cosheaf of differential complexes,
+then $(\Sym(\cE_c), d)$ is a factorization algebra, where $d$ denotes the natural extension.
+\end{thm}
+
+Two examples of differential complexes play a key role in applications: 
+\begin{itemize}
+\item the de Rham complex $(\Omega^*, d)$ on a smooth manifold, which is relevant for topological field theories, and 
+\item the Dolbeault complex $(\Omega^{0,*}, \dbar)$ on a complex manifold, which is relevant for holomorphic field theories.
+\end{itemize}
+One can take, of course, these complexes with sections in a flat vector bundle (for the de Rham case) or a holomorphic vector bundle (for the Dolbeault case).
+
+\subsection{Algebras over the little disks operad}
+
+Associative algebras are familiar to every mathematician, but as we have just seen, they reflect and encode one-dimensional geometry.
+It is then natural to ask about higher-dimensional versions of algebra.
+Topologists developed such a systematic generalization, often called $E_n$ algebras or algebras over the little $n$-disks operad,
+which we now describe and relate to prefactorization algebras on~$\RR^n$.
+In relation to the subject of this paper, we mention that $E_n$ algebras arise naturally from $n$-dimensional topological field theories;
+we will soon introduce a holomorphic analog of $E_n$ algebras relevant to holomorphic field theories,
+modeled on the discussion here.
+
+Fix a dimension $n$. 
+Let $D^n(x,r)$ denote the open disk of radius $r$ centered at $x \in \RR^n$,
+and let $D^n$ denote the unit disk~$D^n(0,1)$.
+
+\begin{dfn}
+Let $E_n$ denote the colored operad with a single color $D^n$ and a topological space $E_n(k)$ of maps from $k$ copies of $D^n$ to itself given by configurations of $k$ disjoint disks:
+\[
+E_n(k) = \left\{ \begin{matrix}(x_1, \ldots, x_k) \in (D^n(0,1))^k,\\ (r_1, \ldots, r_k) \in (0,1)^k\end{matrix} \,\bigg|\, \text{\begin{tabular}{c}the disks $D^n(x_i,r_i)$ are pairwise disjoint\\ but each contained in the unit disk $D^n$\end{tabular}}\right\}.
+\]
+\end{dfn}
+
+When $n = 1$, the operad encodes the idea of associative multiplication:
+we get pictures much like those we drew earlier with intervals, 
+except that now we can slide and stretch the intervals because we have a space of operations.
+More accurately, $E_1$ is a model for associative algebras up to homotopy; 
+it is closely related to the $A_\infty$ operad. \owen{Let me check how people compare these.}
+
+For arbitrary $n$, this definition encodes concretely the idea of $n$ directions of multiplication.
+If one fixes a direction, such as a coordinate axis, and works with disks lined up in this direction,
+one sees an $E_1$ structure.
+
+\owen{Add picture? We drew 2d pictures earlier.}
+
+An algebra over this operad is called an $E_n$-algebra.
+A classic example from topology is given by taking the $n$-fold based loop space
+\[
+\Omega^n_x(X) = \{ \gamma: \overline{D^n} \to X \mcol \gamma(\partial \overline{D^n}) = x\}
+\]
+of a based space $(X,x)$ (i.e., a topological space with a distinguished point) and $\overline{D^n}$ denotes the closed unit $n$-disk.
+Maps that send the boundary of a disk to the base point can be extended naturally to bigger disks: just send the rest of the big disk to the basepoint.
+\owen{Should I spell out the structure of the algebra?}
+Examples include \owen{What to mention?}
+
+Factorization algebras on $\RR^n$ and $E_n$ algebras should be closely related,
+as can be seen by drawing pictures of the configurations of disks that control operations.
+
+\begin{dfn}
+A factorization algebra $\cF$ on an $n$-manifold $M$ is \emph{locally constant} if for each inclusion of open disks $D \subset D'$, then the map $\cF(D) \to \cF(D')$ is a quasi-isomorphism.
+\end{dfn}
+
+For $M = \RR$, we have already discussed how locally constant factorization algebras relate to associative algebras, starting with Example~\ref{ex:associativealgebra}.
+Lurie has shown the following vast extension of this example. (See section 5.4.5 of \cite{LurieHA}, particularly Theorem 5.4.5.9.)
+
+\begin{thm}\label{thm:locisen}
+There is an equivalence of $(\infty,1)$-categories between $E_n$ algebras and locally constant factorization algebras on~$\RR^n$.  
+\end{thm}  
+
+We remark that Lurie and Ayala-Francis uses a different gluing axiom than we do. A careful comparison of the different axioms and a proof of their equivalence (for locally constant factorization algebras) can be found in \cite{Matsuoka}. We emphasize that higher categories are necessary for a rigorous development of these constructions and comparisons, although we will not emphasize that point in our discussion below, which is expository in nature.
+
+\begin{rmk}
+This theorem, together with our work in these two books, builds an explicit bridge between topology and physics. Topological field theories in the physicist's sense, such as perturbative Chern-Simons theory, produce locally constant factorization algebras, which can then be viewed as $E_n$ algebras and analyzed using the powerful machinery of modern homotopy theory. Conversely, intuition from physics about the behavior of topological field theories suggests novel constructions and examples to topology. Much of the amazing resonance between operads, homological algebra, and string-theoretic physics over the last few decades can be understood from this perspective.~\hfill $\Diamond$
+\end{rmk}
+
+\begin{rmk}
+We have shown how thinking about prefactorization algebras on a real line ``decorated'' with points (i.e., with a kind of stratification) reflects familiar algebraic objects like bimodules. By moving into higher dimensions and allowing more interesting submanifolds and stratifications, one generalizes this familiar algebra into new, largely-unexplored directions. See \cite{AyalaFrancisTanaka} for an extensive development of these ideas in the setting of locally constant factorization algebras.
+~\hfill $\Diamond$
+\end{rmk}
+
+\subsection{How factorization algebras appear in QFT}
+
+In \cite{CG1, CG2} a systematic relationship is provided between field theories and factorization algebras.
+The slogan is 
+\begin{quote}
+the observables of a field theory living on a manifold $M$ form a factorization algebra on~$M$. 
+\end{quote}
+To make a mathematical statement, one needs to be precise about what a field theory is.
+From hereon, whenever we speak of a classical or quantum field theory, we will mean the definitions articulated in \cite{CosBook,CG1, CG2}, which encompass the Euclidean versions of many field theories studied in physics and mathematics.
+Those books use the Batalin-Vilkovisky (BV) formalism for quantization, a homological method generalizing the BRST approach and widely regarded as the most powerful and general way to quantize gauge theories. 
+
+\begin{thm}
+\label{main}
+The observables of a classical field theory on $M$ form a factorization algebra $\Obs^{cl}$ that assigns to every open set, a 1-shifted Poisson algebra (i.e., a commutative dg algebra equipped with a Poisson bracket of cohomological degree one). A BV quantization of this theory yields a factorization algebra $\Obs^q$ that is a flat deformation of $\Obs^{cl}$ over~$\RR[[\hbar]]$.
+\end{thm}
+
+This theorem provides an elegant interpretation of BV quantization as a kind of deformation quantization. In the setting of mechanics (or one-dimensional field theory, since a particle has a worldline), deformation quantization explains the transition from classical to quantum as deforming the observables from a Poisson algebra to an associative algebra. 
+This theorem allows one to interpret quantization of field theories---on manifolds of arbitrary dimension---as a deformation quantization from a 1-shifted Poisson factorization algebra to a plain factorization algebra. 
+
+In \cite{CG1}, there are several examples of this formalism in action:
+\begin{itemize}
+\item Basic examples from quantum mechanics, such as the harmonic oscillator, and it is shown how to recover the Weyl algebra and the Hamiltonians from factorization algebras living on~$\RR$. 
+\item Scalar field theory on $\RR^n$, where it is shown how the usual correlation functions are encoded in the factorization algebra on~$\RR^n$ and how canonical quantization appears via pushforward of factorization algebras.
+\item The free $\beta\gamma$ system on $\CC$---a basic example of a chiral conformal field theory---is constructed and its usual vertex algebra is extracted from the factorization algebra.
+\item Abelian Chern-Simons theory, where it is shown how dimensional reduction along a closed surface $\Sigma$ produces the Weyl algebra on the symplectic vector space $H^1(\Sigma)$ and how line operators form a (very simple!) braided monoidal category.
+\end{itemize}
+These examples, while not complicated, exhibit in detail how factorization algebras provide a bridge from action functionals to algebra in a broad sense. 
+
+This formalism has shown its power in a number of nontrivial applications:
+\begin{itemize}
+\item Grady, Li, and Li \cite{GLL} give a direct connection between Fedosov quantization and the factorization algebra of a 1-dimensional field theory.
+%\item Gorbounov, Williams and I \cite{GGW} constructed rigorously a 2-dimensional QFT depending on a Calabi-Yau manifold $X$, known as the curved $\beta\gamma$ system, and showed the factorization algebra recovers the chiral differential operators of~$X$.
+\item Li and Li \cite{LiLi} constructed the topological B-model and show the factorization algebra recovers the expected topological vertex algebra (see \cite{LiVOA} for a deeper treatment).
+\item Costello, Francis, and Gwilliam \cite{CFG} have shown how the factorization algebra of Chern-Simons theory for $\fg$ encodes a quantum group $U_\hbar \fg$ over~$\CC[[\hbar]]$.
+\item Rabinovich \cite{RabAxial} showed how the local index theorem and the axial anomaly are simultaneously captured by quantizing free fermions (associated to Dirac operators). Subsequently, he recovered the Quillen determinant line~\cite{RabDet}.
+\item Costello \cite{CosYangian} introduced a 4-dimensional gauge theory whose factorization algebra recovers the Yangian,
+and subsequently gave extensive applications to quantum integrable systems with Witten and Yamazaki \cite{CWY1,CWY2, CY}.
+\end{itemize}
+There are others, connected with central topics such as mirror symmetry and the AdS/CFT correspondence, 
+and we will discuss holomorphic field theories extensively below.
+
+Thanks to the efforts of people who have adopted this BV/factorization framework,
+we now also understand its connection to many important structural aspects of QFT, 
+such as asymptotic freedom \cite{EWY}, current algebras \cite{GWcurr}, the Anderson-Higgs mechanism \cite{EG}, and the CS/WZW correspondence~\cite{GRW, CosDimGai}.
+In each case this enriched mathematical language offers a new and (we would argue) clarifying point of view.
+In turn, physics offers new vistas or rich applications for mathematicians to explore.
+
+\subsection{$E_n$ algebras from topological field theories}
+
+Although our focus in this paper is on holomorphic field theories and factorization algebras,
+it might be helpful to describe some motivating results about topological field theories and factorization algebras.
+Elliott and Safronov have \owen{not sure how much to say here, but I'm going to take a stab at writing a synoptic theorem}
+
+If one examines theories like Chern-Simons theory on $\RR^3$ or the Poisson $\sigma$-model on $\RR^2$, 
+one discovers a general format for constructing theories that was formalized by \cite{AKSZ}.
+In a nutshell, the field theory is factored into two parts: 
+the de Rham complex of the source or ``spacetime'' manifold, 
+and a Lie algebra-type object encoding a gauge Lie algebra or a ``target'' for a $\sigma$-model.
+
+\begin{dfn}
+A classical {\em AKSZ-type theory} on $\RR^d$ is a determined by an $L_\infty$-algebra $\fg$ equipped with a cyclic pairing $\langle-,-\rangle$ of degree $3-d$.
+Its {\em equation of motion} is the Maurer-Cartan equation 
+\[
+0 = \d A + \frac{1}{2} [A,A] + \frac{1}{3!}[A,A,A]_3 + \cdots = \sum_{k=1}^\infty \frac{1}{k!} [A, \ldots, A]_k
+\]
+of the $L_\infty$ algebra $\Omega^*(\RR^d) \otimes \fg$ with $k$-ary brackets $[-]_k$.
+The {\em action functional} is the expression
+\[
+S(A) = \int_{\RR^d} \sum_{k=1}^\infty \frac{1}{{k+1}!} \langle A, [A, \ldots, A]_k \rangle
+\]
+\end{dfn}
+
+Ordinary Chern-Simons theory on $\RR^3$ arises from taking $\fg$ to be a semisimple Lie algebra and a choice of invariant pairing.
+In that case, and using $\Tr$ to denote the pairing, the action functional is the familiar
+\[
+S(A) = \int_{\RR^3}  \frac{1}{2}\Tr ( A, \d A ) + \frac{1}{3!} \Tr( A, [A, A])
+\]
+and the equation of motion asks for connections with zero curvature.
+
+Many other theories can be expressed in this style, and we suggest \owen{lots of papers} for examples.
+Elliott and Safronov characterize and exhibit topological twists of supersymmetric theories as AKSZ-type theories.
+
+\begin{thm}[\cite{CG2;ElliottSafronov}]
+For a classical AKSZ-type theory on $\RR^d$, the observables 
+\[
+\Obs^{cl}(U) = \clie^*(\Omega^*(U) \otimes \fg)
+\]
+form a locally constant factorization algebra and hence determine an $E_d$ algebra~$\cA^{cl}$.
+A quantization, if it exists, determines a deformation $\cA^q$ of this $E_d$ algebra.
+
+Given a homotopical trivialization of the action of $SO(d)$, then $\cA^q$ is a framed $E_d$ algebra.
+\end{thm}
+
+More generally, given a map of Lie groups $G \to O(d)$ and a compatible $G$-action on the theory, a homotopical trivialization of this action on the quantum theory equips $\cA^q$ with the structure of a $G$-framed $E_d$ algebra.
+
+Scheimbauer's thesis then provides a functorial field theory in the sense of Atiyah, Segal, and Lurie.
+
+\begin{thm}
+Given a homotopically $SO(d)$-trivial quantization of a classical AKSZ theory on $\RR^d$, 
+factorization homology of the quantum observables 
+\[
+\int_{(-)} \cA^q \colon {\rm Bord}^{or}_d \to {\rm Alg}_d
+\]
+determines a fully extended oriented $d$-dimensional field theory with values in a higher Morita $(\infty,d)$-category of $E_d$ algebras.
+\end{thm}
+
+A similar claim applies to the general case with a map $G \to O(d)$.
+
+
+\section{Vista: Holomorphic $\sigma$-models and higher algebras of differential operators}
+
+
+We have already met the higher dimensional $\beta\gamma$ system on $\CC^n$.
+This is an $n$-dimensional holomorphic system described by an $n$-dimensional translation invariant factorization algebra.
+In part, the fields of this system constituted a holomorphic map $\gamma \colon \CC^n \to \CC^N$ together with its conjugate field $\beta$. 
+
+\brian{background on CDO's}
+
+\begin{dfn}\label{dfn:cdo}
+A {\em sheaf of $n$-CDOs} on a manifold $X$ (of complex dimension $N$) is a sheaf of $n$-dimensional holomorphically translation invariant factorization algebras whose restriction to any $n$-disk is equivalent to the $n$-dimensional $\beta\gamma$ system (with target $\CC^N$). 
+\end{dfn}
+
+\begin{thm}\label{thm:cdo}
+Suppose $X$ is a complex manifold satisfying 
+\[
+{\rm ch}_{n+1} (\T_X) = 0 \in H^{n+1} \big(X , \Omega^{n+1,cl}_X\big).
+\]
+Then, the set of equivalence classes of higher dimensional CDO's on $X$ is a torsor for the group $H^n \big(X , \Omega^{n+1, cl}_X\big)$. 
+If ${\rm ch}_{n+1}(\T_X) \ne 0$ then there does not exist a sheaf of higher CDO's on $X$. 
+\end{thm}
+
+\begin{rmk}
+When $n=1$ we \cite{GGW} \brian{finish}
+\end{rmk} 
+
+We can reformulate this theorem to stress the role of the higher dimensional holomorphic OPE. 
+An alternative to Definition \ref{dfn:cdo} would be to first take the cohomology of the state space of the $\beta\gamma$ system to obtain the structure of a holomorphic $\PP_n$ algebra.
+Then, one can define a sheaf of higher CDO's as a sheaf of holomorphic $\PP_n$ algebras which is locally of the form \eqref{eqn:bgope}. 
+Theorem \ref{thm:cdo} still applies to show that a necessary condition for such a sheaf to exist is the vanishing of the $(n+1)$ component of the Chern character of $X$. 
+The global sections of such a sheaf will give rise to a single holomorphic $\PP_n$ algebra. 
+
+
+Let's unravel this approach in the case $n=2$. 
+Label the local coordinate on the target by $\{w^i\}_{i=1,\ldots,N}$. 
+
+The cohomology of the state space of the $2$-dimensional $\beta\gamma$ system is a graded polynomial algebra of the form
+%\[
+%\CC\big[\partial_{z_i}^{\bu \geq 0} \gamma, \partial^{\bu\geq 0}_{z_i} \beta \big]
+%\]
+\[
+\CC\bigg[\gamma^i[k,\ell] \; , \; \beta_j [k,\ell] \bigg]_{k,\ell \geq 0} .
+\]
+For $k,\ell \geq 0$ and $i,j=1,\ldots N$ the generator $\gamma^i[k,\ell]$ is of cohomological degree zero and the generator $\beta_j[k,\ell]$ is of cohomological degree $1$.
+
+The higher OPEs $\{\gamma^i[k,\ell], \gamma^j [p,q]\}^{r,s} = 0$, $\{\beta^i[k,\ell], \beta^j [p,q]\}^{r,s} = 0$ all vanish. 
+There is a nontrivial higher OPE between $\gamma^i$ and $\beta_j$, the simplest of such reads
+\[
+\big\{\gamma^i[0,0] , \beta_j[-1,-1] \big\}[r,s] = \delta_{r,0} \delta_{s,0} .
+\]
+In general, 
+\beqn\label{eqn:bgope}
+\big\{\gamma^i[k,\ell] , \beta_j[p-1,q-1] \big\}[r,s] = \delta_{r,k+p} \delta_{s,\ell+q} .
+\eeqn
+
+\subsubsection{Global sections, an example}
+
+We give a concrete description of 2-CDO's on the manifold $X = \PP^1$.
+In this case there is a unique sheaf of 2-CDO's that we denote by $2\CDO_{\PP^1}$ (here we are using the holomorphic $\PP_2$ description as the cohomology of the observables of the $\beta\gamma$ system on a $2$-disk).
+Consider the standard description of $\PP^1 = U \cup V$ where $U = {\rm Spec}(\CC[\gamma])$ and $V = {\rm Spec}(\CC[\gamma^{-1}])$. 
+
+On $U$, $2\CDO_{\PP^1}(U)$ is the graded polynomial algebra $\CC[\gamma[k,\ell], \beta[p,q]]$. 
+On the intersection $U \cup V$ we glue by the transition function
+\begin{align*}
+\Tilde{\gamma} [k,\ell] & \define \gamma^{-1} [k,\ell] \\
+\Tilde{\beta} [p,q] & \define - \sum_{i+j+k=p} \sum_{i'+j'+k'=q} \gamma[i,i'] \gamma[j,j'] \beta[k,k'] + 2 \gamma[p+1, q] + 2 \gamma[p, q+1] .
+\end{align*}
+\brian{need to fix that I think}
+
+We can gain further insight into the structure of $2\CDO_{\PP^1}$ by the following result. 
+Classically, the target $\PP^1$ has an obvious geometric symmetry by the Lie algebra $\sl(2)$ which further lifts to a symmetry by the dg Lie algebra $\fa_2 \otimes \sl(2)$. 
+
+\begin{prop}
+The graded vector space $H^\bu \big(\PP^1 \; , \; 2 \CDO_{\PP^1}\big)$ is a module for the graded Lie algebra $H^\bu(\sfA_2) \otimes \sl(2)$
+\end{prop}
+
+\begin{rmk}
+This result is to be contrasted with the case of ordinary CDO's on $\PP^1$. 
+Classically, the one-dimensional $\beta\gamma$ system of maps $\CC \to \PP^1$ has a symmetry by the current algebra $\sfA_1 \otimes \sl(2) = \sl(2)[z,z^{-1}]$. 
+At the quantum level, the global sections of ordinary CDO's over $\PP^1$ is a representation for affine Kac--Moody algebra $\Hat{\sl}_2$ at the {\em critical level} \cite[Theorem 5.7]{MSV}. 
+In fact, it is isomorphic to a direct sum of two copies of the vacuum representation at the critical level.
+This proposition shows that the classical $\sl(2)$-valued $S^3$-currents of global sections of 2-CDO's on $\PP^1$ acquire no such central extension. 
+\end{rmk}
+
+Instead of $\PP^1$ let's consider $\PP^2$ thought of as the Grassmannian of lines in $\CC^3$. 
+Since $\ch_3(\T_{\PP^2})$ is trivial
+the $\beta\gamma$ system of maps $\CC^2 \to \PP^2$ exists at the quantum level and we get a sheaf of 2-CDO's that we denote $2\CDO_{\PP^2}$. \footnote{The sheaf of ordinary CDO's is {\em not defined} on $\PP^2$.} 
+
+The classical $\beta\gamma$ system has, as a symmetry algebra, the $\sl(3)$-valued $S^3$ currents $\sfA_2 \otimes \sl(3)$. 
+This is {\em not} a symmetry at the quantum level, rather a {\em higher dimensional Kac--Moody algebra} acts instead.
+
+Let $\theta \in {\rm Sym}^3(\sl(3))$ denote the invariant polynomial $(A,B,C) \mapsto {\rm tr}(ABC)$, where the trace is computed in the {\em defining} representation.
+Given $\theta$ we define, as in Section \ref{sec:KM}, the $2$-dimensional Kac--Moody algebra as the $L_\infty$ algebra central extension
+\[
+0 \to \CC K \to \Hat{\sl(3)}_{2,\theta} \to \sfA_2 \otimes \sl(3) \to 0 .
+\]
+
+\begin{prop}
+The graded vector space $H^\bu \big(\PP^2 \; , \; 2 \CDO_{\PP^2}\big)$ is a module for the $L_\infty$ algebra $\Hat{\sl(3)}_{2, \theta}$ whereby the central element $K$ acts by multiplication by some nonzero scalar. 
+\end{prop}
+
+
+\subsubsection{Chiralization of the B-model}
+
+In a precise sense, one can view the higher dimensional $\beta\gamma$ system as a holomorphic refinement of a familiar algebra in topological field theory.
+
+\begin{prop}
+Let $X$ be a complex manifold with ${\rm ch}_{3}(\T_X) = 0$ and let $2\CDO_X$ be a sheaf of $2$-CDO's on $X$. 
+There is an equivalence of sheaves on $X$
+\[
+{\rm Zhu}_{\EE_2} \big(2\CDO_X) \simeq {\rm PV}^{\bu}_X \define \bigoplus_{i\geq 0} {\rm PV}^i_X [-i] .
+\]
+Furthermore, the underlying $\PP_2$-structure of the left hand side agrees with the standard Gerstenhaber structure on polyvector fields.
+\end{prop}
+
+\begin{rmk}
+In this sense, $2\CDO_X$ is a `chiralization' of the sheaf of polyvector fields.
+It is distinct from a more standard one coming from the holomorphic twist of the two-dimensional $\cN=(2,2)$ supersymmetric $\sigma$-model.
+\end{rmk}
+
+The expert reader will identify the sheaf appearing in the statement of this proposition as local observables of the topological $B$-model on $\RR^2$ with target $X$. 
+At the level of quantum field theories, the statement of this proposition is no surprise. 
+The key point is that the Zhu algebra (and its $\EE_n$ generalization) is an instance of ``dimensional reduction'' from a holomorphic theory to a topological one. 
+
+On one hand, one considers the $\beta\gamma$ of maps from the two-dimensional complex manifold $\CC^\times \times \CC^\times$ with target manifold $X$:
+\[
+\T^*[-1] {\rm Map}\left(\CC_\dbar^\times \times \CC_\dbar^\times , X\right) \; \simeq \; {\rm Map}\left(\CC_\dbar^\times \times \CC_\dbar^\times , \T^*[1] X\right) .
+\]
+In this identification we have used the obvious Calabi--Yau form on $\CC^\times \times \CC^\times$. 
+The dimensional reduction of this mapping space along the `doubled' radial projection $\CC^\times \times \CC^\times \to \RR \times \RR$ is precisely the AKSZ description of the ordinary $B$-model with target $X$
+\[
+{\rm Map}\left(\RR^2_{\rm dR} , \T^*[1] X\right)
+\]
+in agreement with the proposition above.
+
+
+\subsubsection{Homogenous spaces}
+
+Suppose that $N$ is a unipotent subgroup of $G$.
+For $j \geq 1$ one has
+\[
+H^j \left( G / N \, ; \, \Omega^{n+1,cl}_{G/N} \right) \; \simeq \; H_{\rm dR}^{j+n+1} \big(G / N \big)
+\]
+
+
+\section{Vista: Seiberg duality and its consequences}
+
+The field content of 4d $\cN=1$ supersymmetric Yang--Mills theory is:
+\begin{itemize}
+\item a `vector multiplet' which consists of a gauge field $A$ together with some fermions $\lambda$ all taking values in a Lie algebra $\fg$;
+\item a `matter multiplet' (usually called the chiral multiplet) which consists of a scalar $\phi$ together with some fermions $\psi$ all transforming in some representation $V$ of $\fg$. 
+Additionally, there is a `superpotential' $W$ which is a $\fg$-invariant polynomial on~$V$. 
+\end{itemize}
+
+From hereon we fix a nonzero, square zero supercharge of the 4d $\cN=1$ supersymmetry algebra for which we wish to twist by. 
+The twist of 4d $\cN=1$ supersymmetric Yang--Mills theory has been characterized in \cite{CosYangian, ESW, SWchar}. 
+It is a holomorphic field theory on $\CC^2$ consisting of a `vector' part and a 'matter' part.
+As a moduli space, it can be described in the following way (we will give a description in terms of fields and action functionals afterwards).
+
+Let's consider the matter part. 
+Recall that the derived critical locus ${\rm Crit}(W)$ of any function on $V$ has a $(-1)$-shifted symplectic structure. 
+As a dg space, the ring of functions of the derived critical locus is $\cO(\T^* [-1] V)$ equipped with the differential $\iota_{\d W}$. 
+From now on, we forget the $\ZZ$-grading and view this locus as equipped with an odd symplectic structure. 
+Before coupling to the gauge theory, the matter part of the holomorphic twist is the derived mapping space ${\rm Map}(\CC^2_{\dbar}, {\rm Crit}(W))$ which is equipped with an odd symplectic structure by the AKSZ construction. 
+
+Since $W$ is $\fg$-invariant, the critical locus has a residual Hamiltonian $\fg$ action. 
+There is a version of Hamiltonian reduction for odd symplectic manifolds, see \cite{Pavel, Kevin, who else}. 
+Denote this reduction by ${\rm Crit}(W) \sslash \fg$. 
+As a dg space, the ring of functions is $\clie^\bu\big(\fg , \cO(\fg^* \oplus \Pi \T^* V) \big)$ where the differential is the Chevalley--Eilenberg differential plus $\iota_{\d W}$. 
+
+In total, the holomorphic twist is equivalent to the following derived mapping space
+\[
+{\rm Map}(\CC^2_{\dbar} \; , \; {\rm Crit}(W) \sslash \fg) 
+\]
+which is equipped with an odd symplectic structure. 
+
+In essence, all of the holomorphic theories we consider below will be special cases of this gauged linear mapping space on $\CC^2$. 
+We slightly refine notation and associate a holomorphic theory $\cT(G, V, Z, W)$ on $\CC^2$ associated to the following data:
+\begin{itemize}
+\item a Lie group $G$, this is the gauge group. 
+Its complexified Lie algebra is $\fg = {\rm Lie}_\CC (G)$;
+\item a complex $G$-representation $V$, this is where the `chiral quark matter' lives;
+\item a complex vector space $Z$ where the `mesons' live.
+This is not acted upon by the group $G$. 
+\item a polynomial $W \in {\rm Sym}(V \oplus \Bar{V} \oplus Z)$.
+\end{itemize}
+
+\begin{dfn}
+{\em Holomorphic QCD} associated to the data $(G,V,Z,W)$ as above is the holomorphic field theory on $\CC^2$ with fields:
+\begin{itemize}
+\item The gauge fields are those of holomorphic BF theory valued in $\fg$, which we denote by
+\[
+A \in \Omega^{0,\bu}(\CC^2 , \fg)[1] , \quad B \in \Omega^{2,\bu}(\CC^2, \fg^*) .
+\]
+\item The `matter fields' consist of a holomorphic $\beta\gamma$ system valued in $V$, which we denote by
+\[
+Q \in \Omega^{0,\bu}(\CC^2 , V) , \quad P \in \Omega^{2,\bu}(\CC^2 , V^*)[1] ,
+\]
+a holomorphic $\beta\gamma$ system valued in the complex conjugate representation $\Bar{V}$, which we denote by
+\[
+\Tilde{Q} \in \Omega^{0,\bu}(\CC^2 , \Bar{V}) , \quad \Tilde{P} \in \Omega^{2,\bu}(\CC^2 , \Bar{V}^*) [1],
+\]
+and a $\beta\gamma$ system valued in the vector space $Z$, which we denote by
+\[
+M \in \Omega^{0,\bu}(\CC^2 , Z) , \quad L \in \Omega^{2,\bu}(\CC^2 , Z^*) [1] .
+\]
+\end{itemize}
+
+The action functional is
+\[
+\int B F^{0,2}_A + \int P \dbar_A Q + \int \Tilde{P} \dbar_A \Tilde{Q} + \int \d^2 z \; W(Q, \Tilde{Q}, M) + \int L \dbar M
+\]
+where $\dbar_A = \dbar + A$ is the covariant $\dbar$-operator. 
+We will refer to this theory by $\cT(G,V,Z,W)$.\footnote{Although this perturbative theory only depends on the Lie algebra of $G$, the group structure will be relevant when we discuss local operators.} 
+\end{dfn}
+
+
+\begin{rmk}
+This theory is only $\ZZ/2$-graded, so all fields are considered only as `even' or 'odd'--for instance the component of the gauge field $A^{0,1}$ is even while the component of the matter field $Q^{0,1}$ is odd. 
+Only in the case that $W = 0$ can one lift the theory to a $\ZZ$-grading.
+\end{rmk}
+
+\begin{rmk}
+Note that the fields $M$ are `uncharged' under the gauge group.
+The only coupling $M$ has to the other fields is through the superpotential $W$. 
+\end{rmk}
+
+Our long term goal is to show that two special cases of holomorphic QCD are {\em dual}.
+We focus on the gauge group $G = \SU(N)$, and consider a class of holomorphic QCD theories associated to particular choices of representations and superpotential. 
+Following physics terminology, will refer to the defining $N$-dimensional representation $\CC^N$ of $\SU(N)$ as the {\em fundamental} representation. 
+Also, suppose $N_c, N_f$ are integers with $N_f \geq N_c \geq 2$.
+%Also, let $N_{\rm mes} \geq 0$ be some integer.  
+%{\em Type A} holomorphic QCD is 
+%\[
+%\cT_{A} (N_c, N_f, N_{\rm mes},W) = \cT\left(G = \SU(N_c) \, , \, V = (\CC^{N_c})^{\oplus N_f} \, , \, Z = \CC^{\oplus N_{\rm mes}} \, , \, W\right) .
+%\]
+
+First, we have the `electric' theory which is the following holomorphic QCD
+\[
+\cT_{\sfE} (N_c , N_f) \define \cT\big(\SU(N_c) \, ,\, (\CC^{N_c})^{\oplus N_f} \, ,\, Z = 0 \, , \, W = 0\big) .
+\]
+
+%\begin{dfn}
+%Suppose $\cT_A (N_c, N_f, N_{\rm mes}, W)$ is a type A holomorphic QCD. 
+%Define the {\em dual} type A holomorphic QCD to be
+%\[
+%\Hat{\cT}_{A} (N_c, N_f, N_{\rm mes}, W) \define \cT_{A} (N_f - N_c, N_f, N_{\rm mes} + N_{f}^2 , W + 
+%\]
+%\end{dfn}
+
+Second, we have the `magnetic' theory. 
+In this case the auxiliary vector space $Z$ is nontrivial (but transforms trivially under the gauge group as in the definition). 
+Our notation is $q,\Tilde{q}$ for elements of the vector spaces $V, \Bar{V}$ and $m\in Z$.
+The magnetic theory is
+\[
+\cT_{\sfM} (N_c, N_f) \define \cT\big(\SU(N_f - N_c) \, , \, (\CC^{N_f - N_c})^{\oplus N_f} \, , \, \CC^{\oplus N^2_f} \, , \, W = m q \Tilde{q} \big)
+\]
+In the definition of $W = m q \Tilde{q}$ we are using the natural contractions which we can describe explicitly as follows.
+Choose a basis $\{q_a^i\}$ for $V = (\CC^{N_f - N_c})^{\oplus N_f}$, $a = 1,\ldots, N_f - N_c$, $i=1,\ldots N_f$ and a dual basis $\{\Tilde{q}_i^a\}$ for $\Bar{V}$.
+Also, let $\{m_i^j\}$ be a basis for $\CC^{\oplus N_f^2}$. 
+Then the cubic polynomial $W$ is
+\[
+W = \sum_{i,j,a} m^i_j q_i^a \Tilde{q}^i_a .
+\]
+
+
+\begin{thm}
+Both $\cT_{\sfE}(N_c, N_f)$ and $\cT_{\sfM}(N_c, N_f)$ exist at the quantum level. 
+That is, the anomaly to a perturbative BV quantization vanishes.
+In fact, the quantization is one-loop exact. 
+\end{thm}
+
+\begin{conj}
+There is an equivalence of $2$-dimensional holomorphic factorization algebras
+\[
+\Obs_{\sfE}(N_f, N_c) \simeq \Obs_{\sfM} (N_f, N_c)  .
+\]
+\end{conj}
+
+The statement should be interpreted as an equivalence of factorization algebras valued in $\ZZ/2$-graded cochain complexes since the field theories are only $\ZZ/2$ graded.
+We fix some notation for the fields of the electric and magnetic theories. 
+The `flavor' index will be denoted by letters $i,j=1,\ldots, N_f$. 
+
+With respect to a basis for $\CC^{N_f}$ we denote the matter fields of the electric theory as
+\[
+Q^i\; , \; P_i \; , \; \Tilde{Q}_i \; , \; \Tilde{P}^i , \quad i = 1, \ldots, N_f.
+\]
+Each of these fields are Dolbeault forms that are valued in the fundamental $\SU(N_c)$ representation. 
+
+The matter fields of the magnetic theory will be denoted by lower case letters to avoid confusion
+\[
+q^i\; , \; p_i \; , \; \Tilde{q}_i \; , \; \Tilde{p}^i , \quad i = 1, \ldots, N_f.
+\]
+Again, each of these fields are Dolbeault valued but this time they each transform under the fundamental $\SU(N_f-N_c)$ representation. 
+On the magnetic side one also has the `meson' fields $M_{i}^j$, which are scalars under the gauge group.
+
+\subsubsection{Flavor symmetries}
+
+Holomorphic QCD enjoys a few familiar holomorphic symmetries in the style that we discussed in this note.
+
+The first is a holomorphic `flavor' symmetry, which will manifest itself as a symmetry by the $2$-dimensional holomorphic current algebra. 
+Consider the Lie algebra $\sl(N_f)$. 
+
+The holomorphic background field $\fa = (\fa_i^j) \in \Omega^{0,\bu}(\CC^2 , \sl(N_f))$ naturally couples to both the electric and magnetic theory in the following ways:
+\[
+I^F_\sfE = \int P_j \fa_i^j Q^i , \qquad I^F_\sfM = \int \Tilde{p}_j \sfa_j^i \Tilde{q}^j + \int L^k_j \sfa_i^j M^i_k . 
+\]
+
+This determines a classical symmetry of both sides of the duality by the local Lie algebra $\Omega^{0,\bu}(\CC^2, \sl(N_f))$. 
+In particular, the two state spaces form a module for the $S^3$-current algebra $\sfA_2 \otimes \sl(N_f)$ at the classical level.
+A natural question is whether this symmetry persists at the quantum level. 
+The answer is {\em yes}, but on both sides of the duality one must take into account central extensions.
+These central extensions give rise to symmetries by higher Kac--Moody algebras $\Hat{\sl(N_f)}_{2,\theta_{\sfE}}, \Hat{\sl(N_f)}_{2,\theta_{\sfM}}$ which act on the electric and magnetic sides, respectively.
+Here $\theta_\sfE, \theta_\sfM$ are invariant cubic polynomials on the Lie algebra $\sl(N_f)$. 
+
+\begin{prop}
+The central extensions of the dual theories agree $\theta_\sfE = \theta_\sfM$. 
+In particular, the state spaces $\sfV_\sfE, \sfV_\sfM$ are modules for the {\em same} $2$-dimensional higher Kac--Moody algebra $\Hat{\sl(N_f)}_{2,\theta}$.
+\end{prop}
+
+\begin{proof}[Sketch of proof]
+This boils down to an explicit presentation of anomalies using the Feynman diagrammatic analysis for holomorphic theories surveyed in Section \ref{sec:renorm}. 
+For this calculation the gauge algebra $\sl(N_c)$ plays a minimal role. 
+The central extension is represented by a series of Feynman diagrams that are wheels with three vertices, each labeled by the background gauge field $\sfa$.
+
+In the electric case there are $N_c$ of such diagrams, all the internal edges are labeled by $Q-P$ propagators. 
+This gives rise to the local anomaly
+\beqn\label{eqn:electricflavor}
+N_c \frac16 \int \op{tr}_{N_f} \left(\sfa \partial \sfa \partial \sfa\right) 
+\eeqn
+where $\op{tr}_{N_f}$ denotes the trace in the fundamental $\sl(N_f)$-representation.
+
+The magnetic theory has two types of wheels whose external edges are labeled by the background field $\sfa$: (a) those with 
+internal edges labeled by $\Tilde{q}-\Tilde{p}$ propagators and (b) those will internal edges labeled by $M-L$ propagators. 
+There are $(N_f - N_c)$ copies of diagram (a) which gives rise to the term
+\[
+(N_f - N_c) \frac16 \int \op{tr}_{\Bar{N_f}} \left(\sfa \partial \sfa \partial \sfa\right) .
+\]
+Here, $\op{tr}_{\Bar{N_f}}$ denotes the trace in the anti-fundamental representation. 
+There are $N_f$ copies of diagram (b) which gives rise to the term
+\[
+N_f \frac16\int \op{tr}_{N_f} \left(\sfa \partial \sfa \partial \sfa\right) 
+\]
+Since $\op{tr}_{\Bar{N_f}} (X^3) = - \op{tr}_{N_f} (X^3)$ for any $X \in \sl(N_f)$, we see that the sum of these two terms agrees with the electric side \eqref{eqn:electricflavor}.
+\end{proof}
+
+There is also a `tilded' version of the flavor symmetry for the same Lie algebra $\sl(N_f)$ but where the local Noether currents read $\int \Tilde{P}^i \Tilde{\sfa}_i^j \Tilde{Q}^i$ and $\int \Tilde{p}^i \Tilde{\sfa}_i^j \Tilde{q}^i$.
+An analogous result holds for this symmetry.
+
+\subsubsection{Twisted superconformal symmetry}
+
+The physical statement of Seiberg duality is that dual theories flow to the same superconformal fixed point in the infrared limit. 
+This only makes sense when the integers $N_c,N_f$ satisfy appropriate bounds ensuring that such a superconformal fixed point exists. 
+
+We will describe how this `superconformal window'--the bounds where one expects such flows to exist--appears from the point of view of holomorphic QCD. 
+
+We start off with the (complexified) 4d $\cN=1$ superconformal algebra $\sl(4|1)$.
+This super Lie algebra is the defining symmetry of a 4d $\cN=1$ superconformal field theory. 
+The Poincar\'{e} algebra is a subalgebra of $\sl(4|1)$. %which in particular consists of supercharges $\cQ_{\alpha}, \cQ_{\dot{\alpha}}$ where $\alpha = 1,2$ is an $\SU(2)$ index.
+Inside of this algebra is the Cartan generator $\Delta$ of scaling transformations in $\RR^4$.
+
+Fix a nonzero square-zero supercharge $\cQ$. 
+Naturally, such a $\cQ$ acts by the (super)commutator on the superconformal Lie algebra.
+In \cite{SWsuco} the second author and Saberi show that there is a quasi-isomorphism of dg Lie algebras
+\[
+\bigg(\sl(4|1) \; , \; [\cQ, -] \bigg) \simeq \sl(3) .
+\]
+Thus, if one starts with a superconformal theory, one knows that at the level of the holomorphic twist the Lie algebra $\sl(3)$ will act.  
+In this sense, $\sl(3)$ is the `residual' superconformal symmetry at the level of the twist. 
+Inside of this twisted algebra $\sl(3)$ we have the ``holomorphic scaling'' operator $\Delta^{hol} = z_i \partial_{z_i}$, which is simply the holomorphic Euler vector field.  
+In fact, the entire algebra $\sl(3)$ naturally embeds inside of the Lie algebra of holomorphic vector fields on $\CC^2$.\footnote{Endowed by the description of $\CC \PP^2$ as an ${\rm SL}(3)$-homogenous space.}
+Classically in the holomorphic twist this symmetry {\em enhances} to a symmetry by an infinite dimensional dg Lie algebra. 
+
+\begin{thm}[\cite{SWsuco}] \label{thm:swsuco}
+Consider the local Lie algebra $\Omega^{0,\bu}(\CC^2, \T^{1,0})$ which resolves the Lie algebra of \ul{all} holomorphic vector fields on $\CC^2$. 
+This local Lie algebra is a classical symmetry of any theory of holomorphic QCD. 
+\end{thm}
+
+We ask when this classical symmetry persists at the quantum level. 
+Let us first consider the electric theory. 
+
+Naively, the symmetry of holomorphic vector fields is obvious: all fields are described in terms of a Dolbeault complex resolving trivial holomorphic vector bundles of various ranks. 
+Therefore, holomorphic vector fields act naturally by Lie derivative everywhere. 
+In particular, the Euler vector field $\Delta^{hol}$ acts diagonally in the natural way. 
+
+On the gauge fields, this naive action is consistent with the one present in the untwisted theory. 
+For the matter fields, however, the action at the untwisted level is {\em not} compatible with this naive one. 
+This can even be seen at the level of the holomorphic Euler vector field: naively the field $Q = z_1^n z_2^m \otimes v \in \Omega^0 (\CC^2$ transforms like $\Delta^{hol}(Q) = (n+m) Q$.
+However, to be compatible with dimension scaling in the untwisted theory one actually has 
+\[
+\Delta^{hol}(Q) = \left(n + m + \frac23\right) Q .
+\]
+What this says is that as a representation for infinitesimal holomorphic diffeomorphisms the fields $Q, P$ do not take values in the trivial vector bundle, but actually take values in some line bundle.  
+In fact, if one keeps track of the appropriate {\em twisting homomorphism} in the style of \cite{WittenTwist} one finds that the $\beta\gamma$ matter fields live in
+\[
+Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{1/3}) \otimes (\CC^{N_c})^{\oplus N_f} , \quad P \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{2/3}) \otimes (\CC^{N_c})^{\oplus N_f}
+\]
+and similarly for $\Tilde{Q}, \Tilde{P}$. 
+
+\begin{prop}
+Consider the symmetry of the electric and magnetic theories $\cT_{\sfE / \sfM}(N_c,N_f)$ by the local Lie algebra of holomorphic vector fields described by Theorem \ref{thm:swsuco}. 
+There is an anomaly for this symmetry to exist at the quantum level and it is proportional to the local functional
+\[
+\left(N_f - 3N_c\right) \frac12 \int \partial_{z_i} X_i \op{Tr} (\partial A \partial A)  .
+\]
+where $X = X_i \partial_{z_i} \in \Omega^{0,\bu}(\CC^2, \T_{\CC^2}^{1,0})$ denotes a Dolbeault form valued vector field and $A$ is a gauge field.
+\end{prop}
+
+In particular, for the {\em same value} $N_f = 3 N_c$ both the electric and magnetic theories are endowed with an action by holomorphic vector fields at the quantum level. 
+
+\end{document}
