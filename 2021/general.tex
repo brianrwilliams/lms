@@ -1,0 +1,164 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{macros, setspace}
+
+\def\U{{\rm U}}
+
+%trying this out
+%\usepackage[upint]{stix}
+\usepackage{cmupint}
+
+\def\brian#1{{\textcolor{blue!65!red}{BRW: {#1}}}}
+\def\owen#1{{\textcolor{green!65!black}{BRW: {#1}}}}
+
+
+\author{Owen Gwilliam and Brian R. Williams}
+\date{\today}
+\title{General definitions}
+
+\spacing{1.25}
+
+\begin{document}
+\maketitle
+
+This is a test.
+
+\section{Holomorphic factorization}
+
+Consider the unitary affine group 
+\[
+\U(n) \ltimes \RR^{2n} \subset {\rm Aff}(\RR^{2n}) .
+\]
+Its complexified Lie algebra is
+\[
+{\rm Lie}_{\CC} (\U(n) \ltimes \RR^{2n}) \simeq \mathfrak{u}(n) \ltimes \CC^{2n}
+\]
+with $\CC^{2n}$ spanned by the translations $\{\partial_{z_i}, \partial_{\zbar_i}\}$. 
+
+This abelian Lie algebra $\CC^{2n}$ contains both the holomorphic and anti-holomorphic translations. 
+For a holomorphic factorization algebra we want to consider translation invariant factorization algebras whereby only the holomorphic translations act nontrivially. 
+A homotopical way to encode this is to introduce the dg Lie algebra $\CC^{n}_{\rm hol}$ concentrated in degrees zero and $(-1)$. 
+In degree zero, this dg Lie algebra is $2n$-dimensional spanned by all translations $\{\partial_{z_i}, \partial_{\zbar_i}\}$.
+The degree $(-1)$ piece is $n$-dimensional spanned by elements $\{\Bar{\eta}_i\}$. 
+The differential is simply $\d \Bar{\eta}_i = \partial_{\zbar_i}$. 
+
+Its immediate to see that $\CC^n_{\rm hol}$ is quasi-isomorphic to the abelian Lie algebra spanned by the {\em holomorphic} translations $\{\partial_{z_i}\}$. 
+
+\begin{dfn}
+An $n$-dimensional {\em holomorphic factorization algebra} is a smoothly~\footnote{\brian{recall smooth}}~$\U(n) \ltimes \RR^{2n}$-equivariant factorization algebra $\cF$ on $\CC^n$ together with an extension of the complex Lie algebra of infinitesimal symmetries
+\[
+{\rm Lie}_{\CC} (\U(n) \ltimes \RR^{2n}) = \mathfrak{gl}(n) \ltimes \CC^{2n}
+\]
+to the dg Lie algebra 
+\[
+\mathfrak{gl}(n) \ltimes \CC^{n}_{\rm hol} .
+\]
+\end{dfn}
+
+
+Let $D^n(r)$ be an $n$-disk supported at the origin in $\CC^n$. 
+By definition, if $\cF$ is an $n$-dimensional holomorphic factorization algebra then $\cF(D^n (r))$ is a $\U(n)$-representation. 
+Consider the maximal torus $\U(1)^{\times n} \subset \U(n)$ which encodes the $S^1$ rotation in each coordinate. 
+Let $\cF_{(k_1,\ldots, k_n)}(r) \subset \cF(D^n(r))$ be the eigenspace of weight $(k_1,\ldots, k_n)$ with respect to the action by this subgroup. 
+By assumption, this is a sub cochain complex.
+
+Let ${\rm rad} \colon \CC^n \setminus \{0\} \to \RR_{>0}$ be the radial projection.
+Similarly as in the case of an $n$-disk, for $r < s$ let $\cF_{(k_1,\ldots, k_n)}(r<s) \subset \cF_{(k_1,\ldots, k_n)}\left({\rm rad}^{-1}(r, s) \right)$ denote the eigenspace of weight $(k_1,\ldots, k_n)$ with respect to the action by $\U(1)^{\times n}$. 
+
+We say that a holomorphic factorization algebra $\cF$ is {\em nice} if for every quadruple of positive real numbers $0 < r' < r < s < s'$ and sequence of integers $(k_1, \ldots, k_n)$ the following conditions hold:
+\begin{itemize}
+\item the natural map 
+\[
+\cF_{(k_1,\ldots, k_n)}(r) \xto{\simeq} \cF_{(k_1,\ldots, k_n)}(s)
+\]
+induced from the embedding of disks $D^n(r) \hookrightarrow D^n (s)$ is a quasi-isomorphism.
+\item the natural map
+\[ 
+\cF_{(k_1,\ldots, k_n)}\left(r < s \right) \to \cF_{(k_1,\ldots, k_n)}\left(r' < s' \right) 
+\]
+induced from the embedding of open sets ${\rm rad}^{-1}(r,s) \hookrightarrow {\rm rad}^{-1} (r',s')$ is a quasi-isomorphism.
+\end{itemize}
+
+\begin{dfn}
+Suppose that $\cF$ is a nice $n$-dimensional holomorphic factorization algebra. 
+Define the following cochain complexes:
+\begin{itemize}
+\item[(1)] 
+The {\em state space} of $\cF$ is the cochain complex
+\[
+\sfV_{\cF} \define \oplus_{k_1,\ldots, k_n} \cF_{(k_1,\ldots, k_n)}(1) .
+\]
+\item[(2)]
+The $S^{2n-1}$-{\em operators} (or simply, spherical operators) of $\cF$ is the cochain complex
+\[
+\oint_{S^{2n-1}} \cF \define \oplus_{k_1,\ldots, k_n} \cF _{(k_1,\ldots, k_n)}\left(1 < 2\right) .
+\]
+\end{itemize}
+\end{dfn}
+
+\begin{thm}
+Suppose that $\cF$ is a nice $n$-dimensional holomorphic factorization algebra. 
+Then
+\begin{itemize}
+\item The cochain complex of spherical operators $\oint_{S^{2n-1}} \cF$ has the structure of an $A_\infty$ algebra.
+\item The state space $\sfV_\cF$ is an $A_\infty$-module for $\oint_{S^{2n-1}} \cF$. 
+\end{itemize}
+\end{thm}
+
+\section{State-operator/descent}
+
+In complex dimension one holomorphic factorization algebras recover the theory of vertex algebras. 
+Paramount to this relationship is pinning down the geometric meaning of the {\em state-operator} map
+\[
+Y \colon \sfV \to {\rm End}(\sfV)[[z,z^{-1}]] .
+\]
+\brian{interpret}
+
+Suppose that $\cF$ is a holomorphic factorization algebra. 
+In particular, $\cF$ is translation invariant implying, in particular, that there is an identification of the value of $\cF$ on an $n$-disk centered at zero and any translate of it.
+In this way, if $\cO \in \sfV = \sfV_{\cF}$ is an element of the state space then we obtain a smooth function $z \mapsto \cO(z,\zbar)$ obtained by translating the state space to the disk centered at $z$.
+
+In other words, we can use translation invariance to define a translation invariant vector bundle $\cV$ (valued in cochain complexes) whose fiber over zero is $\sfV$. 
+In fact, by the axioms of a holomorphic factorization algebra this is actually a holomorphic vector bundle. 
+
+Define the Dolbeault valued operator $\cO \in \Omega^{0,\bu}(\CC^n, \sfV)$. 
+\[
+\Tilde{\cO} (z,\zbar) \define \exp \bigg( \d \zbar_i \, \Bar{\eta}_i \bigg) \cO(z, \zbar) 
+\]
+\brian{``holomorphic descent''}
+
+Of course, the Dolbeault complex with values in any holomorphic vector bundle forms a sheaf. 
+Applied to the inclusion $\CC^n \setminus \Bar{D}_r(0) \hookrightarrow \CC^n$, where $\Bar{D}_r(0)$ is the closed $n$-disk centered at zero, we obtain a restriction map 
+\[
+\Omega^{0,\bu}(\CC^n, \sfV) \to \Omega^{0,\bu}\left(\CC^n \setminus \Bar{D}^n_r(0), \sfV\right) .
+\]
+In particular, given any state $\cO$ we obtain an element on the right hand side of this map that we still denote by $\Tilde{\cO}(z, \zbar)$. 
+
+Given another state $\cO'$ we can consider the $z$-dependent factorization product $\cO \star \Tilde{\cO}(z,\zbar)$. 
+This factorization product makes sense as we can assume that $\cO'$ lives in the value of the factorization algebra of a disk of radius $\leq r$. 
+
+Finally, suppose that $\alpha \in \sfA_n$ is of cohomological degree $k$. 
+Define the linear map
+\[
+Y_\alpha (\cO) \colon \sfV \to \cF(D^n_R(0))[??]
+\]
+by sending an element $\cO'$ to 
+\[
+\oint_{S^{2n-1}} \d^n z \wedge \alpha (z,\zbar) \wedge \big[\Tilde{\cO}(z,\zbar) \star \cO'\big]  
+\]
+where $S^{2n-1}$ is any sphere of radius $R \geq r$. 
+
+\begin{lem}
+The image of $Y_\alpha(\cO)$ is a subspace of $\sfV \subset \cF(D^n_R(0))$. 
+In other words, $Y_{\alpha}(\cO)$ determines an endomorphism of $\sfV$. 
+\end{lem}
+
+As it stands, the endomorphism $Y_\alpha$ depends on a lot of data: the specific homotopies $\eta$, the radius of the sphere $S^{2n-1}$, etc.. 
+In cohomology, however, we do get a well-defined map 
+\[
+Y \colon H^\bu(\sfV) \to {\rm End}(H^\bu(\sfV)) \otimes H^\bu(\sfA_n)^\vee [1-n]
+\]
+which sends $[\cO] \in H^\bu(\sfV)$ and $[\alpha] \in H^\bu(\sfA_n)$ to the endomorphism $[Y_\alpha(\cO)]$ which is independent of all the choices mentioned above.
+
+
+\end{document}

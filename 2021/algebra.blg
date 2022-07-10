@@ -1,0 +1,5 @@
+[0] Config.pm:324> INFO - This is Biber 2.1
+[0] Config.pm:327> INFO - Logfile is 'algebra.blg'
+[55] biber-darwin:276> INFO - === Sat Jun 19, 2021, 11:05:19
+[56] Biber.pm:333> INFO - Reading 'algebra.bcf'
+[174] Utils.pm:146> WARN - No data sources defined!
