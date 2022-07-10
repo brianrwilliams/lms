@@ -41,6 +41,7 @@
 \dedicatory{To Yuri Manin, with great admiration.}
 
 \maketitle
+\tableofcontents
 
 \owen{mention some history (e.g., Manin!) and some recent work (CPTVV, Pridham, etc) but then explain our focus: higher analogs of VOAs and finding mathematical analogs of physics}
 
@@ -49,13 +50,13 @@
 
 \section{What is a holomorphic field theory? Why study them?}
 
-The most important field theories in physics involve a metric on a manifold (whether Riemannian or Lorentzian), and hence geometry has had a clear role in physics.
+The most important field theories in physics involve a metric on a manifold (whether Riemannian or Lorentzian), and hence geometry has long had a clear role in physics.
 In recent decades attention has expanded to include {\em topological} field theories (or TFTs), 
 in which --- to simplify --- only the underlying smooth topology of the manifold matters.
 There are, however, theories that depend on a complex structure on the manifold,
 and as one might hope, these are particularly beautiful, 
 just as complex variables is a particularly beautiful wing of analysis.
-In essence, such {\em holomorphic} field theories have variational PDE (or ``equations of motion'') that are holomorphic:
+In essence, such {\em holomorphic} field theories have variational partial differential equations (i.e., ``equations of motion'') that are holomorphic:
 the PDE only involves derivatives in the holomorphic coordinates (i.e., the $\partial/\partial z_j$) and has holomorphic coefficients.
 These theories admit independent motivations from mathematics and physics,
 which we sketch before giving more careful definitions.
@@ -134,18 +135,66 @@ A Maurer--Cartan element in $\Omega^{0,\bu}(X, \T_X)$ is an element $\mu \in \Om
 This recovers the classical picture describing formal deformations of complex structures on~$X$.
 
 
-
 %this section aimed at mathematicians
 %emphasize connection with (derived) complex geometry
 
-\subsection{Examples from physics}
-%this section aimed at physicists
-%twists of SUSY theories
-%Owen has some nice thoughts about globalization as it related to SUSY/THF.
+\subsection{Examples}
 
 \owen{Mention main classes of field theories (scalar and sigma models, fermions as matter, gauge theories for ``forces'', gravity, and their combinations) and how there are holomorphic analogs}
 
+In traditional physics there are a few basic types of field theories, 
+and they can be assembled into combinations in natural ways,
+of which the Standard Model offers a nice example.
+The basic types are\footnote{For the experts, we remark that we focus above on the core field content, and ignore (just for the moment!) issues like gauge transformations and the associated ghost fields.}
+\begin{itemize}
+\item {\em Scalar} field theories where the fields are maps from $M$ to a vector space $V$, or natural generalizations like taking sections of a vector bundle $V \to M$. The Higgs boson appears as part of a scalar field theory.
+\item {\em Fermionic} field theories where the fields are maps from $M$ to an {\em odd} vector space or, typically, a section of a spinor bundle. Such theories are often used to describe matter, such as electron fields.
+\item {\em Gauge} field theories where the fields are connections on a principal $G$-bundle over $M$, with $G$ a Lie group. The Yang--Mills theories for the electroweak and strong forces are examples.
+\item $\sigma$-models where the fields are maps from $M$ into a manifold~$X$. (One can view these as generalizations of scalar field theories.)
+\item {\em Gravity} theories where the fields are metrics on $M$, or something that similarly controls the geometry of $M$. Einstein's theory is a paradigmatic example.
+\end{itemize}
+The Standard Model involves the first three types,
+and the different fields interact in intricate ways.
+
+There are holomorphic versions of all these basic types, 
+and we now spell out some simple examples.
+To give the readers --- possibly a mixed audience of mathematicians and physicists --- some feel for the examples, 
+we describe them in several ways: 
+in terms of PDE and action functionals but also as moduli spaces.
+We do not offer a thorough justification of the dictionary, for which see \owen{cite who?}
+
+For an example that mixes several types and that is a holomorphic analog of quantum chromodynamics (QCD), the theory that governs the strong force and quarks,
+see Section~\ref{sec: seiberg}.
+One motivation for us to explore holomorphic field theories is that one can translate physical insights and conjectures (such as Seiberg duality) into surprising predictions in the holomorphic setting,
+which is typically much cleaner and more accessible.
+(One might also hope that progress in the holomorphic setting then feeds back useful insights to physics.)
+
+
+\subsubsection{Holomorphic scalar field theories}
+
+% beta gamma systems
+
+\subsubsection{Holomorphic fermionic field theories}
+
+% bc systems
+
+\subsubsection{Holomorphic gauge theories}
+
+% BF and CS
+
+\subsubsection{Holomorphic $\sigma$-models}
+
+% curved beta gamma
+
+\subsubsection{Holomorphic gravity}
+
+% Kodaira-Spencer
+
 \subsection{Examples from supersymmetric field theories}
+
+%this section aimed at physicists
+%twists of SUSY theories
+%Owen has some nice thoughts about globalization as it related to SUSY/THF.
 
 \owen{Revise to explain SYM as source for some examples above, but also add brief discussions of newer examples like twisted SUGRA and exotic super Lie algebras}
 
@@ -1445,6 +1494,7 @@ H^j \left( G / N \, ; \, \Omega^{n+1,cl}_{G/N} \right) \; \simeq \; H_{\rm dR}^{
 
 
 \section{Vista: Seiberg duality and its consequences}
+\label{sec: seiberg}
 
 The field content of 4d $\cN=1$ supersymmetric Yang--Mills theory is:
 \begin{itemize}
