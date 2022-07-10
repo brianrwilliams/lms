@@ -11,7 +11,7 @@
 
 \author{Owen Gwilliam and Brian R. Williams}
 \date{\today}
-%\title{Part I}
+\title{Holomorphic field theories and higher algebra}
 
 \def\g{{\mathfrak g}}
 \def\U{{\rm U}}
@@ -37,7 +37,12 @@
 %\usepackage[upint]{stix}
 
 \begin{document}
-%\maketitle
+
+\dedicatory{To Yuri Manin, with great admiration.}
+
+\maketitle
+
+\owen{mention some history (e.g., Manin!) and some recent work (CPTVV, Pridham, etc) but then explain our focus: higher analogs of VOAs and finding mathematical analogs of physics}
 
 \owen{Notation to explain: dg = differential graded, PDE = partial differential equations}
 
@@ -142,6 +147,7 @@ This recovers the classical picture describing formal deformations of complex st
 
 \subsection{Examples from supersymmetric field theories}
 
+\owen{Revise to explain SYM as source for some examples above, but also add brief discussions of newer examples like twisted SUGRA and exotic super Lie algebras}
 
 Any even dimensional supersymmetric field theory produces a holomorphic field theory through a process called twisting,
 so we have a wealth of examples to study that are intimately connected to theories of genuine interest in physics.\footnote{Strictly speaking, this requires the existence of of more than two chiral supercharges. So, theories with 2d $\cN = (n,m)$ supersymmetry, $n,m \leq 1$, do not admit holomorphic twists.}
@@ -210,9 +216,22 @@ Moreover, no higher loop diagrams appear (for combinatorial reasons),
 and the action functional satisfies the quantum master equation.
 See Section~\ref{sec: susytwist revisited} for some further discussion.
 
+\owen{More examples}
 
+\begin{itemize}
+\item Target space field theories of topological string theories give rich classes of holomorphic field theories. 
+For instance, the closed string field theory of the topological B-model is Kodaira--Spencer theory, first proposed in \cite{BCOV}. 
+This theory is defined on any Calabi--Yau manifold. 
+The perspective of Kodaira--Spencer theory as a holomorphic field theory has been explored with great success by Kevin Costello and Si Li \cite{CL1, CL2, CL3}.  
+\item The `pure spinor' method of Cederwall and Berkovits \cite{Cederwall, Berkovits} starts with a field or string theory defined on the (sometimes singular) nilpotence variety of the super Poincar\'e algebra and uses the action of supersymmetry to produce ordinary (non-twisted) supersymmetric field theories. 
+Often, the theory you start with on the nilpotence variety is holomorphic \cite{SWpure}. 
+\item Similar in spirit to the pure spinor formalism is a systematic relationship between holomorphic field theories on (super) twistor space and ordinary (Riemannian) field theories.
+For instance, holomorphic BF theory on twistor space associated to $\RR^4$ is equivalent to a self-dual limit of Yang--Mills theory. 
+\end{itemize}
 
-\subsection{Background}
+\subsection{An extended aside on perturbative quantization}
+
+\owen{Sketch Brian's main results --- and Si's! --- and compare them with configuration space method of A-S and K for TFTs, subsequently developed by others}
 
 Although holomorphic field theories had already appeared in practice,
 my collaborator Brian Williams was the first to lay a systematic, mathematical foundations (cf. his thesis \cite{BWthesis} and its offshoot \cite{BWhol}).
@@ -246,18 +265,6 @@ and given a novel approach, via factorization algebras, to the results of Beem e
 Particularly important for this proposal,
 they have shown how important invariants (notably the ``supersymmetric index") of the untwisted, supersymmetric theory can be computed simply in the holomorphic twist.
 
-\subsection{More examples of holomorphic field theories}
-
-\begin{itemize}
-\item Target space field theories of topological string theories give rich classes of holomorphic field theories. 
-For instance, the closed string field theory of the topological B-model is Kodaira--Spencer theory, first proposed in \cite{BCOV}. 
-This theory is defined on any Calabi--Yau manifold. 
-The perspective of Kodaira--Spencer theory as a holomorphic field theory has been explored with great success by Kevin Costello and Si Li \cite{CL1, CL2, CL3}.  
-\item The `pure spinor' method of Cederwall and Berkovits \cite{Cederwall, Berkovits} starts with a field or string theory defined on the (sometimes singular) nilpotence variety of the super Poincar\'e algebra and uses the action of supersymmetry to produce ordinary (non-twisted) supersymmetric field theories. 
-Often, the theory you start with on the nilpotence variety is holomorphic \cite{SWpure}. 
-\item Similar in spirit to the pure spinor formalism is a systematic relationship between holomorphic field theories on (super) twistor space and ordinary (Riemannian) field theories.
-For instance, holomorphic BF theory on twistor space associated to $\RR^4$ is equivalent to a self-dual limit of Yang--Mills theory. 
-\end{itemize}
 
 
 \section{Algebra and holomorphic field theories}
@@ -1292,7 +1299,7 @@ determines a fully extended oriented $d$-dimensional field theory with values in
 A similar claim applies to the general case with a map $G \to O(d)$.
 
 
-\section{Vista: Holomorphic $\sigma$-models and higher algebras of differential operators}
+\section{Holomorphic $\sigma$-models, higher algebras of differential operators, and free field realization}
 
 
 We have already met the higher dimensional $\beta\gamma$ system on $\CC^n$.
