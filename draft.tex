@@ -1366,8 +1366,9 @@ A similar claim applies to the general case with a map $G \to O(d)$.
 
 \owen{discuss OPE and explain the shifted Poisson structure}
 
-\section{Holomorphic $\sigma$-models, higher algebras of differential operators, and free field realization}
+\section{Holomorphic $\sigma$-models, higher algebras of differential operators, and higher free field realization}
 
+\owen{We should also discuss how these can reduce to LG B-models, as precursor to the Hori-Tong dualities.}
 
 We have already met the higher dimensional $\beta\gamma$ system on $\CC^n$.
 This is an $n$-dimensional holomorphic system described by an $n$-dimensional translation invariant factorization algebra.
@@ -1514,15 +1515,45 @@ H^j \left( G / N \, ; \, \Omega^{n+1,cl}_{G/N} \right) \; \simeq \; H_{\rm dR}^{
 \section{Vista: Seiberg duality and its consequences}
 \label{sec: seiberg}
 
-The field content of 4d $\cN=1$ supersymmetric Yang--Mills theory is:
+A major endeavor in theoretical physics is to develop a deep and effective understanding of theories like quantum chromodynamics (QCD), which governs the behavior of quarks and gluons.
+One natural approach is to study theories that are close cousins but that are easier to analyze,
+and a notable way is to look for theories with the same ingredients but with larger groups of symmetries.
+Supersymmetric Yang--Mills theories are quite appealing in this regard,
+and there have been remarkable successes in this direction.
+A well-known high point is the work of Seiberg and Witten on 4-dimensional $\cN =2$ supersymmetric Yang--Mills theory,
+where they explained how confinement could be realized by a version of the Mandelstam-'t Hooft mechanism (i.e., a kind of electromagnetic duality identifies confinement with a Meissner-type effect).
+Their work offered powerful new tools that opened up much subsequent progress,
+and even impacted mathematics through the Seiberg-Witten equations (which is related to the topologically twisted versions of $\cN=2$ theory).
+
+The class of supersymmetric theories closest to the Standard Model, however, has only $\cN=1$ supersymmetry.
+There too Seiberg offered inspiring and powerful insights typically referred to as {\em Seiberg duality}.
+These ideas have had a large impact in theoretical physics \owen{give the citation number on that paper},
+but the impact in mathematics is much more muted,
+possibly due to the lack of a topological twist of $\cN=1$ theories.
+Such theories do admit {\em holomorphic} twists, however, 
+and so we explore here what holomorphic Seiberg duality might mean and what its consequences could be in mathematics.
+In our opinion this direction could be quite fruitful and we welcome others to join us in exploring it.
+
+We begin this section by describing the holomorphic twist of $\cN=1$ supersymmetric Yang--Mills theory,
+and then we offer a holomorphic version of Seiberg duality, 
+initially conjectured by Richard Eager.
+We explain our first efforts in this direction and how it offers evidence for the conjecture;
+we then refine Eager's version.
+We also explain how this duality, when compactified along Riemann surfaces,
+should produce equivalences between different kinds of 2-dimensional B-model theories;
+these reductions are related to work of Hori and Hori--Tong \owen{citations} and its mathematical development by Ed Segal, \owen{list others}.
+
+\subsection{Holomorphic QCD}
+
+The field content of 4-dimensional $\cN=1$ supersymmetric Yang--Mills theory is:
 \begin{itemize}
 \item a `vector multiplet' which consists of a gauge field $A$ together with some fermions $\lambda$ all taking values in a Lie algebra $\fg$;
 \item a `matter multiplet' (usually called the chiral multiplet) which consists of a scalar $\phi$ together with some fermions $\psi$ all transforming in some representation $V$ of $\fg$. 
 Additionally, there is a `superpotential' $W$ which is a $\fg$-invariant polynomial on~$V$. 
 \end{itemize}
 
-From hereon we fix a nonzero, square zero supercharge of the 4d $\cN=1$ supersymmetry algebra for which we wish to twist by. 
-The twist of 4d $\cN=1$ supersymmetric Yang--Mills theory has been characterized in \cite{CosYangian, ESW, SWchar}. 
+From hereon we fix a nonzero, square zero supercharge of the 4-dimensional $\cN=1$ supersymmetry algebra for which we wish to twist by. 
+The twist of 4-dimensional $\cN=1$ supersymmetric Yang--Mills theory has been characterized in \cite{CosYangian, ESW, SWchar}. 
 It is a holomorphic field theory on $\CC^2$ consisting of a `vector' part and a 'matter' part.
 As a moduli space, it can be described in the following way (we will give a description in terms of fields and action functionals afterwards).
 
@@ -1594,10 +1625,16 @@ Note that the fields $M$ are `uncharged' under the gauge group.
 The only coupling $M$ has to the other fields is through the superpotential $W$. 
 \end{rmk}
 
-Our long term goal is to show that two special cases of holomorphic QCD are {\em dual}.
+\subsection{A first pass at Seiberg duality}
+
+Our long-term goal is to show that two special cases of holomorphic QCD are {\em dual}.
+The notion of duality can refer to several kinds of relationships,
+but loosely speaking it means that some aspects of the two theories are equivalent under some dictionary or correspondence.
+We will postpone saying something precise till we have some terminology in place.
+
 We focus on the gauge group $G = \SU(N)$, and consider a class of holomorphic QCD theories associated to particular choices of representations and superpotential. 
-Following physics terminology, will refer to the defining $N$-dimensional representation $\CC^N$ of $\SU(N)$ as the {\em fundamental} representation. 
-Also, suppose $N_c, N_f$ are integers with $N_f \geq N_c \geq 2$.
+Following physics terminology, we will refer to the defining $N$-dimensional representation $\CC^N$ of $\SU(N)$ as the {\em fundamental} representation. 
+Also, let $N_c, N_f$ denote integers where $N_f \geq N_c \geq 2$.
 %Also, let $N_{\rm mes} \geq 0$ be some integer.  
 %{\em Type A} holomorphic QCD is 
 %\[
@@ -1632,12 +1669,9 @@ Then the cubic polynomial $W$ is
 W = \sum_{i,j,a} m^i_j q_i^a \Tilde{q}^i_a .
 \]
 
-
-\begin{thm}
-Both $\cT_{\sfE}(N_c, N_f)$ and $\cT_{\sfM}(N_c, N_f)$ exist at the quantum level. 
-That is, the anomaly to a perturbative BV quantization vanishes.
-In fact, the quantization is one-loop exact. 
-\end{thm}
+The usual Seiberg duality states how certain ``electric'' and ``magnetic'' versions of SQCD ($\cN=1$ supersymmetric QCD) should be equivalent.
+Our electric and magnetic holomorphic QCDs are precisely the holomorphic twists of those that appear in Seiberg duality.
+In \cite{Eager} Richard Eager suggested that Seiberg duality should survive after taking the holomorphic twist.
 
 \begin{conj}
 There is an equivalence of $2$-dimensional holomorphic factorization algebras
@@ -1646,7 +1680,64 @@ There is an equivalence of $2$-dimensional holomorphic factorization algebras
 \]
 \end{conj}
 
-The statement should be interpreted as an equivalence of factorization algebras valued in $\ZZ/2$-graded cochain complexes since the field theories are only $\ZZ/2$ graded.
+The statement should be interpreted as an equivalence of factorization algebras valued in $\ZZ/2$-graded cochain complexes since the field theories are only $\ZZ/2$-graded.
+
+One appealing aspect of Eager's conjecture is that it is mathematically precise:
+duality would mean giving an equivalence of factorization algebras.
+It is analogous to claiming that two vertex algebras are equivalent,
+such as in the well-known boson-fermion correspondence.
+In this sense it is a target at which a mathematician can aim,
+rather than the more amorphous statements of duality that one often finds in the physics literature.
+In that literature, however, there is guidance on what map of factorization algebras provides the equivalence,
+which we describe in the next section.
+
+In general, Eager's suggestion opens up a fascinating vein of inquiry:
+\begin{quote}
+how do physical results about supersymmetric gauge theories behave under twisting?
+\end{quote}
+We have found, so far, that they often admit clean mathematical formulations and that the holomorphic (or topological) twists involve constructions of natural interest in geometry and representation theory.
+In \cite{EGW} we and Chris Elliott explored twists of $\cN=4$ supersymmetric Yang--Mills theory,
+provided their quantizations, and began analyzing their factorization algebras.
+Following Eager, we can ask about the twisted versions of S-duality and how to provide those conjectured equivalences.
+
+\subsection{Evidence for holomorphic Seiberg duality}
+
+We now turn to examining evidence for the conjecture, which will, in turn, allow us to refine it.
+The first piece of evidence involves the classical field theories:
+\begin{quote}
+$\bullet$ Each theory has a moduli stack of vacua, and there is a natural isomorphism between \owen{the affinizations?} the spaces for theories dual according to the conjecture.
+\end{quote}
+This map of stacks determines a map of factorization algebras of classical observables,
+and it should deform to the map between the factorization algebras for the quantum theories.
+As we discuss in a moment, holomorphic QCD can be quantized using the techniques of \cite{BW work}.
+There are then two further pieces of evidence when these quantum theories are examined:
+\begin{enumerate}
+\item There are {\em flavor} symmetries that act on each theory, and these can be matched under the duality. Under quantization, these have isomorphic anomalies.
+\item There are {\em spacetime} symmetries that act on each theory, notably isometries, and on the classical holomorphic theories, these enhance to an action of holomorphic vector fields. Under quantization, these have isomorphic anomalies.
+\end{enumerate}
+This triple of evidence is analogous (and sometimes stronger) than results for Seiberg duality for SQCD. 
+We now turn to fleshing out the assertions above.
+
+\subsubsection{Moduli of vacua and quantization}
+
+It is fruitful, and standard in physics, to identify the simplest solutions to the equations of motion for a theory.
+Here that means a solution that is translation-invariant on $\CC^2$ (i.e., a constant solution),
+and we call such a solution a {\em classical vacuum}.
+Thus each theory has an associated {\em moduli space of classical vacua},
+which we describe in the next subsection.
+Each vacuum determines a perturbative field theory that one could try to quantize,
+and we have shown the following.
+(Many arguments are close cousins of~\cite{EGW}, where we quantize every twist over a moduli of vacua of the $\cN=4$ supersymmetric Yang--Mills theory.)
+
+\begin{thm}
+Both $\cT_{\sfE}(N_c, N_f)$ and $\cT_{\sfM}(N_c, N_f)$ exist at the quantum level for any choice of classical vacuum. 
+That is, the anomaly to a perturbative BV quantization vanishes.
+In fact, the quantization is one-loop exact. 
+\end{thm}
+
+
+\subsubsection{Flavor symmetries}
+
 We fix some notation for the fields of the electric and magnetic theories. 
 The `flavor' index will be denoted by letters $i,j=1,\ldots, N_f$. 
 
@@ -1662,8 +1753,6 @@ q^i\; , \; p_i \; , \; \Tilde{q}_i \; , \; \Tilde{p}^i , \quad i = 1, \ldots, N_
 \]
 Again, each of these fields are Dolbeault valued but this time they each transform under the fundamental $\SU(N_f-N_c)$ representation. 
 On the magnetic side one also has the `meson' fields $M_{i}^j$, which are scalars under the gauge group.
-
-\subsubsection{Flavor symmetries}
 
 Holomorphic QCD enjoys a few familiar holomorphic symmetries in the style that we discussed in this note.
 
@@ -1723,8 +1812,8 @@ This only makes sense when the integers $N_c,N_f$ satisfy appropriate bounds ens
 
 We will describe how this `superconformal window'--the bounds where one expects such flows to exist--appears from the point of view of holomorphic QCD. 
 
-We start off with the (complexified) 4d $\cN=1$ superconformal algebra $\sl(4|1)$.
-This super Lie algebra is the defining symmetry of a 4d $\cN=1$ superconformal field theory. 
+We start off with the (complexified) 4-dimensional $\cN=1$ superconformal algebra $\sl(4|1)$.
+This super Lie algebra is the defining symmetry of a 4-dimensional $\cN=1$ superconformal field theory. 
 The Poincar\'{e} algebra is a subalgebra of $\sl(4|1)$. %which in particular consists of supercharges $\cQ_{\alpha}, \cQ_{\dot{\alpha}}$ where $\alpha = 1,2$ is an $\SU(2)$ index.
 Inside of this algebra is the Cartan generator $\Delta$ of scaling transformations in $\RR^4$.
 
@@ -1776,5 +1865,7 @@ where $X = X_i \partial_{z_i} \in \Omega^{0,\bu}(\CC^2, \T_{\CC^2}^{1,0})$ denot
 \end{prop}
 
 In particular, for the {\em same value} $N_f = 3 N_c$ both the electric and magnetic theories are endowed with an action by holomorphic vector fields at the quantum level. 
+
+\subsection{A second pass at holomorphic Seiberg duality, and its relations to Hori-Tong duality}
 
 \end{document}
