@@ -1,0 +1,29 @@
+Associative algebras arise in quantum mechanics, we have argued, because the spacetime of a mechanical system is a line (``time'').
+If we organize the observables (or operators) by when they happen in time,
+it corresponds to writing them left-to-right as products in an algebra.
+A natural question to ask then is what kind of higher algebraic structure captures how observables behave for theories in higher dimensions?
+The shortest answer is ``factorization algebras,'' and we will describe and explore this notion in Section~\ref{sec fact alg},
+but there are nice answers for two special classes of theories that we will develop now:
+\begin{itemize}
+\item For a topological field theory on $\RR^d$ (which we'll define in a moment),
+the observables form an algebra over the {\em little $d$-disks operad}~$E_d$. 
+Equivalently, one says the observables are an $E_d$-algebra. 
+This notion was introduced by algebraic topologists in the 1960s, 
+so there is a rich body of work to draw upon.
+\item For a holomorphic field theory on $\CC^d$,
+the observables form an algebra over the $d$-polydiscs operad~$\PD_d$.
+This notion was introduced only recently in~\cite{CG1}.
+\end{itemize}
+We will make the assertions above precise (in part by adding some natural but necessary hypotheses on a theory)
+and develop them in parallel.
+As a particularly illuminating example, we will explore the $d=1$ case rather closely and explain in what sense a vertex algebra is a kind of ``holomorphic associative algebra.''
+We will also discuss the polydiscs algebras for which the higher Kac-Moody algebras are a Lie-algebraic shadow.
+
+Before jumping into the main story, we mention a motivation for talking about $E_d$- and $\PD_d$-algebras in parallel.
+By dealing with both, we are suggesting, of course, that there is a natural analogy and hence a useful transfer of intuition between the settings of topological and holomorphic field theories.
+But there is a stronger, technical relationship that we'll develop via a version of dimensional reduction.
+From each holomorphic field theory in complex dimension $d$, 
+we'll extract an $E_d$-algebra.
+This construction generalizes the relationship between the Kac-Moody vertex algebra of a Lie algebra $\fg$ at level $k$ and the central extension of the loop algebra~$L\fg$.
+We expect this correspondence to bear rich fruit.
+\owen{that metaphor's a bit fruity}
