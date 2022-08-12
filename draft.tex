@@ -82,7 +82,7 @@ which (loosely speaking) are theories on $\RR^n$ whose symmetries include not on
 Thanks to the enhanced symmetry, such theories can often be understood in greater detail than non-supersymmetric theories.
 The relevance to the models we study is that supersymmetric theories admit ``twists'' (in essence, deformations) that are holomorphic field theories, 
 even when they do not admit twists to TFTs (such as the famed A- and B-models of mirror symmetry) \cite{CosHol}.
-As an example, four-dimensional minimally supersymmetric Yang-Mills theory admits no topological twist, but does admit a twist to holomorphic field theory whose moduli space is described, in part, by $\RR \Bun_G(X)$. 
+As an example, four-dimensional minimally supersymmetric Yang-Mills theory admits no topological twist, but does admit a twist to a holomorphic field theory whose moduli space is described, in part, by $\RR \Bun_G(X)$. 
 It is natural to wonder how the myriad tools and computations deployed on the supersymmetric theory carry over to this twist and conversely whether information can flow back from a holomorphically twisted theory to the untwisted one, 
 much as TFTs have enriched the understanding of supersymmetric theories.
 In short, a holomorphic twist contains the ``holomorphic sector'' of the untwisted theory just as a topological twist contains its ``topological sector.''
@@ -98,7 +98,7 @@ We expect that these holomorphic examples will be particularly tractable and bea
 
 \subsection{Preliminary notions}
 
-%complex geometry, dolbeault, dg stuff.
+\brian{complex geometry, dolbeault, dg stuff.}
 
 \subsection{Precise definitions}
 
@@ -763,7 +763,9 @@ We will return to this topic once we have the rich language of factorization alg
 \section{Factorization algebras and holomorphic field theories}
 \label{prefactorization_algebras}
 
-A key idea for us is that much of the content in field theories --- both classical and quantum --- are captured by factorization algebras.
+\owen{Much of what's below is borrowed and scarcely modified from the books, so we probably should do more revision so it's not plagiarism!}
+
+A key idea for us is that much of the content in field theories --- both classical and quantum --- is captured by factorization algebras.
 We will introduce that concept now, in the style that sheaves are defined, so first we describe {\em pre}\/factorization algebras and then impose a local-to-global condition to characterize factorization algebras.
 With the notion in hand, we will describe several examples and several situations where factorization algebras have already appeared in mathematics and physics, 
 albeit in a different formulation.
@@ -1215,7 +1217,7 @@ one sees an $E_1$ structure.
 
 \owen{Add picture? We drew 2d pictures earlier.}
 
-An algebra over this operad is called an $E_n$-algebra.
+An algebra over this operad is called an {\em $E_n$-algebra}.
 A classic example from topology is given by taking the $n$-fold based loop space
 \[
 \Omega^n_x(X) = \{ \gamma: \overline{D^n} \to X \mcol \gamma(\partial \overline{D^n}) = x\}
@@ -1239,10 +1241,10 @@ Lurie has shown the following vast extension of this example. (See section 5.4.5
 There is an equivalence of $(\infty,1)$-categories between $E_n$ algebras and locally constant factorization algebras on~$\RR^n$.  
 \end{thm}  
 
-We remark that Lurie and Ayala-Francis uses a different gluing axiom than we do. A careful comparison of the different axioms and a proof of their equivalence (for locally constant factorization algebras) can be found in \cite{Matsuoka}. We emphasize that higher categories are necessary for a rigorous development of these constructions and comparisons, although we will not emphasize that point in our discussion below, which is expository in nature.
+This theorem, together with work in these two books, builds an explicit bridge between topology and physics. Topological field theories in the physicist's sense, such as perturbative Chern-Simons theory, produce locally constant factorization algebras, which can then be viewed as $E_n$ algebras and analyzed using the powerful machinery of modern homotopy theory. Conversely, intuition from physics about the behavior of topological field theories suggests novel constructions and examples to topology. Much of the amazing resonance between operads, homological algebra, and string-theoretic physics over the last few decades can be understood from this perspective.
 
 \begin{rmk}
-This theorem, together with our work in these two books, builds an explicit bridge between topology and physics. Topological field theories in the physicist's sense, such as perturbative Chern-Simons theory, produce locally constant factorization algebras, which can then be viewed as $E_n$ algebras and analyzed using the powerful machinery of modern homotopy theory. Conversely, intuition from physics about the behavior of topological field theories suggests novel constructions and examples to topology. Much of the amazing resonance between operads, homological algebra, and string-theoretic physics over the last few decades can be understood from this perspective.~\hfill $\Diamond$
+We remark that Lurie and Ayala-Francis uses a different gluing axiom than we do. A careful comparison of the different axioms and a proof of their equivalence (for locally constant factorization algebras) can be found in \cite{Matsuoka}. We emphasize that higher categories are necessary for a rigorous development of these constructions and comparisons, although we will not emphasize that point in our discussion below, which is expository in nature.~\hfill $\Diamond$
 \end{rmk}
 
 \begin{rmk}
@@ -1526,10 +1528,11 @@ Their work offered powerful new tools that opened up much subsequent progress,
 and even impacted mathematics through the Seiberg-Witten equations (which is related to the topologically twisted versions of $\cN=2$ theory).
 
 The class of supersymmetric theories closest to the Standard Model, however, has only $\cN=1$ supersymmetry.
-There too Seiberg offered inspiring and powerful insights typically referred to as {\em Seiberg duality}.
-These ideas have had a large impact in theoretical physics \owen{give the citation number on that paper},
+There too Seiberg offered inspiring and powerful insights,
+and one of his leading contributions is referred to as {\em Seiberg duality}.
+It has had a large impact in theoretical physics \owen{give the citation number on that paper},
 but the impact in mathematics is much more muted,
-possibly due to the lack of a topological twist of $\cN=1$ theories.
+possibly due to the lack of a topological twist for any $\cN=1$ theory.
 Such theories do admit {\em holomorphic} twists, however, 
 and so we explore here what holomorphic Seiberg duality might mean and what its consequences could be in mathematics.
 In our opinion this direction could be quite fruitful and we welcome others to join us in exploring it.
@@ -1699,6 +1702,9 @@ We have found, so far, that they often admit clean mathematical formulations and
 In \cite{EGW} we and Chris Elliott explored twists of $\cN=4$ supersymmetric Yang--Mills theory,
 provided their quantizations, and began analyzing their factorization algebras.
 Following Eager, we can ask about the twisted versions of S-duality and how to provide those conjectured equivalences.
+\owen{This should be rephrased, and we should mention more people, like Philsang and Surya. We can mention pre-S-duality things (like our work and the EY stuff) and S-duality stuff.}
+
+\owen{Add a remark (?) about Kevin and Si's work on twisted holography and other related directions.}
 
 \subsection{Evidence for holomorphic Seiberg duality}
 
@@ -1719,6 +1725,8 @@ This triple of evidence is analogous (and sometimes stronger) than results for S
 We now turn to fleshing out the assertions above.
 
 \subsubsection{Moduli of vacua and quantization}
+
+\owen{I want to describe here, at least briefly, what the moduli stack is. I'm not sure the stacks are equivalent, but I think they have equivalent affinizations. I wonder if we can exhibit an equivalence of the "quantum" affinizations.}
 
 It is fruitful, and standard in physics, to identify the simplest solutions to the equations of motion for a theory.
 Here that means a solution that is translation-invariant on $\CC^2$ (i.e., a constant solution),
