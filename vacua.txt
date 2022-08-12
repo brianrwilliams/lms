@@ -110,7 +110,7 @@ Hence Seiberg duality cannot hold at the stack level for the classical theories.
 
 
 On the other hand, there is an open locus where the moduli stacks are equivalent:
-the semi-stable points of $V/G$ \owen{fix description}.
+the semi-stable points of $V/G$ \owen{fix description, as it's possibly just the stable locus}.
 This locus determines the space $V//G$ and hence we have the isomorphism desired.
 Let us try to unravel what this equivalence means for the field theories, both classical and quantum.
 
@@ -140,6 +140,11 @@ It is interesting to wonder how these would appear in the holomorphic setting.
 
 
 
+* Explain that you get a sheaf of polydiscs algebras over the moduli stack. We can view this as presenting a ``quantization of the moduli stack'' $\cM_{vac}^\q$ There is thus an ``affinization'' of the quantum moduli stack.
+
+Conjecture: There is an equivalence of affinizations of the quantum moduli stacks for Seiberg dual theories.
+
+This process probably looks away from the unstable locus in the same way that the classical part does. 
 
 
 

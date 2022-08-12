@@ -27,3 +27,75 @@ we'll extract an $E_d$-algebra.
 This construction generalizes the relationship between the Kac-Moody vertex algebra of a Lie algebra $\fg$ at level $k$ and the central extension of the loop algebra~$L\fg$.
 We expect this correspondence to bear rich fruit.
 \owen{that metaphor's a bit fruity}
+
+\subsection{Generalizing associative algebras for topological field theories}
+
+We want to describe the algebraic structures that appear in $d$-dimensional topological field theories,
+as a model for holomorphic field theories.
+It will be helpful to use the language of operads, which are an efficient and powerful tool for defining and studying algebraic structures,
+so we will gloss the key ideas of operads briefly and then turn to describing the operads relevant to TFTs.
+A more extensive discussion can be found in \cite{CG1}, with \cite{ES} studying the topological setting in an elegant way.
+
+An associative algebra is, by definition, a vector space $A$ with a linear map $\mu: A\otimes A \to A$ satisfying that the linear map $\mu \circ (\id \otimes \mu): A^{\otimes 3} \to A$ equals the linear map $\mu \circ (\mu \otimes \id)$.
+(Let's ignore the other data and conditions for the moment.)
+Nearly all flavors of algebras --- Lie, Poisson, and so on --- have a similar definition:
+one has a collection of multilinear maps that satisfy some relations.
+An operad is a way of specifying such data, so there is an associative operad $Ass$,
+a Lie operad $Lie$, and so on.
+
+Before sketching the definition, we give a concrete example.
+Let $V$ be a vector space.
+Then every $n$-fold multilinear operator on $V$ is an element of $\Hom(V^{\otimes n}, V)$;
+that vector space parametrizes all possible $n$-ary operations on $V$.
+One can also compose such operations to produce new ones.
+For instance, given $\mu : V^{\otimes m} \to V$ and $\nu: V^{\otimes m} \to V$, we can put the output of $\mu$ into the $i$th input of $\nu$ to produce a new operation
+\[
+\begin{array}{cccc}
+\nu \circ_i \mu: & V^{\otimes m+n-1} & \to & V\\
+& v_1 \otimes \cdots \otimes v_{m+n-1} & \mapsto & \nu(v_1 \otimes \cdots \otimes \mu(v_i
+\]
+\owen{finish the formula! make it agree with conventional formulas}
+where $i$ can run over any index between 1 and $n$.
+We call this collection of data the {\em endomorphism operad of $V$}, denote $\End_V$.
+It consists of 
+\begin{itemize}
+\item a list of vector spaces labelling $n$-ary operations, with 
+\[
+\End_V(n)= \Hom(V^{\otimes n}, V),
+\]
+with $n \in \NN$, and
+\item a list of linear maps
+\[
+\circ_i : \End_V(n) \otimes \End_V(m) \to \End_V(n+m-1)
+\]
+for every pair $n$ and $m$ and where $1 \leq i \leq n$.
+\end{itemize}
+There are certain natural relations when one does multiple compositions, like $\mu \circ_i (\nu \circ_j \pi)$, arising from how multilinear maps compose.
+
+Just as the model case of an associative algebra is $\End(V) = \Hom(V,V)$ (the ring of square matrices),
+the endomorphism operad is the model case of operads.
+A linear operad $P$ consists of a list of vectors $\left(P(n) \right)_{n \in \NN}$, where each $P(n)$ is a vector space describing $n$-ary operations, and a list of linear maps $\(\circ_i)$.
+We will not describe the relations.
+
+\begin{remark}
+The reader might ask why the adjective {\em linear} was appended before {\em operad}.
+The reason is that we discussed algebraic operations on vector spaces,
+but one can, of course, discuss analogs in other settings.
+For instance, a monoid is a set $M$ with a multiplication map satisfying an associativity constraint.
+One can talk about operads in sets (``an operad in sets $P$ has a set $P(n)$ of $n$-ary operations for every $n \in \NN$ \dots'') or in topological spaces or in dg vector spaces.
+In fact, the theory works in any symmetric monoidal category. 
+\end{remark}
+
+Let us now raise another useful analogy.
+To define a module for an associative algebra $A$, one specifies an algebra map $\rho: A \to \End(V)$.
+This map encodes how $A$ acts on $V$.
+Similarly, to give an algebra for an operad $P$, one specifies an operad map $\rho: P \to \End_V$.
+This map picks out specific multilinear operations on $V$ that will satisfy the relations we want.
+For instance, if $P$ is the Poisson operad, then $P(2) \cong \CC^2$ and this vector space is spanned by an element $\cdot$, the commutative product, and $\{\}$, the Poisson bracket.
+The map $f(2): P(2) \to \End_V(2)$ thus tells us both the commutative and Poisson bracket put upon~$V$.
+By studying the operad $P$ itself, one can thus obtain universal results that hold for all $P$-algebras.
+
+\begin{remark}
+
+\end{remark}
+
