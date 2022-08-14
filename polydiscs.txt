@@ -75,7 +75,7 @@ There are certain natural relations when one does multiple compositions, like $\
 Just as the model case of an associative algebra is $\End(V) = \Hom(V,V)$ (the ring of square matrices),
 the endomorphism operad is the model case of operads.
 A linear operad $P$ consists of a list of vectors $\left(P(n) \right)_{n \in \NN}$, where each $P(n)$ is a vector space describing $n$-ary operations, and a list of linear maps $\(\circ_i)$.
-We will not describe the relations.
+We will not describe the relations, but resemble those of an endomorphism operad.
 
 \begin{remark}
 The reader might ask why the adjective {\em linear} was appended before {\em operad}.
@@ -84,6 +84,7 @@ but one can, of course, discuss analogs in other settings.
 For instance, a monoid is a set $M$ with a multiplication map satisfying an associativity constraint.
 One can talk about operads in sets (``an operad in sets $P$ has a set $P(n)$ of $n$-ary operations for every $n \in \NN$ \dots'') or in topological spaces or in dg vector spaces.
 In fact, the theory works in any symmetric monoidal category. 
+For the most part, we will work with vector spaces below.
 \end{remark}
 
 Let us now raise another useful analogy.
@@ -91,11 +92,279 @@ To define a module for an associative algebra $A$, one specifies an algebra map 
 This map encodes how $A$ acts on $V$.
 Similarly, to give an algebra for an operad $P$, one specifies an operad map $\rho: P \to \End_V$.
 This map picks out specific multilinear operations on $V$ that will satisfy the relations we want.
-For instance, if $P$ is the Poisson operad, then $P(2) \cong \CC^2$ and this vector space is spanned by an element $\cdot$, the commutative product, and $\{\}$, the Poisson bracket.
-The map $f(2): P(2) \to \End_V(2)$ thus tells us both the commutative and Poisson bracket put upon~$V$.
-By studying the operad $P$ itself, one can thus obtain universal results that hold for all $P$-algebras.
+For instance, if $Pois$ is the Poisson operad, then $Pois(2) \cong \CC^2$ and this vector space is spanned by an element $\cdot$, the commutative product, and $\{\}$, the Poisson bracket.
+Given a $P$-algebra $V$, the map $\rho(2): Pois(2) \to \End_V(2)$ thus tells us both the commutative and Poisson bracket put upon~$V$.
+(The reader might enjoy trying to work out $Pois(3)$ and how to get elements there by composing binary operations.)
+Alternatively, by applying the hom-tensor adjunction to $\rho(2)$, we have a map
+\[
+Pois(2) \otimes V^{\otimes 2} \to V
+\]
+that evaluates a binary operation with a pair of inputs.
+
+By working at the level of operads, one can obtain universal results that hold for all algebras over a given operad.
+For example, there is an operad map $b: Lie \to Pois$ that, at the level of the binary operations, includes the bracket, 
+and this map induces the functor $b^*: \Alg_{Pois} \to \Alg_{Lie}$ where a Poisson algebra is ``forgotten'' to a Lie algebra.
+
+So far we have only discussed putting algebraic structures on a single vector space $V$,
+but it is possible to allow collections of vector spaces.
+For instance, the pair of an algebra and a module provides an example of ``two-colored operad'' as the collection always consists of two vector spaces.
+When one allows multiple objects, one works with {\em colored operads} or, as an alternative terminology, {\em multicategories}.
 
 \begin{remark}
-
+For motivational introductions, we recommend \cite{StashAMS} and \cite{Val12}.
+For systematic development of the theory, one might start with \cite{LodVal}, \owen{others}
+Operads now have an extensive literature, and there is a body of deep results (such as Koszul duality) with far-reaching consequences throughout mathematics.
 \end{remark}
+
+With this language to hand, we now turn to generalizing associative algebras for the setting of topological field theories. 
+Our goal is to formulate a colored operad that captures the behavior of the observables of a topological field theory.
+
+The heuristic idea is straightforward.
+Given a field theory $\cT$ on $\RR^d$, there is a vector space (or possibly dg vector space) $\Obs_\cT(D_r(x))$ of measurements one can make in the open disk $D_r(x)$ of radius $r$ around the point $x$.
+Any measurement in a small disk should provide a measurement on a bigger disk,
+so there is a map $\Obs_\cT(D_r(x)) \to \Obs_\cT(D_R(y))$ whenever $D_r(x) \subset D_R(y)$.
+Thus we have a collection of vector spaces labeled by the disks in $\RR^d$,
+and we have identified a class of unary operations determined by inclusion.
+
+There should also be natural $n$-ary operations encoding how to combine observables from several distinct disks to give an observable on a big disk.
+Start with $n$ disks $D_{r_1}(x_1)$, \dots , $D_{r_n}(x_n)$ whose closures are pairwise disjoint, and let $D_R(y)$ be a big disk containing all the smaller disks.
+Then we want a map
+\[
+\Obs_\cT(D_{r_1}(x_1)) \otimes \cdots \otimes \Obs_\cT(D_{r_n}(x_n)) \to \Obs_\cT(D_R(y)).
+\]
+In the limit when the big disk is all of $\RR^d$ (i.e., $R = \infty$) and the input radii $r_i$ are very small, 
+this map should encode the $n$-point functions beloved of physicists.
+
+So far we have described a structure that observables should have for any field theory on~$\RR^d$.
+For a topological field theory, we expect that the size of a disk does not matter:
+for any inclusion $D_r(x) \subset D_R(y)$, the map $\Obs_\cT(D_r(x)) \to \Obs_\cT(D_R(y))$ is an equivalence.
+This condition implies that we can always shrink the input radius as small as we want and we can always take the output radius to be a fixed value, say $R =1$.
+In other words, the unary operations are parametrized by a point in the unit disk;
+we have a local system of isomorphisms.
+
+For $n$-ary operations we can likewise shrink the input radii as small as we want.
+Thus the $n$-ary operations should be parametrized by the configuration space of $n$ points inside the unit disk.
+(Rather, we can recover all $n$-ary operations knowing this information.)
+We expect that these $n$-ary operations should also define a local system.
+
+Our list of expectations is motivated by the examples of topological field theories that physicists typically give, rather than the Atiyah-Segal approach in terms of functors out of bordism categories.
+Loosely speaking, a classical field theory (defined by a Lagrangian density, also known as an action functional) is ``topological'' if solutions to the equations of motion do not depend on the geometry of the spacetime manifold but only on its smooth structure (or other differential-topological features, like orientations).
+A model example is Chern-Simons theory on oriented 3-manifolds for compact Lie group~$G$:
+the space of solutions to the equations of motion on $M$ is the moduli space of flat $G$-bundles on $M$.
+The observables for a classical field theory on $M$ means the commutative algebra of functions on solutions to the equations of motion on $M$.
+In particular, for $M$ a disk, the size of the disk will not affect the algebra of observables,
+and inclusions of disks leads to isomorphisms of observables.
+Several of these features extend to the quantum field theories that arise by quantizing such topological classical theories;
+the observables continue to form a vector space but are not commutative algebras anymore.
+(See \cite{CG1, CG2} for a precise mathematical formulation of this idea, which is a natural extension of deformation quantization to higher dimensions.)
+
+\begin{remark}
+There are examples of TFTs from physics where the solutions do not satisfy this condition,
+such as the $A$-model of mirror symmetry.
+In such cases, however, the observables are typically the de Rham complex (or some other model for cohomology) of the space of solutions,
+and these observables do satisfy the conditions we've specified.
+\end{remark}
+
+We are now in a position to offer a nice operad that should describe the observables of a topological field theory.
+This operad was introduced by algebraic topologists for wholly distinct purposes (understanding $d$-fold based loop spaces),
+so a remarkable dialogue has opened between topologists and physicists.
+We will start, following the topologists, in the category $Top$ of topological spaces
+where we use the cartesian product for the symmetric monoidal structure.
+An operad in this category will be called a {\em topological operad}.
+
+\begin{dfn}
+The {little $d$-disks operad} $\Disk_d$ is the topological operad whose space of $n$-ary operations is
+\[
+\Disk_d(n) = \{ (x_1, \ldots, x_n; r_1, \ldots, r_n) \in D_1(0)^n \times (0,1)^n \;|\; \text{the closure of the disks $\overline{D_{r_i}(x_i)}$ is pairwise disjoint}\}.
+\]
+The composition $\mu \circ_i \nu$ is given by rescaling the unit disk that labels the output of $\nu$ to $r_i$ and then embedding it into the disk~$D_{r_i}(x_i)$.
+\end{dfn}
+
+\owen{Draw some 2d pictures and unpack a little. Mention pair of pants & OPE} 
+In this sense, it captures the dependence on the disks.
+
+
+Observables, however, are supposed to live in vector spaces or dg vector spaces,
+so we need to explain how to get algebras in that setting.
+Thankfully, it is straightforward to get a linear version of this operad a dg operad (i.e., operad with values in dg vector spaces and using the tensor product as the symmetric monoidal product).
+One simply takes the singular chain complex on each space of operations:
+for each natural number $n$, take $C_*(\Disk_d(n); \CC)$ and take the induced chain map 
+\[
+C_*(\circ_i): C_*(\Disk_d(n); \CC) \otimes C_*(\Disk_d(m); \CC) \to C_*(\Disk_d(n+m-1); \CC)
+\]
+to produce a dg operad we denote~$C_*(\Disk_d)$.
+(Note that as we always want to work with cochain complexes, we regrade the usual singular chains $C_*(X, \CC)$ to sit in nonpositive cohomological degrees. 
+Likewise the composition $C_*(\circ_i)$ is then a cochain map.)
+
+\begin{dfn}
+An {\em algebra over the little $d$-disks operad}, or little $d$-disks algebra or $E_d$-algebra, is a cochain complex $A$ that is an algebra over the dg operad~$C_*(\Disk_d)$.
+\end{dfn}
+
+We can state now encapsulate our expectations from above:
+\begin{quote}
+the observables of a topological field theory on $\RR^d$ are a little $d$-disks algebra.
+\end{quote}
+There is a setting where a precise version of this statement was proven, by Elliott and Safronov, for a mathematically well-defined class of Lagrangian field theories.
+
+\owen{give a nice version of their statement, with this as a first attempt}
+
+\begin{thm}[\cite{EllSaf},\owen{precise location}]
+Let $\cT$ be a classical field theory on $\RR^d$ in the sense of~\cite{CosBook},
+and let its observables be constructed following~\cite{CG2}.
+If the theory satisfies 
+\begin{enumerate}
+\item[(i)] $\cT$ is equivariant under the action of the translation group,
+\item[(ii)] the action of the translation Lie algebra is homotopically trivialized, and
+\item[(iii)] the extension of observables along an inclusion of disks is a quasi-isomorphism,
+\end{enumerate}
+then the observables form a little $d$-disks algebra.
+\end{thm}
+
+The notion from \cite{CosBook} articulates Lagrangian field theories whose linearized equations of motion are elliptic in nature;
+it uses (and mathematically articulates) the Batalin-Vilkovisky formalism,
+which is inherently homological.
+In particular, there is an underlying graded vector space of ``fields,''
+and the observables are a dg commutative algebra given a symmetric algebra on the linear dual to the fields and equipped with a differential $d_\cT$ that is determined by the Lagrangian density of the theory.
+Item (ii) above then means that each vector field $\partial_i$ acts by a degree 0 cochain map $D_i$ on the observables and there is a degree one cochain homotopy $\eta_i$ on the observables such that $[d_\cT, \eta_i]~=~D_i$.
+
+This theorem applies to many well-known examples from physics, such as 
+\begin{itemize}
+\item the topological $B$-model of maps from an oriented surface into a Calabi-Yau manifold (constructed by Li and Li \cite{LiLi} in a setting where \cite{EllSaf} applies);
+\item Chern-Simons gauge theory of flat $G$-bundles on an oriented 3-manifold (constructed, essentially, by Axelrod-Singer \cite{AxeSin} and Kontsevich \cite{KonECM} but articulated in this setting by Costello \cite{CosBook});
+\item Rozansky-Witten theory of maps from an oriented 3-manifold into a complex manifold \cite{ChanLeungLi}; and
+\item the Kapustin-Witten gauge theory for oriented 4-manifolds \cite{EGW},
+\end{itemize}
+among other examples of topological AKSZ theories, such as BF theories.
+
+For physicists, we note that the proof uses a version of Witten descent.
+Indeed, descent can be used to produce interesting operations in these disk algebras,
+so that many familiar constructions from the physical approach to TFTs fit cleanly and easily into this framework.
+
+\owen{Stuff about formality? functorial field theories?}
+
+\subsection{Generalizing algebras for holomorphic field theories}
+
+We now turn to the problem of describing observables of a holomorphic field theory on~$\CC^d$,
+and we follow an approach similar to the topological case just discussed.
+
+In the setting of a holomorphic field theory, we expect the observables to have a nontrivial dependence on the radius of a disk.
+Consider, for example, that 
+when $D_r(x) \subset D_R(y) \subset \CC$ are open disks in the plane,
+the restriction map of holomorphic functions
+\[
+\cO(D_R(y))\to \cO(D_r(x))
+\]
+is not an isomorphism,
+and the sheaf $\cO$ provides a fundamental model for how the solutions of the equations of motion should behave for a holomorphic field theory.
+We will assume, however, that a holomorphic theory is equivariant under translations of $\CC^d$ and that the observables in a disk $D_r(X)$ are equivalent to the observables in a translate~$D_r(x+z)$.
+Thus, we will have a colored operad whose colors are labeled by radii~$r \in (0,\infty)$,
+as we merely have to specify the observables on a disk~$D_r(0)$.
+
+We now introduce a small tweak.
+Instead of working with disks, we work with polydisks: for $w = (w_1, \ldots, w_d) \in \CC^d$, the polydisk of radius $r$ around $w$~is
+\[
+PD_r(w) = \{ z \in \CC^d \;|\; |z_i - w_i| < r \text{ for all $i$}\}.
+\]
+We work with polydisks because it is easier to describe holomorphic functions on a polydisk than on a disk;
+one can borrow results from single-variable complex analysis.
+With this notion in hand, we introduce our main character.
+
+\begin{dfn}
+The {little $d$-polydisks operad} $\PDisk_d$ is the colored operad in the category of complex manifolds where each positive real number $r \in (0,\infty)$ is a color 
+and where there is a complex manifold of $n$-ary operations
+\[
+\PDisk_d(r_1, \ldots, r_n| R) = \{ (w_1, \ldots, w_n) \in \PD_R(0)^n \;|\; \text{the closure of the polydisks $\overline{PD_{r_i}(w_i)}$ is pairwise disjoint and each is contained in $PD_R(0)$\}
+\]
+for any list of radii $r_1,\ldots, r_n, R$.
+This manifold is always an open subset of $\PD_R(0)^n$. 
+(Note that the manifold is empty for many values.)
+There is a composition
+\[
+\circ_i: \PDisk_d(r_1, \ldots, r_n| R) \times \PDisk_d(s_1, \ldots, s_m| S) \to \PDisk_d(r_1, \ldots, s_1, \ldots, s_m, r_{i+1}, \ldots, r_n| R)
+\]
+only when $r_i = S$, 
+and in that case, the composition $\mu \circ_i \nu$ is given by embedding an output polydisk into an input polydisk of the same radius.
+(Composition is not defined if the radii do not match.)
+\end{dfn}
+
+We are again thinking about configuration spaces --- here of polydisks inside larger polydisks --- but we are remembering the complex structure explicitly.
+To describe observables, we want to produce a dg colored operad that encodes the holomorphic nature of this situation.
+We do {\em not} want to take singular chains, which would only remember the homotopy type;
+instead, we choose to take the Dolbeault complex of each configuration space.
+Note, however, that taking the Dolbeault complex is a contravariant functor,
+so we get a {\em co}\/operad rather than an operad.
+This notion bears the same relationship to operad as a coalgebra does to an algebra;
+one simply reverses all the arrows and asks for an appropriate variant of the relations.
+
+\begin{dfn}
+The {little $d$-polydisks dg cooperad} is the colored operad in the category of dg vector spaces where each positive real number $r \in (0,\infty)$ is a color 
+and where there is a dg vector space of $n$-ary cooperations
+\[
+\Omega^{0,*}(\PDisk_d(r_1, \ldots, r_n| R)) 
+\]
+for any list of radii $r_1,\ldots, r_n, R$.
+There is a composition
+\[
+\circ_i: \Omega^{0,*}(\PDisk_d(r_1, \ldots, s_1, \ldots, s_m, r_{i+1}, \ldots, r_n| R))\to \Omega^{0,*}(\PDisk_d(r_1, \ldots, r_n| R)) \otimes \Omega^{0,*}(\PDisk_d(s_1, \ldots, s_m| S))
+\]
+only when $r_i = S$, 
+and in that case, the composition $\mu \circ_i \nu$ is given by embedding an output polydisk into an input polydisk of the same radius.
+(Composition is not defined if the radii do not match.)
+\end{dfn}
+
+An algebra $A$ over this cooperad means that for each radius~$r$, 
+there is a dg vector space $A(r)$, and for any list of radii $r_1,\ldots, r_n, R$,
+there is a cochain map
+\[
+\alpha(r_1, \ldots, r_n| R): A(r_1) \otimes \cdots \otimes A(r_n) \to A(R) \otimes \Omega^{0,*}(\PDisk_d(r_1, \ldots, r_n| R)) .
+\]
+To invest the map $\alpha$ with more meaning, 
+pick a real, closed submanifold $T \subset \PDisk_d(r_1, \ldots, r_n| R)$, along which one can integrate $(0,k)$-forms.
+For instance, for any inputs $a_i \in A(r_i)$ and any cocycle $\omega \in \Omega^{0,k}(\PDisk_d(r_1, \ldots, r_n| R))$, we get an element in $A(R)$~by
+\[
+\int_T \alpha(a_1 \otimes \cdot \otimes a_n) \wedge \omega,
+\]
+where we have suppressed distracting notation from~$\alpha$.
+
+We will now examine the case $d=1$ in some detail and relate such algebras to vertex algebras.
+Afterward, we explain how holomorphic field theories produce such algebras,
+by a result analogous to Elliott and Safronov's.
+In particular, a holomorphic version of Witten descent gives a useful method for producing interesting observables for holomorphic field theories.
+
+\subsubsection{Vertex algebras from the $d=1$ case}
+
+In the case $d=1$, these configurations 
+
+\subsubsection{Polydisks algebras from holomorphic field theories}
+
+\subsubsection{From topological to holomorphic}
+
+We remark on a simple consequence of this toolkit that may nonetheless be useful:
+one can view a topological field theory on $\RR^{2d}$ as a special kind of holomorphic field theory on~$\CC^{d}$.
+This situation has been exploited to good effect in the $d=1$ case,
+where people sometimes present an $E_2$-algebra as a dg vertex algebra with extra data and special properties \owen{citations? discussion of applications?}.
+
+The essential idea is simple.
+On a complex manifold $X$, there is a cochain map
+\[
+\Omega^*(X) \to \Omega^{0,*}(X)
+\]
+where one quotients by the dg ideal of Dolbeault $(p,q)$-forms where $p \geq 1$.
+If we consider the complex manifold $\PDisks_d(r_1,\ldots,r_n|R)$, 
+we get a map from its de Rham complex --- which only cares about the topology of that configuration space --- to its Dolbeault complex --- which is sensitive to its complex geometry.
+Hence an algebra over the cooperad $\Omega^*(\PDisks_d)$ forgets to an algebra over the cooperad~$\Omega^{0,*}(\PDisks_d)$.
+Moreover, it is straightforward (if one is comfortable with operads and higher categories) to show that 
+\begin{enumerate}
+\item algebras over the dg operad $C_*(\PDisks_d)$ are equivalent to algebras over the dg cooperad~$\Omega^*(\PDisks_d)$, as $\infty$-categories, and
+\item $E_{2d}$-algebras are equivalent to the algebras over $C_*(\PDisks_d)$ such that an inclusion of a polydisk is always a quasi-isomorphism (the ``locally constant'' algebras).
+\end{enumerate}
+The second item holds because any configuration space of polydisks is weakly equivalent, as a topological space, to the analogous configuration space of disks.
+Thus we have sketched the following result.
+
+\begin{theorem}
+The observables of a topological field theory on $\RR^{2d}$ determine an algebra over the polydisks cooperad~$\Omega^{0,*}(\PDisks_d)$.
+\end{theorem}
+
+In Section~\ref{???} we will examine another relationship --- generalizing the compactification/chiralization on $\CC$ --- that yields an $E_d$ algebra from a $\PDisks_d$-algebra.
+
 
