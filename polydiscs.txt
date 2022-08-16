@@ -295,6 +295,32 @@ Note, however, that taking the Dolbeault complex is a contravariant functor,
 so we get a {\em co}\/operad rather than an operad.
 This notion bears the same relationship to operad as a coalgebra does to an algebra;
 one simply reverses all the arrows and asks for an appropriate variant of the relations.
+For instance, there is a composition
+\begin{equation}
+\label{pdcirc}
+\circ_i: \Omega^{0,*}(\PDisk_d(r_1, \ldots, s_1, \ldots, s_m, r_{i+1}, \ldots, r_n| R))\to \Omega^{0,*}(\PDisk_d(r_1, \ldots, r_n| R)) \otimes \Omega^{0,*}(\PDisk_d(s_1, \ldots, s_m| S))
+\end{equation}
+when $r_i = S$, and in that case, the composition $\mu \circ_i \nu$ is given by embedding an output polydisk into an input polydisk of the same radius.
+(Composition is not defined if the radii do not match.)
+
+An important technical point arises here: 
+we need to be careful about functional analysis.
+The wedge product map
+\[
+\Omega^{0,*}(X) \otimes \Omega^{0,*}(Y) \to \Omega^{0,*}(X \times Y)
+\]
+is not a quasi-isomorphism in general (unlike with de Rham complexes),
+but the completed projective tensor product as topological vector spaces 
+\[
+\Omega^{0,*}(X) \widehat{\otimes}_\pi \Omega^{0,*}(Y) \to \Omega^{0,*}(X \times Y)
+\]
+is an isomorphism.
+(We use here the standard Fr\'echet topology on smooth functions, extended to sections of vector bundles.)
+Hence we should work in some category of cochain complexes of well-behaved topological vector spaces, such as convenient vector spaces, or something related.
+This requirement makes sense when geometry matters (e.g., using the Dolbeault complex) and not just topology.
+For an extensive discussion of these issues, see the appendices of~\cite{CG1}.
+From hereon we will ignore function-analytic aspects and write $\otimes$,
+with an appropriate symmetric monoidal category left implicit.
 
 \begin{dfn}
 The {little $d$-polydisks dg cooperad} is the colored operad in the category of dg vector spaces where each positive real number $r \in (0,\infty)$ is a color 
