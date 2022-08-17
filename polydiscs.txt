@@ -270,7 +270,7 @@ one can borrow results from single-variable complex analysis.
 With this notion in hand, we introduce our main character.
 
 \begin{dfn}
-The {little $d$-polydisks operad} $\PDisk_d$ is the colored operad in the category of complex manifolds where each positive real number $r \in (0,\infty)$ is a color 
+The {$d$-polydisks operad} $\PDisk_d$ is the colored operad in the category of complex manifolds where each positive real number $r \in (0,\infty)$ is a color 
 and where there is a complex manifold of $n$-ary operations
 \[
 \PDisk_d(r_1, \ldots, r_n| R) = \{ (w_1, \ldots, w_n) \in \PD_R(0)^n \;|\; \text{the closure of the polydisks $\overline{PD_{r_i}(w_i)}$ is pairwise disjoint and each is contained in $PD_R(0)$\}
@@ -323,7 +323,7 @@ From hereon we will ignore function-analytic aspects and write $\otimes$,
 with an appropriate symmetric monoidal category left implicit.
 
 \begin{dfn}
-The {little $d$-polydisks dg cooperad} is the colored operad in the category of dg vector spaces where each positive real number $r \in (0,\infty)$ is a color 
+The {$d$-polydisks dg cooperad} is the colored operad in the category of dg vector spaces where each positive real number $r \in (0,\infty)$ is a color 
 and where there is a dg vector space of $n$-ary cooperations
 \[
 \Omega^{0,*}(\PDisk_d(r_1, \ldots, r_n| R)) 
@@ -359,9 +359,74 @@ In particular, a holomorphic version of Witten descent gives a useful method for
 
 \subsubsection{Vertex algebras from the $d=1$ case}
 
-In the case $d=1$, these configurations 
+In the case $d=1$, it is possible to relate polydisks algebras to vertex algebras.
+More precisely, when the polydisk algebra has a nice action of the rotation group~$U(1)$,
+one can extract a vertex algebra: 
+see Chapter 5 of~\cite{CG1} for a detailed treatment and examples like the free $\beta\gamma$ system and the Kac-Moody vertex algebras.
+Here we will analyze the cohomology of the cooperad and what kind of information it encodes, with a view towards motivating the relationship to vertex algebras.
+
+It is easiest to work with extremal values of the radii.
+We take the output radius to be $R = \infty$,
+so that the outputs are observables on all of~$\CC$.
+We take the input radii to be $r_i = 0$,
+so that the inputs are observables supported at the points $w_i$.
+(A physicist might call these ``local operators.'')
+This input value is not allowed in the definition, but it arises as a natural limit.
+In any case, it is natural to think about the complex manifold ${\rm Conf}_n(\CC)$ of configurations of $n$ distinct points in~$\CC$:
+it is
+\[
+{\rm Conf}_n(\CC) = \CC^n \setminus \{\text{union of the diagonals $\{ w_i = w_j\}$}\}.
+\]
+Note that for any finite and nonzero values of radii, there is an inclusion
+\[
+\PDisk_d(r_1, \ldots, r_n| R) \hookrightarrow {\rm Conf}_n(\CC).
+\]
+We now turn to examining the Dolbeault cohomology.
+
+It is easy to see
+\[
+{\rm Conf}_n(\CC) \cong \CC \times (\CC^\times)^{n-1}
+\]
+by sending a configuration $(w_1,\ldots, w_n)$ to $(w_1, w_2 - w_1, \ldots, w_n-w_{n-1})$.
+(We could replace $w_1$ by any $w_j$, or even the sum of them all.)
+Hence, the Dolbeault cohomology consists of holomorphic functions on this space;
+there is no higher cohomology.
+Inside the holomorphic functions, as a dense but understandable subalgebra, are the algebraic functions:
+\[
+\CC[w_1, (w_1 - w_2)^{\pm 1}, \ldots, (w_n - w_{n-1})^{\pm 1}] \subset H^{0,*}({\rm Conf}_n(\CC)).
+\]
+Here $(w_j - w_{j-1})^{\pm 1}$ means that the function $1/(w_j - w_{j-1})$ is also a generator.
+Each such algebraic function provides an operation on $H^*(A)$, where $A$ denotes a polydisk algebra.
+
+Let us unravel things in the special case of two points.
+Then we have \owen{finish}
+
+
+
 
 \subsubsection{Polydisks algebras from holomorphic field theories}
+
+Let 
+\[
+\ft^\CC = \CC \otimes_\RR \ft = \text{span}_{\CC}\{\partial/\partial z_1, \ldots, \partial/\partial z_d, \partial/\partial \zbar_1, \ldots, \partial/\partial \zbar_d  \}
+\]
+denote the complexification of the Lie algebra of translations.
+Let $\ft_{\rm hol}$ denote the \owen{finish}
+
+\begin{thm}[\cite{CG1},\owen{precise location}]
+Let $\cT$ be a classical field theory on $\CC^d$ in the sense of~\cite{CosBook},
+and let its observables be constructed following~\cite{CG2}.
+If the theory satisfies 
+\begin{enumerate}
+\item[(i)] $\cT$ is equivariant under the action of the translation group and
+\item[(ii)] the action of the holomorphic translation Lie algebra is homotopically trivialized,
+\end{enumerate}
+then the observables form a $d$-polydisks algebra.
+\end{thm}
+
+This result is analogous to Elliott and Safronov's, although it predated (and inspired) it.
+It applies to the theories that are the focus of this survey.
+One can mimic the version of Witten descent for the topological case to produce observables from local observables.
 
 \subsubsection{From topological to holomorphic}
 
