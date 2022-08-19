@@ -1243,7 +1243,7 @@ To invest the map $\alpha$ with more meaning,
 pick a real, closed submanifold $T \subset \PDisc_d(r_1, \ldots, r_n| R)$, along which one can integrate $(0,k)$-forms.
 For instance, for any inputs $a_i \in A(r_i)$ and any cocycle $\omega \in \Omega^{0,k}(\PDisc_d(r_1, \ldots, r_n| R))$, we get an element in $A(R)$~by
 \[
-\int_T \alpha(a_1 \otimes \cdot \otimes a_n) \wedge \omega,
+\int_T \alpha(a_1 \otimes \cdots \otimes a_n) \wedge \omega,
 \]
 where we have suppressed distracting notation from~$\alpha$.
 
@@ -1296,7 +1296,7 @@ Each such algebraic function provides an operation on $H^*(A)$, where $A$ denote
 Let us unravel things in the special case of two points.
 For simplicity, we will fix $w_1 = 0$ so that we focus on where place the other point $w_2 \in \CC^\times$.
 We will use $z$ to denote this point $w_2$.
-Then the binary co-operations are parametrized by $\CC[z, z^{-1}]$.
+Then we have binary co-operations parametrized by $\CC[z, z^{-1}]$.
 Let 
 \[
 V = \lim_{r \to 0} H^*(A(D_r(0)))
@@ -1304,12 +1304,27 @@ V = \lim_{r \to 0} H^*(A(D_r(0)))
 denote the cohomological observables ``supported at the origin.''
 (It would be better to take the homotopy limit of the $A(D_r(0))$,
 but we leave the experienced reader to make such adjustments.)
-For any two elements $a, b \in V$,
-we then have an element
+For any two elements $a, b \in V$ and for any $n \in \ZZ$,
+we then obtain an element
 \[
-a
+a_{(n)} b = \int_{|z| = r} \alpha(a,b)\, z^{-n-1} \d z
+\]
+in $H^*(A(D_R(0))$ for any radius $R > r$.
+(The choice to match $n$ with $z^{-n-1}$ is conventional.)
+Any holomorphic function $f \in D_R(0) \setminus \{0\}$ also defines a map
+\[
+\int_{|z| = r} \alpha(a,b)\, f(z) \d z 
+\]
+and, if $f$ is meromorphic at the origin, then its Laurent expansion
+\[
+f(z) = c_{-N} z^{-N} + \cdots + c_0 + c_1 z + \cdots
+\]
+guarantees that we have
+\[
+\int_{|z| = r} \alpha(a,b)\, f(z) \d z = \sum_{n=-\infty}^{N-1} c_{-n-1} a_{(n)} b.
 \]
 
+\owen{I think I should swap the location of $a$ and $b$ to match VOA conventions.}
 
 
 
