@@ -2368,6 +2368,113 @@ That is, the anomaly to a perturbative BV quantization vanishes.
 In fact, the quantization is one-loop exact. 
 \end{thm}
 
+\owen{new version}
+
+It is common in physics to study field theories defined on the spacetime $\RR^n$.
+As the underlying spacetime $\RR^n$ is a group under addition (i.e., it is the translation group),
+it is natural to ask for field theories with an action by translations.
+That is, since the fields are sections of a fiber bundle over $RR^n$,
+one can ask for an equivariant fiber bundle and ask for the equations of motion (or action functional) to be equivariant under translations.
+In practice, physicists often work with field theories whose equations of motion are differential equations with constant coefficients.
+(Nearly all the examples we've discussed in this survey satisfy this condition.)
+
+Now such a field theory $\cT$ on $\RR^n$ has a space of solutions $\Sol_\cT(\RR^n)$ to its equations of motion.
+A {\em classical vacuum} for the theory is a solution that this translation-invariant,
+i.e., a constant solution.
+As the solutions $\Sol(\RR^n)$ is a derived stack (at least if you adhere to the perspective we've advocated here), there is a derived stack of classical vacua
+\[
+\cM_{\rm vac}(\cT) = \Sol_\cT(\RR^n)^{\RR^n}
+\]
+given by the substack of constant solutions.
+We call it the {\em moduli stack of classical vacua} for the theory~$\cT$.
+
+Many stacks of interest to geometers and representation theorists appear naturally from holomorphic field theories.
+For example, the holomorphic $\sigma$-model from $\CC^d$ into a target complex manifold $X$ has
+\[
+\cM_{\rm vac} \cong T^*[1-d]X.
+\]
+(If we consider the underlying underived stack, it is just $X$, unless $d = 1$.)
+For supersymmetric gauge theories, the moduli stack of the holomorphic twist has the form
+\[
+\cM_{\rm vac} \cong V/G
+\]
+where $V$ is a (graded) $G$-representation and $V/G$ denotes the quotient stack.
+The factor $V$ arises from solutions for the non-gauge field, which are sections of some associated vector bundle,
+while the quotient by $G$ arises from the gauge transformation.
+For another example, pure $\cN =1$ holomorphic Yang-Mills theory for group $G$ has \owen{true?}
+\[
+\cM_{\rm vac} \cong \fg/G,
+\]
+the adjoint quotient stack of the group.
+For general supersymmetric field theories, which involve both a $\sigma$-model and gauge fields, the holomorphic twist has a moduli stack of classical vacua of the form
+\[
+\cM_{\rm vac} \cong X/G
+\]
+where $X$ is a derived stack with a $G$-action and $X/G$ denotes the quotient stack.
+
+In studying questions about the classical vacua of supersymmetric field theories, however, physicists have not typically worked with the {\em stack}.
+Instead, they have worked with a GIT quotient.
+For instance, in the setting of a gauge theory with stack $V/G$ of classical vacua, it means they work with
+\[
+V//G = \Spec(\cO(V)^G),
+\]
+the scheme whose ring of functions are the $G$-invariant functions on the representation~$V$.
+This affine scheme is known as the {\em affinization} of the stack $V/G$, as it is the best affine approximation to the stack (i.e., apply the left adjoint to the inclusion of affine schemes among stacks).
+We will call it the moduli {\em space} of classical vacua and denote it by~$M_{rm vac}(\cT)$.
+
+It is familiar to geometers that this affinization forgets interesting information about the stack because an invariant function must be constant on the closure of any orbit.
+Thus, the canonical map
+\[
+V/G \to V//G
+\]
+often collapses orbits together.
+An important example, pertinent to $\cN =1$ super Yang-Mills theory, is the adjoint quotient $\gl_N/ GL_N$, whose affinization is
+\[
+\gl_N//GL_N \cong \CC^N/S_N,
+\]
+by the Chevalley restriction theorem.
+The canonical map here records the characteristic polynomial of a matrix and hence only knows its generalized eigenvalues and not its Jordan decomposition.
+In other words, the canonical map collapses together Jordan blocks with the same diagonal entries.
+For this reason, it loses details about the classical vacua remembered by the stack quotient.
+
+\begin{rmk}
+The physicists' focus on the moduli space is not unreasonable:
+one must make measurements --- i.e., evaluate functions --- to identify the state of a physical system.
+The moduli space captures what can be seen by measurements (notably here, the ``vacuum expectation values'' of different vacua).
+On the other hand, the moduli stack knows each orbit, which provides a distinct solution to the equations of motion, whereas the space cannot distinguish between some vacua.
+Moreover, the stack encodes much more data about the theory near each vacuum.
+For instance, it remembers ``enhanced symmetries'' (such as the residual gauge fields) at each vacuum.
+\end{rmk}
+
+For the holomorphic QCD theory \owen{write data} the moduli stack of classical vacua is \owen{write it}
+The moduli space is a well-known variety
+\[
+M_{rm vac}(\cT) \cong \Gr(N_f, N_c)
+\]
+by using classical invariant theory. \owen{show?}
+A similar computation on the putative dual shows the following.
+
+\begin{prop}
+Seiberg dual theories have isomorphic moduli spaces.
+\end{prop}
+
+This relationship, which holds already for the supersymmetric theory before twisting, was one of the original pieces of evidence offered by Seiberg for his duality.
+
+\owen{Sketch proof}: This is the first and second fundamental theorem of classical invariant theory!
+
+\begin{rmk}
+In the physics literature this isomorphism is given by explicitly matching gauge-invariant functions, which are often called mesons or baryons, as they can be identified with the data that identifies such particles.
+These meson and baryons are precisely the usual generators of the ring of invariant functions, so an isomorphism of generators determines the desired isomorphism of rings. 
+One must check that the relations are satisfied;
+here it explains the superpotential on the magnetic side.
+\end{rmk}
+
+We want to point out, however, that {\em the moduli stacks are not isomorphic}.
+A quick check is to note that there are orbits with different stabilizer groups.
+Consider, for instance, the origin in each vector space.
+On the electric side its stabilizer is $SL(N_c)$ and on the magnetic side it is $SL(N_f - N_c)$.
+Thus each theory has a vacuum whose associated perturbative classical theory has no partner on the other side.
+Hence Seiberg duality cannot hold at the stack level for the classical theories.
 
 \subsubsection{Flavor symmetries}
 
@@ -2500,5 +2607,46 @@ where $X = X_i \partial_{z_i} \in \Omega^{0,\bu}(\CC^2, \T_{\CC^2}^{1,0})$ denot
 In particular, for the {\em same value} $N_f = 3 N_c$ both the electric and magnetic theories are endowed with an action by holomorphic vector fields at the quantum level. 
 
 \subsection{A second pass at holomorphic Seiberg duality, and its relations to Hori-Tong duality}
+
+******** Discussion about quantization **********
+
+
+On the other hand, there is an open locus where the moduli stacks are equivalent:
+the semi-stable points of $V/G$ \owen{fix description, as it's possibly just the stable locus}.
+This locus determines the space $V//G$ and hence we have the isomorphism desired.
+Let us try to unravel what this equivalence means for the field theories, both classical and quantum.
+
+Consider any semistable point $x$ in $V/G$.
+We view $x$ as a vacuum, which thus labels a perturbative classical theory describing the behavior of the theory $\cT$ near $x$ in the space of fields. 
+For the vacuum $x$, the perturbative theory is equivalent to a holomorphic $\sigma$-model into the tangent space $T_x (V//G)$ \owen{Elaborate}. 
+Hence the isomorphism of moduli spaces assures us there is a dual vacuum $x_D$ to $x$ in the dual theory, and its perturbative theory is equivalent to the perturbative theory for $x$
+because there is an explicit identification of the tangent space to the corresponding point in the moduli space of the dual theory.
+Thanks to this identification, a quantization of the theory labelled by $x$ determines a quantization of the theory labelled by $x_D$.
+Hence on the semistable locus of $V/G$, we can guarantee an equivalence of quantizations.
+
+This identification breaks down on the unstable locus, raising the following question.
+
+{\bf Question:}
+At the quantum level, what happens on the unstable locus? 
+
+
+In a related vein, we want to know what correspondence of quantum factorization algebras we expect from Seiberg duality. 
+The mismatch for the moduli stack of classical vacua must be fixed somehow.
+
+We note that in the physics literature, there are a number of modifications that are explored in this setting.
+For instance, there are ``instanton corrections'' that cannot be found by perturbative techniques, although they can be treated in a mathematically precise way. 
+\owen{Mention others? RG flow, symmetry breaking, ...}
+It is interesting to wonder how these would appear in the holomorphic setting.
+
+\owen{Other things: affinization as polydiscs algebras, comparison with mirror symmetry (note A-model involves instanton corrections)}
+
+
+
+* Explain that you get a sheaf of polydiscs algebras over the moduli stack. We can view this as presenting a ``quantization of the moduli stack'' $\cM_{vac}^{\rm q}$ There is thus an ``affinization'' of the quantum moduli stack.
+
+Conjecture: There is an equivalence of affinizations of the quantum moduli stacks for Seiberg dual theories.
+
+This process probably looks away from the unstable locus in the same way that the classical part does. 
+
 
 \end{document}
