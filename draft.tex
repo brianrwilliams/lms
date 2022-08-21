@@ -40,7 +40,7 @@
 
 \begin{document}
 
-\dedicatory{To Yuri Manin, with great admiration.}
+\dedicatory{To Yuri Manin, with gratitude and admiration.}
 
 \maketitle
 \tableofcontents
@@ -634,7 +634,7 @@ Y: {\rm Vac}[V] \to \End({\rm Vac}[V])[[z, z^{-1}]],
 known as the {\em vertex operator} or {\em state-field correspondence},
 which is closely related to the $W[V]$-action.
 The intuition behind $Y$ is that for any map $\phi: \CC^\times \to V$ and for any point $w \in \CC^\times$, 
-there is a restriction of $\phi$ to a little disk around $w$.
+there is a restriction of $\phi$ to a little disc around $w$.
 That is, there is a restriction map $r_w: V[z,z^{-1}] \to V[[t]]$, where $t$ is the local coordinate $t = z-w$.
 Hence there is a $w$-dependent map $\cO(V[[t]]) \to \cO(V[z,z^{-1}])$ by pulling back a function along $r_w$;
 this map determines a $w$-dependent action of $\cO(V[[t]])$ on $\cO(V[[z]])$.
@@ -650,7 +650,7 @@ Then $G$ also acts on the algebraic loop space $V[z,z^{-1}]$ and also on formal 
 the action is independent of $z$.
 On the other hand, if we consider the infinitesimal action $\rho: \fg \to {\rm SympVect}(V)$,
 there is, in fact, a natural extension to a ``local'' symmetry $\rho^{\rm loc}: \fg[z,z^{-1}] \to {\rm SympVect}(V((z)))$.
-Geometrically, a $\fg$-valued function $x(z)$ acts pointwise (with respect to the formal disk) on the formal loop space.
+Geometrically, a $\fg$-valued function $x(z)$ acts pointwise (with respect to the formal disc) on the formal loop space.
 (Although the algebraic loop space is not symplectic in a strict sense,
 there is still a local symmetry as $\fg[z,z^{-1}]$ maps to vector fields on the algebraic loop space.)
 This action factors through a map $H_\rho^{\rm loc}: \fg[z,z^{-1}] \to \cO(V((z)))$,
@@ -820,7 +820,7 @@ for any $f (z) \in \CC[z_1,\ldots,z_d]$.
 \end{enumerate}
 \end{prop}
 
-We can use this algebra and its nice properties to define a kind of ``sphere algebra'' $\Map(\pAA^d,\fg)$ of algebraic maps from the punctured affine space (or the punctured formal disk) into $\fg$,
+We can use this algebra and its nice properties to define a kind of ``sphere algebra'' $\Map(\pAA^d,\fg)$ of algebraic maps from the punctured affine space (or the punctured formal disc) into $\fg$,
 just as $\fg[z,z^{-1}]$ provides a kind of loop algebra.
 
 \begin{dfn}
@@ -895,7 +895,7 @@ The shortest answer is ``factorization algebras,'' and we will describe and expl
 but there are nice answers for two special classes of theories that we will develop now:
 \begin{itemize}
 \item For a topological field theory on $\RR^d$ (which we'll define in a moment),
-the observables form an algebra over the {\em little $d$-disks operad}~$\Disc_d$ (sometimes also known as the $E_d$ operad). 
+the observables form an algebra over the {\em little $d$-discs operad}~$\Disc_d$ (sometimes also known as the $E_d$ operad). 
 Equivalently, one says the observables are an $E_d$-algebra. 
 This notion was introduced by algebraic topologists in the 1960s, 
 so there is a rich body of work to draw upon.
@@ -1010,30 +1010,30 @@ With this language to hand, we now turn to generalizing associative algebras for
 Our goal is to formulate a colored operad that captures the behavior of the observables of a topological field theory.
 
 The heuristic idea is straightforward.
-Given a field theory $\cT$ on $\RR^d$, there is a vector space (or possibly dg vector space) $\Obs_\cT(D_r(x))$ of measurements one can make in the open disk $D_r(x)$ of radius $r$ around the point $x$.
-Any measurement in a small disk should provide a measurement on a bigger disk,
+Given a field theory $\cT$ on $\RR^d$, there is a vector space (or possibly dg vector space) $\Obs_\cT(D_r(x))$ of measurements one can make in the open disc $D_r(x)$ of radius $r$ around the point $x$.
+Any measurement in a small disc should provide a measurement on a bigger disc,
 so there is a map $\Obs_\cT(D_r(x)) \to \Obs_\cT(D_R(y))$ whenever $D_r(x) \subset D_R(y)$.
-Thus we have a collection of vector spaces labeled by the disks in $\RR^d$,
+Thus we have a collection of vector spaces labeled by the discs in $\RR^d$,
 and we have identified a class of unary operations determined by inclusion.
 
-There should also be natural $n$-ary operations encoding how to combine observables from several distinct disks to give an observable on a big disk.
-Start with $n$ disks $D_{r_1}(x_1)$, \dots , $D_{r_n}(x_n)$ whose closures are pairwise disjoint, and let $D_R(y)$ be a big disk containing all the smaller disks.
+There should also be natural $n$-ary operations encoding how to combine observables from several distinct discs to give an observable on a big disc.
+Start with $n$ discs $D_{r_1}(x_1)$, \dots , $D_{r_n}(x_n)$ whose closures are pairwise disjoint, and let $D_R(y)$ be a big disc containing all the smaller discs.
 Then we want a map
 \[
 \Obs_\cT(D_{r_1}(x_1)) \otimes \cdots \otimes \Obs_\cT(D_{r_n}(x_n)) \to \Obs_\cT(D_R(y)).
 \]
-In the limit when the big disk is all of $\RR^d$ (i.e., $R = \infty$) and the input radii $r_i$ are very small, 
+In the limit when the big disc is all of $\RR^d$ (i.e., $R = \infty$) and the input radii $r_i$ are very small, 
 this map should encode the $n$-point functions beloved of physicists.
 
 So far we have described a structure that observables should have for any field theory on~$\RR^d$.
-For a topological field theory, we expect that the size of a disk does not matter:
+For a topological field theory, we expect that the size of a disc does not matter:
 for any inclusion $D_r(x) \subset D_R(y)$, the map $\Obs_\cT(D_r(x)) \to \Obs_\cT(D_R(y))$ is an equivalence.
 This condition implies that we can always shrink the input radius as small as we want and we can always take the output radius to be a fixed value, say $R =1$.
-In other words, the unary operations are parametrized by a point in the unit disk;
+In other words, the unary operations are parametrized by a point in the unit disc;
 we have a local system of isomorphisms.
 
 For $n$-ary operations we can likewise shrink the input radii as small as we want.
-Thus the $n$-ary operations should be parametrized by the configuration space of $n$ points inside the unit disk.
+Thus the $n$-ary operations should be parametrized by the configuration space of $n$ points inside the unit disc.
 (Rather, we can recover all $n$-ary operations knowing this information.)
 We expect that these $n$-ary operations should also define a local system.
 
@@ -1042,8 +1042,8 @@ Loosely speaking, a classical field theory (defined by a Lagrangian density, als
 A model example is Chern-Simons theory on oriented 3-manifolds for compact Lie group~$G$:
 the space of solutions to the equations of motion on $M$ is the moduli space of flat $G$-bundles on $M$.
 The observables for a classical field theory on $M$ means the commutative algebra of functions on solutions to the equations of motion on $M$.
-In particular, for $M$ a disk, the size of the disk will not affect the algebra of observables,
-and inclusions of disks leads to isomorphisms of observables.
+In particular, for $M$ a disc, the size of the disc will not affect the algebra of observables,
+and inclusions of discs leads to isomorphisms of observables.
 Several of these features extend to the quantum field theories that arise by quantizing such topological classical theories;
 the observables continue to form a vector space but are not commutative algebras anymore.
 (See \cite{CG1, CG2} for a precise mathematical formulation of this idea, which is a natural extension of deformation quantization to higher dimensions.)
@@ -1063,16 +1063,16 @@ where we use the cartesian product for the symmetric monoidal structure.
 An operad in this category will be called a {\em topological operad}.
 
 \begin{dfn}
-The {\em little $d$-disks operad} $\Disc_d$ is the topological operad whose space of $n$-ary operations is
+The {\em little $d$-discs operad} $\Disc_d$ is the topological operad whose space of $n$-ary operations is
 \begin{align*}
 \Disc_d(n) = \{ (x_1, \ldots, x_n; r_1, &\ldots, r_n)  \in D_1(0)^n \times (0,1)^n \;|\; \\
-&\text{the closure of the disks $\overline{D_{r_i}(x_i)}$ is pairwise disjoint}\}.
+&\text{the closure of the discs $\overline{D_{r_i}(x_i)}$ is pairwise disjoint}\}.
 \end{align*}
-The composition $\mu \circ_i \nu$ is given by rescaling the unit disk that labels the output of $\nu$ to $r_i$ and then embedding it into the disk~$D_{r_i}(x_i)$.
+The composition $\mu \circ_i \nu$ is given by rescaling the unit disc that labels the output of $\nu$ to $r_i$ and then embedding it into the disc~$D_{r_i}(x_i)$.
 \end{dfn}
 
 \owen{Draw some 2d pictures and unpack a little. Mention pair of pants \& OPE} 
-In this sense, it captures the dependence on the disks.
+In this sense, it captures the dependence on the discs.
 
 
 Observables, however, are supposed to live in vector spaces or dg vector spaces,
@@ -1088,12 +1088,14 @@ to produce a dg operad we denote~$C_*(\Disc_d)$.
 Likewise the composition $C_*(\circ_i)$ is then a cochain map.)
 
 \begin{dfn}
-An {\em algebra over the little $d$-disks operad} (or little $d$-disks algebra or $E_d$-algebra) is a cochain complex $A$ that is an algebra over the dg operad~$C_*(\Disc_d)$.
+An {\em algebra over the little $d$-discs operad} (or little $d$-discs algebra or $E_d$-algebra) is a cochain complex $A$ that is an algebra over the dg operad~$C_*(\Disc_d)$.
 \end{dfn}
+
+\owen{Perhaps mention classic examples like $n$-fold loop spaces or Hochschild cohomology?}
 
 We can state now encapsulate our expectations from above:
 \begin{quote}
-the observables of a topological field theory on $\RR^d$ are a little $d$-disks algebra.
+the observables of a topological field theory on $\RR^d$ are a little $d$-discs algebra.
 \end{quote}
 There is a setting where a precise version of this statement was proven, by Elliott and Safronov, for a mathematically well-defined class of Lagrangian field theories.
 
@@ -1106,9 +1108,9 @@ If the theory satisfies
 \begin{enumerate}
 \item[(i)] $\cT$ is equivariant under the action of the translation group,
 \item[(ii)] the action of the translation Lie algebra is homotopically trivialized, and
-\item[(iii)] the extension of observables along an inclusion of disks is a quasi-isomorphism,
+\item[(iii)] the extension of observables along an inclusion of discs is a quasi-isomorphism,
 \end{enumerate}
-then the observables form a little $d$-disks algebra.
+then the observables form a little $d$-discs algebra.
 \end{thm}
 
 The notion from \cite{CosBook} articulates Lagrangian field theories whose linearized equations of motion are elliptic in nature;
@@ -1126,9 +1128,10 @@ This theorem applies to many well-known examples from physics, such as
 \item the Kapustin-Witten gauge theory for oriented 4-manifolds \cite{EGW},
 \end{itemize}
 among other examples of topological AKSZ theories, such as BF theories.
+In all these examples, the underlying elliptic complex is a version of the de Rham complex.
 
 For physicists, we note that the proof uses a version of Witten descent.
-Indeed, descent can be used to produce interesting operations in these disk algebras,
+Indeed, descent can be used to produce interesting operations in these disc algebras,
 so that many familiar constructions from the physical approach to TFTs fit cleanly and easily into this framework.
 
 \owen{Stuff about formality? functorial field theories?}
@@ -1138,34 +1141,34 @@ so that many familiar constructions from the physical approach to TFTs fit clean
 We now turn to the problem of describing observables of a holomorphic field theory on~$\CC^d$,
 and we follow an approach similar to the topological case just discussed.
 
-In the setting of a holomorphic field theory, we expect the observables to have a nontrivial dependence on the radius of a disk.
+In the setting of a holomorphic field theory, we expect the observables to have a nontrivial dependence on the radius of a disc.
 Consider, for example, that 
-when $D_r(x) \subset D_R(y) \subset \CC$ are open disks in the plane,
+when $D_r(x) \subset D_R(y) \subset \CC$ are open discs in the plane,
 the restriction map of holomorphic functions
 \[
 \cO(D_R(y))\to \cO(D_r(x))
 \]
 is not an isomorphism,
 and the sheaf $\cO$ provides a fundamental model for how the solutions of the equations of motion should behave for a holomorphic field theory.
-We will assume, however, that a holomorphic theory is equivariant under translations of $\CC^d$ and that the observables in a disk $D_r(X)$ are equivalent to the observables in a translate~$D_r(x+z)$.
+We will assume, however, that a holomorphic theory is equivariant under translations of $\CC^d$ and that the observables in a disc $D_r(X)$ are equivalent to the observables in a translate~$D_r(x+z)$.
 Thus, we will have a colored operad whose colors are labeled by radii~$r \in (0,\infty)$,
-as we merely have to specify the observables on a disk~$D_r(0)$.
+as we merely have to specify the observables on a disc~$D_r(0)$.
 
 We now introduce a small tweak.
-Instead of working with disks, we work with polydisks: for $w = (w_1, \ldots, w_d) \in \CC^d$, the polydisk of radius $r$ around $w$~is
+Instead of working with discs, we work with polydiscs: for $w = (w_1, \ldots, w_d) \in \CC^d$, the polydisc of radius $r$ around $w$~is
 \[
 PD_r(w) = \{ z \in \CC^d \;|\; |z_i - w_i| < r \text{ for all $i$}\}.
 \]
-We work with polydisks because it is easier to describe holomorphic functions on a polydisk than on a disk;
+We work with polydiscs because it is easier to describe holomorphic functions on a polydisc than on a disc;
 one can borrow results from single-variable complex analysis.
 With this notion in hand, we introduce our main character.
 
 \begin{dfn}
-The {$d$-polydisks operad} $\PDisc_d$ is the colored operad in the category of complex manifolds where each positive real number $r \in (0,\infty)$ is a color 
+The {$d$-polydiscs operad} $\PDisc_d$ is the colored operad in the category of complex manifolds where each positive real number $r \in (0,\infty)$ is a color 
 and where there is a complex manifold of $n$-ary operations
 \begin{align*}
 \PDisc_d(r_1, \ldots, r_n| R) = \{ (w_1, \ldots,& w_n) \in PD_R(0)^n \;|\; 
-\text{the closure of the polydisks $\overline{PD_{r_i}(w_i)}$}\\ 
+\text{the closure of the polydiscs $\overline{PD_{r_i}(w_i)}$}\\ 
 &\text{ is pairwise disjoint and each is contained in $PD_R(0)$}\}
 \end{align*}
 for any list of radii $r_1,\ldots, r_n, R$.
@@ -1176,11 +1179,11 @@ There is a composition
 \circ_i: \PDisc_d(r_1, \ldots, r_n| R) \times \PDisc_d(s_1, \ldots, s_m| S) \to \PDisc_d(r_1, \ldots, s_1, \ldots, s_m, r_{i+1}, \ldots, r_n| R)
 \]
 only when $r_i = S$, 
-and in that case, the composition $\mu \circ_i \nu$ is given by embedding an output polydisk into an input polydisk of the same radius.
+and in that case, the composition $\mu \circ_i \nu$ is given by embedding an output polydisc into an input polydisc of the same radius.
 (Composition is not defined if the radii do not match.)
 \end{dfn}
 
-We are again thinking about configuration spaces --- here of polydisks inside larger polydisks --- but we are remembering the complex structure explicitly.
+We are again thinking about configuration spaces --- here of polydiscs inside larger polydiscs --- but we are remembering the complex structure explicitly.
 To describe observables, we want to produce a dg colored operad that encodes the holomorphic nature of this situation.
 We do {\em not} want to take singular chains, which would only remember the homotopy type;
 instead, we choose to take the Dolbeault complex of each configuration space.
@@ -1195,7 +1198,7 @@ For instance, there is a composition
 &\Omega^{0,*}(\PDisc_d(r_1, \ldots, r_n| R)) \otimes \Omega^{0,*}(\PDisc_d(s_1, \ldots, s_m| S))
 \end{align}
 \owen{I don't know how to eliminate the two numbers}
-when $r_i = S$, and in that case, the composition $\mu \circ_i \nu$ is given by embedding an output polydisk into an input polydisk of the same radius.
+when $r_i = S$, and in that case, the composition $\mu \circ_i \nu$ is given by embedding an output polydisc into an input polydisc of the same radius.
 (Composition is not defined if the radii do not match.)
 
 An important technical point arises here: 
@@ -1218,7 +1221,7 @@ From hereon we will ignore function-analytic aspects and write $\otimes$,
 with an appropriate symmetric monoidal category left implicit.
 
 \begin{dfn}
-The {\em $d$-polydisks dg cooperad} is the colored operad in the category of dg vector spaces where each positive real number $r \in (0,\infty)$ is a color 
+The {\em $d$-polydiscs dg cooperad} is the colored operad in the category of dg vector spaces where each positive real number $r \in (0,\infty)$ is a color 
 and where there is a dg vector space of $n$-ary cooperations
 \[
 \Omega^{0,*}(\PDisc_d(r_1, \ldots, r_n| R)) 
@@ -1229,7 +1232,7 @@ There is a composition
 \circ_i: \Omega^{0,*}(\PDisc_d(r_1, \ldots, s_1, \ldots, s_m, r_{i+1}, \ldots, r_n| R))\to \Omega^{0,*}(\PDisc_d(r_1, \ldots, r_n| R)) \otimes \Omega^{0,*}(\PDisc_d(s_1, \ldots, s_m| S))
 \]
 only when $r_i = S$, 
-and in that case, the composition $\mu \circ_i \nu$ is given by embedding an output polydisk into an input polydisk of the same radius.
+and in that case, the composition $\mu \circ_i \nu$ is given by embedding an output polydisc into an input polydisc of the same radius.
 (Composition is not defined if the radii do not match.)
 \end{dfn}
 
@@ -1254,8 +1257,8 @@ In particular, a holomorphic version of Witten descent gives a useful method for
 
 \subsubsection{Vertex algebras from the $d=1$ case}
 
-In the case $d=1$, it is possible to relate polydisks algebras to vertex algebras.
-More precisely, when the polydisk algebra has a nice action of the rotation group~$U(1)$,
+In the case $d=1$, it is possible to relate polydiscs algebras to vertex algebras.
+More precisely, when the polydisc algebra has a nice action of the rotation group~$U(1)$,
 one can extract a vertex algebra: 
 see Chapter 5 of~\cite{CG1} for a detailed treatment and examples like the free $\beta\gamma$ system and the Kac-Moody vertex algebras.
 Here we will analyze the cohomology of the cooperad and what kind of information it encodes, with a view towards motivating the relationship to vertex algebras.
@@ -1286,12 +1289,17 @@ by sending a configuration $(w_1,\ldots, w_n)$ to $(w_1, w_2 - w_1, \ldots, w_n-
 (We could replace $w_1$ by any $w_j$, or even the sum of them all.)
 Hence, the Dolbeault cohomology consists of holomorphic functions on this space;
 there is no higher cohomology.
-Inside the holomorphic functions, as a dense but understandable subalgebra, are the algebraic functions:
+Inside the holomorphic functions 
 \[
-\CC[w_1, (w_1 - w_2)^{\pm 1}, \ldots, (w_n - w_{n-1})^{\pm 1}] \subset H^{0,*}({\rm Conf}_n(\CC)).
+\cO({\rm Conf}_n(\CC)) = H^{0,*}({\rm Conf}_n(\CC)),
+\] 
+as a dense but understandable subalgebra, are the algebraic functions:
+\[
+\cO_{\rm alg}({\rm Conf}_n(\CC)) = \CC[w_1, (w_1 - w_2)^{\pm 1}, \ldots, (w_n - w_{n-1})^{\pm 1}].
 \]
-Here $(w_j - w_{j-1})^{\pm 1}$ means that the function $1/(w_j - w_{j-1})$ is also a generator.
-Each such algebraic function provides an operation on $H^*(A)$, where $A$ denotes a polydisk algebra.
+Here $(w_j - w_{j-1})^{\pm 1}$ means that the function $1/(w_j - w_{j-1})$ is a generator, 
+as is $(w_j - w_{j-1})$.
+Each such algebraic function provides an operation on $H^*(A)$, where $A$ denotes a polydisc algebra.
 
 Let us unravel things in the special case of two points.
 For simplicity, we will fix $w_1 = 0$ so that we focus on where place the other point $w_2 \in \CC^\times$.
@@ -1324,11 +1332,13 @@ guarantees that we have
 \int_{|z| = r} \alpha(a,b)\, f(z) \d z = \sum_{n=-\infty}^{N-1} c_{-n-1} a_{(n)} b.
 \]
 
-\owen{I think I should swap the location of $a$ and $b$ to match VOA conventions.}
+\owen{I think I should swap the location of $a$ and $b$ to match VOA conventions. I want to explain that taking the extremal radii means we cannot compose, which leads to the complicated VOA formulas.}
 
+\subsubsection{Revisiting the higher Kac-Moody algebras}
 
+\owen{I want to mention here that we have a polydisc version}
 
-\subsubsection{Polydisks algebras from holomorphic field theories}
+\subsubsection{Polydiscs algebras from holomorphic field theories}
 
 Let 
 \[
@@ -1345,7 +1355,7 @@ If the theory satisfies
 \item[(i)] $\cT$ is equivariant under the action of the translation group and
 \item[(ii)] the action of the Lie algebra $\ft_{\zbar}$ is homotopically trivialized,
 \end{enumerate}
-then the observables form a $d$-polydisks algebra.
+then the observables form a $d$-polydiscs algebra.
 \end{thm}
 
 This result is analogous to Elliott and Safronov's, although it predated (and inspired) it.
@@ -1371,14 +1381,23 @@ Hence an algebra over the cooperad $\Omega^*(\PDisc_d)$ forgets to an algebra ov
 Moreover, it is straightforward (if one is comfortable with operads and higher categories) to show that 
 \begin{enumerate}
 \item algebras over the dg operad $C_*(\PDisc_d)$ are equivalent to algebras over the dg cooperad~$\Omega^*(\PDisc_d)$, as $\infty$-categories, and
-\item $E_{2d}$-algebras are equivalent to the algebras over $C_*(\PDisc_d)$ such that an inclusion of a polydisk is always a quasi-isomorphism (the ``locally constant'' algebras).
+\item $E_{2d}$-algebras are equivalent to the algebras over $C_*(\PDisc_d)$ such that an inclusion of a polydisc is always a quasi-isomorphism (the ``locally constant'' algebras).
 \end{enumerate}
-The second item holds because any configuration space of polydisks is weakly equivalent, as a topological space, to the analogous configuration space of disks.
+The second item holds because any configuration space of polydiscs is weakly equivalent, as a topological space, to the analogous configuration space of discs.
 Thus we have sketched the following result.
 
 \begin{thm}
-The observables of a topological field theory on $\RR^{2d}$ determine an algebra over the polydisks cooperad~$\Omega^{0,*}(\PDisc_d)$.
+There is a forgetful functor
+\[
+\Alg_{E_{2d}} \to  \Alg_{\PDisc_2}.
+\]
 \end{thm}
+
+The primary interest for us is the following consequence.
+
+\begin{cor}
+The observables of a topological field theory on $\RR^{2d}$ determine an algebra over the polydiscs cooperad~$\Omega^{0,*}(\PDisc_d)$.
+\end{cor}
 
 In Section~\ref{???} we will examine another relationship --- generalizing the compactification/chiralization on $\CC$ --- that yields an $E_d$ algebra from a $\PDisc_d$-algebra.
 
@@ -1717,7 +1736,7 @@ provides a cover in the usual sense of $U^n \subset M^n$ for every positive inte
 \end{rmk}
 
 \begin{eg}\label{WeissAsExponential}
-For a smooth $n$-manifold $M$, there are several simple ways to construct a Weiss cover for $M$. One construction is simply to take the collection of open sets in $M$ diffeomorphic to a disjoint union of finitely many copies of the open $n$-disk. Alternatively, the collection of opens $\{ M \setminus q \mcol q \in M\}$ is a Weiss cover of $M$. One can also produce a Weiss cover of a manifold with countably many elements. Fix a Riemannian metric on $M$. Pick a collection of points $\{q_n\in M \mcol n \in \NN\}$ such that the union of the unit ``discs'' $D_1(q_n) = \{ q \in M \mcol \d(q_n,q) < 1\}$ covers $M$. (Such an open may not be homeomorphic to a disc if the injectivity radius of $q_n$ is less than 1.)  Consider the collection of all ``discs'' $\fD = \{ D_{1/m}(q_n) \mcol m \in \NN, n \in \NN\}$.  The collection of all finite, pairwise disjoint union of elements of $\fD$ is a countable Weiss cover.~\hfill $\Diamond$ 
+For a smooth $n$-manifold $M$, there are several simple ways to construct a Weiss cover for $M$. One construction is simply to take the collection of open sets in $M$ diffeomorphic to a disjoint union of finitely many copies of the open $n$-disc. Alternatively, the collection of opens $\{ M \setminus q \mcol q \in M\}$ is a Weiss cover of $M$. One can also produce a Weiss cover of a manifold with countably many elements. Fix a Riemannian metric on $M$. Pick a collection of points $\{q_n\in M \mcol n \in \NN\}$ such that the union of the unit ``discs'' $D_1(q_n) = \{ q \in M \mcol \d(q_n,q) < 1\}$ covers $M$. (Such an open may not be homeomorphic to a disc if the injectivity radius of $q_n$ is less than 1.)  Consider the collection of all ``discs'' $\fD = \{ D_{1/m}(q_n) \mcol m \in \NN, n \in \NN\}$.  The collection of all finite, pairwise disjoint union of elements of $\fD$ is a countable Weiss cover.~\hfill $\Diamond$ 
 \end{eg}
 
 Now that we have a notion of cover, we can formulate the local-to-global property for factorization algebras,
@@ -1809,24 +1828,24 @@ Two examples of differential complexes play a key role in applications:
 \end{itemize}
 One can take, of course, these complexes with sections in a flat vector bundle (for the de Rham case) or a holomorphic vector bundle (for the Dolbeault case).
 
-\subsection{Algebras over the little disks operad}
+\subsection{Algebras over the little discs operad}
 
 Associative algebras are familiar to every mathematician, but as we have just seen, they reflect and encode one-dimensional geometry.
 It is then natural to ask about higher-dimensional versions of algebra.
-Topologists developed such a systematic generalization, often called $E_n$ algebras or algebras over the little $n$-disks operad,
+Topologists developed such a systematic generalization, often called $E_n$ algebras or algebras over the little $n$-discs operad,
 which we now describe and relate to prefactorization algebras on~$\RR^n$.
 In relation to the subject of this paper, we mention that $E_n$ algebras arise naturally from $n$-dimensional topological field theories;
 we will soon introduce a holomorphic analog of $E_n$ algebras relevant to holomorphic field theories,
 modeled on the discussion here.
 
 Fix a dimension $n$. 
-Let $D^n(x,r)$ denote the open disk of radius $r$ centered at $x \in \RR^n$,
-and let $D^n$ denote the unit disk~$D^n(0,1)$.
+Let $D^n(x,r)$ denote the open disc of radius $r$ centered at $x \in \RR^n$,
+and let $D^n$ denote the unit disc~$D^n(0,1)$.
 
 \begin{dfn}
-Let $E_n$ denote the colored operad with a single color $D^n$ and a topological space $E_n(k)$ of maps from $k$ copies of $D^n$ to itself given by configurations of $k$ disjoint disks:
+Let $E_n$ denote the colored operad with a single color $D^n$ and a topological space $E_n(k)$ of maps from $k$ copies of $D^n$ to itself given by configurations of $k$ disjoint discs:
 \[
-E_n(k) = \left\{ \begin{matrix}(x_1, \ldots, x_k) \in (D^n(0,1))^k,\\ (r_1, \ldots, r_k) \in (0,1)^k\end{matrix} \,\bigg|\, \text{\begin{tabular}{c}the disks $D^n(x_i,r_i)$ are pairwise disjoint\\ but each contained in the unit disk $D^n$\end{tabular}}\right\}.
+E_n(k) = \left\{ \begin{matrix}(x_1, \ldots, x_k) \in (D^n(0,1))^k,\\ (r_1, \ldots, r_k) \in (0,1)^k\end{matrix} \,\bigg|\, \text{\begin{tabular}{c}the discs $D^n(x_i,r_i)$ are pairwise disjoint\\ but each contained in the unit disc $D^n$\end{tabular}}\right\}.
 \]
 \end{dfn}
 
@@ -1837,7 +1856,7 @@ More accurately, $E_1$ is a model for associative algebras up to homotopy;
 it is closely related to the $A_\infty$ operad. \owen{Let me check how people compare these.}
 
 For arbitrary $n$, this definition encodes concretely the idea of $n$ directions of multiplication.
-If one fixes a direction, such as a coordinate axis, and works with disks lined up in this direction,
+If one fixes a direction, such as a coordinate axis, and works with discs lined up in this direction,
 one sees an $E_1$ structure.
 
 \owen{Add picture? We drew 2d pictures earlier.}
@@ -1847,16 +1866,16 @@ A classic example from topology is given by taking the $n$-fold based loop space
 \[
 \Omega^n_x(X) = \{ \gamma: \overline{D^n} \to X \mcol \gamma(\partial \overline{D^n}) = x\}
 \]
-of a based space $(X,x)$ (i.e., a topological space with a distinguished point) and $\overline{D^n}$ denotes the closed unit $n$-disk.
-Maps that send the boundary of a disk to the base point can be extended naturally to bigger disks: just send the rest of the big disk to the basepoint.
+of a based space $(X,x)$ (i.e., a topological space with a distinguished point) and $\overline{D^n}$ denotes the closed unit $n$-disc.
+Maps that send the boundary of a disc to the base point can be extended naturally to bigger discs: just send the rest of the big disc to the basepoint.
 \owen{Should I spell out the structure of the algebra?}
 Examples include \owen{What to mention?}
 
 Factorization algebras on $\RR^n$ and $E_n$ algebras should be closely related,
-as can be seen by drawing pictures of the configurations of disks that control operations.
+as can be seen by drawing pictures of the configurations of discs that control operations.
 
 \begin{dfn}
-A factorization algebra $\cF$ on an $n$-manifold $M$ is \emph{locally constant} if for each inclusion of open disks $D \subset D'$, then the map $\cF(D) \to \cF(D')$ is a quasi-isomorphism.
+A factorization algebra $\cF$ on an $n$-manifold $M$ is \emph{locally constant} if for each inclusion of open discs $D \subset D'$, then the map $\cF(D) \to \cF(D')$ is a quasi-isomorphism.
 \end{dfn}
 
 For $M = \RR$, we have already discussed how locally constant factorization algebras relate to associative algebras, starting with Example~\ref{ex:associativealgebra}.
@@ -2004,7 +2023,7 @@ In part, the fields of this system constituted a holomorphic map $\gamma \colon 
 \brian{background on CDO's}
 
 \begin{dfn}\label{dfn:cdo}
-A {\em sheaf of $n$-CDOs} on a manifold $X$ (of complex dimension $N$) is a sheaf of $n$-dimensional holomorphically translation invariant factorization algebras whose restriction to any $n$-disk is equivalent to the $n$-dimensional $\beta\gamma$ system (with target $\CC^N$). 
+A {\em sheaf of $n$-CDOs} on a manifold $X$ (of complex dimension $N$) is a sheaf of $n$-dimensional holomorphically translation invariant factorization algebras whose restriction to any $n$-disc is equivalent to the $n$-dimensional $\beta\gamma$ system (with target $\CC^N$). 
 \end{dfn}
 
 \begin{thm}\label{thm:cdo}
@@ -2052,7 +2071,7 @@ In general,
 \subsubsection{Global sections, an example}
 
 We give a concrete description of 2-CDO's on the manifold $X = \PP^1$.
-In this case there is a unique sheaf of 2-CDO's that we denote by $2\CDO_{\PP^1}$ (here we are using the holomorphic $\PP_2$ description as the cohomology of the observables of the $\beta\gamma$ system on a $2$-disk).
+In this case there is a unique sheaf of 2-CDO's that we denote by $2\CDO_{\PP^1}$ (here we are using the holomorphic $\PP_2$ description as the cohomology of the observables of the $\beta\gamma$ system on a $2$-disc).
 Consider the standard description of $\PP^1 = U \cup V$ where $U = {\rm Spec}(\CC[\gamma])$ and $V = {\rm Spec}(\CC[\gamma^{-1}])$. 
 
 On $U$, $2\CDO_{\PP^1}(U)$ is the graded polynomial algebra $\CC[\gamma[k,\ell], \beta[p,q]]$. 
