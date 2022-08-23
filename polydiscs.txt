@@ -270,7 +270,7 @@ one can borrow results from single-variable complex analysis.
 With this notion in hand, we introduce our main character.
 
 \begin{dfn}
-The {$d$-polydisks operad} $\PDisk_d$ is the colored operad in the category of complex manifolds where each positive real number $r \in (0,\infty)$ is a color 
+The (holomorphic) {$d$-polydisks operad} $\PDisk_d$ is the colored operad in the category of complex manifolds where each positive real number $r \in (0,\infty)$ is a color 
 and where there is a complex manifold of $n$-ary operations
 \[
 \PDisk_d(r_1, \ldots, r_n| R) = \{ (w_1, \ldots, w_n) \in \PD_R(0)^n \;|\; \text{the closure of the polydisks $\overline{PD_{r_i}(w_i)}$ is pairwise disjoint and each is contained in $PD_R(0)$\}
@@ -365,7 +365,9 @@ one can extract a vertex algebra:
 see Chapter 5 of~\cite{CG1} for a detailed treatment and examples like the free $\beta\gamma$ system and the Kac-Moody vertex algebras.
 Here we will analyze the cohomology of the cooperad and what kind of information it encodes, with a view towards motivating the relationship to vertex algebras.
 
-It is easiest to work with extremal values of the radii.
+Let $V_k \subset A(r)$ be the weight $k \in \Z$ eigenspace with respect to the $U(1)$ action and denote by $V = \oplus_{k \in \Z} V_k$.\footnote{Instead of integral weights one could instead look at rational weights which would encapsulate a wider class of vertex algebras.} 
+The assumption that this action is `nice' implies that $V_k$ is actually independent of the radius $r$. 
+Thus, it is easiest to work with extremal values of the radii.
 We take the output radius to be $R = \infty$,
 so that the outputs are observables on all of~$\CC$.
 We take the input radii to be $r_i = 0$,
@@ -399,9 +401,25 @@ Here $(w_j - w_{j-1})^{\pm 1}$ means that the function $1/(w_j - w_{j-1})$ is al
 Each such algebraic function provides an operation on $H^*(A)$, where $A$ denotes a polydisk algebra.
 
 Let us unravel things in the special case of two points.
-Then we have \owen{finish}
+In this case, the configuration space is equivalent to $\C \times \C^\times$ so that we get an operation
+\[
+A(r_1 \to 0) \otimes A (r_2 \to 0) \to A(R \to \infty) \otimes \Omega^{0,\bu}(\CC \times \CC^\times) \simeq {\rm Hol}(\CC \times \CC^\times, A(R \to \infty)) .
+\]
+To get an algebraic expression we look at the $U(1)$ eigenspace decomposition of this operation which yields a map
+\[
+V \otimes V \to V \otimes \CC[[w,z,z^{-1}]] \otimes \Bar{V}
+\]
+where $\Bar{V} = \prod_{k \in \ZZ} V_k$ is the product (not the direct sum) over all integral eigenspaces.
+We can compose this with the map $\CC[[w,z,z^{-1}]] \to \CC[[z,z^{-1}]]$ to finally obtain a map
+\[
+m_2 \colon V \otimes V \to V \otimes \Bar{V}[[z,z^{-1}]]  .
+\]
 
-
+This operation is more-or-less the same as the state-operator map in the setting of vertex algebras
+\[
+m_2(v,v';z) = Y(v,z)v' 
+\]
+where we recall that the state-operator map is of the form $Y \colon V \to {\rm End}(V)[[z,z^{-1}]]$.
 
 
 \subsubsection{Polydisks algebras from holomorphic field theories}
