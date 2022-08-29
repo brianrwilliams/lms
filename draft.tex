@@ -1115,6 +1115,9 @@ The composition $\mu \circ_i \nu$ is given by rescaling the unit disc that label
 \owen{Draw some 2d pictures and unpack a little. Mention pair of pants \& OPE} 
 In this sense, it captures the dependence on the discs.
 
+This operad was invented by algebraic topologists to capture the rich structure of the $d$-fold based loop space $\Omega^d X$ of a pointed space $(X,x)$.
+(The usual homotopy group $\pi_d(X)$ is a shadow of this richer structure.)
+Thus there is a deep reservoir of tools and results for studying algebras over the little discs operads in algebraic topology.
 
 Observables, however, are supposed to live in vector spaces or dg vector spaces,
 so we need to explain how to get algebras in that setting.
@@ -1161,14 +1164,15 @@ In particular, there is an underlying graded vector space of ``fields,''
 and the observables are a dg commutative algebra given a symmetric algebra on the linear dual to the fields and equipped with a differential $d_\cT$ that is determined by the Lagrangian density of the theory.
 Item (ii) above then means that each vector field $\partial_i$ acts by a degree 0 cochain map $D_i$ on the observables and there is a degree one cochain homotopy $\eta_i$ on the observables such that $[d_\cT, \eta_i]~=~D_i$.
 
-This theorem applies to many well-known examples from physics, such as 
+\owen{Actually say what kind of $d$-discs algebras one gets.}
+This theorem applies to many well-known examples from physics:
 \begin{itemize}
-\item the topological $B$-model of maps from an oriented surface into a Calabi-Yau manifold (constructed by Li and Li \cite{LiLi} in a setting where \cite{EllSaf} applies);
-\item Chern-Simons gauge theory of flat $G$-bundles on an oriented 3-manifold (constructed, essentially, by Axelrod-Singer \cite{AxeSin} and Kontsevich \cite{KonECM} but articulated in this setting by Costello \cite{CosBook});
-\item Rozansky-Witten theory of maps from an oriented 3-manifold into a complex manifold \cite{ChanLeungLi}; and
-\item the Kapustin-Witten gauge theory for oriented 4-manifolds \cite{EGW},
+\item The topological $B$-model of maps from an oriented surface into a Calabi-Yau manifold $X$ (constructed by Li and Li \cite{LiLi} in a setting where \cite{EllSaf} applies) yields an $E_2$ algebra. It is quasi-isomorphic to the well-known Gerstenhaber algebra of polyvector fields on~$X$.
+\item Chern-Simons gauge theory of flat $G$-bundles on an oriented 3-manifold (constructed, essentially, by Axelrod-Singer \cite{AxeSin} and Kontsevich \cite{KonECM} but articulated in this setting by Costello \cite{CosBook}) yields an $E_3$ algebra, which encodes the quantum group $U_\hbar \fg$ under a version of Koszul duality.
+\item Rozansky-Witten theory of maps from an oriented 3-manifold into a complex manifold \cite{ChanLeungLi} yields an $E_3$ algebra \owen{on what?}
+\item Each Kapustin-Witten gauge theory for oriented 4-manifolds \cite{EGW} yields an $E_4$ algebra, related to deforming the coadjoint quotient stack~$\fg^*/G$.
 \end{itemize}
-among other examples of topological AKSZ theories, such as BF theories.
+It applies to other examples of topological AKSZ theories, such as BF theories.
 In all these examples, the underlying elliptic complex is a version of the de Rham complex.
 
 For physicists, we note that the proof uses a version of Witten descent.
@@ -1176,6 +1180,12 @@ Indeed, descent can be used to produce interesting operations in these disc alge
 so that many familiar constructions from the physical approach to TFTs fit cleanly and easily into this framework.
 
 \owen{Stuff about formality? functorial field theories?}
+
+This theorem builds an explicit bridge between topology and physics. 
+Thanks to the theorem of Elliott and Safronov, we know that most topological field theories in the physicist's sense provide $E_n$ algebras,
+but they can thus be analyzed using the powerful machinery of modern homotopy theory. 
+Conversely, intuition from physics about the behavior of topological field theories suggests novel constructions and examples to topology. 
+Much of the amazing resonance between operads, homological algebra, and string-theoretic physics over the last few decades can be understood from this perspective.
 
 \subsection{Generalizing algebras for holomorphic field theories}
 
@@ -1262,6 +1272,7 @@ From hereon we will ignore function-analytic aspects and write $\otimes$,
 with an appropriate symmetric monoidal category left implicit.
 
 \begin{dfn}
+\label{dfn pdisc}
 The {\em $d$-polydiscs dg cooperad} is the colored operad in the category of dg vector spaces where each positive real number $r \in (0,\infty)$ is a color 
 and where there is a dg vector space of $n$-ary cooperations
 \[
@@ -1277,6 +1288,7 @@ and in that case, the composition $\mu \circ_i \nu$ is given by embedding an out
 (Composition is not defined if the radii do not match.)
 \end{dfn}
 
+\owen{Improve!}
 An algebra $A$ over this cooperad means that for each radius~$r$, 
 there is a dg vector space $A(r)$, and for any list of radii $r_1,\ldots, r_n, R$,
 there is a cochain map
@@ -1285,9 +1297,9 @@ there is a cochain map
 \]
 To invest the map $\alpha$ with more meaning, 
 pick a real, closed submanifold $T \subset \PDisc_d(r_1, \ldots, r_n| R)$, along which one can integrate $(0,k)$-forms.
-For instance, for any inputs $a_i \in A(r_i)$ and any cocycle $\omega \in \Omega^{0,k}(\PDisc_d(r_1, \ldots, r_n| R))$, we get an element in $A(R)$~by
+For instance, for any inputs $a_i \in A(r_i)$, we get an element in $A(R)$~by
 \[
-\int_T \alpha(a_1 \otimes \cdots \otimes a_n) \wedge \omega,
+\int_T \alpha(a_1 \otimes \cdots \otimes a_n),
 \]
 where we have suppressed distracting notation from~$\alpha$.
 
@@ -1452,16 +1464,31 @@ In Section~\ref{???} we will examine another relationship --- generalizing the c
 
 A key idea for us is that much of the content in field theories --- both classical and quantum --- is captured by factorization algebras.
 We will introduce that concept now, in the style that sheaves are defined, so first we describe {\em pre}\/factorization algebras and then impose a local-to-global condition to characterize factorization algebras.
-With the notion in hand, we will describe several examples and several situations where factorization algebras have already appeared in mathematics and physics, 
-albeit in a different formulation.
-Finally, we will sketch the main theorem of \cite{CG2}, 
+Their local structure encompasses the behavior we saw in the preceding section, where $E_d$ algebras captured topological field theories on $\RR^d$ and $\PDisc_d$ algebras captured holomorphic field theories on~$\CC^d$.
+Factorization algebras allow one to work on smooth manifolds, and complex manifolds, more generally;
+their global behavior encompasses constructions like Hochschild homology and conformal blocks.
+We will then sketch the main theorem of \cite{CG2}, 
 which explains a precise and general relationship between quantum field theories and factorization algebras.
+Finally, we describe some special features and interesting applications of factorization algebras of holomorphic field theories.
+
+\begin{rmk}
+Beilinson and Drinfeld introduced the notion of factorization algebras in their work on chiral conformal field theory \cite{BD},
+and their version has had great success in algebraic geometry and representation theory,
+particularly in the setting of the geometric Langlands program.
+Gaitsgory, Francis, and Lurie ported the spirit of this notion into the setting of smooth manifolds,
+developing topological chiral homology \cite{LurieHA} and factorization homology \cite{AF}
+for questions in algebraic topology.
+Motivated by all this work, Kevin Costello and the first author developed a version that works well for a broad class of quantum field theories and for more differential-geometric settings~\cite{CG1,CG2}.
+\end{rmk}
 
 \subsection{The essential idea of a prefactorization algebra}
 
 Let $M$ be a topological space and let $\mc{C}^\otimes$ be a symmetric monoidal category. 
 In this paper $M$ is always a smooth manifold (typically a complex manifold) and $\mc{C}$ is ${\rm Vect}$ or ${\rm dgVect}$, with the usual tensor product as the symmetric monoidal product.
+(As mentioned in the paragraph before Definition~\ref{dfn pdisc}, one needs to deal with issues of functional analysis for applications to QFT, but we will not discuss those aspects here.
+In brief, for purposes of holomorphic field theories, we use an $\infty$-category obtained from working with cochain complexes of differentiable vector spaces, with extensive treatment in~\cite{CG1}.)
 
+\begin{dfn}
 A {\em prefactorization algebra} $\cF$ on $M$ taking values in cochain complexes is a rule that assigns a cochain complex $\cF(U)$ to each open set $U \subset M$ along with the following maps and compatibilities.
 \begin{itemize}
 \item  There is a cochain map $m_V^U: \cF(U) \rightarrow \cF(V)$ for each inclusion $U \subset V$.
@@ -1492,6 +1519,7 @@ $\cF(U_1)\otimes\dots\otimes\cF(U_n)\xto{m_V^{U_1,\ldots,U_n}}\cF(V),$
 \end{tikzcd}
 \end{center}
 \end{itemize}
+\end{dfn}
 
 For an explicit example of the associativity, consider the following picture.
 \begin{center}
@@ -1531,17 +1559,17 @@ The case of $k=n_1=2$, $n_2 = 1$.
 
 This definition bears analogies to familiar objects in mathematics.
 On the one hand, $\cF$ resembles a {\em precosheaf}, which is a functor from opens in $M$ to a category like ${\rm Vect}$ or ${\rm dgVect}$.
-(A presheaf is a functor out of the opposite category to opens in $M$.) 
+(A presheaf is a functor out of the opposite category to opens in~$M$.) 
 Here, however, $\cF$ also assign values to disjoint unions of opens, and it uses the tensor product rather than direct sum.
 This feature leads to the other analogy: $\cF$ resembles an algebra, as
 the multilinear maps look like multiplications.
 These maps let us multiply elements from disjoint regions to get an element in a larger region.
 
-Note that these axioms imply that $\cF(\emptyset)$ is a commutative algebra. 
-We say that $\cF$ is a \emph{unital} prefactorization algebra  if $\cF(\emptyset)$ is a unital commutative algebra. In this case, $\cF(U)$ is a pointed cochain complex by the image of the unit $1 \in \cF(\emptyset)$ under the structure map $\cF(\emptyset) \to \cF(U)$. In practice, for our examples, $\cF(\emptyset)$ is $\CC$, $\RR$, $\CC[[\hbar]]$, or $\RR[[\hbar]]$. 
+%Note that these axioms imply that $\cF(\emptyset)$ is a commutative algebra. 
+%We say that $\cF$ is a \emph{unital} prefactorization algebra if $\cF(\emptyset)$ is a unital commutative algebra. In this case, $\cF(U)$ is a pointed cochain complex by the image of the unit $1 \in \cF(\emptyset)$ under the structure map $\cF(\emptyset) \to \cF(U)$. In practice, for our examples, $\cF(\emptyset)$ is $\CC$, $\RR$, $\CC[[\hbar]]$, or $\RR[[\hbar]]$. 
 
 \begin{eg}\label{ex:associativealgebra}
-The crucial example to bear in mind is an associative algebra. Every associative algebra $A$ defines a prefactorization algebra $\cF_A$ on $\RR$, as follows. To each open interval $(a,b)$, we set $\cF_A( (a,b) ) = A$. To any open set $U = \coprod_j I_j$, where each $I_j$ is an open interval, we set $\cF(U) = \bigotimes_j A$. The structure maps simply arise from the multiplication map for $A$. Figure ~\ref{fig:assasfact} displays the structure of $\cF_A$. Notice the resemblance to the notion of an $E_1$ or $A_\infty$ algebra. 
+Every associative algebra $A$ defines a prefactorization algebra $\cF_A$ on $\RR$, as follows. To each open interval $(a,b)$, we set $\cF_A( (a,b) ) = A$. To any open set $U = \coprod_j I_j$, where each $I_j$ is an open interval, we set $\cF(U) = \bigotimes_j A$. The structure maps simply arise from the multiplication map for $A$. Figure ~\ref{fig:assasfact} displays the structure of $\cF_A$. Notice the resemblance to the notion of an $E_1$ or $A_\infty$ algebra. 
 %(One takes an infinite tensor products of unital algebras, as follows. Given an infinite set $I$, consider the poset of finite subsets of $I$, ordered by inclusion. For each finite subset $J \subset I$, we can take the tensor product $A^J = \bigotimes_{j \in J} A$. For $J \hookrightarrow J'$, we define a map $A^J \to A^{J'}$ by tensoring with the identity $1 \in A$ for every $j \in J' \backslash J$. Then $A^I$ is the colimit over this poset.) 
 ~\hfill$\Diamond$
 \end{eg}
@@ -1611,150 +1639,153 @@ For example, consider $F = C^\infty_c$ the compactly supported smooth functions 
 and these isomorphisms provide the structure maps for $\cF$.~\hfill$\Diamond$
 \end{eg}
 
-We will now sketch another way of phrasing this idea, but the reader who is content with this definition and eager to see examples should feel free to jump ahead, referring back as needed.
+There is another, more sophisticated way to phrase prefactorization algebras, using the framework of operads.
+Associated to each topological space $M$, there is a colored operad $\Disj_M$ such that a prefactorization algebra is an algebra over~$\Disj_M$.
+For a discussion, see Chapter 3 of~\cite{CG1};
+related ideas are developed in~\cite{AF, LurieHA, Ginot}.
 
-\subsection{Prefactorization algebras as algebras over an operad}
-\label{sec:disj}
-
-The language of colored operads offers a convenient way to formalize the notion of prefactorization algebra.
-A colored operad is a generalization of the idea of a category, where one allows many-to-one maps, and so the term ``multicategory'' is sometimes used. 
-See \owen{add citations}
-
-\begin{dfn}
-Let $\Disj_M$ denote the following colored operad associated to~$M$: 
-\begin{itemize}
-\item The colors (or objects) consist of all open subsets of $M$. 
-\item For every (possibly empty) finite collection of open sets $\{U_\alpha\}_{\alpha \in A}$ and open set $V$, there is a set of maps $\Disj_M( \{U_\alpha\}_{\alpha \in A} \mcol V)$. If the $U_\alpha$ are pairwise disjoint and all are contained in $V$, then the set of maps is a single point. Otherwise, the set of maps is empty.
-\item The composition of maps is defined in the obvious way. 
-\end{itemize}
-\end{dfn}
-
-\begin{dfn}
-Let $\mc{C}$ be a colored operad. 
-A \emph{prefactorization algebra}  on $M$ taking values in $\mc{C}$ is a map of colored operads from $\Disj_M$ to~$\mc{C}$. 
-\end{dfn}
-
-In other words, a prefactorization algebra \emph{is} an algebra over the colored operad $\Disj_M$.
-Since symmetric monoidal categories are special kinds of multicategories, this definition makes sense for symmetric monoidal categories. 
-
-\begin{rmk} 
-If $\mc{C}$ is a symmetric monoidal category under coproduct, then a precosheaf on $M$ with values in $\mc{C}$ defines a prefactorization algebra valued in $\mc{C}$. 
-Hence, our definition broadens the idea of ``inclusion of open sets leads to inclusion of sections'' by allowing more general monoidal structures to ``combine'' the sections on disjoint open sets.
-~\hfill$\Diamond$ 
-\end{rmk}
-
-Note that if $\cF$ is any prefactorization algebra, then $\cF(\emptyset)$ is a commutative algebra object of $\mc{C}$. 
-
-\begin{dfn}
-We say a prefactorization algebra $\cF$ is \emph{unital} if the commutative algebra $\cF(\emptyset)$ is unital. 
-\end{dfn}
-
-\subsection{Encoding ordinary algebras and modules using prefactorization algebras on $\RR$}
-\label{AssAsFact}
-
-We explained above how an associative algebra provides a prefactorization algebra on the real line. There are, however, prefactorization algebras on $\RR$ that do {\em not} come from associative algebras. Here we will characterize those that do arise from associative algebras.
- 
-\begin{dfn}
-Let $\cF$ be a prefactorization algebra on $\RR$ taking values in the category of vector spaces (without any grading).   
-We say $\cF$ is \emph{locally constant} if the map $\cF(U) \to \cF(V)$ is an isomorphism for any  inclusion of open intervals $U \subset V$. 
-\end{dfn}
-
-It is an illuminating exercise to check that this property ensures a prefactorization algebra encodes an associative algebra.
-
-\begin{lem}\label{locally_constant_is_associative}
-Let $\cF$ be a locally constant, unital prefactorization algebra on $\RR$ taking values in vector spaces. 
-Let $A = \cF(\RR)$. Then $A$ has a natural structure of an associative algebra.  
-\end{lem}
-
-One can got further, however, and also capture modules, essentially by marking the line with points.
-For simplicity, we will continue to work with ordinary vector spaces with the tensor product as symmetric monoidal structure.
-
-Let $A$ and $B$ be associative algebras and $M$ an $A-B$-bimodule, i.e., $M$ is a left $A$-module and a right $B$-module and these structures are compatible in that $(am)b = a(mb)$ for all $a \in A$, $b \in B$, and $m \in M$. 
-We now construct a prefactorization algebra $\cF_M$ on $\RR$ that encodes this bimodule structure. 
-
-Pick a point $p \in \RR$. On the half-line $\{x \in \RR \mid x < p\}$, $\cF_M$ is given by $\cF_A$: to an interval $I = (t_0,t_1)$ with $t_1 <p$, $\cF_M(I) = A$, and the structure map for inclusion of finitely many disjoint intervals into a bigger interval is determined by multiplication in $A$. Likewise, on the half-line $\{x \in \RR \mid p < x\}$, $\cF_M$ is given by $\cF_B$. Intervals containing $p$ are determined, though, by $M$. When we consider an interval $I = (t_0,t_1)$ such that $t_0 < p < t_1$, we set $\cF_M(I)  = M$. The structure maps are also determined by the bimodule structure. For example, given 
-\[
-s_0 < s_1 < t_0 < p < t_1 < u_0 < u_1,
-\]
-we have
-\begin{align*}
-\cF_M((s_0,s_1) \sqcup (t_0, t_1) \sqcup (u_0 , u_1)) 
-&= \cF_M((s_0,s_1)) \ot \cF_M((t_0, t_1)) \ot \cF_M((u_0 , u_1)) \\
-&= A \ot M \ot B
-\end{align*}
-and the inclusion of these three intervals into $(s_0,u_1)$ is the map
-\[
-\begin{array}{ccc}
-\cF_M((s_0,s_1)) \ot \cF_M((t_0, t_1)) \ot \cF_M((u_0 , u_1)) & \to & \cF_M((s_0,u_1)) \\
-a \ot m \ot b & \mapsto & amb
-\end{array}.
-\]
-The definition of a bimodule ensures that we have a prefactorization algebra. See Figure ~\ref{fig:bimodasfact}.
-
+%\subsection{Prefactorization algebras as algebras over an operad}
+%\label{sec:disj}
+%
+%The language of colored operads offers a convenient way to formalize the notion of prefactorization algebra.
+%A colored operad is a generalization of the idea of a category, where one allows many-to-one maps, and so the term ``multicategory'' is sometimes used. 
+%See \owen{add citations}
+%
+%\begin{dfn}
+%Let $\Disj_M$ denote the following colored operad associated to~$M$: 
+%\begin{itemize}
+%\item The colors (or objects) consist of all open subsets of $M$. 
+%\item For every (possibly empty) finite collection of open sets $\{U_\alpha\}_{\alpha \in A}$ and open set $V$, there is a set of maps $\Disj_M( \{U_\alpha\}_{\alpha \in A} \mcol V)$. If the $U_\alpha$ are pairwise disjoint and all are contained in $V$, then the set of maps is a single point. Otherwise, the set of maps is empty.
+%\item The composition of maps is defined in the obvious way. 
+%\end{itemize}
+%\end{dfn}
+%
+%\begin{dfn}
+%Let $\mc{C}$ be a colored operad. 
+%A \emph{prefactorization algebra}  on $M$ taking values in $\mc{C}$ is a map of colored operads from $\Disj_M$ to~$\mc{C}$. 
+%\end{dfn}
+%
+%In other words, a prefactorization algebra \emph{is} an algebra over the colored operad $\Disj_M$.
+%Since symmetric monoidal categories are special kinds of multicategories, this definition makes sense for symmetric monoidal categories. 
+%
+%\begin{rmk} 
+%If $\mc{C}$ is a symmetric monoidal category under coproduct, then a precosheaf on $M$ with values in $\mc{C}$ defines a prefactorization algebra valued in $\mc{C}$. 
+%Hence, our definition broadens the idea of ``inclusion of open sets leads to inclusion of sections'' by allowing more general monoidal structures to ``combine'' the sections on disjoint open sets.
+%~\hfill$\Diamond$ 
+%\end{rmk}
+%
+%Note that if $\cF$ is any prefactorization algebra, then $\cF(\emptyset)$ is a commutative algebra object of $\mc{C}$. 
+%
+%\begin{dfn}
+%We say a prefactorization algebra $\cF$ is \emph{unital} if the commutative algebra $\cF(\emptyset)$ is unital. 
+%\end{dfn}
+%
+%\subsection{Encoding ordinary algebras and modules using prefactorization algebras on $\RR$}
+%\label{AssAsFact}
+%
+%We explained above how an associative algebra provides a prefactorization algebra on the real line. There are, however, prefactorization algebras on $\RR$ that do {\em not} come from associative algebras. Here we will characterize those that do arise from associative algebras.
+% 
+%\begin{dfn}
+%Let $\cF$ be a prefactorization algebra on $\RR$ taking values in the category of vector spaces (without any grading).   
+%We say $\cF$ is \emph{locally constant} if the map $\cF(U) \to \cF(V)$ is an isomorphism for any  inclusion of open intervals $U \subset V$. 
+%\end{dfn}
+%
+%It is an illuminating exercise to check that this property ensures a prefactorization algebra encodes an associative algebra.
+%
+%\begin{lem}\label{locally_constant_is_associative}
+%Let $\cF$ be a locally constant, unital prefactorization algebra on $\RR$ taking values in vector spaces. 
+%Let $A = \cF(\RR)$. Then $A$ has a natural structure of an associative algebra.  
+%\end{lem}
+%
+%One can got further, however, and also capture modules, essentially by marking the line with points.
+%For simplicity, we will continue to work with ordinary vector spaces with the tensor product as symmetric monoidal structure.
+%
+%Let $A$ and $B$ be associative algebras and $M$ an $A-B$-bimodule, i.e., $M$ is a left $A$-module and a right $B$-module and these structures are compatible in that $(am)b = a(mb)$ for all $a \in A$, $b \in B$, and $m \in M$. 
+%We now construct a prefactorization algebra $\cF_M$ on $\RR$ that encodes this bimodule structure. 
+%
+%Pick a point $p \in \RR$. On the half-line $\{x \in \RR \mid x < p\}$, $\cF_M$ is given by $\cF_A$: to an interval $I = (t_0,t_1)$ with $t_1 <p$, $\cF_M(I) = A$, and the structure map for inclusion of finitely many disjoint intervals into a bigger interval is determined by multiplication in $A$. Likewise, on the half-line $\{x \in \RR \mid p < x\}$, $\cF_M$ is given by $\cF_B$. Intervals containing $p$ are determined, though, by $M$. When we consider an interval $I = (t_0,t_1)$ such that $t_0 < p < t_1$, we set $\cF_M(I)  = M$. The structure maps are also determined by the bimodule structure. For example, given 
+%\[
+%s_0 < s_1 < t_0 < p < t_1 < u_0 < u_1,
+%\]
+%we have
+%\begin{align*}
+%\cF_M((s_0,s_1) \sqcup (t_0, t_1) \sqcup (u_0 , u_1)) 
+%&= \cF_M((s_0,s_1)) \ot \cF_M((t_0, t_1)) \ot \cF_M((u_0 , u_1)) \\
+%&= A \ot M \ot B
+%\end{align*}
+%and the inclusion of these three intervals into $(s_0,u_1)$ is the map
+%\[
+%\begin{array}{ccc}
+%\cF_M((s_0,s_1)) \ot \cF_M((t_0, t_1)) \ot \cF_M((u_0 , u_1)) & \to & \cF_M((s_0,u_1)) \\
+%a \ot m \ot b & \mapsto & amb
+%\end{array}.
+%\]
+%The definition of a bimodule ensures that we have a prefactorization algebra. See Figure ~\ref{fig:bimodasfact}.
+%
+%%\begin{figure}
+%%\begin{center}
+%% \begin{minipage}{3cm}
+%% \begin{tikzpicture}[scale=0.75]
+%% \begin{scope}[line cap=round,ultra thick]
+%% \draw (-2.5,0) -- (-1.5,0); 
+%% \draw (-1,0) -- (0.5,0); 
+%% \draw[fill=black] (0,0) circle (0.07);
+%% \draw (1.5,0) -- (2.5,0); 
+%% \draw[->,semithick] (0,-0.5) -- (0,-1.5);
+%% \draw (-2.75,-2) -- (0.75,-2); 
+%% \draw[fill=black] (0,-2) circle (0.07);
+%% \draw (1.25,-2) -- (2.75,-2);  
+%% \draw[->,semithick] (0,-2.5) -- (0,-3.5);
+%% \draw (-3,-4) -- (3,-4);
+%% \draw[fill=black] (0,-4) circle (0.07); 
+%% \end{scope}
+%% \end{tikzpicture}
+%% \end{minipage}
+%%\hspace{2cm} $\rightsquigarrow$ \hspace{0.5cm}
+%% \begin{minipage}{8cm}
+%% \begin{tikzcd}[cramped,column sep=tiny]
+%%a \otimes m \otimes b \arrow[mapsto]{d} & \in & A \otimes M \otimes B \arrow{d} \\
+%%am \otimes b \arrow[mapsto]{d} & \in & M \otimes B \arrow{d} \\
+%%amb  & \in &M 
+%%\end{tikzcd}
+%%\end{minipage}
+%%\end{center}
+%%\caption{The prefactorization algebra $\cF_M$ for the $A-B$-bimodule $M$}
+%%\label{fig:bimodasfact}
+%%\end{figure}
+%
 %\begin{figure}
 %\begin{center}
-% \begin{minipage}{3cm}
-% \begin{tikzpicture}[scale=0.75]
+% \begin{tikzpicture}
 % \begin{scope}[line cap=round,ultra thick]
-% \draw (-2.5,0) -- (-1.5,0); 
-% \draw (-1,0) -- (0.5,0); 
-% \draw[fill=black] (0,0) circle (0.07);
-% \draw (1.5,0) -- (2.5,0); 
-% \draw[->,semithick] (0,-0.5) -- (0,-1.5);
-% \draw (-2.75,-2) -- (0.75,-2); 
-% \draw[fill=black] (0,-2) circle (0.07);
-% \draw (1.25,-2) -- (2.75,-2);  
-% \draw[->,semithick] (0,-2.5) -- (0,-3.5);
-% \draw (-3,-4) -- (3,-4);
-% \draw[fill=black] (0,-4) circle (0.07); 
+% \draw (-2.5,1) -- (-1.5,1); 
+% \draw (-1,1) -- (0.5,1); 
+% \draw[fill=black] (0,1) circle (0.07);
+% \draw (1.5,1) -- (2.5,1); 
+% \draw[->,semithick] (0,0.75) -- (0,0.25);
+% \draw (-2.75,-0.1) -- (0.75,-0.1); 
+% \draw[fill=black] (0,-0.1) circle (0.07);
+% \draw (1.25,-0.1) -- (2.75,-0.1);  
+% \draw[->,semithick] (0,-0.35) -- (0,-0.85);
+% \draw (-3,-1.2) -- (3,-1.2);
+% \draw[fill=black] (0,-1.2) circle (0.07); 
 % \end{scope}
-% \end{tikzpicture}
-% \end{minipage}
-%\hspace{2cm} $\rightsquigarrow$ \hspace{0.5cm}
-% \begin{minipage}{8cm}
-% \begin{tikzcd}[cramped,column sep=tiny]
+%
+%\node at (4,0){$\rightsquigarrow$};
+%
+%\node at (7,0) {
+%\begin{tikzcd}[cramped,column sep=tiny]
 %a \otimes m \otimes b \arrow[mapsto]{d} & \in & A \otimes M \otimes B \arrow{d} \\
 %am \otimes b \arrow[mapsto]{d} & \in & M \otimes B \arrow{d} \\
 %amb  & \in &M 
 %\end{tikzcd}
-%\end{minipage}
+%};
+%
+%\end{tikzpicture}
 %\end{center}
 %\caption{The prefactorization algebra $\cF_M$ for the $A-B$-bimodule $M$}
 %\label{fig:bimodasfact}
 %\end{figure}
-
-\begin{figure}
-\begin{center}
- \begin{tikzpicture}
- \begin{scope}[line cap=round,ultra thick]
- \draw (-2.5,1) -- (-1.5,1); 
- \draw (-1,1) -- (0.5,1); 
- \draw[fill=black] (0,1) circle (0.07);
- \draw (1.5,1) -- (2.5,1); 
- \draw[->,semithick] (0,0.75) -- (0,0.25);
- \draw (-2.75,-0.1) -- (0.75,-0.1); 
- \draw[fill=black] (0,-0.1) circle (0.07);
- \draw (1.25,-0.1) -- (2.75,-0.1);  
- \draw[->,semithick] (0,-0.35) -- (0,-0.85);
- \draw (-3,-1.2) -- (3,-1.2);
- \draw[fill=black] (0,-1.2) circle (0.07); 
- \end{scope}
-
-\node at (4,0){$\rightsquigarrow$};
-
-\node at (7,0) {
-\begin{tikzcd}[cramped,column sep=tiny]
-a \otimes m \otimes b \arrow[mapsto]{d} & \in & A \otimes M \otimes B \arrow{d} \\
-am \otimes b \arrow[mapsto]{d} & \in & M \otimes B \arrow{d} \\
-amb  & \in &M 
-\end{tikzcd}
-};
-
-\end{tikzpicture}
-\end{center}
-\caption{The prefactorization algebra $\cF_M$ for the $A-B$-bimodule $M$}
-\label{fig:bimodasfact}
-\end{figure}
 
 \subsection{Factorization algebras}
 
@@ -1767,55 +1798,35 @@ Let $U$ be an open set. A collection of open sets $\mathfrak{U} = \{ U_i \mid i 
 \end{dfn}
 
 The Weiss covers define a Grothendieck topology on $\Open(M)$, the poset category of open subsets of a space $M$. We call it the {\em Weiss topology} of~$M$. 
+Note that Weiss covers are required to ``know'' about every configuration of finitely many points,
+and so they often contain many opens.
+For a smooth $n$-manifold $M$, one cover is simply to take the collection of open sets in $M$ diffeomorphic to a disjoint union of finitely many copies of the open $n$-disc.
 
-\begin{rmk}
-A Weiss cover is certainly a cover in the usual sense, but a Weiss cover typically contains an enormous number of opens. It is a kind of ``exponentiation" of the usual notion of cover, because a Weiss cover is well-suited to studying all configuration spaces of finitely many points in $U$. For instance, given a Weiss cover $\mathfrak{U}$ of $U$, the collection 
-\[
-\{ U_i^n \mid i \in I\}
-\]
-provides a cover in the usual sense of $U^n \subset M^n$ for every positive integer~$n$.\hfill$\Diamond$ 
-\end{rmk}
 
-\begin{eg}\label{WeissAsExponential}
-For a smooth $n$-manifold $M$, there are several simple ways to construct a Weiss cover for $M$. One construction is simply to take the collection of open sets in $M$ diffeomorphic to a disjoint union of finitely many copies of the open $n$-disc. Alternatively, the collection of opens $\{ M \setminus q \mcol q \in M\}$ is a Weiss cover of $M$. One can also produce a Weiss cover of a manifold with countably many elements. Fix a Riemannian metric on $M$. Pick a collection of points $\{q_n\in M \mcol n \in \NN\}$ such that the union of the unit ``discs'' $D_1(q_n) = \{ q \in M \mcol \d(q_n,q) < 1\}$ covers $M$. (Such an open may not be homeomorphic to a disc if the injectivity radius of $q_n$ is less than 1.)  Consider the collection of all ``discs'' $\fD = \{ D_{1/m}(q_n) \mcol m \in \NN, n \in \NN\}$.  The collection of all finite, pairwise disjoint union of elements of $\fD$ is a countable Weiss cover.~\hfill $\Diamond$ 
-\end{eg}
+%\begin{rmk}
+%A Weiss cover is certainly a cover in the usual sense, but a Weiss cover typically contains an enormous number of opens. It is a kind of ``exponentiation" of the usual notion of cover, because a Weiss cover is well-suited to studying all configuration spaces of finitely many points in $U$. For instance, given a Weiss cover $\mathfrak{U}$ of $U$, the collection 
+%\[
+%\{ U_i^n \mid i \in I\}
+%\]
+%provides a cover in the usual sense of $U^n \subset M^n$ for every positive integer~$n$.\hfill$\Diamond$ 
+%\end{rmk}
+%
+%\begin{eg}\label{WeissAsExponential}
+%For a smooth $n$-manifold $M$, there are several simple ways to construct a Weiss cover for $M$. One construction is simply to take the collection of open sets in $M$ diffeomorphic to a disjoint union of finitely many copies of the open $n$-disc. Alternatively, the collection of opens $\{ M \setminus q \mcol q \in M\}$ is a Weiss cover of $M$. One can also produce a Weiss cover of a manifold with countably many elements. Fix a Riemannian metric on $M$. Pick a collection of points $\{q_n\in M \mcol n \in \NN\}$ such that the union of the unit ``discs'' $D_1(q_n) = \{ q \in M \mcol \d(q_n,q) < 1\}$ covers $M$. (Such an open may not be homeomorphic to a disc if the injectivity radius of $q_n$ is less than 1.)  Consider the collection of all ``discs'' $\fD = \{ D_{1/m}(q_n) \mcol m \in \NN, n \in \NN\}$.  The collection of all finite, pairwise disjoint union of elements of $\fD$ is a countable Weiss cover.~\hfill $\Diamond$ 
+%\end{eg}
 
-Now that we have a notion of cover, we can formulate the local-to-global property for factorization algebras,
-which amounts to being a cosheaf for the Weiss topology.
-For concreteness' sake, we will continue to have our prefactorization algebras take values in ${\rm dgVect}$,
-but it is straightforward to generalize by allowing the values to live in, say, a symmetric monoidal $\infty$-category.
-
-Let us provide the definition of a homotopy cosheaf. 
-Let $\Phi$ be a precosheaf on $M$ with values in cochain complexes. Let $\mathfrak{U} = \{U_i \mid i \in I\}$ be a cover of some open subset $U$ of $M$.  Consider the cochain complex with values in cochain complexes whose $-k$th term is 
-\[
-\bigoplus_{\stackrel{j_0,\ldots, j_k \in I}{j_i \text{ all distinct}}} \Phi (U_{j_0} \cap \cdots \cap U_{j_k}),
-\]
-and note that this term has an ``internal'' differential arising from $\Phi$. The ``external'' differential is the alternating sum of the structure maps arising from inclusion of $k+1$-fold intersections into $k$-fold intersections. The \emph{\v{C}ech complex of $\mathfrak{U}$ with coefficients in $\Phi$} is the totalization of this double complex:
-$$
-\check{C}(\mathfrak{U}, \Phi) = \bigoplus_{k=0}^\infty \left( \bigoplus_{\stackrel{j_0,\ldots, j_k \in I}{j_i \text{ all distinct}}} \Phi (U_{j_0} \cap \cdots \cap U_{j_k}) [ k]   \right).
-$$
-There is a natural map from the $0$th term (of the double complex) to $\Phi(U)$ given by the sum of the structure maps $\Phi(U_i) \to \Phi(U)$. Thus, the \v{C}ech complex possesses a natural map to $\Phi(U)$. We say that $\Phi$ is a \emph{homotopy cosheaf} if the natural map from the \v{C}ech complex to $\Phi(U)$ is a quasi-isomorphism for every open $U \subset M$ and every open cover of $U$. This \v{C}ech complex is simply the dual of the \v{C}ech complex for sheaves of cochain complexes.
-In more sophisticated language, the \v{C}ech complex describes the homotopy colimit of $\Phi$ on this simplicial diagram.
-
-We can now define our main object of interest. 
+Now that we have a notion of cover, we can formulate the local-to-global property for factorization algebras.
 
 \begin{dfn}
-A \emph{factorization algebra} is a prefactorization algebra $\cF$ on $M$ valued in $\Ch$ \owen{change to dgVect?}, with the property that for every open set $U \subset X$ and Weiss cover $\mathfrak{U}$ of $U$, the natural map
-$$
-\check{C}(\mathfrak{U},\cF) \to \cF(U)
-$$
-is a quasi-isomorphism. That is, $\cF$ is a homotopy cosheaf with respect to the Weiss topology.
+A \emph{factorization algebra} is a prefactorization algebra $\cF$ on $M$ with values in a symmetric monoidal category $\cC^\otimes$ that is a cosheaf for the Weiss topology.
 \end{dfn}
 
-We also formulate a multiplicativity condition, as follows. 
-
-\begin{dfn}
-A factorization algebra $\cF$ is \emph{multiplicative} if for every pair $U,V$ of disjoint open subsets of $M$, the structure map
-$$
-\cF(U) \otimes \cF(V) \to \cF(U \sqcup V) 
-$$
-is a quasi-isomorphism.
-\end{dfn}
+Being a cosheaf means that for any open set $U \subset M$ and any Weiss cover $\{ U_\alpha\}$ of $U$,
+the value of $\cF(U)$ can be reconstructed using the \v{C}ech complex:
+\[
+\cF(U) \xto{\simeq} \check{C}(\mathfrak{U},\cF).
+\]
+Replacing cochain complexes with some other category (or $\infty$-category), one needs to take a (homotopy) colimit over the \v{C}ech nerve of the Weiss cover.
 
 As verification that this notion has some real content, let's consider a first, interesting case.
 We already explained how to produce a locally constant prefactorization algebra $\cF_A$ on $\RR$ from a dg associative algebra $A$.
@@ -1836,81 +1847,59 @@ The reader can check by hand that for an ordinary algebra $A$, the value on the 
 This theorem tells us that factorization homology can be seen as a generalization of Hochschild homology,
 where one simultaneously generalizes the circle to an arbitrary closed manifold and an algebra to a factorization algebra.
 
-It can be hard to check whether a given $\cF$ is a homotopy cosheaf, since computing the \v{C}ech complex is typically difficult.
-There are some useful abstract results, such as the fact that a factorization algebra is determined by its behavior on a basis for the Weiss topology.
-But there is also a rich source of examples in differential geometry, and hence from physics.
+%Many examples of factorization algebras satisfy an additional and desirable property,
+%which motivates the name ``factorization algebra.''
+%
+%\begin{dfn}
+%A factorization algebra $\cF$ is \emph{multiplicative} if for every pair $U,V$ of disjoint open subsets of $M$, the structure map
+%$$
+%\cF(U) \otimes \cF(V) \to \cF(U \sqcup V) 
+%$$
+%is a quasi-isomorphism.
+%\end{dfn}
 
-Given a vector bundle $E \to M$ (possibly a graded vector bundle), 
-let $E^{\boxtimes m} \to M^m$ denote the external product of $E$ with itself $m$ times.
-Let $\cE_c(U)$ denote compactly supported sections of $E$ over $U$, 
-and similarly let $\cE^{\boxtimes m}_c(U^m)$ denote compactly supported sections of $E^{\boxtimes m}$ over $U^m$.
-Let $\Sym^m(\cE_c)(U)$ denote the sections that are invariant under the action of the symmetric group $S_m$ on~$U^m$.
-We define a functor $\Sym(\cE_c): \Open(M) \to \Vect$ by
-\[
-\Sym(\cE_c)(U) = \bigoplus_m \Sym^m(\cE_c)(U),
-\]
-which is a kind of symmetric algebra on $\cE_c(U)$.
-(Those familiar with functional analysis will note that taking sections of the product bundles is a nice way of completing the algebraic tensor product of sections on each component bundle.)
-This construction is actually a cosheaf for the Weiss topology, just as $\cE_c$ is a cosheaf for the ordinary topology;
-in this sense, the Weiss topology is an ``exponentiation'' of the ordinary topology just as $\Sym(V)$ is an ``exponentiation'' of a vector space~$V$.
-We have seen in Example~\ref{ex:SymOfCosheaf} how $\Sym(\cE_c)$ determines a prefactorization algebra,
-so the following theorem should be plausible.
+\subsection{How factorization algebras appear in QFT}
 
-\begin{thm}[\owen{cite book}]
-For $E \to M$ a graded vector bundle, the functor $\Sym(\cE_c)$ encodes a factorization algebra on $M$.
-If we equip $\cE_c$ with a differential operator $d$ of degree 1 suc that $d^2 = 0$ so that $(\cE_c, d)$ is a cosheaf of differential complexes,
-then $(\Sym(\cE_c), d)$ is a factorization algebra, where $d$ denotes the natural extension.
-\end{thm}
-
-Two examples of differential complexes play a key role in applications: 
-\begin{itemize}
-\item the de Rham complex $(\Omega^*, d)$ on a smooth manifold, which is relevant for topological field theories, and 
-\item the Dolbeault complex $(\Omega^{0,*}, \dbar)$ on a complex manifold, which is relevant for holomorphic field theories.
-\end{itemize}
-One can take, of course, these complexes with sections in a flat vector bundle (for the de Rham case) or a holomorphic vector bundle (for the Dolbeault case).
-
-\subsection{Algebras over the little discs operad}
-
-Associative algebras are familiar to every mathematician, but as we have just seen, they reflect and encode one-dimensional geometry.
-It is then natural to ask about higher-dimensional versions of algebra.
-Topologists developed such a systematic generalization, often called $E_n$ algebras or algebras over the little $n$-discs operad,
-which we now describe and relate to prefactorization algebras on~$\RR^n$.
-In relation to the subject of this paper, we mention that $E_n$ algebras arise naturally from $n$-dimensional topological field theories;
-we will soon introduce a holomorphic analog of $E_n$ algebras relevant to holomorphic field theories,
-modeled on the discussion here.
-
-Fix a dimension $n$. 
-Let $D^n(x,r)$ denote the open disc of radius $r$ centered at $x \in \RR^n$,
-and let $D^n$ denote the unit disc~$D^n(0,1)$.
-
-\begin{dfn}
-Let $E_n$ denote the colored operad with a single color $D^n$ and a topological space $E_n(k)$ of maps from $k$ copies of $D^n$ to itself given by configurations of $k$ disjoint discs:
-\[
-E_n(k) = \left\{ \begin{matrix}(x_1, \ldots, x_k) \in (D^n(0,1))^k,\\ (r_1, \ldots, r_k) \in (0,1)^k\end{matrix} \,\bigg|\, \text{\begin{tabular}{c}the discs $D^n(x_i,r_i)$ are pairwise disjoint\\ but each contained in the unit disc $D^n$\end{tabular}}\right\}.
-\]
-\end{dfn}
-
-When $n = 1$, the operad encodes the idea of associative multiplication:
-we get pictures much like those we drew earlier with intervals, 
-except that now we can slide and stretch the intervals because we have a space of operations.
-More accurately, $E_1$ is a model for associative algebras up to homotopy; 
-it is closely related to the $A_\infty$ operad. \owen{Let me check how people compare these.}
-
-For arbitrary $n$, this definition encodes concretely the idea of $n$ directions of multiplication.
-If one fixes a direction, such as a coordinate axis, and works with discs lined up in this direction,
-one sees an $E_1$ structure.
-
-\owen{Add picture? We drew 2d pictures earlier.}
-
-An algebra over this operad is called an {\em $E_n$-algebra}.
-A classic example from topology is given by taking the $n$-fold based loop space
-\[
-\Omega^n_x(X) = \{ \gamma: \overline{D^n} \to X \mcol \gamma(\partial \overline{D^n}) = x\}
-\]
-of a based space $(X,x)$ (i.e., a topological space with a distinguished point) and $\overline{D^n}$ denotes the closed unit $n$-disc.
-Maps that send the boundary of a disc to the base point can be extended naturally to bigger discs: just send the rest of the big disc to the basepoint.
-\owen{Should I spell out the structure of the algebra?}
-Examples include \owen{What to mention?}
+%Associative algebras are familiar to every mathematician, but as we have just seen, they reflect and encode one-dimensional geometry.
+%It is then natural to ask about higher-dimensional versions of algebra.
+%Topologists developed such a systematic generalization, often called $E_n$ algebras or algebras over the little $n$-discs operad,
+%which we now describe and relate to prefactorization algebras on~$\RR^n$.
+%In relation to the subject of this paper, we mention that $E_n$ algebras arise naturally from $n$-dimensional topological field theories;
+%we will soon introduce a holomorphic analog of $E_n$ algebras relevant to holomorphic field theories,
+%modeled on the discussion here.
+%
+%Fix a dimension $n$. 
+%Let $D^n(x,r)$ denote the open disc of radius $r$ centered at $x \in \RR^n$,
+%and let $D^n$ denote the unit disc~$D^n(0,1)$.
+%
+%\begin{dfn}
+%Let $E_n$ denote the colored operad with a single color $D^n$ and a topological space $E_n(k)$ of maps from $k$ copies of $D^n$ to itself given by configurations of $k$ disjoint discs:
+%\[
+%E_n(k) = \left\{ \begin{matrix}(x_1, \ldots, x_k) \in (D^n(0,1))^k,\\ (r_1, \ldots, r_k) \in (0,1)^k\end{matrix} \,\bigg|\, \text{\begin{tabular}{c}the discs $D^n(x_i,r_i)$ are pairwise disjoint\\ but each contained in the unit disc $D^n$\end{tabular}}\right\}.
+%\]
+%\end{dfn}
+%
+%When $n = 1$, the operad encodes the idea of associative multiplication:
+%we get pictures much like those we drew earlier with intervals, 
+%except that now we can slide and stretch the intervals because we have a space of operations.
+%More accurately, $E_1$ is a model for associative algebras up to homotopy; 
+%it is closely related to the $A_\infty$ operad. \owen{Let me check how people compare these.}
+%
+%For arbitrary $n$, this definition encodes concretely the idea of $n$ directions of multiplication.
+%If one fixes a direction, such as a coordinate axis, and works with discs lined up in this direction,
+%one sees an $E_1$ structure.
+%
+%\owen{Add picture? We drew 2d pictures earlier.}
+%
+%An algebra over this operad is called an {\em $E_n$-algebra}.
+%A classic example from topology is given by taking the $n$-fold based loop space
+%\[
+%\Omega^n_x(X) = \{ \gamma: \overline{D^n} \to X \mcol \gamma(\partial \overline{D^n}) = x\}
+%\]
+%of a based space $(X,x)$ (i.e., a topological space with a distinguished point) and $\overline{D^n}$ denotes the closed unit $n$-disc.
+%Maps that send the boundary of a disc to the base point can be extended naturally to bigger discs: just send the rest of the big disc to the basepoint.
+%\owen{Should I spell out the structure of the algebra?}
+%Examples include \owen{What to mention?}
 
 Factorization algebras on $\RR^n$ and $E_n$ algebras should be closely related,
 as can be seen by drawing pictures of the configurations of discs that control operations.
@@ -1926,26 +1915,20 @@ Lurie has shown the following vast extension of this example. (See section 5.4.5
 There is an equivalence of $(\infty,1)$-categories between $E_n$ algebras and locally constant factorization algebras on~$\RR^n$.  
 \end{thm}  
 
-This theorem, together with work in these two books, builds an explicit bridge between topology and physics. Topological field theories in the physicist's sense, such as perturbative Chern-Simons theory, produce locally constant factorization algebras, which can then be viewed as $E_n$ algebras and analyzed using the powerful machinery of modern homotopy theory. Conversely, intuition from physics about the behavior of topological field theories suggests novel constructions and examples to topology. Much of the amazing resonance between operads, homological algebra, and string-theoretic physics over the last few decades can be understood from this perspective.
-
 \begin{rmk}
-We remark that Lurie and Ayala-Francis uses a different gluing axiom than we do. A careful comparison of the different axioms and a proof of their equivalence (for locally constant factorization algebras) can be found in \cite{Matsuoka}. We emphasize that higher categories are necessary for a rigorous development of these constructions and comparisons, although we will not emphasize that point in our discussion below, which is expository in nature.~\hfill $\Diamond$
+We remark that Lurie and Ayala-Francis uses a different gluing axiom than we do. A careful comparison of the different axioms and a proof of their equivalence (for locally constant factorization algebras) can be found in \cite{Matsuoka}.~\hfill $\Diamond$
 \end{rmk}
 
-\begin{rmk}
-We have shown how thinking about prefactorization algebras on a real line ``decorated'' with points (i.e., with a kind of stratification) reflects familiar algebraic objects like bimodules. By moving into higher dimensions and allowing more interesting submanifolds and stratifications, one generalizes this familiar algebra into new, largely-unexplored directions. See \cite{AyalaFrancisTanaka} for an extensive development of these ideas in the setting of locally constant factorization algebras.
-~\hfill $\Diamond$
-\end{rmk}
-
-\subsection{How factorization algebras appear in QFT}
-
-In \cite{CG1, CG2} a systematic relationship is provided between field theories and factorization algebras.
+This perspective suggests that factorization algebras offer a natural generalization to field theories on manifolds, and not just on Euclidean spaces. Indeed \cite{CG1, CG2} provide a systematic relationship between field theories and factorization algebras.
 The slogan is 
 \begin{quote}
 the observables of a field theory living on a manifold $M$ form a factorization algebra on~$M$. 
 \end{quote}
+To physicists, this claim should not be so surprising, upon some reflection:
+the Weiss cosheaf gluing axiom offers a precise version of the idea that a quantum field theory can be fully encoded by all its $n$-point functions.
+
 To make a mathematical statement, one needs to be precise about what a field theory is.
-From hereon, whenever we speak of a classical or quantum field theory, we will mean the definitions articulated in \cite{CosBook,CG1, CG2}, which encompass the Euclidean versions of many field theories studied in physics and mathematics.
+Here, we will mean the definitions articulated in \cite{CosBook,CG1, CG2}, which encompass the Euclidean versions of many field theories studied in physics and mathematics.
 Those books use the Batalin-Vilkovisky (BV) formalism for quantization, a homological method generalizing the BRST approach and widely regarded as the most powerful and general way to quantize gauge theories. 
 
 \begin{thm}
@@ -1956,79 +1939,82 @@ The observables of a classical field theory on $M$ form a factorization algebra 
 This theorem provides an elegant interpretation of BV quantization as a kind of deformation quantization. In the setting of mechanics (or one-dimensional field theory, since a particle has a worldline), deformation quantization explains the transition from classical to quantum as deforming the observables from a Poisson algebra to an associative algebra. 
 This theorem allows one to interpret quantization of field theories---on manifolds of arbitrary dimension---as a deformation quantization from a 1-shifted Poisson factorization algebra to a plain factorization algebra. 
 
-In \cite{CG1}, there are several examples of this formalism in action:
-\begin{itemize}
-\item Basic examples from quantum mechanics, such as the harmonic oscillator, and it is shown how to recover the Weyl algebra and the Hamiltonians from factorization algebras living on~$\RR$. 
-\item Scalar field theory on $\RR^n$, where it is shown how the usual correlation functions are encoded in the factorization algebra on~$\RR^n$ and how canonical quantization appears via pushforward of factorization algebras.
-\item The free $\beta\gamma$ system on $\CC$---a basic example of a chiral conformal field theory---is constructed and its usual vertex algebra is extracted from the factorization algebra.
-\item Abelian Chern-Simons theory, where it is shown how dimensional reduction along a closed surface $\Sigma$ produces the Weyl algebra on the symplectic vector space $H^1(\Sigma)$ and how line operators form a (very simple!) braided monoidal category.
-\end{itemize}
-These examples, while not complicated, exhibit in detail how factorization algebras provide a bridge from action functionals to algebra in a broad sense. 
+This theorem is also a key connection between field theories and higher algebras.
+\owen{I feel like I should say a little more, but not a lot more. I've commented out some old versions of this.}
 
-This formalism has shown its power in a number of nontrivial applications:
-\begin{itemize}
-\item Grady, Li, and Li \cite{GLL} give a direct connection between Fedosov quantization and the factorization algebra of a 1-dimensional field theory.
-%\item Gorbounov, Williams and I \cite{GGW} constructed rigorously a 2-dimensional QFT depending on a Calabi-Yau manifold $X$, known as the curved $\beta\gamma$ system, and showed the factorization algebra recovers the chiral differential operators of~$X$.
-\item Li and Li \cite{LiLi} constructed the topological B-model and show the factorization algebra recovers the expected topological vertex algebra (see \cite{LiVOA} for a deeper treatment).
-\item Costello, Francis, and Gwilliam \cite{CFG} have shown how the factorization algebra of Chern-Simons theory for $\fg$ encodes a quantum group $U_\hbar \fg$ over~$\CC[[\hbar]]$.
-\item Rabinovich \cite{RabAxial} showed how the local index theorem and the axial anomaly are simultaneously captured by quantizing free fermions (associated to Dirac operators). Subsequently, he recovered the Quillen determinant line~\cite{RabDet}.
-\item Costello \cite{CosYangian} introduced a 4-dimensional gauge theory whose factorization algebra recovers the Yangian,
-and subsequently gave extensive applications to quantum integrable systems with Witten and Yamazaki \cite{CWY1,CWY2, CY}.
-\end{itemize}
-There are others, connected with central topics such as mirror symmetry and the AdS/CFT correspondence, 
-and we will discuss holomorphic field theories extensively below.
+%In \cite{CG1}, there are several examples of this formalism in action:
+%\begin{itemize}
+%\item Basic examples from quantum mechanics, such as the harmonic oscillator, and it is shown how to recover the Weyl algebra and the Hamiltonians from factorization algebras living on~$\RR$. 
+%\item Scalar field theory on $\RR^n$, where it is shown how the usual correlation functions are encoded in the factorization algebra on~$\RR^n$ and how canonical quantization appears via pushforward of factorization algebras.
+%\item The free $\beta\gamma$ system on $\CC$---a basic example of a chiral conformal field theory---is constructed and its usual vertex algebra is extracted from the factorization algebra.
+%\item Abelian Chern-Simons theory, where it is shown how dimensional reduction along a closed surface $\Sigma$ produces the Weyl algebra on the symplectic vector space $H^1(\Sigma)$ and how line operators form a (very simple!) braided monoidal category.
+%\end{itemize}
+%These examples, while not complicated, exhibit in detail how factorization algebras provide a bridge from action functionals to algebra in a broad sense. 
+%
+%This formalism has shown its power in a number of nontrivial applications:
+%\begin{itemize}
+%\item Grady, Li, and Li \cite{GLL} give a direct connection between Fedosov quantization and the factorization algebra of a 1-dimensional field theory.
+%%\item Gorbounov, Williams and I \cite{GGW} constructed rigorously a 2-dimensional QFT depending on a Calabi-Yau manifold $X$, known as the curved $\beta\gamma$ system, and showed the factorization algebra recovers the chiral differential operators of~$X$.
+%\item Li and Li \cite{LiLi} constructed the topological B-model and show the factorization algebra recovers the expected topological vertex algebra (see \cite{LiVOA} for a deeper treatment).
+%\item Costello, Francis, and Gwilliam \cite{CFG} have shown how the factorization algebra of Chern-Simons theory for $\fg$ encodes a quantum group $U_\hbar \fg$ over~$\CC[[\hbar]]$.
+%\item Rabinovich \cite{RabAxial} showed how the local index theorem and the axial anomaly are simultaneously captured by quantizing free fermions (associated to Dirac operators). Subsequently, he recovered the Quillen determinant line~\cite{RabDet}.
+%\item Costello \cite{CosYangian} introduced a 4-dimensional gauge theory whose factorization algebra recovers the Yangian,
+%and subsequently gave extensive applications to quantum integrable systems with Witten and Yamazaki \cite{CWY1,CWY2, CY}.
+%\end{itemize}
+%There are others, connected with central topics such as mirror symmetry and the AdS/CFT correspondence, 
+%and we will discuss holomorphic field theories extensively below.
+%
+%Thanks to the efforts of people who have adopted this BV/factorization framework,
+%we now also understand its connection to many important structural aspects of QFT, 
+%such as asymptotic freedom \cite{EWY}, current algebras \cite{GWcurr}, the Anderson-Higgs mechanism \cite{EG}, and the CS/WZW correspondence~\cite{GRW, CosDimGai}.
+%In each case this enriched mathematical language offers a new and (we would argue) clarifying point of view.
+%In turn, physics offers new vistas or rich applications for mathematicians to explore.
 
-Thanks to the efforts of people who have adopted this BV/factorization framework,
-we now also understand its connection to many important structural aspects of QFT, 
-such as asymptotic freedom \cite{EWY}, current algebras \cite{GWcurr}, the Anderson-Higgs mechanism \cite{EG}, and the CS/WZW correspondence~\cite{GRW, CosDimGai}.
-In each case this enriched mathematical language offers a new and (we would argue) clarifying point of view.
-In turn, physics offers new vistas or rich applications for mathematicians to explore.
-
-\subsection{$E_n$ algebras from topological field theories}
-
-Although our focus in this paper is on holomorphic field theories and factorization algebras,
-it might be helpful to describe some motivating results about topological field theories and factorization algebras.
-Elliott and Safronov have \owen{not sure how much to say here, but I'm going to take a stab at writing a synoptic theorem}
-
-If one examines theories like Chern-Simons theory on $\RR^3$ or the Poisson $\sigma$-model on $\RR^2$, 
-one discovers a general format for constructing theories that was formalized by \cite{AKSZ}.
-In a nutshell, the field theory is factored into two parts: 
-the de Rham complex of the source or ``spacetime'' manifold, 
-and a Lie algebra-type object encoding a gauge Lie algebra or a ``target'' for a $\sigma$-model.
-
-\begin{dfn}
-A classical {\em AKSZ-type theory} on $\RR^d$ is a determined by an $L_\infty$-algebra $\fg$ equipped with a cyclic pairing $\langle-,-\rangle$ of degree $3-d$.
-Its {\em equation of motion} is the Maurer-Cartan equation 
-\[
-0 = \d A + \frac{1}{2} [A,A] + \frac{1}{3!}[A,A,A]_3 + \cdots = \sum_{k=1}^\infty \frac{1}{k!} [A, \ldots, A]_k
-\]
-of the $L_\infty$ algebra $\Omega^*(\RR^d) \otimes \fg$ with $k$-ary brackets $[-]_k$.
-The {\em action functional} is the expression
-\[
-S(A) = \int_{\RR^d} \sum_{k=1}^\infty \frac{1}{{k+1}!} \langle A, [A, \ldots, A]_k \rangle
-\]
-\end{dfn}
-
-Ordinary Chern-Simons theory on $\RR^3$ arises from taking $\fg$ to be a semisimple Lie algebra and a choice of invariant pairing.
-In that case, and using $\Tr$ to denote the pairing, the action functional is the familiar
-\[
-S(A) = \int_{\RR^3}  \frac{1}{2}\Tr ( A, \d A ) + \frac{1}{3!} \Tr( A, [A, A])
-\]
-and the equation of motion asks for connections with zero curvature.
-
-Many other theories can be expressed in this style, and we suggest \owen{lots of papers} for examples.
-Elliott and Safronov characterize and exhibit topological twists of supersymmetric theories as AKSZ-type theories.
-
-\begin{thm}[\cite{CG2;ElliottSafronov}]
-For a classical AKSZ-type theory on $\RR^d$, the observables 
-\[
-\Obs^{cl}(U) = \clie^*(\Omega^*(U) \otimes \fg)
-\]
-form a locally constant factorization algebra and hence determine an $E_d$ algebra~$\cA^{cl}$.
-A quantization, if it exists, determines a deformation $\cA^q$ of this $E_d$ algebra.
-
-Given a homotopical trivialization of the action of $SO(d)$, then $\cA^q$ is a framed $E_d$ algebra.
-\end{thm}
+%\subsection{$E_n$ algebras from topological field theories}
+%
+%Although our focus in this paper is on holomorphic field theories and factorization algebras,
+%it might be helpful to describe some motivating results about topological field theories and factorization algebras.
+%Elliott and Safronov have \owen{not sure how much to say here, but I'm going to take a stab at writing a synoptic theorem}
+%
+%If one examines theories like Chern-Simons theory on $\RR^3$ or the Poisson $\sigma$-model on $\RR^2$, 
+%one discovers a general format for constructing theories that was formalized by \cite{AKSZ}.
+%In a nutshell, the field theory is factored into two parts: 
+%the de Rham complex of the source or ``spacetime'' manifold, 
+%and a Lie algebra-type object encoding a gauge Lie algebra or a ``target'' for a $\sigma$-model.
+%
+%\begin{dfn}
+%A classical {\em AKSZ-type theory} on $\RR^d$ is a determined by an $L_\infty$-algebra $\fg$ equipped with a cyclic pairing $\langle-,-\rangle$ of degree $3-d$.
+%Its {\em equation of motion} is the Maurer-Cartan equation 
+%\[
+%0 = \d A + \frac{1}{2} [A,A] + \frac{1}{3!}[A,A,A]_3 + \cdots = \sum_{k=1}^\infty \frac{1}{k!} [A, \ldots, A]_k
+%\]
+%of the $L_\infty$ algebra $\Omega^*(\RR^d) \otimes \fg$ with $k$-ary brackets $[-]_k$.
+%The {\em action functional} is the expression
+%\[
+%S(A) = \int_{\RR^d} \sum_{k=1}^\infty \frac{1}{{k+1}!} \langle A, [A, \ldots, A]_k \rangle
+%\]
+%\end{dfn}
+%
+%Ordinary Chern-Simons theory on $\RR^3$ arises from taking $\fg$ to be a semisimple Lie algebra and a choice of invariant pairing.
+%In that case, and using $\Tr$ to denote the pairing, the action functional is the familiar
+%\[
+%S(A) = \int_{\RR^3}  \frac{1}{2}\Tr ( A, \d A ) + \frac{1}{3!} \Tr( A, [A, A])
+%\]
+%and the equation of motion asks for connections with zero curvature.
+%
+%Many other theories can be expressed in this style, and we suggest \owen{lots of papers} for examples.
+%Elliott and Safronov characterize and exhibit topological twists of supersymmetric theories as AKSZ-type theories.
+%
+%\begin{thm}[\cite{CG2;ElliottSafronov}]
+%For a classical AKSZ-type theory on $\RR^d$, the observables 
+%\[
+%\Obs^{cl}(U) = \clie^*(\Omega^*(U) \otimes \fg)
+%\]
+%form a locally constant factorization algebra and hence determine an $E_d$ algebra~$\cA^{cl}$.
+%A quantization, if it exists, determines a deformation $\cA^q$ of this $E_d$ algebra.
+%
+%Given a homotopical trivialization of the action of $SO(d)$, then $\cA^q$ is a framed $E_d$ algebra.
+%\end{thm}
 
 More generally, given a map of Lie groups $G \to O(d)$ and a compatible $G$-action on the theory, a homotopical trivialization of this action on the quantum theory equips $\cA^q$ with the structure of a $G$-framed $E_d$ algebra.
 
