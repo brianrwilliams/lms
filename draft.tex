@@ -21,7 +21,6 @@
 \def\Disj{\operatorname{Disj}}
 \def\Open{\operatorname{Open}}
 \def\Vect{\operatorname{Vect}}
-\def\pAA{\mathring{\AA}}
 \def\jou{{\mathtt{j}}}
 \def\bgamma{{\mathbf{\gamma}}}
 \def\bbeta{{\mathbf{\beta}}}
@@ -30,6 +29,8 @@
 \def\sfa{\mathsf{a}}
 \def\del{\partial}
 \def\til{\Tilde}
+\def\Sol{\text{Sol}}
+\def\Spec{\text{Spec}}
 
 \renewcommand{\op}{\operatorname}
 
@@ -379,15 +380,34 @@ This fits with the local characterization mentioned at the beginning of the subs
 
 As a representative example of how twisting behaves, 
 consider pure four-dimensional supersymmetric Yang--Mills theory with $\cN=1$ supersymmetry.
-The odd part of the supersymmetry algebra $\ft^1$ is four-dimensional and there exists a unique holomorphic twist $Q$ up to equivalence. 
-%The sum of two copies of the spin representations.
-%\owen{Did I get that right?}
+The odd part of the supersymmetry algebra $\ft^1$ is four-dimensional and there exists a unique holomorphic twist $Q$ (up to equivalence).
+In this dimension, with this amount of supersymmetry, there does not exist a topological twist.
+The holomorphic twist of the theory with respect to $Q$ is equivalent to holomorphic BF theory on $\CC^2$.
 
-Then, the holomorphic twist 
+This ends our discussion of twisting supersymmetric gauge theories.
+There are many other appearances of holomorphic field theories in the context of supersymmetry.
+Here is a (very) non-exhaustive list.
 
-\begin{thm}[\owen{cite GRW, maybe also mention our work with Chris?}]
-Donaldson--Witten theory, the Kapustin twist, and holomorphic BF theory for $\fg[\epsilon]$ each admit an exact and finite quantization at one loop.
-\end{thm}
+\begin{itemize}
+\item Target space field theories of topological string theories give rich classes of holomorphic field theories. 
+For instance, the closed string field theory of the topological B-model on a Calabi--Yau threefold is Kodaira--Spencer theory, first proposed in \cite{BCOV}. 
+This theory is defined on any Calabi--Yau manifold. 
+The perspective of Kodaira--Spencer theory as a holomorphic field theory has been explored with great success by Kevin Costello and Si Li \cite{CL1, CL2, CL3}.
+\item
+It is possible to make sense of Kodaira--Spencer theory in other dimensions.
+In \cite{CLsugra}, Costello and Li have argued for conjectural descriptions of twists of supergravity and superstring theories in terms of this more general version of Kodaira--Spencer theory.
+\item The `pure spinor' method of Cederwall and Berkovits \cite{Cederwall, Berkovits} starts with a field or string theory defined on the (sometimes singular) nilpotence variety of the super Poincar\'e algebra and uses the action of supersymmetry to produce ordinary (non-twisted) supersymmetric field theories. 
+Often, the theory you start with on the nilpotence variety is holomorphic \cite{ESW,SWpure}. 
+\item Similar in spirit to the pure spinor formalism is a systematic relationship between holomorphic field theories on (super) twistor space and ordinary (Riemannian) field theories.
+For instance, holomorphic BF theory on (super) twistor space associated to $\RR^4$ is equivalent to a self-dual limit of (super) Yang--Mills theory \cite{Penrose, Kevins work..., other twistor literature}.
+\end{itemize}
+
+\subsection{An extended aside on perturbative quantization}
+
+So far we have not discussed the issue of quantization and renormalization for holomorphic field theories.
+In the topological setting, renormalization is very well-controlled.
+The well-combed configuration space method pioneered by \cite{} has allowed for a rigorous construction of the path integral for many topological field theories. 
+
 
 In other words, by a judicious choice of gauge-fixing, 
 we find that the one-loop Feynman diagrams have no UV divergences.
@@ -395,29 +415,10 @@ Moreover, no higher loop diagrams appear (for combinatorial reasons),
 and the action functional satisfies the quantum master equation.
 See Section~\ref{sec: susytwist revisited} for some further discussion.
 
-\owen{More examples}
-
-\begin{itemize}
-\item Target space field theories of topological string theories give rich classes of holomorphic field theories. 
-For instance, the closed string field theory of the topological B-model is Kodaira--Spencer theory, first proposed in \cite{BCOV}. 
-This theory is defined on any Calabi--Yau manifold. 
-The perspective of Kodaira--Spencer theory as a holomorphic field theory has been explored with great success by Kevin Costello and Si Li \cite{CL1, CL2, CL3}.  
-\item The `pure spinor' method of Cederwall and Berkovits \cite{Cederwall, Berkovits} starts with a field or string theory defined on the (sometimes singular) nilpotence variety of the super Poincar\'e algebra and uses the action of supersymmetry to produce ordinary (non-twisted) supersymmetric field theories. 
-Often, the theory you start with on the nilpotence variety is holomorphic \cite{SWpure}. 
-\item Similar in spirit to the pure spinor formalism is a systematic relationship between holomorphic field theories on (super) twistor space and ordinary (Riemannian) field theories.
-For instance, holomorphic BF theory on twistor space associated to $\RR^4$ is equivalent to a self-dual limit of Yang--Mills theory. 
-\end{itemize}
-
-\subsection{An extended aside on perturbative quantization}
-
-\owen{Sketch Brian's main results --- and Si's! --- and compare them with configuration space method of A-S and K for TFTs, subsequently developed by others}
-
 Although holomorphic field theories had already appeared in practice,
 my collaborator Brian Williams was the first to lay a systematic, mathematical foundations (cf. his thesis \cite{BWthesis} and its offshoot \cite{BWhol}).
 He did the following:
 \begin{itemize}
-\item gave a precise definition of a holomorphic field theory in the BV formalism,
-modeled on and compatible with Costello's approach;
 \item established key analytic results about holomorphic renormalization, 
 showing that it is highly manageable, with no counterterms to 1-loop; and
 \item characterized the one-loop anomalies  (i.e., obstructions to BV quantization).
@@ -448,7 +449,7 @@ they have shown how important invariants (notably the ``supersymmetric index") o
 
 \section{Algebra and holomorphic field theories}
 
-In this section we describe  associative algebras and their ``higher'' generalizations, like $A_\infty$ algebras, related to holomorphic field theories,
+In this section we describe  associative algebras and their ``homotopical'' generalizations, like $A_\infty$ algebras, related to holomorphic field theories,
 following the relationship of associative algebras to quantum mechanics and of vertex algebras to chiral conformal field theory.
 A particular focus is upon higher Kac-Moody algebras \cite{FHK},
 as these offer a tantalizing direction to explore in search of analogs of the rich connections between representation theory, algebraic geometry, and physics familiar to those who have worked with loop groups.
@@ -494,9 +495,9 @@ In particular, consider how symmetries appear in mechanics.
 Let $X$ be a symplectic manifold encoding the ``phase space'' of a classical mechanical system,
 and let $\{-,-\}$ denote the Poisson bracket on $C^\infty(X)$.
 If a Lie group $G$ acts on $X$ by symplectomorphisms (i.e., respects the symplectic structure),
-there is a map of Lie algebras $\rho: \fg \to {\rm SympVect}(X)$ so that an ``infinitesimal symmetry'' $x \in \fg$ acts by a symplectic vector field.
+there is a map of Lie algebras $\rho \colon\fg \to {\rm SympVect}(X)$ so that an ``infinitesimal symmetry'' $x \in \fg$ acts by a symplectic vector field.
 In many cases, such infinitesimal symmetries are realized as observables: 
-there is a map of Lie algebras $H_\rho: \fg \to C^\infty(X)$ such that $\{ H_\rho(x), - \} = \rho(x)$.
+there is a map of Lie algebras $H_\rho \colon \fg \to C^\infty(X)$ such that $\{ H_\rho(x), - \} = \rho(x)$.
 One says that each element $x$ has a Hamiltonian function $H_\rho(x)$ whose associated Hamiltonian vector field is $\rho(X)$.
 Classic examples include the momenta for $T^* \RR^n$ arising from translation and rotational symmetry.
 
@@ -507,7 +508,7 @@ We can then ask: does this map quantize? That is, can we compatibly deform the d
 Here it might be useful to recognize that the enveloping algebra $U\fg$ is a natural deformation quantization of $\Sym(\fg)$, thanks to the Poincar\'e-Birkhoff-Witt theorem.
 Thus our question might be reformulated to asking whether there is an associative algebra map $H^q_\rho: U\fg \to C^\infty(X)^q$, where $C^\infty(X)^q$ is a deformation quantization, such that $H^q_\rho$ recovers $H_\rho$ in the classical limit.
 Such a map is sometimes called a {\em quantum moment map},
-as $H_\rho$ is the pullback of (polynomial) functions along a moment map~$\mu_\rho: X \to \fg^*$.
+as $H_\rho$ is the pullback of (polynomial) functions along a moment map~$\mu_\rho \colon X \to \fg^*$.
 
 This class of questions appears throughout mathematics,
 and it has played a key role in geometric representation theory and the theory of $D$-modules, where $D$ denotes a ring of differential operators.
@@ -537,8 +538,8 @@ Let us indicate one possible answer before we motivate it.
 Let $V$ be a finite-dimensional complex vector space, equipped with a symplectic pairing $\omega$ that is complex-valued.
 We can view $V$ as $T^* L$ for some Lagrangian vector subspace $L \subset V$, if we wish.
 Then we posit for the relevant phase space, the ``symplectic complex manifold'' $V[z,z^{-1}]$,
-by which we mean the $V$-valued Laurent polynomials in a coordinate $z$ on the punctured plane $\CC^\times = \CC -\{0\}$.
-The space encodes algebraic maps from the variety $\CC^\times$ to $V$,
+by which we mean the $V$-valued Laurent polynomials in a coordinate~$z$.
+The space encodes algebraic maps from the variety $\CC^\times = \CC \setminus 0$ to $V$,
 so we view it as a kind of algebraic loop space of~$V$.
 (There are clearly variations on this idea, such as the holomorphic loop space of all holomorphic maps from $\CC^\times$ to~$V$.)
 
@@ -555,7 +556,7 @@ The symmetric algebra $\Sym(V^* ((z)))$ thus encodes a class of observables that
 When we quantize, this algebra will be related to a well-known vertex algebra.
 
 There is one last feature we would like to point out, before we turn to explaining our interest in this space and algebra.
-The inclusion $\CC^\times \hookrightarrow \CC$ means that any algebraic map  $\phi: \CC \to V$ restricts to an algebraic map $\phi: \CC^\times \to V$.
+The inclusion $\CC^\times \hookrightarrow \CC$ means that any algebraic map  $\phi: \CC \to V$ restricts to an algebraic map $\phi \colon \CC^\times \to V$.
 In our notation, this restriction map is the inclusion $V[z] \hookrightarrow V[z,z^{-1}]$ of $V$-valued polynomials in $V$-valued Laurent polynomials.
 In terms of observables, there is a quotient map $\cO(V[z,z^{-1}]) \to \cO(V[z])$, since observables on the loop space restrict to observables on~$V[z]$.
 When we quantize, this relationship will produce the underlying vector space (or Fock space, or vacuum module) of the vertex algebra.
@@ -598,6 +599,7 @@ A confession is necessary here, because this replacement is a bit misleading.
 The holomorphic version of the model case, known as the free $\beta\gamma$ system,
 actually has holomorphic maps into $T^* \CC^n$ as the space of solutions.
 The algebraic maps are precisely $T^* \CC^n$-valued Laurent polynomials.
+\footnote{One can extract the algebraic model from the holomorphic model by taking formal power series expansions at the level of observables.}
 
 We now turn to quantization, and our phase space will be, for simplicity, the algebraic loop space $V[z,z^{-1}]$ of a symplectic complex vector space $V$.
 Following the case of mechanics, we might ask for a deformation of $\cO(V[z,z^{-1}])$ into an associative algebra.
@@ -620,7 +622,7 @@ just as the simplest Weyl algebra is isomorphic to $\CC[p,q]$ as a vector space,
 but the product structure is modified by quantization.
 We expect, by analogy with the simplest case, that any quantization of a bigger algebra (e.g., for observables of the holomorphic loop space) contains this quantization as its algebraic skeleton.
 
-The subspace of ``contractible formal loops" $V[[z]]$ inside $V((z))$ produces a module for $\cO(V((z)))$ given by $\cO(V[[z]]$. 
+The subspace of ``contractible formal loops" $V[[z]]$ inside $V((z))$ produces a module for $\cO(V((z)))$ given by $\cO(V[[z]])$. 
 (This module is in fact a quotient algebra.)
 One can quantize this module to a module ${\rm Vac}[V]$ for $W[V]$,
 where as a vector space, it is still $\cO(V[[z]])$.
@@ -629,7 +631,7 @@ so we have a natural ``Hilbert space'' or Fock module for~$W[V]$.
 
 It is a remarkable fact, suggested by physicists, that there is also a map
 \[
-Y: {\rm Vac}[V] \to \End({\rm Vac}[V])[[z, z^{-1}]],
+Y \colon {\rm Vac}[V] \to \End({\rm Vac}[V])[[z, z^{-1}]],
 \]
 known as the {\em vertex operator} or {\em state-field correspondence},
 which is closely related to the $W[V]$-action.
@@ -648,8 +650,8 @@ In other words, we wish to explain how the affine Lie algebras $\widehat{\fg}$ a
 Suppose now that $G$ is a complex Lie group and it acts on the symplectic complex vector space $V$ by holomorphic symplectomorphisms.
 Then $G$ also acts on the algebraic loop space $V[z,z^{-1}]$ and also on formal loops $V((z))$ as a ``global'' symmetry:
 the action is independent of $z$.
-On the other hand, if we consider the infinitesimal action $\rho: \fg \to {\rm SympVect}(V)$,
-there is, in fact, a natural extension to a ``local'' symmetry $\rho^{\rm loc}: \fg[z,z^{-1}] \to {\rm SympVect}(V((z)))$.
+On the other hand, if we consider the infinitesimal action $\rho \colon \fg \to {\rm SympVect}(V)$,
+there is, in fact, a natural extension to a ``local'' symmetry $\rho^{\rm loc} \colon \fg[z,z^{-1}] \to {\rm SympVect}(V((z)))$.
 Geometrically, a $\fg$-valued function $x(z)$ acts pointwise (with respect to the formal disc) on the formal loop space.
 (Although the algebraic loop space is not symplectic in a strict sense,
 there is still a local symmetry as $\fg[z,z^{-1}]$ maps to vector fields on the algebraic loop space.)
@@ -665,7 +667,6 @@ by
 \[
 \alpha_V( x \otimes f(z) , y \otimes g(z)) = \Tr_V(xy) \Res(f \, \partial_z g).
 \]
-\owen{Check conventions.}
 There is thus a central extension of the loop algebra 
 \[
 \CC c \to \widehat{\fg} \to \fg[z,z^{-1}]
@@ -676,19 +677,52 @@ so that
 \]
 and there is a Lie algebra map
 \[
-\widehat{H}^{\rm loc}_\rho: \widehat{\fg} \to W[V],
+\widehat{H}^{\rm loc}_\rho \colon \widehat{\fg} \to W[V] .
 \]
-sometimes called {\em free field realization} of the affine Lie algebra~$\widehat{\fg}$.
-This relationship --- and its extension to a map between the vertex algebras associated to $\widehat{\fg}$ and $V$ --- is a modest \owen{better adjective?} extract of the rich dialogue that has developed between complex analysis, representation theory, and the physics of chiral conformal field theory.
+This is an example of a {\em free field realization} for the affine Lie algebra~$\widehat{\fg}$.
+This relationship --- and its extension to a map between the vertex algebras associated to $\widehat{\fg}$ and $V$ --- is small part of the rich dialogue that has developed between complex analysis, representation theory, and the physics of chiral conformal field theory.
 (To get Riemann surfaces into the game, we will need a richer framework than ordinary algebra.)
 
 \owen{Discuss modules?}
 
-\subsection{Reduction vs chiralization}
+\subsection{Reduction vs. chiralization}
 
-\owen{We should introduce the idea here and revisit later}
-\brian{Explain dimensional reduction vs compactification.
-From topological AKSZ theory to holomorphic one.}
+In physics, the relationship between the Weyl algebra on generators $p,q$ and its loopy version $W[V]$ is through a process called `dimensional reduction'.
+The key idea is that to any quantum mechanical system there is an algebra of operators---the loopy version of the Weyl algebra arises from a quantum mechanical system on the infinite-dimensional space of loops in the symplectic vector space $V$. 
+We will unpack this statement in the language of fields and Lagrangians.
+
+The ordinary Weyl algebra on a symplectic vector space $V$ arises from the quantization of ordinary mechanics on the symplectic vector space $V$.
+We can also include a Hamiltonian $H \in \cO(V)$ which acts on the Weyl algebra by the commutator $[H,-]$.
+If we understand the fields of this system as smooth maps $\phi = \phi(t)$ valued in $V$, then the Lagrangian description of this system is 
+\[
+L_{1d} (\phi) = \omega(\phi , \d \phi) + H(\phi) \d t ,
+\]
+where $\d \colon C^\infty(\RR) \otimes V \to \Omega^1(\RR) \otimes V$ is the de Rham differential. 
+
+The chiral version of this setup is to look at fields $\phi = \phi(z,\zbar)$ valued in $V$ where $(z,\zbar) \in \CC^\times$.
+The action functional is 
+\[
+L_{2d}(\phi) = \omega(\phi, \dbar \phi) \d z ,
+\]
+where $\dbar \colon C^\infty(\CC^\times)\otimes V \to \Omega^{0,1}(\CC^\times) \otimes V$ is the Dolbeault differential.
+
+We can extract from $L_{2d}$ a Lagrangian on a one-dimensional space by the process of `compactification'. 
+It is natural to take as this one-dimensional space the radial direction in $\CC^\times$.
+Then, compactification involves integrating out the remaining circle direction.
+Concretely, any smooth function on $\CC^\times$ can be decomposed in polar coordinates as
+\[
+\phi(r,\theta) = \sum_{k \in \ZZ} \phi_k(r) e^{2 \pi i k \theta} ,
+\]
+where $\phi_k(r)$ is a smooth function depending only on the radius $r \in \RR_+$.
+Alternatively, by taking the logarithm we can view $\phi_k(t)$ as a function of the `time' parameter $t = \log r \in \RR$. 
+We interpret $\sum_{k \in \ZZ} \phi_k(t)$ as smooth map from $\RR$ to the formal (free) loop space $LV = V[z,z^{-1}]$. 
+
+At the level of Lagrangians we can integrate $L_{2d}(\phi)$ over $S^1$ to obtain the following infinite sum of one-dimensional Lagrangians
+\beqn
+L_{1d}(\phi_k, k \in \ZZ) = \sum_{k\in \ZZ} \phi_{-k} \d \phi_{k} + k \phi_k \phi_{-k} \d t .
+\eeqn 
+Notice that the $k=0$ summand is just the Lagrangian of ordinary mechanics into $V$ with zero Hamiltonian. 
+In general, we find mechanics into the symplectic vector space $LV$, where the symplectic structure uses the residue pairing in addition to the symplectic form on $V$, with a nontrivial Hamiltonian which encodes the $U(1)$-symmetry arising from rotating $LV$ in the natural way.
 
 \subsection{Algebras in higher dimensions }
 
@@ -700,10 +734,10 @@ The naive idea is to replace the algebraic loop space $\Map(\CC^\times,  V)$ wit
 If one considers ordinary algebraic or holomorphic maps for $d > 1$, 
 then every such map extends across the origin, by Hartogs' lemma,
 so this seems uninteresting.
-One should notice, however, that punctured affine space $\mathring{\AA}^d = \CC^d -\{0\}$ is, as a scheme, not affine, 
+One should notice, however, that punctured affine space $\mathring{\CC}^d = \CC^d -\{0\}$ is, as a scheme, not affine, 
 and so the {\em derived} global sections of the structure sheaf $\cO_{\rm alg}$ are interesting:
 \[
-H^*(\RR \Gamma(\pAA^d, \cO_{\rm alg})) = H^* (\mathring{\AA}^d, \cO_{\rm alg}) 
+H^*(\RR \Gamma(\mathring{\CC}^d, \cO_{\rm alg})) = H^* (\mathring{\AA}^d, \cO_{\rm alg}) 
 = \begin{cases} 
 0, & * \neq 0, d-1 \\ 
 \CC[z_1,\ldots,z_d], & * = 0 \\ 
@@ -712,28 +746,28 @@ H^*(\RR \Gamma(\pAA^d, \cO_{\rm alg})) = H^* (\mathring{\AA}^d, \cO_{\rm alg})
 \]
 where we are providing a natural basis for the cohomology 
 that aims to emphasize analogies with the $d=1$ case.
-When $d=1$, note that this computation recovers the Laurent polynomials,
+When $d=1$, note that this recovers the Laurent polynomials,
 so when $d > 1$, 
 we view the cohomology in degree $d-1$ as providing the derived replacement of the polar part of the Laurent polynomials.
 Checking this computation is a straightforward exercise in algebraic geometry;
-for instance, use the cover by the affine opens of the form $\AA^d \setminus \{z_i =0\}$.
+for instance, use the cover by the affine opens of the form $\AA^d - \{z_i =0\}$.
 \owen{I want to discuss the module structure on the $d-1$-component.}
 
 A similar result holds in analytic geometry, of course,
 so that we have a natural map
 \[
-\RR \Gamma(\pAA^d, \cO_{\rm alg}) \to \RR \Gamma(\pAA^d, \cO_{\rm an}) \simeq \Omega^{0,*}(\pAA^d)
+\RR \Gamma(\mathring{\CC}^d, \cO_{\rm alg}) \to \RR \Gamma(\mathring{\CC}^d, \cO_{\rm an}) \simeq \Omega^{0,\bu}(\mathring{\CC}^d)
 \]
-that replaces our inclusion of Laurent polynomials into the Dolbeault complex on~$\pAA^d$.
+that replaces our inclusion of Laurent polynomials into the Dolbeault complex on~$\mathring{\CC}^d$.
 
 There is a natural analog of the residue map as well.
 Just as $\CC^\times$ deformation-retracts onto the unit circle,
-the punctured affine space $\pAA^d$ retracts onto the unit sphere $S^{2d-1}$.
+the punctured affine space $\mathring{\CC}^d$ retracts onto the unit sphere $S^{2d-1}$.
 The Bochner-Martinelli kernel 
 \[
 \omega_{BM} = \frac{(d-1)!}{(2 \pi i)^d} \frac{1}{(z\zbar)^d} \sum_{i=1}^d (-1)^{i-1} \zbar_i\, \d \zbar_1 \wedge \cdots \wedge \Hat{\d \zbar_i} \wedge \cdots \wedge \d \zbar_d
 \]
-determines a cohomology class of degree $d-1$, and we identify it with $1/z_1 \cdots z_d$ in our basis above,
+determines a cohomology class of degree $d-1$, and we identify it with $1/(z_1 \cdots z_d)$ in our basis above,
 so that $\omega_{BM}$ generates its cohomology group under multiplication by polynomials in the $z_j^{-1}$.
 When $d = 1$, note that $\omega_{BM} = (1/2\pi i)\d z/z$, the kernel in the Cauchy residue formula.
 It is also quick to check that
@@ -743,16 +777,23 @@ It is also quick to check that
 pulls back to a volume form on the unit sphere $S^{2d-1}$.
 Hence, we define a residue map
 \[
-\Res: \RR \Gamma(\pAA^d, \cO_{\rm alg})  \to \CC
+\Res \colon \RR \Gamma(\mathring{\CC}^d, \cO_{\rm alg})  \to \CC[1-d]
 \]
 by
 \[
 \Res(\alpha) = \oint_{S^{2d-1}} \alpha \wedge \d z_1 \wedge \cdots \wedge \d z_d.
 \]
-When $d =1$, this formula reduces to the usual residue map.
-\owen{That's a bit misleading, maybe, but the integral really does only care about the cohomology class.}
 
-The ingredients are thus in place to mimic the construction of the Weyl algebra for the formal loop space, of the affine Lie algebras, and of free field realization, but now with $\pAA^d$ in place of $\pAA^1 = \CC^\times$.
+The ingredients are almost in place to mimic the construction of the Weyl algebra for the formal loop space, of the affine Lie algebras, and of free field realization, but now with $\mathring{\CC}^d$ in place of $\mathring{\CC}^1 = \CC^\times$.
+We must be careful about parity, however. 
+In dimension $d = 1$, the Laurent polynomials valued in a symplectic vector space $V[z,z^{-1}]$ again has the structure of a symplectic vector space via the residue. 
+Because of the appearance of the cohomological shift in the higher dimensional residue it is no longer the case that $V \otimes \RR\Gamma(\mathring{\CC}^d, \cO_{alg})$ is symplectic if $V$ is.
+
+Let's consider the case $d = 2$ for concreteness. 
+The residue map $\Res$ above is then of cohomological degree $-1$. 
+Thus, to get a symplectic pairing on $V \otimes \RR\Gamma(\mathring{\CC}^d, \cO_{alg})$ via the residue we can ask that $V$ is equipped with a {\em $1$-shifted symplectic structure}. 
+A typical example of such a space is $V = \T^*[1] L = L \oplus L^*[1]$, where $L$ is any vector space.
+
 Reversing our treatment above, we first discuss the higher Kac-Moody algebras, 
 following Faonte-Hennion-Kapranov \cite{FHK},
 before discussing holomorphic field theory.
@@ -793,11 +834,11 @@ by aggregating several results of~\cite{FHK}.
 \label{prop: Ad} $\;$
 \begin{enumerate}
 \item
-The dg commutative algebra $(A_d,\dbar)$ is a model for $\RR \Gamma(\pAA^d, \sO_{\rm alg})$:
+The dg commutative algebra $(A_d,\dbar)$ is a model for $\RR \Gamma(\mathring{\CC}^d, \sO_{\rm alg})$:
 \[
-A_d \simeq \RR\Gamma(\pAA^{d}, \sO^{alg}) .
+A_d \simeq \RR\Gamma(\mathring{\CC}^{d}, \sO^{alg}) .
 \]
-Similarly, $(A_d^{p,*},\dbar) \simeq \RR \Gamma(\pAA^{d}, \Omega^{p}_{\rm alg})$.
+Similarly, $(A_d^{p,*},\dbar) \simeq \RR \Gamma(\mathring{\CC}^{d}, \Omega^{p}_{\rm alg})$.
 \item There is a dense map of commutative bigraded algebras
 \[
 \jou : A^{*,*}_d \to \Omega^{*,*}(\CC^d \setminus \{0\}),
@@ -820,7 +861,7 @@ for any $f (z) \in \CC[z_1,\ldots,z_d]$.
 \end{enumerate}
 \end{prop}
 
-We can use this algebra and its nice properties to define a kind of ``sphere algebra'' $\Map(\pAA^d,\fg)$ of algebraic maps from the punctured affine space (or the punctured formal disc) into $\fg$,
+We can use this algebra and its nice properties to define a kind of ``sphere algebra'' $\Map(\mathring{\CC}^d,\fg)$ of algebraic maps from the punctured affine space (or the punctured formal disc) into $\fg$,
 just as $\fg[z,z^{-1}]$ provides a kind of loop algebra.
 
 \begin{dfn}
