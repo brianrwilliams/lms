@@ -33,6 +33,7 @@
 \def\Spec{\text{Spec}}
 
 \renewcommand{\op}{\operatorname}
+\def\lie#1{\ensuremath{\mathfrak{#1}}}
 
 \def\brian#1{{\textcolor{blue!65!red}{BW: {#1}}}}
 \def\owen#1{{\textcolor{violet!65!black}{OG: {#1}}}}
@@ -676,9 +677,9 @@ so that
 [x \otimes f, y \otimes g] = [x,y] \otimes fg + \alpha_V( x \otimes f , y \otimes g) c,
 \]
 and there is a Lie algebra map
-\[
+\beqn\label{eqn:freefield1}
 \widehat{H}^{\rm loc}_\rho \colon \widehat{\fg} \to W[V] .
-\]
+\eeqn
 This is an example of a {\em free field realization} for the affine Lie algebra~$\widehat{\fg}$.
 This relationship --- and its extension to a map between the vertex algebras associated to $\widehat{\fg}$ and $V$ --- is small part of the rich dialogue that has developed between complex analysis, representation theory, and the physics of chiral conformal field theory.
 (To get Riemann surfaces into the game, we will need a richer framework than ordinary algebra.)
@@ -730,161 +731,146 @@ The story we have just told admits a natural extension to higher complex dimensi
 but it requires a first step in the direction of derived geometry.
 
 Let $V$ denote a complex vector space (no longer required to be symplectic).
-The naive idea is to replace the algebraic loop space $\Map(\CC^\times,  V)$ with a higher-dimensional analog $\Map(\CC^d -\{0\}, V)$.
+The naive idea is to replace the algebraic loop space $\Map(\CC^\times,  V)$, or its formal version $\Map(\Hat{D}^\times, V)$, with a higher-dimensional analog $\Map(\CC^d -\{0\}, V)$.
 If one considers ordinary algebraic or holomorphic maps for $d > 1$, 
 then every such map extends across the origin, by Hartogs' lemma,
 so this seems uninteresting.
 One should notice, however, that punctured affine space $\mathring{\CC}^d = \CC^d -\{0\}$ is, as a scheme, not affine, 
 and so the {\em derived} global sections of the structure sheaf $\cO_{\rm alg}$ are interesting:
 \[
-H^*(\RR \Gamma(\mathring{\CC}^d, \cO_{\rm alg})) = H^* (\mathring{\AA}^d, \cO_{\rm alg}) 
+H^\bu(\RR \Gamma(\mathring{\CC}^d, \cO_{\rm alg})) = H^\bu (\mathring{\AA}^d, \cO) 
 = \begin{cases} 
-0, & * \neq 0, d-1 \\ 
-\CC[z_1,\ldots,z_d], & * = 0 \\ 
-\CC[z_1^{-1},\ldots,z_d^{-1}] \frac{1}{z_1 \cdots z_d}, & * = d-1 
-\end{cases},
+0, & \bu \neq 0, d-1 \\ 
+\CC[z_1,\ldots,z_d], & \bu = 0 \\ 
+\CC[z_1^{-1},\ldots,z_d^{-1}] \frac{1}{z_1 \cdots z_d}, & \bu = d-1 
+\end{cases} .
 \]
-where we are providing a natural basis for the cohomology 
+Here $\mathring{\AA}^d$ stands for punctured affine space as a scheme. 
+We are providing a natural basis for the cohomology 
 that aims to emphasize analogies with the $d=1$ case.
 When $d=1$, note that this recovers the Laurent polynomials,
 so when $d > 1$, 
 we view the cohomology in degree $d-1$ as providing the derived replacement of the polar part of the Laurent polynomials.
 Checking this computation is a straightforward exercise in algebraic geometry;
-for instance, use the cover by the affine opens of the form $\AA^d - \{z_i =0\}$.
-\owen{I want to discuss the module structure on the $d-1$-component.}
+for instance, use the cover by the affine opens of the form $\CC^d - \{z_i =0\}$.
+The full cohomology has the structure of a commutative algebra. 
+In degree zero, the algebra structure is the ordinary one on functions, or polynomials.
+The module structure in the basis above is given by the apparent multiplication: $z_i^k \cdot z_i^{-l-1} = z_i^{k-l-1}$ if $k < l$ and zero otherwise.
 
 A similar result holds in analytic geometry, of course,
 so that we have a natural map
 \[
-\RR \Gamma(\mathring{\CC}^d, \cO_{\rm alg}) \to \RR \Gamma(\mathring{\CC}^d, \cO_{\rm an}) \simeq \Omega^{0,\bu}(\mathring{\CC}^d)
+\RR \Gamma(\mathring{\CC}^d, \cO_{\rm alg}) \to \RR \Gamma(\mathring{\CC}^d, \cO_{\rm an}) \simeq \Omega^{0,\bu}(\mathring{\CC}^d).
 \]
-that replaces our inclusion of Laurent polynomials into the Dolbeault complex on~$\mathring{\CC}^d$.
+We can also replace punctured affine space $\mathring{\AA}^d$ by the punctured formal disk
+$\mathring{\DD}^d$.
+Here the cohomology is identical to the above formula except in degree zero polynomials are replaced by power series.
 
-There is a natural analog of the residue map as well.
-Just as $\CC^\times$ deformation-retracts onto the unit circle,
-the punctured affine space $\mathring{\CC}^d$ retracts onto the unit sphere $S^{2d-1}$.
-The Bochner-Martinelli kernel 
-\[
-\omega_{BM} = \frac{(d-1)!}{(2 \pi i)^d} \frac{1}{(z\zbar)^d} \sum_{i=1}^d (-1)^{i-1} \zbar_i\, \d \zbar_1 \wedge \cdots \wedge \Hat{\d \zbar_i} \wedge \cdots \wedge \d \zbar_d
-\]
-determines a cohomology class of degree $d-1$, and we identify it with $1/(z_1 \cdots z_d)$ in our basis above,
-so that $\omega_{BM}$ generates its cohomology group under multiplication by polynomials in the $z_j^{-1}$.
-When $d = 1$, note that $\omega_{BM} = (1/2\pi i)\d z/z$, the kernel in the Cauchy residue formula.
-It is also quick to check that
-\[
-\omega_{BM} \wedge \d z_1 \wedge \cdots \wedge \d z_d
-\]
-pulls back to a volume form on the unit sphere $S^{2d-1}$.
-Hence, we define a residue map
-\[
-\Res \colon \RR \Gamma(\mathring{\CC}^d, \cO_{\rm alg})  \to \CC[1-d]
-\]
-by
-\[
+It is important to have an explicit dg commutative algebra that models the derived global sections for functions on punctured formal disk,
+and not just the cohomology groups.
+There is a beautiful, explicit dg model $\sfA^\bu_d$ for the formal version derived global sections due to Faonte-Hennion-Kapranov \cite{FHK} and based on the Jouanolou method for resolving singularities. 
+While we won't go into details about this model, we remark on a few important points all of which we take from \cite{FHK}:
+\begin{itemize}
+\item The complex $\sfA^\bu_d$ is concentrated in degrees $0,\ldots,d-1$ and its cohomology is the same as the cohomology of $\RR \Gamma(\mathring{\DD}^d, \cO)$ described above.
+\item There is a polynomial version $\sfA_{d,poly}^\bu$ and explicit embeddings of commutative dg algebras 
+\beqn
+\sfA_{d}^\bu \hookleftarrow \sfA_{d,poly}^\bu \hookrightarrow \Omega^{0,\bu}(\CC^d - 0) .
+\eeqn
+The left embedding replaces the inclusion of Laurent polynomials into Laurent series.
+The right embedding replaces the inclusion of Laurent polynomials into the Dolbeault complex on $\CC^\times$.
+\item There is a higher residue map $\text{Res} \colon \sfA_d^{\bu} \to \CC[-d+1]$ which is compatible with integration over the $2d-1$ sphere
+\beqn
+\label{eq:res}
 \Res(\alpha) = \oint_{S^{2d-1}} \alpha \wedge \d z_1 \wedge \cdots \wedge \d z_d.
-\]
+\eeqn
+\end{itemize}
 
-The ingredients are almost in place to mimic the construction of the Weyl algebra for the formal loop space, of the affine Lie algebras, and of free field realization, but now with $\mathring{\CC}^d$ in place of $\mathring{\CC}^1 = \CC^\times$.
+%In fact, they provide a model $A^{p,*}_d$ for the algebraic $p$-forms as well.
+%We will gloss their definition, referring the interested reader to their lucid paper for details.
+
+
+%There is a natural analog of the residue map as well.
+%Just as $\CC^\times$ deformation-retracts onto the unit circle,
+%the punctured affine space $\mathring{\CC}^d$ retracts onto the unit sphere $S^{2d-1}$.
+%The Bochner-Martinelli kernel 
+%\[
+%\omega_{BM} = \frac{(d-1)!}{(2 \pi i)^d} \frac{1}{(z\zbar)^d} \sum_{i=1}^d (-1)^{i-1} \zbar_i\, \d \zbar_1 \wedge \cdots \wedge \Hat{\d \zbar_i} \wedge \cdots \wedge \d \zbar_d
+%\]
+%determines a cohomology class of degree $d-1$, and we identify it with $1/(z_1 \cdots z_d)$ in our basis above,
+%so that $\omega_{BM}$ generates its cohomology group under multiplication by polynomials in the $z_j^{-1}$.
+%When $d = 1$, note that $\omega_{BM} = (1/2\pi i)\d z/z$, the kernel in the Cauchy residue formula.
+%It is also quick to check that
+%\[
+%\omega_{BM} \wedge \d z_1 \wedge \cdots \wedge \d z_d
+%\]
+%pulls back to a volume form on the unit sphere $S^{2d-1}$.
+%Hence, we define a residue map
+%\[
+%\Res \colon \RR \Gamma(\mathring{\CC}^d, \cO_{\rm alg})  \to \CC[1-d]
+%\]
+%by
+%\[
+%\Res(\alpha) = \oint_{S^{2d-1}} \alpha \wedge \d z_1 \wedge \cdots \wedge \d z_d.
+%\]
+
+The ingredients are in place to mimic the construction of the Weyl algebra for the formal loop space, of the affine Lie algebras, and of free field realization, but now with $\mathring{\CC}^d$ in place of $\mathring{\CC}^1 = \CC^\times$.
 We must be careful about parity, however. 
 In dimension $d = 1$, the Laurent polynomials valued in a symplectic vector space $V[z,z^{-1}]$ again has the structure of a symplectic vector space via the residue. 
-Because of the appearance of the cohomological shift in the higher dimensional residue it is no longer the case that $V \otimes \RR\Gamma(\mathring{\CC}^d, \cO_{alg})$ is symplectic if $V$ is.
+Because of the appearance of the cohomological shift in the higher dimensional residue it is no longer the case that 
+\beqn
+V \otimes \RR\Gamma(\mathring{\DD}^d, \cO) \simeq V \otimes \sfA_d
+\eeqn
+is symplectic if $V$ is.
 
-Let's consider the case $d = 2$ for concreteness. 
-The residue map $\Res$ above is then of cohomological degree $-1$. 
-Thus, to get a symplectic pairing on $V \otimes \RR\Gamma(\mathring{\CC}^d, \cO_{alg})$ via the residue we can ask that $V$ is equipped with a {\em $1$-shifted symplectic structure}. 
-A typical example of such a space is $V = \T^*[1] L = L \oplus L^*[1]$, where $L$ is any vector space.
+The residue map $\Res$ in equation \eqref{eq:res} is of cohomological degree $1-d$. 
+Thus, to get a symplectic pairing on $V \otimes \sfA_d$ via the residue we can ask that $V$ is equipped with a {\em $(d-1)$-shifted symplectic structure}. 
+A typical example of such a space is $V = \T^*[d-1] L = L \oplus L^*[d-1]$, where $L$ is any vector space.
 
-Reversing our treatment above, we first discuss the higher Kac-Moody algebras, 
-following Faonte-Hennion-Kapranov \cite{FHK},
-before discussing holomorphic field theory.
-
-It is important to have an explicit dg commutative algebra that models the derived global sections,
-and not just the cohomology groups.
-There is a beautiful, explicit dg model $A_d$ for the algebraic version derived global sections due to Faonte-Hennion-Kapranov \cite{FHK} and based on the Jouanolou method for resolving singularities. 
-In fact, they provide a model $A^{p,*}_d$ for the algebraic $p$-forms as well.
-We will gloss their definition, referring the interested reader to their lucid paper for details.
-
-Let $a_d$ denote the algebra  
-\[
-\CC[z_1,\ldots,z_d, z_1^*,\ldots,z_d^*][(z z^*)^{-1}]
-\]
-defined by localizing the polynomial algebra with respect to $zz^* = \sum_i z_i z^*_i$.
-View this algebra $a_d$ as concentrated in bidegree $(0,0)$.
-Consider the bigraded-commutative algebra $R^{*,*}_d$ over $a_d$ that is freely generated in bidegree $(1,0)$ by elements
-\[
-\d z_1,\ldots , \d z_d,
-\] 
-and in bidegree $(0,1)$ by
-\[
-\d z_1^*,\ldots, \d z_d^*.
-\]
-Note the close resemblance with the Dolbeault complex $\Omega^{*,*}(\CC^d)$ by thinking of $z_j^*$ as $\zbar_j$.
-There is a subalgebra $A^{*,*}_d$ inside $\omega \in R^{p,m}_d$ and a natural pair of differentials $\partial$ and $\dbar$ that behave like the corresponding differentials in the Dolbeault complex.
-We denote the subcomplex with $p=0$~by 
-\[
-(A_d, \dbar) = (\bigoplus_{q = 0}^d A_d^{q}[-q], \dbar),
-\] 
-and it has the structure of a dg commutative algebra.
-For $p>0$, the complex $A^{p,*}_d = (\oplus_q A^{p,q}[-q], \dbar)$ is a dg module for $(A_d, \dbar)$.
-
-The following proposition summarizes key properties of the dg algebra $A_d$ and its dg modules $A_{d}^{p,*}$,
-by aggregating several results of~\cite{FHK}.
-
-\begin{prop}[\cite{FHK}, Section 1]
-\label{prop: Ad} $\;$
-\begin{enumerate}
-\item
-The dg commutative algebra $(A_d,\dbar)$ is a model for $\RR \Gamma(\mathring{\CC}^d, \sO_{\rm alg})$:
-\[
-A_d \simeq \RR\Gamma(\mathring{\CC}^{d}, \sO^{alg}) .
-\]
-Similarly, $(A_d^{p,*},\dbar) \simeq \RR \Gamma(\mathring{\CC}^{d}, \Omega^{p}_{\rm alg})$.
-\item There is a dense map of commutative bigraded algebras
-\[
-\jou : A^{*,*}_d \to \Omega^{*,*}(\CC^d \setminus \{0\}),
-\]
-and the map intertwines with the $\dbar$ and $\partial$ differentials on both sides.
-\item There is a unique $\GL_d$-equivariant residue map
-\[
-{\rm Res}_{z=0} : A_d^{d,d-1} \to \CC
-\]
-such that for any $\omega \in A^{d,d-1}_d$,
-\[
-{\rm Res}_{z=0} (\omega) = \oint_{S^{2d-1}} \jou(\omega)
-\]
-where $S^{2d-1}$ is any sphere centered at the origin in $\CC^d$. 
-\item There is a representative $\omega_{BM}^{\rm alg}$ of the Bochner-Martinelli kernel such that
-\[
-\Res_{z=0} \left(f(z) \omega_{BM}^{alg}(z,z^*) \d z_1 \cdots \d z_d\right) = f(0)
-\]
-for any $f (z) \in \CC[z_1,\ldots,z_d]$. 
-\end{enumerate}
-\end{prop}
-
-We can use this algebra and its nice properties to define a kind of ``sphere algebra'' $\Map(\mathring{\CC}^d,\fg)$ of algebraic maps from the punctured affine space (or the punctured formal disc) into $\fg$,
-just as $\fg[z,z^{-1}]$ provides a kind of loop algebra.
+Let $\omega_V$ be a $(d-1)$-shifted symplectic pairing on the graded vector space $V$. 
+Then $\omega_V$ extends to a map $\til \omega_V \colon (V \otimes \sfA_2)^{\otimes 2} \to \sfA_d$ where we use the algebra structure on $\sfA_d$. 
+We then obtain a ($0$-shifted) symplectic pairing on $V \otimes \sfA_d$ by the formula
+\beqn
+\label{eqn:omega}
+\omega(a,b) = \Res ( \til \omega_V (a,b) ) .
+\eeqn
+As in the construction of the ordinary Weyl algebra, we can think about $\omega$ as defining two-cocycle on the (abelian) dg Lie algebra $V \otimes \sfA_d$.
+In particular, $\omega$ determines a central extension of dg Lie algebras
+\beqn
+\CC \to \lie{h}_d[V] \to V \otimes \sfA_d .
+\eeqn
+From here, we can define the higher-dimensional analog of the Weyl algebra. 
 
 \begin{dfn}
-For a Lie algebra $\fg$, the {\em sphere algebra} in complex dimension $d$ is the dg Lie algebra~$A_d \otimes \fg$.
+Let $V$ be a $(d-1)$-symplectic graded vector space. 
+Then, the $d$-dimensional Weyl algebra $W_d[V]$ is the enveloping algebra of the dg Lie algebra $\lie{h}_d [V]$ where we set the central term equal to the unit.
+\end{dfn}
+
+There is a close relationship of the higher dimensional Weyl algebra to the higher dimensional $\beta\gamma$ system on $\CC^d - 0$ just as the loopy Weyl algebra is related to the $\beta\gamma$ system on $\CC^\times$. 
+
+The trick of turning providing a higher dimensional version of the Weyl algebra can be easily modified to obtain higher dimensional version of current, or loop, algebras. 
+This is one of the starting points of \cite{FHK} in their construction of higher dimensional Kac--Moody algebras. 
+
+\begin{dfn}
+For a Lie algebra $\fg$, the {\em sphere algebra} in complex dimension $d$ is the dg Lie algebra~$\fg \otimes \sfA_d$.
 Following \cite{FHK} we denote it by~$\fg^\bullet_d$.
 \end{dfn}
 
 There are natural central extensions of this sphere algebra as {\em $L_\infty$ algebras},
 parallel to the affine Lie algebras appearing as central extensions of the loop algebra.
 An $L_\infty$ algebra is a generalization of a Lie algebra;
-it is graded vector space $L$ equipped with a countable collection of ``higher brackets'' $[-]_k: L^{\otimes k} \to L$ that satisfy a system of equations generalizing the Jacobi condition for a standard Lie algebra.
+it is graded vector space $L$ equipped with a countable collection of ``higher brackets'' $[-]_k \colon L^{\otimes k} \to L$ that satisfy a system of equations generalizing the Jacobi condition for a standard Lie algebra.
 For an overview (and an actual definition!) we recommend \owen{add citations}.
 
-In our setting of $\fg^\bullet_d$, Faonte-Hennion-Kapranov introduced central extensions that only affect the $d$-bracket.
-For any $\fg$-invariant degree $d+1$ polynomial  $\theta \in \Sym^{d+1}(\fg^*)^\fg$,  the FHK  cocycle is
+In our setting of $\fg^\bullet_d$, Faonte-Hennion-Kapranov introduced central extensions of the sphere algebra that only affect the $d$-bracket.
+For any $\fg$-invariant degree $d+1$ polynomial $\theta \in \Sym^{d+1}(\fg^*)^\fg$, the cocycle which defines the $L_\infty$ central extension is
 \[
 \label{fhk cocycle}
 \begin{array}{cccc}
 \theta_{\rm FHK} : & (A_d \tensor \fg)^{\tensor (d+1)} & \to & \CC\\ 
-& a_0 \otimes \cdots \otimes a_d & \mapsto & \Res_{z=0} \theta(a_0,\partial a_1,\ldots,\partial a_d)
+& a_0 \otimes \cdots \otimes a_d & \mapsto & \Res \left(\theta(a_0,\partial a_1,\ldots,\partial a_d)\right)
 \end{array}.
 \]
-This cocycle has cohomological degree $2$ and so determines an unshifted central extension as $L_\infty$ algebras
+This cocycle has total cohomological degree $+2$ as an element in the Lie algebra cohomology of $\fg^\bu_{d}$ and so determines a central extension of $L_\infty$ algebras
 \[
 \CC c \to \widetilde{\fg}^\bullet_{d, \theta} \to \fg^\bullet_d ,
 \]
@@ -897,31 +883,19 @@ In \cite{FHK} they are shown to appear naturally in various contexts,
 notably in studying the derived moduli of $G$-bundles on a complex varieties of dimension~$d$.
 \owen{Other applications?}
 
-In addition to the higher Kac-Moody algebras, there are also natural higher analogs of the Weyl algebra of the loop space.
-These appear as the observables for a holomorphic field theory known as a $\beta\gamma$ system.
-
-Let $V$ be a symplectic complex vector space and consider the formal sphere algebra $A^{\wedge}_d \otimes V$,
-where $A^{\wedge}_d$ denotes the completion of $A_d$ (i.e., where polynomials in $z_j$ and $z_j^*$ are replaced by formal power series).
-\owen{Should we introduce a pithy notation?}
-Then there is a dg commutative algebra of functions on this space,
-which we denote $\cO(A^{\wedge}_d \otimes  V)$,
-and it has a kind of Poisson bracket, arising from the residue pairing on $A^{\wedge}_d$ and the symplectic form on $V$,
-just as $\cO(V((z)))$ has a Poisson bracket.
-It will not surprise the reader to learn that there is a natural deformation quantization $W_d[V]$ into a dg Weyl algebra.
-A physicist would interpret this algebra as the canonical and radial quantization of the theory on~$\CC^d - \{0\}$.
-
+With the higher dimensional Weyl and Kac--Moody algebras in place, a natural question to ask is whether there are higher dimensional versions of the free field realization as in \eqref{eqn:freefield1}. 
 If $V$ is a representation of a Lie algebra $\fg$,
 there is a local symmetry 
 \[
-\fg^\bullet_d \to \cO(A^{\wedge}_d \otimes V),
+\fg^\bullet_d \to \cO(V \otimes \sfA^{\bu}_d),
 \]
-just as $\fg[z,z^{-1}]$ acts on $\cO(V((z)))$. 
+just as $\fg((z))$ acts on $\cO(V((z)))$. 
 One can ask if this action lifts to a quantum symmetry.
-The obstruction is, remarkably, an FHK cocycle:
+The obstruction, see \cite{GWkm}, is one of the cocycles we discussed above:
 \[
-\alpha_{V,d}(x_1 \otimes f_1, \ldots, x_{d+1} \otimes f_{d+1}) = \Tr_V( x_1 \cdots x_{d+1}) \Res(f_1 \partial f_2 \cdots \partial f_{d+1}).
+x_0 \otimes f_0, \ldots, x_{d} \otimes f_{d} \mapsto \Tr_V( x_0 \cdots x_{d}) \Res(f_0 \partial f_1 \cdots \partial f_{d}).
 \]
-\owen{Fix conventions}
+That is, the invariant degree $(d+1)$ polynomial on $\fg$ which determines the $L_\infty$ extension of the sphere algebra $\fg_d^\bu$ is given by ${\rm Tr}_V (x_0 \cdots x_{d})$.
 In this sense, the higher Kac-Moody algebras admit a higher free field realization,
 but a richer story is possible once we have a higher version of vertex algebras.
 We will return to this topic once we have the rich language of factorization algebras.
