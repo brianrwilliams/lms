@@ -46,7 +46,7 @@
 \maketitle
 \tableofcontents
 
-\owen{mention some history (e.g., Manin!) and some recent work (CPTVV, Pridham, etc) but then explain our focus: higher analogs of VOAs and finding mathematical analogs of physics}
+\owen{mention some history (e.g., Manin! Donaldson-Thomas, Nekrasov) and some recent work (CPTVV, Pridham, etc) but then explain our focus: higher analogs of VOAs and finding mathematical analogs of physics}
 
 \owen{Notation to explain: dg = differential graded, PDE = partial differential equations}
 
@@ -1804,7 +1804,8 @@ Let $U$ be an open set. A collection of open sets $\mathfrak{U} = \{ U_i \mid i 
 The Weiss covers define a Grothendieck topology on $\Open(M)$, the poset category of open subsets of a space $M$. We call it the {\em Weiss topology} of~$M$. 
 Note that Weiss covers are required to ``know'' about every configuration of finitely many points,
 and so they often contain many opens.
-For a smooth $n$-manifold $M$, one cover is simply to take the collection of open sets in $M$ diffeomorphic to a disjoint union of finitely many copies of the open $n$-disc.
+For a smooth $n$-manifold $M$, a useful Weiss cover is the collection of open sets in $M$ diffeomorphic to a disjoint union of finitely many copies of the open $n$-disc.
+(If one has a metric on the manifold, one can work with unions of ``small'' discs.)
 
 
 %\begin{rmk}
@@ -1847,7 +1848,6 @@ The prefactorization algebra $\cF_A$ extends to a factorization algebra on $S^1$
 for any Weiss cover of~$S^1$.
 \end{thm}
 
-The reader can check by hand that for an ordinary algebra $A$, the value on the circle is $A/[A,A] = {\rm HH}_0(A)$.
 This theorem tells us that factorization homology can be seen as a generalization of Hochschild homology,
 where one simultaneously generalizes the circle to an arbitrary closed manifold and an algebra to a factorization algebra.
 
@@ -1928,8 +1928,8 @@ The slogan is
 \begin{quote}
 the observables of a field theory living on a manifold $M$ form a factorization algebra on~$M$. 
 \end{quote}
-To physicists, this claim should not be so surprising, upon some reflection:
-the Weiss cosheaf gluing axiom offers a precise version of the idea that a quantum field theory can be fully encoded by all its $n$-point functions.
+To physicists, this claim should not be so surprising:
+the Weiss cosheaf condition offers a precise version of the idea that a quantum field theory can be fully encoded by all its $n$-point functions.
 
 To make a mathematical statement, one needs to be precise about what a field theory is.
 Here, we will mean the definitions articulated in \cite{CosBook,CG1, CG2}, which encompass the Euclidean versions of many field theories studied in physics and mathematics.
@@ -2020,20 +2020,42 @@ This theorem is also a key connection between field theories and higher algebras
 %Given a homotopical trivialization of the action of $SO(d)$, then $\cA^q$ is a framed $E_d$ algebra.
 %\end{thm}
 
-More generally, given a map of Lie groups $G \to O(d)$ and a compatible $G$-action on the theory, a homotopical trivialization of this action on the quantum theory equips $\cA^q$ with the structure of a $G$-framed $E_d$ algebra.
+\subsubsection{Relating to the Atiyah-Segal approach to TFTs}
 
-Scheimbauer's thesis then provides a functorial field theory in the sense of Atiyah, Segal, and Lurie.
+Atiyah \cite{AtiTFT} offered a mathematical definition for topological field theories that uses symmetric monoidal functors out of bordism categories.
+His approach was inspired by Segal's definition of a conformal field theory \cite{SegCFT},
+and these notions have subsequently undergone extensive development.
+Notably, Baez and Dolan \cite{BaeDol} suggested and advocated for fully extended TFTs; 
+their vision was revisited by Lurie \cite{LurieTFT}, who used modern machinery to provide a roadmap for using fully extended TFTs and for proving the cobordism hypothesis.
+
+An important suggestion from \cite{LurieTFT} is that factorization homology allows one to produce nontrivial examples: 
+every $E_d$ algebra provides a fully extended $d$-dimensional framed TFT,
+albeit taking values in a higher analogue of the Morita bicategory (which works for the $d=1$ case).
+Scheimbauer \cite{Scheim} implemented Lurie's suggestion.
 
 \begin{thm}
-Given a homotopically $SO(d)$-trivial quantization of a classical AKSZ theory on $\RR^d$, 
-factorization homology of the quantum observables 
+For any $E_d$ algebra $A$, the functor
 \[
-\int_{(-)} \cA^q \colon {\rm Bord}^{or}_d \to {\rm Alg}_d
+\int_{(-)} A \colon {\rm Bord}^{or}_d \to {\rm Alg}_d
 \]
-determines a fully extended oriented $d$-dimensional field theory with values in a higher Morita $(\infty,d)$-category of $E_d$ algebras.
+determines a fully extended framed $d$-dimensional field theory with values in a higher Morita $(\infty,d)$-category of $E_d$ algebras.
 \end{thm}
 
-A similar claim applies to the general case with a map $G \to O(d)$.
+In combination with the theorem of Elliott and Safronov, we can connect action functionals --- the physicist's usual description of a field theory --- to Atiyah-Segal functorial field theories.
+
+\begin{cor}
+For any Lagrangian field theory satisfying the hypotheses of Theorem~\ref{}, 
+there is a fully extended framed $d$-dimensional field theory 
+given by $\int_{(-)} \cA^q$ where $\cA^q$ denotes the $E_d$ algebra of quantum observables.
+\end{cor}
+
+More generally, given a map of Lie groups $G \to O(d)$ and a compatible $G$-action on the theory, 
+a homotopical trivialization of this action on the quantum theory equips $\cA^q$ with the structure of a $G$-framed $E_d$ algebra and, by Lurie's work, a $G$-framed fully extended $d$-dimensional TFT.
+It is interesting to ask how these kinds of functorial field theories intertwine with the better-known examples.
+
+In this survey we use factorization algebras to capture the rich algebraic structure of holomorphic field theories,
+but these connections with functorial TFTs raise the question of producing functorial holomorphic field theories.
+
 
 \subsection{Toric (KK) reduction vs. chiralization}
 
