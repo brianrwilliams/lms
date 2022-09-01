@@ -209,7 +209,7 @@ The basic types are\footnote{For the experts, we remark that we focus above on t
 \item {\em Scalar} field theories where the fields are maps from $M$ to a vector space $V$, or natural generalizations like taking sections of a vector bundle $V \to M$. The Higgs boson appears as part of a scalar field theory.
 \item {\em Fermionic} field theories where the fields are maps from $M$ to an {\em odd} vector space or, typically, a section of a spinor bundle. Such theories are often used to describe matter, such as electron fields.
 \item {\em Gauge} field theories where the fields are connections on a principal $G$-bundle over $M$, with $G$ a Lie group. The Yang--Mills theories for the electroweak and strong forces are examples.
-\item $\sigma$-models where the fields are maps from $M$ into a manifold~$X$. (One can view these as generalizations of scalar field theories.)
+\item $\sigma$-{\em models} where the fields are maps from $M$ into a manifold~$X$. (One can view these as generalizations of scalar field theories.)
 \item {\em Gravity} theories where the fields are metrics on $M$, or something that similarly controls the geometry of $M$. Einstein's theory is a paradigmatic example.
 \end{itemize}
 The Standard Model involves the first three types,
@@ -346,31 +346,31 @@ and this Lie bracket is defined in terms of a $\mathfrak{so}(d)$-equivariant non
 \label{e:Gamma}
 \Gamma \colon {\rm Sym}^2(\ft^{1}) \to {\rm Sym}(\ft^0) \cong \RR^d 
 \eeqn
-by the formula $[Q, Q'] = \Gamma(Q, Q')$. 
+by the formula $[\cQ, \cQ'] = \Gamma(\cQ, \cQ')$. 
 
-By a {\em supercharge}, one means an odd supertranslation $Q \in \ft$, and
-a {\em twist} is a (nonzero) supercharge $Q$ such that $[Q,Q] = Q^2 = 0$. 
+By a {\em supercharge}, one means an odd supertranslation $\cQ \in \ft$, and
+a {\em twist} is a (nonzero) supercharge $\cQ$ such that $[\cQ,\cQ] = \cQ^2 = 0$. 
 The classification of all twists is a completely algebraic question,
-and we refer to~\autocite{ESsusy} for a complete classification of all twists in dimensions from $1$ to~$10$. 
+and we refer to~\autocite{ESsusy} for a complete classification of all twists \owen{of SYM?} in dimensions from $1$ to~$10$. 
 
 If a Lagrangian field theory $\cT$ has $\ft$ as a symmetry, 
-then a choice of twist $Q$ determines a deformation of the theory that we call a {\em twisted supersymmetric theory} $\cT^Q$.
-If $S$ denotes the action functional of $\cT$, then the action functional $S^Q$ of $\cT^Q$ has the form
+then a choice of twist $\cQ$ determines a deformation of the theory that we call a {\em twisted supersymmetric theory} $\cT^\cQ$.
+If $S$ denotes the action functional of $\cT$, then the action functional $S^\cQ$ of $\cT^\cQ$ has the form
 \[
-S^Q(\varphi) = S(\varphi) + \int_{\RR^d} \varphi  \left(Q \cdot \varphi \right) + \cdots 
+S^\cQ(\varphi) = S(\varphi) + \int_{\RR^d} \varphi  \left(\cQ \cdot \varphi \right) + \cdots 
 \]
-where the deformation arises from how $Q$ acts on the theory 
-(the $\cdots$ leaves room for terms non-linear in $Q$).
+where the deformation arises from how $\cQ$ acts on the theory 
+(the $\cdots$ leaves room for terms non-linear in $\cQ$).
 For extensive details on how the twisted theory is defined we refer to~\autocite{CostelloHolomorphic, ESW}. 
 
 Building upon the physical literature, Elliott, Safronov, and the second author have given a complete characterization of the all twisted supersymmetric Yang--Mills theories in dimensions $2 \leq d \leq 10$ \autocite{ESW}. 
 These twisted theories are analogs of BF theory and Chern--Simons theory, so long as one includes purely topological and purely holomorphic theories.
 In even dimensions $d = 2n$, basic properties of the supersymmetry algebra guarantee that there exists a twist rendering the theory holomorphic.\footnote{This fails in one example where the dimension and amount of supersymmetry is too small, namely for $\cN=(1,0)$ supersymmetry in two dimensions.}
-Indeed, so long as a twisted supercharge is nonzero $Q \ne 0$ one see that the image of the map $[Q,-] = \Gamma(Q,-)$ from \eqref{e:Gamma} is at least $n$-dimensional.
-A {\em minimal} or {\em holomorphic} supercharge is one for which the dimension is exactly $n$ and we declare the the image of $Q$ is spanned by the anti-holomorphic vector fields $\{\del / \del \zbar_i\}$.
+Indeed, so long as a twisted supercharge is nonzero $\cQ \ne 0$ one see that the image of the map $[\cQ,-] = \Gamma(\cQ,-)$ from \eqref{e:Gamma} is at least $n$-dimensional.
+A {\em minimal} or {\em holomorphic} supercharge is one for which the dimension is exactly $n$ and we declare the the image of $\cQ$ is spanned by the anti-holomorphic vector fields $\{\del / \del \zbar_i\}$.
 This fits with the local characterization mentioned at the beginning of the subsection since in this case there exists homotopies $\{\eta_i\}$ with the property that 
 \beqn
-[Q,\eta_i] = \frac{\del}{\del \zbar_i} .
+[\cQ,\eta_i] = \frac{\del}{\del \zbar_i} .
 \eeqn 
 
 %For our purposes here, a crucial property of a twist $Q$ is the dimension $k_Q$ of its image ${\rm Im} \; \Gamma(Q, \cdot) \subset \RR^d$,
@@ -381,9 +381,9 @@ This fits with the local characterization mentioned at the beginning of the subs
 
 As a representative example of how twisting behaves, 
 consider pure four-dimensional supersymmetric Yang--Mills theory with $\cN=1$ supersymmetry.
-The odd part of the supersymmetry algebra $\ft^1$ is four-dimensional and there exists a unique holomorphic twist $Q$ (up to equivalence).
+The odd part of the supersymmetry algebra $\ft^1$ is four-dimensional and there exists a unique holomorphic twist $\cQ$ (up to equivalence).
 In this dimension, with this amount of supersymmetry, there does not exist a topological twist.
-The holomorphic twist of the theory with respect to $Q$ is equivalent to holomorphic BF theory on $\CC^2$.
+The holomorphic twist of the theory with respect to $\cQ$ is equivalent to holomorphic BF theory on $\CC^2$.
 
 This ends our discussion of twisting supersymmetric gauge theories.
 There are many other appearances of holomorphic field theories in the context of supersymmetry.
