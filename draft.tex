@@ -2215,84 +2215,118 @@ these reductions are related to work of Hori and Hori--Tong \owen{citations} and
 
 \subsection{Holomorphic QCD}
 
-The field content of 4-dimensional $\cN=1$ supersymmetric Yang--Mills theory is:
+A 4-dimensional $\cN=1$ supersymmetric Yang--Mills theory depends on a choice of compact Lie group $G$, with Lie algebra $\fg$, 
+and it lives on  the spacetime $M=\RR^4$.
+The field content of the theory~is
 \begin{itemize}
-\item a `vector multiplet' which consists of a gauge field $A$ together with some fermions $\lambda$ all taking values in a Lie algebra $\fg$;
-\item a `matter multiplet' (usually called the chiral multiplet) which consists of a scalar $\phi$ together with some fermions $\psi$ all transforming in some representation $V$ of $\fg$. 
-Additionally, there is a `superpotential' $W$ which is a $\fg$-invariant polynomial on~$V$. 
+\item a {\it vector multiplet} that consists of a gauge field $A \in \Omega^1(M) \otimes \fg $ together with some fermions $\lambda \in C^\infty(M) \otimes \fg$, and
+\item a {\it matter multiplet} (often called the chiral multiplet), depending on a choice of a representation $V$ of $\fg$, that consists of a scalar $\phi \in C^\infty(M) \otimes V$ together with some fermions $\psi \in C^\infty(M) \otimes V$. 
+Additionally, there is a {\it superpotential} $W \in \cO(V)^\fg$, a $G$-invariant polynomial on~$V$. 
 \end{itemize}
+We always work with super vector spaces, so a fermion means an element of an odd vector space while a boson means an even element.
+Thus, we view a fermion $\lambda$ as living in $\Pi (C^\infty(M) \otimes \fg)$,
+where $\Pi$ denotes odd parity.
 
-From hereon we fix a nonzero, square zero supercharge of the 4-dimensional $\cN=1$ supersymmetry algebra for which we wish to twist by. 
-The twist of 4-dimensional $\cN=1$ supersymmetric Yang--Mills theory has been characterized in \cite{CosYangian, ESW, SWchar}. 
-It is a holomorphic field theory on $\CC^2$ consisting of a `vector' part and a 'matter' part.
-As a moduli space, it can be described in the following way (we will give a description in terms of fields and action functionals afterwards).
+From hereon we fix a nonzero, square zero supercharge $\cQ$ of the 4-dimensional $\cN=1$ supersymmetry algebra.
+This element determines a complex structure on $\RR^4$.
+We also use it to twist the supersymmetric theory to produce a holomorphic field theory on $\CC^2$.
+This twist also has a ``vector'' part and a ``matter'' part.
+This twist of 4-dimensional $\cN=1$ supersymmetric Yang--Mills theory has been analyzed and described in \cite{CosYangian, ESW, SWchar}, within that framework for (primarily perturbative) field theory. 
 
-Let's consider the matter part. 
-Recall that the derived critical locus ${\rm Crit}(W)$ of any function on $V$ has a $(-1)$-shifted symplectic structure. 
-As a dg space, the ring of functions of the derived critical locus is $\cO(\T^* [-1] V)$ equipped with the differential $\iota_{\d W}$. 
-From now on, we forget the $\ZZ$-grading and view this locus as equipped with an odd symplectic structure. 
-Before coupling to the gauge theory, the matter part of the holomorphic twist is the derived mapping space ${\rm Map}(\CC^2_{\dbar}, {\rm Crit}(W))$ which is equipped with an odd symplectic structure by the AKSZ construction. 
+This twist has a moduli-theoretic description that we now sketch;
+we call a point in such a moduli space a {\it solution to the equations of motion}. 
+(We give later a description in terms of fields and action functionals.)
+Let $G_\CC$ denote the complex Lie group associated to $G$,
+and let $\fg_\CC$ denotes its complex Lie algebra.
 
-Since $W$ is $\fg$-invariant, the critical locus has a residual Hamiltonian $\fg$ action. 
-There is a version of Hamiltonian reduction for odd symplectic manifolds, see \cite{Pavel, Kevin, who else}. 
-Denote this reduction by ${\rm Crit}(W) \sslash \fg$. 
-As a dg space, the ring of functions is $\clie^\bu\big(\fg , \cO(\fg^* \oplus \Pi \T^* V) \big)$ where the differential is the Chevalley--Eilenberg differential plus $\iota_{\d W}$. 
+The twisted vector multiplet defines a field theory on any complex surface $X$ often called {\em holomorphic BF theory}. 
+A solution encodes a holomorphic $G_\CC$-bundle $\cP \to X$ (by picking out a $\dbar$-connection on the underlying smooth bundle) and a holomorphic section of a shift of the adjoint bundle ${\mathrm ad}(\cP) \to X$.
+\owen{rephrase the second part?}
+The moduli space can be expressed as the mapping space ${\rm Map}(X, T^*[1]BG_{\CC})$, as a derived stack.
 
-In total, the holomorphic twist is equivalent to the following derived mapping space
+\def\Sslash{\!\sslash\!}
+
+A twisted matter multiplet also defines a field theory on any complex surface $X$. 
+\owen{Is it a cotangent theory? It looks like a twisted cotangent theory.}
+The superpotential determines a derived affine scheme: the derived critical locus ${\rm Crit}^d(W)$, which can be modeled as the spectrum of the dg algebra given by polyvector fields $PV(V)$ on $V$ with differential $\iota_{\d W}$.
+(It is the Koszul complex associated to the Jacobi ring of $W$.)
+This description makes manifest an odd symplectic structure on ${\rm Crit}^d(W)$,
+as polyvector fields are an odd Poisson algebra via the Schouten bracket.
+%As a dg space, the ring of functions of the derived critical locus is $\cO(\T^* [-1] V)$ equipped with the differential $\iota_{\d W}$. 
+By itself (i.e., before coupling to a gauge theory) the twisted matter multiplet corresponds to the mapping space ${\rm Map}(X, {\rm Crit}^d(W))$. 
+
+Since $W$ is $G_\CC$-invariant, the critical locus has a residual Hamiltonian $G_\CC$-action. 
+There is a version of Hamiltonian reduction for odd symplectic manifolds \cite{Pavel, Kevin, who else},
+which we denote by ${\rm Crit}(W) \Sslash G_\CC$. 
+%As a dg space, the ring of functions is $\clie^\bu\big(\fg , \cO(\fg^* \oplus \Pi \T^* V) \big)$ where the differential is the Chevalley--Eilenberg differential plus $\iota_{\d W}$. 
+The holomorphic twist of a theory with both vector and matter multiplets then corresponds to the  derived mapping space
 \[
-{\rm Map}(\CC^2_{\dbar} \; , \; {\rm Crit}(W) \sslash \fg) 
+{\rm Map}(X , {\rm Crit}^d(W) \Sslash G_\CC), 
 \]
-which is equipped with an odd symplectic structure. 
+which comes equipped with an odd symplectic structure. 
 
-In essence, all of the holomorphic theories we consider below will be special cases of this gauged linear mapping space on $\CC^2$. 
-We slightly refine notation and associate a holomorphic theory $\cT(G, V, Z, W)$ on $\CC^2$ associated to the following data:
-\begin{itemize}
-\item a Lie group $G$, this is the gauge group. 
-Its complexified Lie algebra is $\fg = {\rm Lie}_\CC (G)$;
-\item a complex $G$-representation $V$, this is where the `chiral quark matter' lives;
-\item a complex vector space $Z$ where the `mesons' live.
-This is not acted upon by the group $G$. 
-\item a polynomial $W \in {\rm Sym}(V \oplus \Bar{V} \oplus Z)$.
-\end{itemize}
+We wish to study a holomorphic analog of supersymmetric chromodynamics.
+We will specialize $G = SU(N)$ and so $G_\CC = SL(N)$.
+The matter fields will consist of two types: quarks and antiquarks.
+We will call the relevant theory {\it QCD}, following convention, even though it is classical and not yet quantum.
+
+%All of the holomorphic theories we consider below will be special cases of this gauged linear mapping space with $X = \CC^2$. 
+%We slightly refine notation and associate a holomorphic theory $\cT(G, V, Z, W)$ on $\CC^2$ associated to the following data:
+%\begin{itemize}
+%\item a Lie group $G$, this is the gauge group. 
+%Its complexified Lie algebra is $\fg = {\rm Lie}_\CC (G)$;
+%\item a complex $G$-representation $V$, this is where the `chiral quark matter' lives;
+%\item a complex vector space $Z$ where the `mesons' live.
+%This is not acted upon by the group $G$. 
+%\item a polynomial $W \in {\rm Sym}(V \oplus \Bar{V} \oplus Z)$.
+%\end{itemize}
 
 \begin{dfn}
-{\em Holomorphic QCD} associated to the data $(G,V,Z,W)$ as above is the holomorphic field theory on $\CC^2$ with fields:
+A {\em holomorphic QCD theory} with $N$ {\em colors} and $F$ {\em flavors} is the holomorphic field theory on $\CC^2$ where
 \begin{itemize}
-\item The gauge fields are those of holomorphic BF theory valued in $\fg$, which we denote by
+\item the gauge fields are those of holomorphic BF theory valued in $\sl(N)$, which we denote by
 \[
-A \in \Omega^{0,\bu}(\CC^2 , \fg)[1] , \quad B \in \Omega^{2,\bu}(\CC^2, \fg^*) .
+A \in \Omega^{0,\bu}(\CC^2 , \sl(N))[1] \quad\text{and}\quad B \in \Omega^{2,\bu}(\CC^2, \sl(N)^*);
 \]
-\item The `matter fields' consist of a holomorphic $\beta\gamma$ system valued in $V$, which we denote by
+\item the ``quarks'' are fields of a holomorphic $\beta\gamma$ system valued in $V_Q = \sl(N)^{\oplus F}$, which we denote by
 \[
-Q \in \Omega^{0,\bu}(\CC^2 , V) , \quad P \in \Omega^{2,\bu}(\CC^2 , V^*)[1] ,
+Q \in \Omega^{0,\bu}(\CC^2 , V_Q) \quad\text{and}\quad R \in \Omega^{2,\bu}(\CC^2 , V_Q^*)[1];
 \]
-a holomorphic $\beta\gamma$ system valued in the complex conjugate representation $\Bar{V}$, which we denote by
+\item the ``antiquarks'' are fields of a holomorphic $\beta\gamma$ system valued in the dual representation $V^*_Q = (\sl(N)^*)^{\oplus F}$, which we denote by
 \[
-\Tilde{Q} \in \Omega^{0,\bu}(\CC^2 , \Bar{V}) , \quad \Tilde{P} \in \Omega^{2,\bu}(\CC^2 , \Bar{V}^*) [1],
-\]
-and a $\beta\gamma$ system valued in the vector space $Z$, which we denote by
-\[
-M \in \Omega^{0,\bu}(\CC^2 , Z) , \quad L \in \Omega^{2,\bu}(\CC^2 , Z^*) [1] .
+\Tilde{Q} \in \Omega^{0,\bu}(\CC^2 , V^*_Q) \quad\text{and}\quad \Tilde{R} \in \Omega^{2,\bu}(\CC^2 , V_Q) [1].
 \]
 \end{itemize}
+\owen{I'm not sure I like this use of tilde for antiquarks}
 
 The action functional is
 \[
-\int B F^{0,2}_A + \int P \dbar_A Q + \int \Tilde{P} \dbar_A \Tilde{Q} + \int \d^2 z \; W(Q, \Tilde{Q}, M) + \int L \dbar M
+S_{QCD} = \int B F^{0,2}_A + \int R \,\dbar_A Q + \int \Tilde{R} \,\dbar_A \Tilde{Q},
 \]
 where $\dbar_A = \dbar + A$ is the covariant $\dbar$-operator. 
-We will refer to this theory by $\cT(G,V,Z,W)$.\footnote{Although this perturbative theory only depends on the Lie algebra of $G$, the group structure will be relevant when we discuss local operators.} 
+We will denote this theory by $\cT(N,F)$.\footnote{Although this perturbative theory only depends on the Lie algebra of $G$, the group structure will be relevant when we discuss local operators and moduli of vacua.} 
 \end{dfn}
 
+To formulate Seiberg duality, we will need to allow auxiliary matter fields that we call ``mesons.''
+
+\begin{dfn}
+A holomorphic QCD theory {\em with mesons}, denoted $\cT(N,F, V_M, Q)$, is a holomorphic QCD with $N$ colors and $F$ flavors along with {\em meson fields}, which form a $\beta\gamma$ system valued in the vector space $V_M$, which we denote by
+\[
+M \in \Omega^{0,\bu}(\CC^2 , V_M) \quad\text{and}\quad N \in \Omega^{2,\bu}(\CC^2 , V_M^*) [1] .
+\]
+The action functional is
+\[
+S_{QCDwM} = S_{QCD} + \int N \,\dbar M + \int \d^2 z \; W(Q, \Tilde{Q}, M) .
+\] 
+\end{dfn}
+
+Note that the fields $M$ are ``uncharged,'' i.e., $SL(N)$ acts trivially on $V_M$.
+The only coupling that the meson $M$ has to the other fields is through the superpotential~$W$. 
 
 \begin{rmk}
-This theory is only $\ZZ/2$-graded, so all fields are considered only as `even' or 'odd'--for instance the component of the gauge field $A^{0,1}$ is even while the component of the matter field $Q^{0,1}$ is odd. 
-Only in the case that $W = 0$ can one lift the theory to a $\ZZ$-grading.
-\end{rmk}
-
-\begin{rmk}
-Note that the fields $M$ are `uncharged' under the gauge group.
-The only coupling $M$ has to the other fields is through the superpotential $W$. 
+This theory is only $\ZZ/2$-graded, so all fields are considered merely as even or odd.
+For instance the component of the gauge field $A^{0,1}$ is even while the component of the matter field $Q^{0,1}$ is odd. 
+Only when $W = 0$ can one lift the theory to a $\ZZ$-grading.
 \end{rmk}
 
 \subsection{A first pass at Seiberg duality}
