@@ -2266,9 +2266,11 @@ The holomorphic twist of a theory with both vector and matter multiplets then co
 which comes equipped with an odd symplectic structure. 
 
 We wish to study a holomorphic analog of supersymmetric chromodynamics.
+We will call the relevant theory {\it QCD}, following convention, even though it is classical and not yet quantum.
 We will specialize $G = SU(N)$ and so $G_\CC = SL(N)$.
 The matter fields will consist of two types: quarks and antiquarks.
-We will call the relevant theory {\it QCD}, following convention, even though it is classical and not yet quantum.
+Let $V_N$ denote the {\em fundamental} (or defining) representation of $SL(N)$,
+so $V_N = \CC^N$ with its natural left action.
 
 %All of the holomorphic theories we consider below will be special cases of this gauged linear mapping space with $X = \CC^2$. 
 %We slightly refine notation and associate a holomorphic theory $\cT(G, V, Z, W)$ on $\CC^2$ associated to the following data:
@@ -2284,24 +2286,31 @@ We will call the relevant theory {\it QCD}, following convention, even though it
 \begin{dfn}
 A {\em holomorphic QCD theory} with $N$ {\em colors} and $F$ {\em flavors} is the holomorphic field theory on $\CC^2$ where
 \begin{itemize}
-\item the gauge fields are those of holomorphic BF theory valued in $\sl(N)$, which we denote by
+\item the gauge fields are those of holomorphic BF theory valued in $\sl(N)$, whose fields are
 \[
 A \in \Omega^{0,\bu}(\CC^2 , \sl(N))[1] \quad\text{and}\quad B \in \Omega^{2,\bu}(\CC^2, \sl(N)^*);
 \]
-\item the ``quarks'' are fields of a holomorphic $\beta\gamma$ system valued in $V_Q = \sl(N)^{\oplus F}$, which we denote by
+\item the ``quarks'' are fields of a holomorphic $\beta\gamma$ system valued in 
+\[
+V_Q = \Hom(\CC^F, V_N) \cong (V_N)^{\oplus F},
+\] 
+whose fields are
 \[
 Q \in \Omega^{0,\bu}(\CC^2 , V_Q) \quad\text{and}\quad R \in \Omega^{2,\bu}(\CC^2 , V_Q^*)[1];
 \]
-\item the ``antiquarks'' are fields of a holomorphic $\beta\gamma$ system valued in the dual representation $V^*_Q = (\sl(N)^*)^{\oplus F}$, which we denote by
+\item the ``antiquarks'' are fields of a holomorphic $\beta\gamma$ system valued in the dual representation 
 \[
-\Tilde{Q} \in \Omega^{0,\bu}(\CC^2 , V^*_Q) \quad\text{and}\quad \Tilde{R} \in \Omega^{2,\bu}(\CC^2 , V_Q) [1].
+V^*_Q = \Hom(V_N, \CC^F) \cong (V_N^*)^{\oplus F}, 
+\]
+whose fields are
+\[
+q \in \Omega^{0,\bu}(\CC^2 , V^*_Q) \quad\text{and}\quad r \in \Omega^{2,\bu}(\CC^2 , V_Q) [1].
 \]
 \end{itemize}
-\owen{I'm not sure I like this use of tilde for antiquarks}
 
 The action functional is
 \[
-S_{QCD} = \int B F^{0,2}_A + \int R \,\dbar_A Q + \int \Tilde{R} \,\dbar_A \Tilde{Q},
+S_{QCD} = \int B F^{0,2}_A + \int R \,\dbar_A Q + \int r \,\dbar_A q,
 \]
 where $\dbar_A = \dbar + A$ is the covariant $\dbar$-operator. 
 We will denote this theory by $\cT(N,F)$.\footnote{Although this perturbative theory only depends on the Lie algebra of $G$, the group structure will be relevant when we discuss local operators and moduli of vacua.} 
@@ -2310,7 +2319,7 @@ We will denote this theory by $\cT(N,F)$.\footnote{Although this perturbative th
 To formulate Seiberg duality, we will need to allow auxiliary matter fields that we call ``mesons.''
 
 \begin{dfn}
-A holomorphic QCD theory {\em with mesons}, denoted $\cT(N,F, V_M, Q)$, is a holomorphic QCD with $N$ colors and $F$ flavors along with {\em meson fields}, which form a $\beta\gamma$ system valued in the vector space $V_M$, which we denote by
+A holomorphic QCD theory {\em with mesons}, denoted $\cT(N,F, V_M, W)$, is a holomorphic QCD with $N$ colors and $F$ flavors along with {\em meson fields}, which form a $\beta\gamma$ system valued in the vector space $V_M$, which we denote by
 \[
 M \in \Omega^{0,\bu}(\CC^2 , V_M) \quad\text{and}\quad N \in \Omega^{2,\bu}(\CC^2 , V_M^*) [1] .
 \]
@@ -2333,45 +2342,39 @@ Only when $W = 0$ can one lift the theory to a $\ZZ$-grading.
 
 Our long-term goal is to show that two special cases of holomorphic QCD are {\em dual}.
 The notion of duality can refer to several kinds of relationships,
-but loosely speaking it means that some aspects of the two theories are equivalent under some dictionary or correspondence.
-We will postpone saying something precise till we have some terminology in place.
+but loosely speaking it means that some aspects of the two theories are equivalent under correspondence.
+We will postpone saying anything precise till we have some terminology in place.
 
-We focus on the gauge group $G = \SU(N)$, and consider a class of holomorphic QCD theories associated to particular choices of representations and superpotential. 
-Following physics terminology, we will refer to the defining $N$-dimensional representation $\CC^N$ of $\SU(N)$ as the {\em fundamental} representation. 
-Also, let $N_c, N_f$ denote integers where $N_f \geq N_c \geq 2$.
+%We focus on the gauge group $G = \SU(N)$, and consider a class of holomorphic QCD theories associated to particular choices of representations and superpotential. 
+%Following physics terminology, we will refer to the defining $N$-dimensional representation $\CC^N$ of $\SU(N)$ as the {\em fundamental} representation. 
+%Also, let $N_c, N_f$ denote integers where $N_f \geq N_c \geq 2$.
 %Also, let $N_{\rm mes} \geq 0$ be some integer.  
 %{\em Type A} holomorphic QCD is 
 %\[
 %\cT_{A} (N_c, N_f, N_{\rm mes},W) = \cT\left(G = \SU(N_c) \, , \, V = (\CC^{N_c})^{\oplus N_f} \, , \, Z = \CC^{\oplus N_{\rm mes}} \, , \, W\right) .
 %\]
 
-First, we have the `electric' theory which is the following holomorphic QCD
-\[
-\cT_{\sfE} (N_c , N_f) \define \cT\big(\SU(N_c) \, ,\, (\CC^{N_c})^{\oplus N_f} \, ,\, Z = 0 \, , \, W = 0\big) .
-\]
-
-%\begin{dfn}
-%Suppose $\cT_A (N_c, N_f, N_{\rm mes}, W)$ is a type A holomorphic QCD. 
-%Define the {\em dual} type A holomorphic QCD to be
+Fix a positive integer $F$, for flavor.
+There will be two theories. 
+We call one side {\em electric} and the other {\em magnetic}.
+The electric theory is the holomorphic QCD with $N$ colors and $F$ flavors, {\em without} mesons.
+{\it We restrict to $F \geq N \geq 2$.}
+The magnetic theory is the holomorphic QCD with $\Tilde{N} = F-N$ colors and $F$ flavors, but with mesons $\Tilde{M}$ where $$\Tilde{V}_M = \End(\CC^F) \cong \CC^{\oplus F^2}$$ and with superpotential $$\Tilde{W} =  \Tr(\Tilde{q} \Tilde{M}  \Tilde{Q}).$$
+Again, we require $\Tilde{N} \geq 2$.
+\owen{Please double-check that formula.}
+%In this case the auxiliary vector space $Z$ is nontrivial (but transforms trivially under the gauge group as in the definition). 
+%Our notation is $q,\Tilde{q}$ for elements of the vector spaces $V, \Bar{V}$ and $m\in Z$.
+%The magnetic theory is
 %\[
-%\Hat{\cT}_{A} (N_c, N_f, N_{\rm mes}, W) \define \cT_{A} (N_f - N_c, N_f, N_{\rm mes} + N_{f}^2 , W + 
+%\cT_{\sfM} (N_c, N_f) \define \cT\big(\SU(N_f - N_c) \, , \, (\CC^{N_f - N_c})^{\oplus N_f} \, , \, \CC^{\oplus N^2_f} \, , \, W = m q \Tilde{q} \big)
 %\]
-%\end{dfn}
-
-Second, we have the `magnetic' theory. 
-In this case the auxiliary vector space $Z$ is nontrivial (but transforms trivially under the gauge group as in the definition). 
-Our notation is $q,\Tilde{q}$ for elements of the vector spaces $V, \Bar{V}$ and $m\in Z$.
-The magnetic theory is
-\[
-\cT_{\sfM} (N_c, N_f) \define \cT\big(\SU(N_f - N_c) \, , \, (\CC^{N_f - N_c})^{\oplus N_f} \, , \, \CC^{\oplus N^2_f} \, , \, W = m q \Tilde{q} \big)
-\]
-In the definition of $W = m q \Tilde{q}$ we are using the natural contractions which we can describe explicitly as follows.
-Choose a basis $\{q_a^i\}$ for $V = (\CC^{N_f - N_c})^{\oplus N_f}$, $a = 1,\ldots, N_f - N_c$, $i=1,\ldots N_f$ and a dual basis $\{\Tilde{q}_i^a\}$ for $\Bar{V}$.
-Also, let $\{m_i^j\}$ be a basis for $\CC^{\oplus N_f^2}$. 
-Then the cubic polynomial $W$ is
-\[
-W = \sum_{i,j,a} m^i_j q_i^a \Tilde{q}^i_a .
-\]
+%In the definition of $W = m q \Tilde{q}$ we are using the natural contractions which we can describe explicitly as follows.
+%Choose a basis $\{q_a^i\}$ for $V = (\CC^{N_f - N_c})^{\oplus N_f}$, $a = 1,\ldots, N_f - N_c$, $i=1,\ldots N_f$ and a dual basis $\{\Tilde{q}_i^a\}$ for $\Bar{V}$.
+%Also, let $\{m_i^j\}$ be a basis for $\CC^{\oplus N_f^2}$. 
+%Then the cubic polynomial $W$ is
+%\[
+%W = \sum_{i,j,a} m^i_j q_i^a \Tilde{q}^i_a .
+%\]
 
 The usual Seiberg duality states how certain ``electric'' and ``magnetic'' versions of SQCD ($\cN=1$ supersymmetric QCD) should be equivalent.
 Our electric and magnetic holomorphic QCDs are precisely the holomorphic twists of those that appear in Seiberg duality.
