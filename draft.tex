@@ -2190,12 +2190,12 @@ and a notable way is to look for theories with the same ingredients but with lar
 Supersymmetric Yang--Mills theories are quite appealing in this regard,
 and there have been remarkable successes in this direction.
 A well-known high point is the work of Seiberg and Witten on 4-dimensional $\cN =2$ supersymmetric Yang--Mills theory,
-where they explained how confinement could be realized by a version of the Mandelstam-'t Hooft mechanism (i.e., a kind of electromagnetic duality identifies confinement with a Meissner-type effect).
+where they explained how confinement could be realized by a version of the Mandelstam-'t Hooft mechanism (i.e., a kind of electromagnetic duality identifies confinement with a Meissner effect).
 Their work offered powerful new tools that opened up much subsequent progress,
 and even impacted mathematics through the Seiberg-Witten equations (which is related to the topologically twisted versions of $\cN=2$ theory).
 
 The class of supersymmetric theories closest to the Standard Model, however, has only $\cN=1$ supersymmetry.
-There too Seiberg offered inspiring and powerful insights,
+There too Seiberg offered inspiring and powerful insights about SQCD ($\cN=1$ supersymmetric QCD),
 and one of his leading contributions is referred to as {\em Seiberg duality}.
 It has had a large impact in theoretical physics \owen{give the citation number on that paper},
 but the impact in mathematics is much more muted,
@@ -2258,19 +2258,22 @@ By itself (i.e., before coupling to a gauge theory) the twisted matter multiplet
 Since $W$ is $G_\CC$-invariant, the critical locus has a residual Hamiltonian $G_\CC$-action. 
 There is a version of Hamiltonian reduction for odd symplectic manifolds \cite{Pavel, Kevin, who else},
 which we denote by ${\rm Crit}(W) \Sslash G_\CC$. 
+\owen{I'm not sure we even need this.}
 %As a dg space, the ring of functions is $\clie^\bu\big(\fg , \cO(\fg^* \oplus \Pi \T^* V) \big)$ where the differential is the Chevalley--Eilenberg differential plus $\iota_{\d W}$. 
 The holomorphic twist of a theory with both vector and matter multiplets then corresponds to the  derived mapping space
 \[
 {\rm Map}(X , {\rm Crit}^d(W) \Sslash G_\CC), 
 \]
 which comes equipped with an odd symplectic structure. 
+\owen{Should there also be a factor involving the $B$-fields of the BF gauge theory?}
 
 We wish to study a holomorphic analog of supersymmetric chromodynamics.
 We will call the relevant theory {\it QCD}, following convention, even though it is classical and not yet quantum.
 We will specialize $G = SU(N)$ and so $G_\CC = SL(N)$.
 The matter fields will consist of two types: quarks and antiquarks.
-Let $V_N$ denote the {\em fundamental} (or defining) representation of $SL(N)$,
-so $V_N = \CC^N$ with its natural left action.
+Let $\underline{N}$ denote the {\em fundamental} (or defining) representation of $SL(N)$,
+so $\underline{N} = \CC^N$ with its natural left action.
+\owen{That's kind of crappy notation. Let's discuss.}
 
 %All of the holomorphic theories we consider below will be special cases of this gauged linear mapping space with $X = \CC^2$. 
 %We slightly refine notation and associate a holomorphic theory $\cT(G, V, Z, W)$ on $\CC^2$ associated to the following data:
@@ -2292,7 +2295,7 @@ A \in \Omega^{0,\bu}(\CC^2 , \sl(N))[1] \quad\text{and}\quad B \in \Omega^{2,\bu
 \]
 \item the ``quarks'' are fields of a holomorphic $\beta\gamma$ system valued in 
 \[
-V_Q = \Hom(\CC^F, V_N) \cong (V_N)^{\oplus F},
+V_Q = \Hom(\CC^F, \underline{N}) \cong \underline{N}^{\oplus F},
 \] 
 whose fields are
 \[
@@ -2300,7 +2303,7 @@ Q \in \Omega^{0,\bu}(\CC^2 , V_Q) \quad\text{and}\quad R \in \Omega^{2,\bu}(\CC^
 \]
 \item the ``antiquarks'' are fields of a holomorphic $\beta\gamma$ system valued in the dual representation 
 \[
-V^*_Q = \Hom(V_N, \CC^F) \cong (V_N^*)^{\oplus F}, 
+V^*_Q \cong \Hom(\underline{N}, \CC^F) \cong (\underline{N}^*)^{\oplus F}, 
 \]
 whose fields are
 \[
@@ -2310,7 +2313,7 @@ q \in \Omega^{0,\bu}(\CC^2 , V^*_Q) \quad\text{and}\quad r \in \Omega^{2,\bu}(\C
 
 The action functional is
 \[
-S_{QCD} = \int B F^{0,2}_A + \int R \,\dbar_A Q + \int r \,\dbar_A q,
+S_{QCD} = \int B\, F^{0,2}_A + \int R \,\dbar_A Q + \int r \,\dbar_A q,
 \]
 where $\dbar_A = \dbar + A$ is the covariant $\dbar$-operator. 
 We will denote this theory by $\cT(N,F)$.\footnote{Although this perturbative theory only depends on the Lie algebra of $G$, the group structure will be relevant when we discuss local operators and moduli of vacua.} 
@@ -2354,13 +2357,20 @@ We will postpone saying anything precise till we have some terminology in place.
 %\cT_{A} (N_c, N_f, N_{\rm mes},W) = \cT\left(G = \SU(N_c) \, , \, V = (\CC^{N_c})^{\oplus N_f} \, , \, Z = \CC^{\oplus N_{\rm mes}} \, , \, W\right) .
 %\]
 
-Fix a positive integer $F$, for flavor.
 There will be two theories. 
 We call one side {\em electric} and the other {\em magnetic}.
-The electric theory is the holomorphic QCD with $N$ colors and $F$ flavors, {\em without} mesons.
-{\it We restrict to $F \geq N \geq 2$.}
-The magnetic theory is the holomorphic QCD with $\Tilde{N} = F-N$ colors and $F$ flavors, but with mesons $\Tilde{M}$ where $$\Tilde{V}_M = \End(\CC^F) \cong \CC^{\oplus F^2}$$ and with superpotential $$\Tilde{W} =  \Tr(\Tilde{q} \Tilde{M}  \Tilde{Q}).$$
-Again, we require $\Tilde{N} \geq 2$.
+
+\begin{dfn}
+Fix a positive integer $F$, for flavor, and fix integers $N$ and $\check{N}$ such that $F = N + \check{N}$ and $F \geq N, \check{N} \geq 2$.
+
+The {\em electric theory} is the holomorphic QCD with $N$ colors and $F$ flavors, {\em without} mesons.
+We denote it by~$\cT_{\sfE}(F, N)$.
+
+The {\em magnetic theory} is the holomorphic QCD with $\check{N}$ colors and $F$ flavors, but with mesons $\check{M}$ where $$V_{\check{M}} = \End(\CC^F) \cong \CC^{\oplus F^2}$$ and with superpotential $$\check{W} =  \Tr(\check{q} \check{M}  \check{Q}),$$
+where we compose the linear maps before tracing over~$V_{\check{N}}$.
+We denote this theory by~$\cT_{\sfM}(F, \check{N})$.
+\end{dfn}
+
 \owen{Please double-check that formula.}
 %In this case the auxiliary vector space $Z$ is nontrivial (but transforms trivially under the gauge group as in the definition). 
 %Our notation is $q,\Tilde{q}$ for elements of the vector spaces $V, \Bar{V}$ and $m\in Z$.
@@ -2376,15 +2386,18 @@ Again, we require $\Tilde{N} \geq 2$.
 %W = \sum_{i,j,a} m^i_j q_i^a \Tilde{q}^i_a .
 %\]
 
-The usual Seiberg duality states how certain ``electric'' and ``magnetic'' versions of SQCD ($\cN=1$ supersymmetric QCD) should be equivalent.
-Our electric and magnetic holomorphic QCDs are precisely the holomorphic twists of those that appear in Seiberg duality.
-In \cite{Eager} Richard Eager suggested that Seiberg duality should survive after taking the holomorphic twist.
+The usual Seiberg duality states how certain ``electric'' and ``magnetic'' versions of SQCD should be equivalent.
+The electric and magnetic holomorphic QCDs are precisely the holomorphic twists of those that appear in Seiberg duality,
+and so Richard Eager suggested that Seiberg duality should survive after taking the holomorphic twist.
 
-\begin{conj}
-There is an equivalence of $2$-dimensional holomorphic factorization algebras
+\begin{conj}[\cite{Eager}]
+Let $F = N + \check{N}$ and $F \geq N, \check{N} \geq 2$.
+Construct a quantization of the theories $\cT_{\sfE}(F,N)$ and $\cT_{\sfM}(F,\check{N})$.
+There is an equivalence of 2-dimensional holomorphic factorization algebras
 \[
-\Obs_{\sfE}(N_f, N_c) \simeq \Obs_{\sfM} (N_f, N_c)  .
+\Obs_{\sfE} \simeq \Obs_{\sfM}  
 \]
+where these are the observables of the electric and magnetic theories, respectively.
 \end{conj}
 
 The statement should be interpreted as an equivalence of factorization algebras valued in $\ZZ/2$-graded cochain complexes since the field theories are only $\ZZ/2$-graded.
@@ -2400,33 +2413,41 @@ which we describe in the next section.
 
 In general, Eager's suggestion opens up a fascinating vein of inquiry:
 \begin{quote}
-how do physical results about supersymmetric gauge theories behave under twisting?
+how do physical results about supersymmetric gauge theories behave under twisting to holomorphic or topological theories?
 \end{quote}
-We have found, so far, that they often admit clean mathematical formulations and that the holomorphic (or topological) twists involve constructions of natural interest in geometry and representation theory.
+We have found, so far, that these results often admit clean mathematical formulations and that the holomorphic (or topological) twists involve constructions of natural interest in geometry and representation theory.
 In \cite{EGW} we and Chris Elliott explored twists of $\cN=4$ supersymmetric Yang--Mills theory,
 provided their quantizations, and began analyzing their factorization algebras.
 Following Eager, we can ask about the twisted versions of S-duality and how to provide those conjectured equivalences.
 \owen{This should be rephrased, and we should mention more people, like Philsang and Surya. We can mention pre-S-duality things (like our work and the EY stuff) and S-duality stuff.}
 
+\begin{rmk}
+Our discussion here is ahistorical.
+Witten initiated this vein of research for topological twists \cite{},
+and Costello pushed it for holomorphic twists, particularly in the setting of holography \cite{}.
+Eager's suggestion was a natural variation on this theme but it (seems to) involve physical ideas and methods that have not (yet) played a large role in Costello's program.
 \owen{Add a remark (?) about Kevin and Si's work on twisted holography and other related directions.}
+\end{rmk}
 
 \subsection{Evidence for holomorphic Seiberg duality}
 
 We now turn to examining evidence for the conjecture, which will, in turn, allow us to refine it.
 The first piece of evidence involves the classical field theories:
-\begin{quote}
-$\bullet$ Each theory has a moduli stack of vacua, and there is a natural isomorphism between \owen{the affinizations?} the spaces for theories dual according to the conjecture.
-\end{quote}
-This map of stacks determines a map of factorization algebras of classical observables,
+\begin{enumerate}
+\item[(1)] Each theory has a moduli space of vacua, and there is a natural isomorphism between the spaces for theories dual according to the conjecture.
+\end{enumerate}
+This map determines a map of factorization algebras of classical observables,
 and it should deform to the map between the factorization algebras for the quantum theories.
+(There are some interesting geometric subtleties --- about stacks versus their affinizations --- that we discuss below.)
+
 As we discuss in a moment, holomorphic QCD can be quantized using the techniques of \cite{BW work}.
 There are then two further pieces of evidence when these quantum theories are examined:
 \begin{enumerate}
-\item There are {\em flavor} symmetries that act on each theory, and these can be matched under the duality. Under quantization, these have isomorphic anomalies.
-\item There are {\em spacetime} symmetries that act on each theory, notably isometries, and on the classical holomorphic theories, these enhance to an action of holomorphic vector fields. Under quantization, these have isomorphic anomalies.
+\item[(2)] There are {\em flavor} symmetries that act on each theory, and these can be matched under the duality. Under quantization, these have isomorphic anomalies.
+\item[(3)] There are {\em spacetime} symmetries that act on each theory, notably isometries, and on the classical holomorphic theories, these enhance to an action of holomorphic vector fields. Under quantization, these have isomorphic anomalies.
 \end{enumerate}
 This triple of evidence is analogous (and sometimes stronger) than results for Seiberg duality for SQCD. 
-We now turn to fleshing out the assertions above.
+We now turn to fleshing out these assertions.
 
 \subsubsection{Moduli of vacua and quantization}
 
@@ -2442,7 +2463,7 @@ and we have shown the following.
 (Many arguments are close cousins of~\cite{EGW}, where we quantize every twist over a moduli of vacua of the $\cN=4$ supersymmetric Yang--Mills theory.)
 
 \begin{thm}
-Both $\cT_{\sfE}(N_c, N_f)$ and $\cT_{\sfM}(N_c, N_f)$ exist at the quantum level for any choice of classical vacuum. 
+Both $\cT_{\sfE}(F,N)$ and $\cT_{\sfM}(F, \check{N})$ exist at the quantum level for any choice of classical vacuum. 
 That is, the anomaly to a perturbative BV quantization vanishes.
 In fact, the quantization is one-loop exact. 
 \end{thm}
@@ -2452,7 +2473,7 @@ In fact, the quantization is one-loop exact.
 It is common in physics to study field theories defined on the spacetime $\RR^n$.
 As the underlying spacetime $\RR^n$ is a group under addition (i.e., it is the translation group),
 it is natural to ask for field theories with an action by translations.
-That is, since the fields are sections of a fiber bundle over $RR^n$,
+That is, since the fields are sections of a fiber bundle over $\RR^n$,
 one can ask for an equivariant fiber bundle and ask for the equations of motion (or action functional) to be equivariant under translations.
 In practice, physicists often work with field theories whose equations of motion are differential equations with constant coefficients.
 (Nearly all the examples we've discussed in this survey satisfy this condition.)
@@ -2478,13 +2499,14 @@ For supersymmetric gauge theories, the moduli stack of the holomorphic twist has
 \cM_{\rm vac} \cong V/G
 \]
 where $V$ is a (graded) $G$-representation and $V/G$ denotes the quotient stack.
-The factor $V$ arises from solutions for the non-gauge field, which are sections of some associated vector bundle,
-while the quotient by $G$ arises from the gauge transformation.
-For another example, pure $\cN =1$ holomorphic Yang-Mills theory for group $G$ has \owen{true?}
+The factor $V$ depends on the non-gauge fields (i.e., matter multiplets), which are sections of some associated vector bundle;
+the quotient by $G$ arises from the gauge transformation.
+For example, pure $\cN =1$ holomorphic Yang-Mills theory for group $G$ (i.e., the vector multiplet) has \owen{true?}
 \[
-\cM_{\rm vac} \cong \fg/G,
+\cM_{\rm vac} \cong \fg^*/G,
 \]
-the adjoint quotient stack of the group.
+the coadjoint quotient stack of the group.
+(We are working in a $\ZZ/2$-graded world here.)
 For general supersymmetric field theories, which involve both a $\sigma$-model and gauge fields, the holomorphic twist has a moduli stack of classical vacua of the form
 \[
 \cM_{\rm vac} \cong X/G
@@ -2495,21 +2517,22 @@ In studying questions about the classical vacua of supersymmetric field theories
 Instead, they have worked with a GIT quotient.
 For instance, in the setting of a gauge theory with stack $V/G$ of classical vacua, it means they work with
 \[
-V//G = \Spec(\cO(V)^G),
+V\Sslash G = \Spec(\cO(V)^G),
 \]
 the scheme whose ring of functions are the $G$-invariant functions on the representation~$V$.
 This affine scheme is known as the {\em affinization} of the stack $V/G$, as it is the best affine approximation to the stack (i.e., apply the left adjoint to the inclusion of affine schemes among stacks).
-We will call it the moduli {\em space} of classical vacua and denote it by~$M_{rm vac}(\cT)$.
+We will call it the moduli {\em space} of classical vacua and denote it by~$M_{\rm vac}(\cT)$.
+(Note that the font of M changes between stack and space.)
 
 It is familiar to geometers that this affinization forgets interesting information about the stack because an invariant function must be constant on the closure of any orbit.
 Thus, the canonical map
 \[
-V/G \to V//G
+V/G \to V\Sslash G
 \]
 often collapses orbits together.
 An important example, pertinent to $\cN =1$ super Yang-Mills theory, is the adjoint quotient $\gl_N/ GL_N$, whose affinization is
 \[
-\gl_N//GL_N \cong \CC^N/S_N,
+\gl_N \Sslash GL_N \cong \CC^N/S_N,
 \]
 by the Chevalley restriction theorem.
 The canonical map here records the characteristic polynomial of a matrix and hence only knows its generalized eigenvalues and not its Jordan decomposition.
@@ -2528,7 +2551,7 @@ For instance, it remembers ``enhanced symmetries'' (such as the residual gauge f
 For the holomorphic QCD theory \owen{write data} the moduli stack of classical vacua is \owen{write it}
 The moduli space is a well-known variety
 \[
-M_{rm vac}(\cT) \cong \Gr(N_f, N_c)
+M_{\rm vac}(\cT) \cong \Gr(N_f, N_c)
 \]
 by using classical invariant theory. \owen{show?}
 A similar computation on the putative dual shows the following.
