@@ -2295,7 +2295,7 @@ A \in \Omega^{0,\bu}(\CC^2 , \sl(N))[1] \quad\text{and}\quad B \in \Omega^{2,\bu
 \]
 \item the ``quarks'' are fields of a holomorphic $\beta\gamma$ system valued in 
 \[
-V_Q = \Hom(\CC^F, \underline{N}) \cong \underline{N}^{\oplus F},
+V_Q = \Hom(\CC^F, \underline{N}) \cong \underline{N}^{\oplus F} \cong \CC^{NF},
 \] 
 whose fields are
 \[
@@ -2303,13 +2303,15 @@ Q \in \Omega^{0,\bu}(\CC^2 , V_Q) \quad\text{and}\quad R \in \Omega^{2,\bu}(\CC^
 \]
 \item the ``antiquarks'' are fields of a holomorphic $\beta\gamma$ system valued in the dual representation 
 \[
-V^*_Q \cong \Hom(\underline{N}, \CC^F) \cong (\underline{N}^*)^{\oplus F}, 
+V^*_Q \cong \Hom(\underline{N}, \CC^F) \cong (\underline{N}^*)^{\oplus F} \cong \CC^{NF}, 
 \]
 whose fields are
 \[
-q \in \Omega^{0,\bu}(\CC^2 , V^*_Q) \quad\text{and}\quad r \in \Omega^{2,\bu}(\CC^2 , V_Q) [1].
+Q^\dag \in \Omega^{0,\bu}(\CC^2 , V^*_Q) \quad\text{and}\quad R^\dag \in \Omega^{2,\bu}(\CC^2 , V_Q) [1].
 \]
 \end{itemize}
+(The superscript $\dag$ does not mean we apply an operation to $Q$ or $R$; 
+it is simply to remind us that these fields are the ``antiparticles''.)
 
 The action functional is
 \[
@@ -2365,10 +2367,13 @@ Fix a positive integer $F$, for flavor, and fix integers $N$ and $\check{N}$ suc
 
 The {\em electric theory} is the holomorphic QCD with $N$ colors and $F$ flavors, {\em without} mesons.
 We denote it by~$\cT_{\sfE}(F, N)$.
+We use $A, B, Q, R, Q^\dag$, and $R^\dag$ for the fields.
 
-The {\em magnetic theory} is the holomorphic QCD with $\check{N}$ colors and $F$ flavors, but with mesons $\check{M}$ where $$V_{\check{M}} = \End(\CC^F) \cong \CC^{\oplus F^2}$$ and with superpotential $$\check{W} =  \Tr(\check{q} \check{M}  \check{Q}),$$
+The {\em magnetic theory} $\cT_{\sfM}(F, \check{N})$ is the holomorphic QCD with $\check{N}$ colors and $F$ flavors, but with mesons $\check{M}$ where $$V_{\check{M}} = \End(\CC^F) \cong \CC^{\oplus F^2}$$
+(and $\check{L}$ for the partner field to $\check{M}$).
+We use $\check{A}, \check{B}, \check{Q}, \check{R}, \check{Q}^\dag$, and $\check{R}^\dag$ for the other fields.
+The superpotential is $$\check{W} =  \Tr(\check{Q}^\dag \check{M}  \check{Q}),$$
 where we compose the linear maps before tracing over~$V_{\check{N}}$.
-We denote this theory by~$\cT_{\sfM}(F, \check{N})$.
 \end{dfn}
 
 \owen{Please double-check that formula.}
@@ -2399,6 +2404,12 @@ There is an equivalence of 2-dimensional holomorphic factorization algebras
 \]
 where these are the observables of the electric and magnetic theories, respectively.
 \end{conj}
+
+This claim should seem rather surprising.
+In many ways these theories look, on their face, like very different theories:
+the gauge groups $SL(N)$ and $SL(\check{N})$ are (usually) different, and
+one side has mesons and the other does not.
+But this feature also makes the conjecture powerful.
 
 The statement should be interpreted as an equivalence of factorization algebras valued in $\ZZ/2$-graded cochain complexes since the field theories are only $\ZZ/2$-graded.
 
@@ -2552,13 +2563,15 @@ the moduli stack of classical vacua is
 \[
 \cM_{\rm vac} \cong T^*[1] \left(V_Q \oplus V_Q^*)/SL(N)\right).
 \]
-By contrast the moduli space is a well-known variety, 
+By contrast the moduli space is a variety already well-studied in classical algebraic geometry.
+The quark part of a vacuum lies on an $SL(N)$-orbit of $V_Q $, which consists of $F$ copies of the fundamental representation $\CC^N$, and likewise for the antiquark part.
+ 
 \[
-M_{\rm vac}(\cT) \cong \Gr(F, N),
+M_{\rm vac}(\cT) \cong ,
 \]
 the affine cone of a Grassmannian \owen{under Pl\"ucker embedding? need to check.} 
 This result follows from classical invariant theory.
-(The quark part of a vacuum lies on an $SL(N)$-orbit of $V_Q$, which consists of $F$ copies of the fundamental representation $\CC^N$, and likewise for the antiquark part.
+(
 Identifying the $SL(N)$-invariant functions on $V_Q \oplus V^*_Q$ is one of the fundamental theorems of classical invariant theory.)
 The moduli space for the magnetic theory is a bit more complicated but follows from invariant theory as well.
 
