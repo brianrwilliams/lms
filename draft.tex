@@ -2405,7 +2405,7 @@ The statement should be interpreted as an equivalence of factorization algebras 
 One appealing aspect of Eager's conjecture is that it is mathematically precise:
 duality would mean giving an equivalence of factorization algebras.
 It is analogous to claiming that two vertex algebras are equivalent,
-such as in the well-known boson-fermion correspondence.
+such as in the well-known boson-fermion correspondence or in the correspondence between the chiral rings of the A- and B-models of mirror symmetry.
 In this sense it is a target at which a mathematician can aim,
 rather than the more amorphous statements of duality that one often finds in the physics literature.
 In that literature, however, there is guidance on what map of factorization algebras provides the equivalence,
@@ -2468,8 +2468,6 @@ That is, the anomaly to a perturbative BV quantization vanishes.
 In fact, the quantization is one-loop exact. 
 \end{thm}
 
-\owen{new version}
-
 It is common in physics to study field theories defined on the spacetime $\RR^n$.
 As the underlying spacetime $\RR^n$ is a group under addition (i.e., it is the translation group),
 it is natural to ask for field theories with an action by translations.
@@ -2479,7 +2477,7 @@ In practice, physicists often work with field theories whose equations of motion
 (Nearly all the examples we've discussed in this survey satisfy this condition.)
 
 Now such a field theory $\cT$ on $\RR^n$ has a space of solutions $\Sol_\cT(\RR^n)$ to its equations of motion.
-A {\em classical vacuum} for the theory is a solution that this translation-invariant,
+A {\em classical vacuum} for the theory is a solution that is translation-invariant,
 i.e., a constant solution.
 As the solutions $\Sol(\RR^n)$ is a derived stack (at least if you adhere to the perspective we've advocated here), there is a derived stack of classical vacua
 \[
@@ -2515,13 +2513,14 @@ where $X$ is a derived stack with a $G$-action and $X/G$ denotes the quotient st
 
 In studying questions about the classical vacua of supersymmetric field theories, however, physicists have not typically worked with the {\em stack}.
 Instead, they have worked with a GIT quotient.
-For instance, in the setting of a gauge theory with stack $V/G$ of classical vacua, it means they work with
+For instance, in the setting of a gauge theory with moduli stack of classical vacua $V/G$, it means they work with
 \[
 V\Sslash G = \Spec(\cO(V)^G),
 \]
 the scheme whose ring of functions are the $G$-invariant functions on the representation~$V$.
 This affine scheme is known as the {\em affinization} of the stack $V/G$, as it is the best affine approximation to the stack (i.e., apply the left adjoint to the inclusion of affine schemes among stacks).
-We will call it the moduli {\em space} of classical vacua and denote it by~$M_{\rm vac}(\cT)$.
+In practice physicists work ordinary schemes (i.e., without any derived directions), although one can also study the derived affine scheme that is the best approximation to a derived stack.
+We will call this GIT quotient the moduli {\em space} of classical vacua and denote it by~$M_{\rm vac}(\cT)$.
 (Note that the font of M changes between stack and space.)
 
 It is familiar to geometers that this affinization forgets interesting information about the stack because an invariant function must be constant on the closure of any orbit.
@@ -2548,25 +2547,33 @@ Moreover, the stack encodes much more data about the theory near each vacuum.
 For instance, it remembers ``enhanced symmetries'' (such as the residual gauge fields) at each vacuum.
 \end{rmk}
 
-For the holomorphic QCD theory \owen{write data} the moduli stack of classical vacua is \owen{write it}
-The moduli space is a well-known variety
+For the holomorphic QCD theory $\cT(F,N)$ without mesons, 
+the moduli stack of classical vacua is 
 \[
-M_{\rm vac}(\cT) \cong \Gr(N_f, N_c)
+\cM_{\rm vac} \cong T^*[1] \left(V_Q \oplus V_Q^*)/SL(N)\right).
 \]
-by using classical invariant theory. \owen{show?}
-A similar computation on the putative dual shows the following.
+By contrast the moduli space is a well-known variety, 
+\[
+M_{\rm vac}(\cT) \cong \Gr(F, N),
+\]
+the affine cone of a Grassmannian \owen{under Pl\"ucker embedding? need to check.} 
+This result follows from classical invariant theory.
+(The quark part of a vacuum lies on an $SL(N)$-orbit of $V_Q$, which consists of $F$ copies of the fundamental representation $\CC^N$, and likewise for the antiquark part.
+Identifying the $SL(N)$-invariant functions on $V_Q \oplus V^*_Q$ is one of the fundamental theorems of classical invariant theory.)
+The moduli space for the magnetic theory is a bit more complicated but follows from invariant theory as well.
 
 \begin{prop}
 Seiberg dual theories have isomorphic moduli spaces.
 \end{prop}
 
+One sees the need for the superpotential in order to obtain this result;
+the mesons are added to remember nontrivial relations.
 This relationship, which holds already for the supersymmetric theory before twisting, was one of the original pieces of evidence offered by Seiberg for his duality.
-
-\owen{Sketch proof}: This is the first and second fundamental theorem of classical invariant theory!
 
 \begin{rmk}
 In the physics literature this isomorphism is given by explicitly matching gauge-invariant functions, which are often called mesons or baryons, as they can be identified with the data that identifies such particles.
-These meson and baryons are precisely the usual generators of the ring of invariant functions, so an isomorphism of generators determines the desired isomorphism of rings. 
+These meson and baryons are precisely the usual generators of the ring of invariant functions, 
+so an isomorphism of generators determines the desired isomorphism of rings. 
 One must check that the relations are satisfied;
 here it explains the superpotential on the magnetic side.
 \end{rmk}
