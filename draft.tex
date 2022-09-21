@@ -2559,42 +2559,65 @@ For instance, it remembers ``enhanced symmetries'' (such as the residual gauge f
 \end{rmk}
 
 For the holomorphic QCD theory $\cT(F,N)$ without mesons, 
-the moduli stack of classical vacua is 
+the derived stack of classical vacua is 
 \[
-\cM_{\rm vac} \cong T^*[1] \left(V_Q \oplus V_Q^*)/SL(N)\right).
+\cM_{\rm vac}(F,N) \cong T^*[1] \left(V_Q \oplus V_Q^*/SL(N)\right).
 \]
-By contrast the moduli space is a variety already well-studied in classical algebraic geometry.
-The quark part of a vacuum lies on an $SL(N)$-orbit of $V_Q $, which consists of $F$ copies of the fundamental representation $\CC^N$, and likewise for the antiquark part.
- 
+By contrast the moduli space $M_{\rm vac}$ is a variety already well-studied in classical algebraic geometry.
+Before we jump to the full space, let's examine a simpler case involving just the quarks.
+A vacuum for the quark field is an element of $V_Q = \Hom(\CC^F, \CC^N)$,
+and it is a classic result of invariant theory that
 \[
-M_{\rm vac}(\cT) \cong ,
+\Hom(\CC^F, \CC^N)\Sslash SL(N) \cong \widehat{{\rm Gr}(F, N)} \subset \Lambda^N \CC^F
 \]
-the affine cone of a Grassmannian \owen{under Pl\"ucker embedding? need to check.} 
-This result follows from classical invariant theory.
-(
-Identifying the $SL(N)$-invariant functions on $V_Q \oplus V^*_Q$ is one of the fundamental theorems of classical invariant theory.)
+where ${\rm Gr}(F, N)$ denotes the Grassmannian of $N$-planes in $\CC^F$ and the hat indicates we take the affine cone with respect to this standard Pl\"ucker embedding.
+For the full problem, we have both quarks and antiquarks, so
+\begin{align*}
+M_{\rm vac}(F,N) 
+&\cong V_Q \oplus V_Q^*\Sslash SL(N) \\
+&= \Hom(\CC^F, \CC^N) \oplus \Hom(\CC^N, \CC^F)\Sslash SL(N),
+\end{align*}
+whose ring of functions is also computed by the fundamental theorems of invariant theory.
+Those theorems tell us that the GIT quotient is a closed conical subvariety
+\[
+M_{\rm vac}(F,N)  \hookrightarrow \Lambda^N \CC^F \times \Lambda^N (\CC^F)^* \times \End(\CC^F)
+\]
+where a pair of matrices $(X,Y) \in \Hom(\CC^F, \CC^N) \times \Hom(\CC^N, \CC^F)$ goes to $(\Lambda^N X, \Lambda^N Y, YX)$, with $\Lambda^N X$ denoting the wedge product of the rows of $X$ (and of columns for $Y$).
+The image thus satisfies both sets of Pl\"ucker relations, the condition that the composite $YX$ has rank at most $N$, and some further relations, given by the Second Fundamental Theorem.
+In other words,
+\[
+M_{\rm vac}(F,N) \hookrightarrow \widehat{{\rm Gr}(F, N)} \times \widehat{{\rm Gr}(F, N)} \times {\rm R}(F,N)
+\]
+with ${\rm R}(F,N) \subset \End(\CC^F)$ the matrices with rank bounded above by~$N$.
 The moduli space for the magnetic theory is a bit more complicated but follows from invariant theory as well.
+
+Note that $\check{N} = F-N$, so $\widehat{{\rm Gr}(F, N)} \cong \widehat{{\rm Gr}(F, \check{N})}$,
+but ${\rm R}(F,N)$ is not isomorphic to ${\rm R}(F,\check{N})$ except when $N = \check{N}$.
+Hence one should not be optimistic that $M_{\rm vac}(F,N) \cong M_{\rm vac}(F,\check{N})$.
+To ``fix'' this issue, one might try to slightly modify the dual side, which Seiberg did by adding the meson fields.
+Hence the following holds.
 
 \begin{prop}
 Seiberg dual theories have isomorphic moduli spaces.
 \end{prop}
 
-One sees the need for the superpotential in order to obtain this result;
-the mesons are added to remember nontrivial relations.
 This relationship, which holds already for the supersymmetric theory before twisting, was one of the original pieces of evidence offered by Seiberg for his duality.
+One disocvers the need for mesons and the superpotential in order to obtain this result.
 
 \begin{rmk}
-In the physics literature this isomorphism is given by explicitly matching gauge-invariant functions, which are often called mesons or baryons, as they can be identified with the data that identifies such particles.
+In the physics literature this isomorphism is given by explicitly matching gauge-invariant functions, 
+which are often called mesons or baryons, 
+as they can be identified with the data that identifies such particles.
 These meson and baryons are precisely the usual generators of the ring of invariant functions, 
 so an isomorphism of generators determines the desired isomorphism of rings. 
 One must check that the relations are satisfied;
-here it explains the superpotential on the magnetic side.
+this requirement explains the superpotential on the magnetic side.
 \end{rmk}
 
 We want to point out, however, that {\em the moduli stacks are not isomorphic}.
 A quick check is to note that there are orbits with different stabilizer groups.
 Consider, for instance, the origin in each vector space.
-On the electric side its stabilizer is $SL(N_c)$ and on the magnetic side it is $SL(N_f - N_c)$.
+On the electric side its stabilizer is $SL(N)$ and on the magnetic side it is $SL(\check{N})$.
 Thus each theory has a vacuum whose associated perturbative classical theory has no partner on the other side.
 Hence Seiberg duality cannot hold at the stack level for the classical theories.
 
