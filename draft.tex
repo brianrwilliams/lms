@@ -2323,7 +2323,7 @@ A \in \Omega^{0,\bu}(\CC^2 , \sl(N))[1] \quad\text{and}\quad B \in \Omega^{2,\bu
 \]
 \item the ``quarks'' are fields of a holomorphic $\beta\gamma$ system valued in 
 \[
-V_Q = \Hom(\CC^F, \underline{N}) \cong \underline{N}^{\oplus F},
+V_Q = \Hom(\CC^F, \underline{N}) \cong \underline{N}^{\oplus F} \cong \CC^{NF},
 \] 
 whose fields are
 \[
@@ -2331,13 +2331,15 @@ Q \in \Omega^{0,\bu}(\CC^2 , V_Q) \quad\text{and}\quad R \in \Omega^{2,\bu}(\CC^
 \]
 \item the ``antiquarks'' are fields of a holomorphic $\beta\gamma$ system valued in the dual representation 
 \[
-V^*_Q \cong \Hom(\underline{N}, \CC^F) \cong (\underline{N}^*)^{\oplus F}, 
+V^*_Q \cong \Hom(\underline{N}, \CC^F) \cong (\underline{N}^*)^{\oplus F} \cong \CC^{NF}, 
 \]
 whose fields are
 \[
-q \in \Omega^{0,\bu}(\CC^2 , V^*_Q) \quad\text{and}\quad r \in \Omega^{2,\bu}(\CC^2 , V_Q) [1].
+Q^\dag \in \Omega^{0,\bu}(\CC^2 , V^*_Q) \quad\text{and}\quad R^\dag \in \Omega^{2,\bu}(\CC^2 , V_Q) [1].
 \]
 \end{itemize}
+(The superscript $\dag$ does not mean we apply an operation to $Q$ or $R$; 
+it is simply to remind us that these fields are the ``antiparticles''.)
 
 The action functional is
 \[
@@ -2397,11 +2399,18 @@ Fix a positive integer $F$, for flavor, and fix integers $N$ and $\check{N}$ suc
 
 The {\em electric theory} is the holomorphic QCD with $N$ colors and $F$ flavors, {\em without} mesons.
 We denote it by~$\cT_{\sfE}(F, N)$.
+We use $A, B, Q, R, Q^\dag$, and $R^\dag$ for the fields.
 
-The {\em magnetic theory} is the holomorphic QCD with $\check{N}$ colors and $F$ flavors, but with mesons $\check{M}$ where $$V_{\check{M}} = \End(\CC^F) \cong \CC^{\oplus F^2}$$ and with superpotential $$\check{W} =  \Tr(\check{q} \check{M}  \check{Q}),$$
+The {\em magnetic theory} $\cT_{\sfM}(F, \check{N})$ is the holomorphic QCD with $\check{N}$ colors and $F$ flavors, but with mesons $\check{M}$ where $$V_{\check{M}} = \End(\CC^F) \cong \CC^{\oplus F^2}$$
+(and $\check{L}$ for the partner field to $\check{M}$).
+We use $\check{A}, \check{B}, \check{Q}, \check{R}, \check{Q}^\dag$, and $\check{R}^\dag$ for the other fields.
+The superpotential is $$\check{W} =  \Tr(\check{Q}^\dag \check{M}  \check{Q}),$$
 where we compose the linear maps before tracing over~$V_{\check{N}}$.
-We denote this theory by~$\cT_{\sfM}(F, \check{N})$.
+\owen{Please double-check that formula.}
 \end{dfn}
+
+
+Note that the lower bound on $N$ and $\check{N}$ is simply to ensure that we have nontrivial gauge groups.
 
 %In this case the auxiliary vector space $Z$ is nontrivial (but transforms trivially under the gauge group as in the definition). 
 %Our notation is $q,\Tilde{q}$ for elements of the vector spaces $V, \Bar{V}$ and $m\in Z$.
@@ -2417,7 +2426,7 @@ We denote this theory by~$\cT_{\sfM}(F, \check{N})$.
 %W = \sum_{i,j,a} m^i_j q_i^a \Tilde{q}^i_a .
 %\]
 
-The usual Seiberg duality states how certain ``electric'' and ``magnetic'' versions of SQCD should be equivalent.
+Seiberg duality states how certain ``electric'' and ``magnetic'' versions of SQCD should be equivalent.
 The electric and magnetic holomorphic QCDs are precisely the holomorphic twists of those that appear in Seiberg duality,
 and so Richard Eager suggested that Seiberg duality should survive after taking the holomorphic twist.
 
@@ -2431,7 +2440,17 @@ There is an equivalence of 2-dimensional holomorphic factorization algebras
 where these are the observables of the electric and magnetic theories, respectively.
 \end{conj}
 
-The statement should be interpreted as an equivalence of factorization algebras valued in $\ZZ/2$-graded cochain complexes since the field theories are only $\ZZ/2$-graded.
+\owen{Do we want $F > N+1$? The physicists break things into several cases. In particular, I think the moduli is unchanged under quantization only if $F$ is big enough relative to $N$ and $\check{N}$.}
+
+\begin{rmk}
+The statement is an equivalence of factorization algebras valued in $\ZZ/2$-graded cochain complexes since the field theories are only $\ZZ/2$-graded.
+\end{rmk}
+
+This claim should seem rather surprising.
+In many ways these theories look, on their face, like very different theories:
+the gauge groups $SL(N)$ and $SL(\check{N})$ are (usually) different, and
+one side has mesons and the other does not.
+Of course, relating quite different theories also makes the conjecture powerful.
 
 One appealing aspect of Eager's conjecture is that it is mathematically precise:
 duality would mean giving an equivalence of factorization algebras.
@@ -2474,15 +2493,17 @@ and it should deform to the map between the factorization algebras for the quant
 As we discuss in a moment, holomorphic QCD can be quantized using the techniques of \cite{BW work}.
 There are then two further pieces of evidence when these quantum theories are examined:
 \begin{enumerate}
-\item[(2)] There are {\em flavor} symmetries that act on each theory, and these can be matched under the duality. Under quantization, these have isomorphic anomalies.
-\item[(3)] There are {\em spacetime} symmetries that act on each theory, notably isometries, and on the classical holomorphic theories, these enhance to an action of holomorphic vector fields. Under quantization, these have isomorphic anomalies.
+\item[(2)] There are {\em flavor} symmetries by $SL(F)$ that act on the quarks and antiquarks of each theory, 
+and these can be matched under the duality. 
+For the classical holomorphic theories, these symmetries enhance to an action of holomorphic $\sl(F)$-valued functions on the quark and antiquark fields.
+Under quantization, these have isomorphic anomalies.
+\item[(3)] There are {\em spacetime} symmetries that act on each theory, notably isometries, 
+and on the classical holomorphic theories, these enhance to an action of holomorphic vector fields. Under quantization, these have isomorphic anomalies.
 \end{enumerate}
 This triple of evidence is analogous (and sometimes stronger) than results for Seiberg duality for SQCD. 
 We now turn to fleshing out these assertions.
 
 \subsubsection{Moduli of vacua and quantization}
-
-\owen{I want to describe here, at least briefly, what the moduli stack is. I'm not sure the stacks are equivalent, but I think they have equivalent affinizations. I wonder if we can exhibit an equivalence of the "quantum" affinizations.}
 
 It is fruitful, and standard in physics, to identify the simplest solutions to the equations of motion for a theory.
 Here that means a solution that is translation-invariant on $\CC^2$ (i.e., a constant solution),
@@ -2553,9 +2574,14 @@ V\Sslash G = \Spec(\cO(V)^G),
 \]
 the scheme whose ring of functions are the $G$-invariant functions on the representation~$V$.
 This affine scheme is known as the {\em affinization} of the stack $V/G$, as it is the best affine approximation to the stack (i.e., apply the left adjoint to the inclusion of affine schemes among stacks).
-In practice physicists work ordinary schemes (i.e., without any derived directions), although one can also study the derived affine scheme that is the best approximation to a derived stack.
 We will call this GIT quotient the moduli {\em space} of classical vacua and denote it by~$M_{\rm vac}(\cT)$.
 (Note that the font of M changes between stack and space.)
+
+\begin{rmk}
+In practice physicists work ordinary schemes (i.e., without any derived directions), 
+although one can also study the derived affine scheme that is the best approximation to a derived stack.
+Below we will always provide an ordinary scheme as the moduli {\em space}.
+\end{rmk}
 
 It is familiar to geometers that this affinization forgets interesting information about the stack because an invariant function must be constant on the closure of any orbit.
 Thus, the canonical map
@@ -2576,7 +2602,10 @@ For this reason, it loses details about the classical vacua remembered by the st
 The physicists' focus on the moduli space is not unreasonable:
 one must make measurements --- i.e., evaluate functions --- to identify the state of a physical system.
 The moduli space captures what can be seen by measurements (notably here, the ``vacuum expectation values'' of different vacua).
-On the other hand, the moduli stack knows each orbit, which provides a distinct solution to the equations of motion, whereas the space cannot distinguish between some vacua.
+In other words, the possible classical states --- viewed as suitable linear functionals on the algebra of observables --- are parametrized by the underlying affine scheme of the derived moduli stack.
+On the other hand, the moduli stack knows each orbit, which provides a distinct solution to the equations of motion,
+and hence records much more about the classical theory; 
+the space cannot distinguish between some vacua because it collapses orbits.
 Moreover, the stack encodes much more data about the theory near each vacuum.
 For instance, it remembers ``enhanced symmetries'' (such as the residual gauge fields) at each vacuum.
 \end{rmk}
@@ -2584,38 +2613,65 @@ For instance, it remembers ``enhanced symmetries'' (such as the residual gauge f
 For the holomorphic QCD theory with $F$ flavors and $N$ colors (without mesons), 
 the moduli stack of classical vacua is 
 \[
-\cM_{\rm vac} \cong T^*[1] \left(V_Q \oplus V_Q^*)/SL(N)\right).
+\cM_{\rm vac}(F,N) \cong T^*[1] \left(V_Q \oplus V_Q^*/SL(N)\right).
 \]
-By contrast the moduli space is a well-known variety, 
+By contrast the moduli space $M_{\rm vac}$ is a variety already well-studied in classical algebraic geometry.
+Before we jump to the full space, let's examine a simpler case involving just the quarks.
+A vacuum for the quark field is an element of $V_Q = \Hom(\CC^F, \CC^N)$,
+and it is a classic result of invariant theory that
 \[
-M_{\rm vac}(\cT) \cong \Gr(F, N),
+\Hom(\CC^F, \CC^N)\Sslash SL(N) \cong \widehat{{\rm Gr}(F, N)} \subset \Lambda^N \CC^F
 \]
-the affine cone of a Grassmannian \owen{under Pl\"ucker embedding? need to check.} 
-This result follows from classical invariant theory.
-(The quark part of a vacuum lies on an $SL(N)$-orbit of $V_Q$, which consists of $F$ copies of the fundamental representation $\CC^N$, and likewise for the antiquark part.
-Identifying the $SL(N)$-invariant functions on $V_Q \oplus V^*_Q$ is one of the fundamental theorems of classical invariant theory.)
+where ${\rm Gr}(F, N)$ denotes the Grassmannian of $N$-planes in $\CC^F$ and the hat indicates we take the affine cone with respect to this standard Pl\"ucker embedding.
+For the full problem, we have both quarks and antiquarks, so
+\begin{align*}
+M_{\rm vac}(F,N) 
+&\cong V_Q \oplus V_Q^*\Sslash SL(N) \\
+&= \Hom(\CC^F, \CC^N) \oplus \Hom(\CC^N, \CC^F)\Sslash SL(N),
+\end{align*}
+whose ring of functions is also computed by the fundamental theorems of invariant theory.
+Those theorems tell us that the GIT quotient is a closed conical subvariety
+>>>>>>> 46317a9ff2fa2a1a491852a8c6266ecf16d084c0
+\[
+M_{\rm vac}(F,N)  \hookrightarrow \Lambda^N \CC^F \times \Lambda^N (\CC^F)^* \times \End(\CC^F)
+\]
+where a pair of matrices $(X,Y) \in \Hom(\CC^F, \CC^N) \times \Hom(\CC^N, \CC^F)$ goes to $(\Lambda^N X, \Lambda^N Y, YX)$, with $\Lambda^N X$ denoting the wedge product of the rows of $X$ (and of columns for $Y$).
+The image thus satisfies both sets of Pl\"ucker relations, the condition that the composite $YX$ has rank at most $N$, and some further relations, given by the Second Fundamental Theorem.
+\owen{I'm trying to find a completely careful and explicit statement of the $SL(N)$ case.}
+In other words,
+\[
+M_{\rm vac}(F,N) \hookrightarrow \widehat{{\rm Gr}(F, N)} \times \widehat{{\rm Gr}(F, N)} \times {\rm R}(F,N)
+\]
+with ${\rm R}(F,N) \subset \End(\CC^F)$ the matrices with rank bounded above by~$N$.
 The moduli space for the magnetic theory is a bit more complicated but follows from invariant theory as well.
+
+Note that $\check{N} = F-N$, so $\widehat{{\rm Gr}(F, N)} \cong \widehat{{\rm Gr}(F, \check{N})}$,
+but ${\rm R}(F,N)$ is not isomorphic to ${\rm R}(F,\check{N})$ except when $N = \check{N}$.
+Hence one should not be optimistic that $M_{\rm vac}(F,N) \cong M_{\rm vac}(F,\check{N})$.
+To ``fix'' this issue, one might try to slightly modify the dual side, which Seiberg did by adding the meson fields.
+Hence the following holds.
 
 \begin{prop}
 Seiberg dual theories have isomorphic moduli spaces.
 \end{prop}
 
-One sees the need for the superpotential in order to obtain this result;
-the mesons are added to remember nontrivial relations.
 This relationship, which holds already for the supersymmetric theory before twisting, was one of the original pieces of evidence offered by Seiberg for his duality.
+The proof boils down to checking that the mesons and the superpotential on the magnetic side ensure the isomorphism.
 
 \begin{rmk}
-In the physics literature this isomorphism is given by explicitly matching gauge-invariant functions, which are often called mesons or baryons, as they can be identified with the data that identifies such particles.
+In the physics literature this isomorphism is given by explicitly matching gauge-invariant functions, 
+which are often called mesons or baryons, 
+as they can be identified with the data that identifies such particles.
 These meson and baryons are precisely the usual generators of the ring of invariant functions, 
 so an isomorphism of generators determines the desired isomorphism of rings. 
 One must check that the relations are satisfied;
-here it explains the superpotential on the magnetic side.
+this requirement explains the superpotential on the magnetic side.
 \end{rmk}
 
 We want to point out, however, that {\em the moduli stacks are not isomorphic}.
 A quick check is to note that there are orbits with different stabilizer groups.
 Consider, for instance, the origin in each vector space.
-On the electric side its stabilizer is $SL(N_c)$ and on the magnetic side it is $SL(N_f - N_c)$.
+On the electric side its stabilizer is $SL(N)$ and on the magnetic side it is $SL(\check{N})$.
 Thus each theory has a vacuum whose associated perturbative classical theory has no partner on the other side.
 Hence Seiberg duality cannot hold at the stack level for the classical theories.
 
