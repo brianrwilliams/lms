@@ -2346,6 +2346,7 @@ The action functional is
 S_{QCD} = \int B\, F^{0,2}_A + \int R \,\dbar_A Q + \int r \,\dbar_A q,
 \]
 where $\dbar_A = \dbar + A$ is the covariant $\dbar$-operator.
+\owen{Should we make explicit how we're using the evaluation pairing on fields and their ``conjugates''? Or do we explain that in our review of BF theories?}
 %We will denote this theory by $\cT(N,F)$.
 \footnote{Although this perturbative theory only depends on the Lie algebra of $G$, the group structure will be relevant when we discuss local operators and moduli of vacua.} 
 \end{dfn}
@@ -2729,15 +2730,22 @@ The central extensions of the dual theories agree:
 In particular, the state spaces $\sfV_\sfE, \sfV_\sfM$ are modules for the {\em same} $2$-dimensional higher Kac--Moody algebra $\Hat{\sl(N_f)}_{2,\theta}$.
 \end{prop}
 
+An analogous result holds for the flavor symmetry on the antiquarks. 
+
 \begin{proof}[Sketch of proof]
-This boils down to an explicit presentation of anomalies using the Feynman diagrammatic analysis for holomorphic theories surveyed in Section~\ref{sec:renorm}. 
+The argument boils down to an explicit presentation of anomalies using the Feynman diagrammatic analysis for holomorphic theories surveyed in Section~\ref{sec:renorm}. 
 For this calculation the gauge algebra $\sl(N)$ plays a minimal role. 
-The central extension is represented by a series of Feynman diagrams that are wheels with three vertices, each labeled by an element $\sfa$ of the current algebra, which we treat as a background gauge field.
+The central extension is represented by a series of Feynman diagrams that are wheels with three vertices, each labeled by an element of the current algebra $\sfa \in \Omega^{0,*}(\CC^2, \sl(F))$, which we treat as a background gauge field.
+In formulas, we couples to both the electric and magnetic theory via interactions
+\[
+I^F_\sfE = \int (R, \sfa Q)  \qquad\text{and}\qquad I^F_\sfM = \int (\check{R}, \sfa \check{Q}) + \int (\check{\nu}, \sfa \check{\mu}),
+\]
+where we use parentheses $(-,-)$ to denote the pairings in BF and $\beta\gamma$ theories.
 
 In the electric case there are $N$ such diagrams, with all the internal edges are labeled by $Q-R$ propagators. 
 This gives rise to the local anomaly
 \beqn\label{eqn:electricflavor}
-N \frac16 \int \op{tr}_{\underline{F}} \left(\sfa \partial \sfa \partial \sfa\right) 
+ \frac{N}{16} \int \op{tr}_{\underline{F}} \left(\sfa \, \partial \sfa \, \partial \sfa\right) 
 \eeqn
 where $\op{tr}_{\underline{F}}$ denotes the trace in the fundamental $\sl(F)$-representation.
 
@@ -2748,19 +2756,16 @@ The magnetic theory has two types of wheels whose external edges are labeled by 
 \end{itemize}
 There are $\check{N} = F - N$ copies of diagram (a), which gives rise to the term
 \[
-\check{N} \frac16 \int \op{tr}_{\Bar{\underline{F}}} \left(\sfa \partial \sfa \partial \sfa\right) .
+ \frac{\check{N}}{16} \int \op{tr}_{\underline{F}^*} \left(\sfa \, \partial \sfa \, \partial \sfa\right) .
 \]
-\owen{Continue from here}
-Here, $\op{tr}_{\Bar{N_f}}$ denotes the trace in the anti-fundamental representation. 
-There are $N_f$ copies of diagram (b) which gives rise to the term
+Here, $\op{tr}_{\underline{F}^*}$ denotes the trace in the dual to the fundamental representation. 
+There are $F$ copies of diagram (b), which gives rise to the term
 \[
-N_f \frac16\int \op{tr}_{N_f} \left(\sfa \partial \sfa \partial \sfa\right) 
+\frac{F}{16}\int \op{tr}_{\underline{F}} \left(\sfa\, \partial \sfa \, \partial \sfa\right).
 \]
-Since $\op{tr}_{\Bar{N_f}} (X^3) = - \op{tr}_{N_f} (X^3)$ for any $X \in \sl(N_f)$, we see that the sum of these two terms agrees with the electric side \eqref{eqn:electricflavor}.
+Since $\op{tr}_{\underline{F}^*} (T^3) = - \op{tr}_{\underline{F}} (T^3)$ for any $T \in \sl(F)$, 
+we see that the sum of these two terms agrees with \eqref{eqn:electricflavor} on the electric side.
 \end{proof}
-
-There is also a `tilded' version of the flavor symmetry for the same Lie algebra $\sl(N_f)$ but where the local Noether currents read $\int \Tilde{P}^i \Tilde{\sfa}_i^j \Tilde{Q}^i$ and $\int \Tilde{p}^i \Tilde{\sfa}_i^j \Tilde{q}^i$.
-An analogous result holds for this symmetry.
 
 \subsubsection{Twisted superconformal symmetry}
 
