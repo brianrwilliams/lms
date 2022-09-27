@@ -2357,17 +2357,17 @@ A holomorphic QCD theory {\em with mesons}
 %, denoted $\cT(N,F, V_M, W)$, 
 is a holomorphic QCD with $N$ colors and $F$ flavors along with {\em meson fields}, which form a $\beta\gamma$ system valued in the vector space $V_M$, which we denote by
 \[
-M \in \Omega^{0,\bu}(\CC^2 , V_M) \quad\text{and}\quad N \in \Omega^{2,\bu}(\CC^2 , V_M^*) [1] .
+\mu \in \Omega^{0,\bu}(\CC^2 , V_M) \quad\text{and}\quad \nu \in \Omega^{2,\bu}(\CC^2 , V_M^*) [1] .
 \]
 The action functional is
 \[
-S_{QCDwM} = S_{QCD} + \int N \,\dbar M + \int \d^2 z \; W(Q, \Tilde{Q}, M) .
+S_{QCDwM} = S_{QCD} + \int \nu \,\dbar \mu + \int \d^2 z \; W(Q, \Tilde{Q}, \mu) .
 \] 
 Notice that to write down the superpotential term we are utilizing the holomorphic volume form $\Omega_X = \d^2 z$. 
 \end{dfn}
 
-Note that the fields $M$ are ``uncharged,'' i.e., $SL(N)$ acts trivially on $V_M$.
-The only coupling that the meson $M$ has to the other fields is through the superpotential~$W$. 
+Note that the fields $\mu$ are ``uncharged,'' i.e., $SL(N)$ acts trivially on $V_M$.
+The only coupling that the meson $\mu$ has to the other fields is through the superpotential~$W$. 
 
 \begin{rmk}
 This theory is only $\ZZ/2$-graded, so all fields are considered merely as even or odd.
@@ -2401,10 +2401,10 @@ The {\em electric theory} is the holomorphic QCD with $N$ colors and $F$ flavors
 We denote it by~$\cT_{\sfE}(F, N)$.
 We use $A, B, Q, R, Q^\dag$, and $R^\dag$ for the fields.
 
-The {\em magnetic theory} $\cT_{\sfM}(F, \check{N})$ is the holomorphic QCD with $\check{N}$ colors and $F$ flavors, but with mesons $\check{M}$ where $$V_{\check{M}} = \End(\CC^F) \cong \CC^{\oplus F^2}$$
+The {\em magnetic theory} $\cT_{\sfM}(F, \check{N})$ is the holomorphic QCD with $\check{N}$ colors and $F$ flavors, but with mesons $\check{\mu}$ where $$V_{\check{M}} = \End(\CC^F) \cong \CC^{\oplus F^2}$$
 (and $\check{L}$ for the partner field to $\check{M}$).
 We use $\check{A}, \check{B}, \check{Q}, \check{R}, \check{Q}^\dag$, and $\check{R}^\dag$ for the other fields.
-The superpotential is $$\check{W} =  \Tr(\check{Q}^\dag \check{M}  \check{Q}),$$
+The superpotential is $$\check{W} =  \Tr(\check{Q}^\dag \check{\mu}  \check{Q}),$$
 where we compose the linear maps before tracing over~$V_{\check{N}}$.
 \owen{Please double-check that formula.}
 \end{dfn}
@@ -2546,9 +2546,9 @@ For example, the holomorphic $\sigma$-model from $\CC^d$ into a target complex m
 (If we consider the underlying underived stack, it is just $X$, unless $d = 1$.)
 For supersymmetric gauge theories, the moduli stack of the holomorphic twist has the form
 \[
-\cM_{\rm vac} \cong V/G
+\cM_{\rm vac} \cong [V/G]
 \]
-where $V$ is a (graded) $G$-representation and $V/G$ denotes the quotient stack.
+where $V$ is a (graded) $G$-representation and $[V/G]$ denotes the quotient stack.
 The factor $V$ depends on the non-gauge fields (i.e., matter multiplets), which are sections of some associated vector bundle;
 the quotient by $G$ arises from the gauge transformation.
 For example, pure $\cN =1$ holomorphic Yang-Mills theory for group $G$ (i.e., the vector multiplet) has
@@ -2560,15 +2560,15 @@ the coadjoint quotient stack of the group.
 Using the invariant pairing on $\fg$ we can further identify this with the adjoint quotient stack~$\fg / G$. 
 For general supersymmetric field theories, which involve both a $\sigma$-model and gauge fields, the holomorphic twist has a moduli stack of classical vacua of the form
 \[
-\cM_{\rm vac} \cong X/G
+\cM_{\rm vac} \cong [X/G]
 \]
-where $X$ is a derived stack with a $G$-action and $X/G$ denotes the quotient stack.
+where $X$ is a derived stack with a $G$-action and $[X/G]$ denotes the quotient stack.
 
 In studying questions about the classical vacua of supersymmetric field theories, however, physicists have not typically worked with the {\em stack}.
 Instead, they have worked with a GIT quotient.
-For instance, in the setting of a gauge theory with moduli stack of classical vacua $V/G$, it means they work with 
+For instance, in the setting of a gauge theory with moduli stack of classical vacua $[V/G]$, it means they work with 
 \brian{I don't like this notation, its confusing since it looks like symplectic reduction which has already appeared. 
-What about $[V/G]$?}
+What about $[V/G]$?} \owen{I'm happy to do that, but symplectic reduction is the GIT quotient.}
 \[
 V\Sslash G = \Spec(\cO(V)^G),
 \]
@@ -2586,14 +2586,15 @@ Below we will always provide an ordinary scheme as the moduli {\em space}.
 It is familiar to geometers that this affinization forgets interesting information about the stack because an invariant function must be constant on the closure of any orbit.
 Thus, the canonical map
 \[
-V/G \to V\Sslash G
+[V/G] \to V\Sslash G
 \]
 often collapses orbits together.
-An important example, pertinent to $\cN =1$ super Yang-Mills theory, is the adjoint quotient $\gl_N/ GL_N$, whose affinization is
+An important example, pertinent to $\cN =1$ super Yang-Mills theory, is the adjoint quotient $[\gl_N/ GL_N]$, whose affinization is
 \[
-\gl_N \Sslash GL_N \cong \CC^N/S_N,
+\gl_N \Sslash GL_N \cong \CC^N,
 \]
-by the Chevalley restriction theorem.
+by the Chevalley restriction theorem $\cO(\gl_N)^{\GL_N} \cong \cO(\frak{h})^{S_N}$ where $\frak{h}$ denotes the maximal torus.
+(The rightmost algebra is symmetric polynomials.)
 The canonical map here records the characteristic polynomial of a matrix and hence only knows its generalized eigenvalues and not its Jordan decomposition.
 In other words, the canonical map collapses together Jordan blocks with the same diagonal entries.
 For this reason, it loses details about the classical vacua remembered by the stack quotient.
@@ -2631,19 +2632,18 @@ M_{\rm vac}(F,N)
 \end{align*}
 whose ring of functions is also computed by the fundamental theorems of invariant theory.
 Those theorems tell us that the GIT quotient is a closed conical subvariety
->>>>>>> 46317a9ff2fa2a1a491852a8c6266ecf16d084c0
 \[
 M_{\rm vac}(F,N)  \hookrightarrow \Lambda^N \CC^F \times \Lambda^N (\CC^F)^* \times \End(\CC^F)
 \]
 where a pair of matrices $(X,Y) \in \Hom(\CC^F, \CC^N) \times \Hom(\CC^N, \CC^F)$ goes to $(\Lambda^N X, \Lambda^N Y, YX)$, with $\Lambda^N X$ denoting the wedge product of the rows of $X$ (and of columns for $Y$).
-The image thus satisfies both sets of Pl\"ucker relations, the condition that the composite $YX$ has rank at most $N$, and some further relations, given by the Second Fundamental Theorem.
-\owen{I'm trying to find a completely careful and explicit statement of the $SL(N)$ case.}
-In other words,
+The image thus satisfies both sets of Pl\"ucker relations, the condition that the composite $YX$ has rank at most $N$, and some further relations, given by the Second Fundamental Theorem, such as that the pairing of $\Lambda^N X$ and $\Lambda^N Y$ can be related to $\Lambda^N (YX)$.
+(See Chapter 2, Section C of \cite{Weyl}.)
+In other words, we have a closed subvariety
 \[
 M_{\rm vac}(F,N) \hookrightarrow \widehat{{\rm Gr}(F, N)} \times \widehat{{\rm Gr}(F, N)} \times {\rm R}(F,N)
 \]
 with ${\rm R}(F,N) \subset \End(\CC^F)$ the matrices with rank bounded above by~$N$.
-The moduli space for the magnetic theory is a bit more complicated but follows from invariant theory as well.
+The moduli space for the magnetic theory is a bit more complicated but follows from classical invariant theory as well.
 
 Note that $\check{N} = F-N$, so $\widehat{{\rm Gr}(F, N)} \cong \widehat{{\rm Gr}(F, \check{N})}$,
 but ${\rm R}(F,N)$ is not isomorphic to ${\rm R}(F,\check{N})$ except when $N = \check{N}$.
@@ -2677,62 +2677,80 @@ Hence Seiberg duality cannot hold at the stack level for the classical theories.
 
 \subsubsection{Flavor symmetries}
 
-We fix some notation for the fields of the electric and magnetic theories. 
-The `flavor' index will be denoted by letters $i,j=1,\ldots, N_f$. 
+The quarks of the electric theory take values in $\Hom(\CC^F, \CC^N)$ and hence have a canonical action of $SL(F)$ by precomposition.
+We view each factor $\CC$ inside $\CC^F$ as a different ``flavor'' of quark, so this action mixes flavors.
+The antiquarks take values in $\Hom(\CC^N, \CC^F)$ and so have a canonical action of $SL(F)$ by postcomposition.
+The action functional is invariant for this action, and thus $SL(F)$ acts naturally on the space of solutions to the equations of motion.
+This symmetry is known as {\em flavor} symmetry.
+The magnetic theory has an analogous flavor symmetry, where $SL(F)$ acts on the mesons by conjugation.
+\owen{Right?}
 
-With respect to a basis for $\CC^{N_f}$ we denote the matter fields of the electric theory as
-\[
-Q^i\; , \; P_i \; , \; \Tilde{Q}_i \; , \; \Tilde{P}^i , \quad i = 1, \ldots, N_f.
-\]
-Each of these fields are Dolbeault forms that are valued in the fundamental $\SU(N_c)$ representation. 
+%We fix some notation for the fields of the electric and magnetic theories. 
+%The `flavor' index will be denoted by letters $i,j=1,\ldots, N_f$. 
+%
+%With respect to a basis for $\CC^{N_f}$ we denote the matter fields of the electric theory as
+%\[
+%Q^i\; , \; P_i \; , \; \Tilde{Q}_i \; , \; \Tilde{P}^i , \quad i = 1, \ldots, N_f.
+%\]
+%Each of these fields are Dolbeault forms that are valued in the fundamental $\SU(N_c)$ representation. 
+%
+%The matter fields of the magnetic theory will be denoted by lower case letters to avoid confusion
+%\[
+%q^i\; , \; p_i \; , \; \Tilde{q}_i \; , \; \Tilde{p}^i , \quad i = 1, \ldots, N_f.
+%\]
+%Again, each of these fields are Dolbeault valued but this time they each transform under the fundamental $\SU(N_f-N_c)$ representation. 
+%On the magnetic side one also has the `meson' fields $M_{i}^j$, which are scalars under the gauge group.
+%
+%Holomorphic QCD enjoys a few familiar holomorphic symmetries in the style that we discussed in this note.
 
-The matter fields of the magnetic theory will be denoted by lower case letters to avoid confusion
-\[
-q^i\; , \; p_i \; , \; \Tilde{q}_i \; , \; \Tilde{p}^i , \quad i = 1, \ldots, N_f.
-\]
-Again, each of these fields are Dolbeault valued but this time they each transform under the fundamental $\SU(N_f-N_c)$ representation. 
-On the magnetic side one also has the `meson' fields $M_{i}^j$, which are scalars under the gauge group.
+For holomorphic QCD theories, the infinitesimal flavor symmetry by the Lie algebra $\sl(F)$ enhances to a symmetry for the infinite-dimensional dg Lie algebra $\Omega^{0,*}(\CC^2, \sl(F))$, 
+which we call a $2$-dimensional holomorphic current algebra.
+It acts by wedging the forms and applying $\sl(F)$ to the relevant vector space, such as~$\Hom(\CC^F,\CC^N)$.
 
-Holomorphic QCD enjoys a few familiar holomorphic symmetries in the style that we discussed in this note.
+%The holomorphic background field $\fa = (\fa_i^j) \in \Omega^{0,\bu}(\CC^2 , \sl(N_f))$ naturally couples to both the electric and magnetic theory in the following ways:
+%\[
+%I^F_\sfE = \int P_j \fa_i^j Q^i , \qquad I^F_\sfM = \int \Tilde{p}_j \sfa_j^i \Tilde{q}^j + \int L^k_j \sfa_i^j M^i_k . 
+%\]
+%
+%This determines a classical symmetry of both sides of the duality by the local Lie algebra $\Omega^{0,\bu}(\CC^2, \sl(N_f))$. 
+%In particular, the two state spaces form a module for the $S^3$-current algebra $\sfA_2 \otimes \sl(N_f)$ at the classical level.
 
-The first is a holomorphic `flavor' symmetry, which will manifest itself as a symmetry by the $2$-dimensional holomorphic current algebra. 
-Consider the Lie algebra $\sl(N_f)$. 
-
-The holomorphic background field $\fa = (\fa_i^j) \in \Omega^{0,\bu}(\CC^2 , \sl(N_f))$ naturally couples to both the electric and magnetic theory in the following ways:
-\[
-I^F_\sfE = \int P_j \fa_i^j Q^i , \qquad I^F_\sfM = \int \Tilde{p}_j \sfa_j^i \Tilde{q}^j + \int L^k_j \sfa_i^j M^i_k . 
-\]
-
-This determines a classical symmetry of both sides of the duality by the local Lie algebra $\Omega^{0,\bu}(\CC^2, \sl(N_f))$. 
-In particular, the two state spaces form a module for the $S^3$-current algebra $\sfA_2 \otimes \sl(N_f)$ at the classical level.
 A natural question is whether this symmetry persists at the quantum level. 
-The answer is {\em yes}, but on both sides of the duality one must take into account central extensions.
-These central extensions give rise to symmetries by higher Kac--Moody algebras $\Hat{\sl(N_f)}_{2,\theta_{\sfE}}, \Hat{\sl(N_f)}_{2,\theta_{\sfM}}$ which act on the electric and magnetic sides, respectively.
-Here $\theta_\sfE, \theta_\sfM$ are invariant cubic polynomials on the Lie algebra $\sl(N_f)$. 
+The answer is {\em yes}, but on both sides of the duality one must use a central extension of the current algebra as an $L_\infty$ algebra.
+The extension arises because the symmetry has an anomaly under quantization (on either side of the duality),
+and this anomaly is determined by an  invariant cubic polynomial $\theta_\sfE$, $\theta_\sfM$, respectively, on the Lie algebra~$\sl(F)$. 
+(In terms of Section \owen{cross ref}, these determine higher Kac--Moody algebras $\Hat{\sl(N_f)}_{2,\theta_{\sfE}}, \Hat{\sl(N_f)}_{2,\theta_{\sfM}}$ when studying the theories on the punctured space~$\CC^2 - \{0\}$.)
 
 \begin{prop}
-The central extensions of the dual theories agree $\theta_\sfE = \theta_\sfM$. 
+The central extensions of the dual theories agree: 
+\[
+\theta_\sfE = \theta_\sfM.
+\] 
 In particular, the state spaces $\sfV_\sfE, \sfV_\sfM$ are modules for the {\em same} $2$-dimensional higher Kac--Moody algebra $\Hat{\sl(N_f)}_{2,\theta}$.
 \end{prop}
 
 \begin{proof}[Sketch of proof]
-This boils down to an explicit presentation of anomalies using the Feynman diagrammatic analysis for holomorphic theories surveyed in Section \ref{sec:renorm}. 
-For this calculation the gauge algebra $\sl(N_c)$ plays a minimal role. 
-The central extension is represented by a series of Feynman diagrams that are wheels with three vertices, each labeled by the background gauge field $\sfa$.
+This boils down to an explicit presentation of anomalies using the Feynman diagrammatic analysis for holomorphic theories surveyed in Section~\ref{sec:renorm}. 
+For this calculation the gauge algebra $\sl(N)$ plays a minimal role. 
+The central extension is represented by a series of Feynman diagrams that are wheels with three vertices, each labeled by an element $\sfa$ of the current algebra, which we treat as a background gauge field.
 
-In the electric case there are $N_c$ of such diagrams, all the internal edges are labeled by $Q-P$ propagators. 
+In the electric case there are $N$ such diagrams, with all the internal edges are labeled by $Q-R$ propagators. 
 This gives rise to the local anomaly
 \beqn\label{eqn:electricflavor}
-N_c \frac16 \int \op{tr}_{N_f} \left(\sfa \partial \sfa \partial \sfa\right) 
+N \frac16 \int \op{tr}_{\underline{F}} \left(\sfa \partial \sfa \partial \sfa\right) 
 \eeqn
-where $\op{tr}_{N_f}$ denotes the trace in the fundamental $\sl(N_f)$-representation.
+where $\op{tr}_{\underline{F}}$ denotes the trace in the fundamental $\sl(F)$-representation.
 
-The magnetic theory has two types of wheels whose external edges are labeled by the background field $\sfa$: (a) those with 
-internal edges labeled by $\Tilde{q}-\Tilde{p}$ propagators and (b) those will internal edges labeled by $M-L$ propagators. 
-There are $(N_f - N_c)$ copies of diagram (a) which gives rise to the term
+The magnetic theory has two types of wheels whose external edges are labeled by the background field $\sfa$: 
+\begin{itemize}
+\item[(a)] those with  internal edges labeled by $\check{Q}-\check{R}$ propagators and 
+\item[(b)] those will internal edges labeled by $\check{\mu}-\check{\nu}$ propagators. 
+\end{itemize}
+There are $\check{N} = F - N$ copies of diagram (a), which gives rise to the term
 \[
-(N_f - N_c) \frac16 \int \op{tr}_{\Bar{N_f}} \left(\sfa \partial \sfa \partial \sfa\right) .
+\check{N} \frac16 \int \op{tr}_{\Bar{\underline{F}}} \left(\sfa \partial \sfa \partial \sfa\right) .
 \]
+\owen{Continue from here}
 Here, $\op{tr}_{\Bar{N_f}}$ denotes the trace in the anti-fundamental representation. 
 There are $N_f$ copies of diagram (b) which gives rise to the term
 \[
