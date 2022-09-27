@@ -2723,7 +2723,8 @@ and this anomaly is determined by an  invariant cubic polynomial $\theta_\sfE$, 
 (In terms of Section \owen{cross ref}, these determine higher Kac--Moody algebras $\Hat{\sl(N_f)}_{2,\theta_{\sfE}}, \Hat{\sl(N_f)}_{2,\theta_{\sfM}}$ when studying the theories on the punctured space~$\CC^2 - \{0\}$.)
 
 \begin{prop}
-The central extensions of the dual theories agree: 
+There is an anomaly at the quantum level for the holomorphic flavor symmetry action for both the electric and magnetic theories,
+and they agree: they are labeled by the same cocycle 
 \[
 \theta_\sfE = \theta_\sfM.
 \] 
@@ -2736,7 +2737,7 @@ An analogous result holds for the flavor symmetry on the antiquarks.
 The argument boils down to an explicit presentation of anomalies using the Feynman diagrammatic analysis for holomorphic theories surveyed in Section~\ref{sec:renorm}. 
 For this calculation the gauge algebra $\sl(N)$ plays a minimal role. 
 The central extension is represented by a series of Feynman diagrams that are wheels with three vertices, each labeled by an element of the current algebra $\sfa \in \Omega^{0,*}(\CC^2, \sl(F))$, which we treat as a background gauge field.
-In formulas, we couples to both the electric and magnetic theory via interactions
+In formulas, we couple the current algebra to both the electric and magnetic theory via interactions
 \[
 I^F_\sfE = \int (R, \sfa Q)  \qquad\text{and}\qquad I^F_\sfM = \int (\check{R}, \sfa \check{Q}) + \int (\check{\nu}, \sfa \check{\mu}),
 \]
@@ -2769,15 +2770,14 @@ we see that the sum of these two terms agrees with \eqref{eqn:electricflavor} on
 
 \subsubsection{Twisted superconformal symmetry}
 
-The physical statement of Seiberg duality is that dual theories flow to the same superconformal fixed point in the infrared limit. 
-This only makes sense when the integers $N_c,N_f$ satisfy appropriate bounds ensuring that such a superconformal fixed point exists. 
+In the original version of Seiberg duality, there are certain values of $F$ and $N$ where the dual theories flow to the same superconformal fixed point in the infrared limit. 
+These values are known as the ``superconformal window'',
+and we will explore how it appears from the point of view of holomorphic QCD. 
 
-We will describe how this `superconformal window'--the bounds where one expects such flows to exist--appears from the point of view of holomorphic QCD. 
-
-We start off with the (complexified) 4-dimensional $\cN=1$ superconformal algebra $\sl(4|1)$.
+Consider the (complexified) 4-dimensional $\cN=1$ superconformal algebra $\sl(4|1)$.
 This super Lie algebra is the defining symmetry of a 4-dimensional $\cN=1$ superconformal field theory. 
 The Poincar\'{e} algebra is a subalgebra of $\sl(4|1)$. %which in particular consists of supercharges $\cQ_{\alpha}, \cQ_{\dot{\alpha}}$ where $\alpha = 1,2$ is an $\SU(2)$ index.
-Inside of this algebra is the Cartan generator $\Delta$ of scaling transformations in $\RR^4$.
+Inside of this algebra is the Cartan generator $\Delta$ of scaling transformations in~$\RR^4$.
 
 Fix a nonzero square-zero supercharge $\cQ$. 
 Naturally, such a $\cQ$ acts by the (super)commutator on the superconformal Lie algebra.
@@ -2785,48 +2785,60 @@ In \cite{SWsuco} the second author and Saberi show that there is a quasi-isomorp
 \[
 \bigg(\sl(4|1) \; , \; [\cQ, -] \bigg) \simeq \sl(3) .
 \]
-Thus, if one starts with a superconformal theory, one knows that at the level of the holomorphic twist the Lie algebra $\sl(3)$ will act.  
-In this sense, $\sl(3)$ is the `residual' superconformal symmetry at the level of the twist. 
-Inside of this twisted algebra $\sl(3)$ we have the ``holomorphic scaling'' operator $\Delta^{hol} = z_i \partial_{z_i}$, which is simply the holomorphic Euler vector field.  
-In fact, the entire algebra $\sl(3)$ naturally embeds inside of the Lie algebra of holomorphic vector fields on $\CC^2$.\footnote{Endowed by the description of $\CC \PP^2$ as an ${\rm SL}(3)$-homogenous space.}
-Classically in the holomorphic twist this symmetry {\em enhances} to a symmetry by an infinite dimensional dg Lie algebra. 
+Thus, if one starts with a superconformal theory, the Lie algebra $\sl(3)$ will act on the holomorphically twisted theory.  
+In this sense, $\sl(3)$ is the residual superconformal symmetry of this twist. 
+Inside of this twisted algebra $\sl(3)$, we have the ``holomorphic scaling'' operator $\Delta^{hol} = \sum_i z_i \partial_{z_i}$, which is simply the holomorphic Euler vector field.  
+In fact, the entire algebra $\sl(3)$ naturally embeds inside of the Lie algebra of holomorphic vector fields on $\CC^2$,
+where we view $\CC^2$ as an open subset of $\CC \PP^2$ as an ${\rm SL}(3)$-homogenous space.
+In the holomorphic twist as a classical theory, 
+this symmetry {\em enhances} to a symmetry by an infinite dimensional dg Lie algebra. 
 
-\begin{thm}[\cite{SWsuco}] \label{thm:swsuco}
-Consider the local Lie algebra $\Omega^{0,\bu}(\CC^2, \T^{1,0})$ which resolves the Lie algebra of \ul{all} holomorphic vector fields on $\CC^2$. 
-This local Lie algebra is a classical symmetry of any theory of holomorphic QCD. 
+\begin{thm}[\cite{SWsuco}] 
+\label{thm:swsuco}
+Consider the local Lie algebra $\Omega^{0,\bu}(\CC^2, \T^{1,0})$ that resolves the Lie algebra of {\em all} holomorphic vector fields on $\CC^2$. 
+This local Lie algebra is a classical symmetry of any holomorphic QCD theory. 
 \end{thm}
 
-We ask when this classical symmetry persists at the quantum level. 
-Let us first consider the electric theory. 
+We now ask when this classical symmetry persists at the quantum level. 
 
+Consider first the electric theory. 
 Naively, the symmetry of holomorphic vector fields is obvious: all fields are described in terms of a Dolbeault complex resolving trivial holomorphic vector bundles of various ranks. 
 Therefore, holomorphic vector fields act naturally by Lie derivative everywhere. 
 In particular, the Euler vector field $\Delta^{hol}$ acts diagonally in the natural way. 
 
 On the gauge fields, this naive action is consistent with the one present in the untwisted theory. 
 For the matter fields, however, the action at the untwisted level is {\em not} compatible with this naive one. 
-This can even be seen at the level of the holomorphic Euler vector field: naively the field $Q = z_1^n z_2^m \otimes v \in \Omega^0 (\CC^2$ transforms like $\Delta^{hol}(Q) = (n+m) Q$.
-However, to be compatible with dimension scaling in the untwisted theory one actually has 
+The issue can be seen already just for the holomorphic Euler vector field.
+Naively, the field $Q = z_1^n z_2^m \otimes v \in \Omega^0 (\CC^2$ transforms like $\Delta^{hol}(Q) = (n+m) Q$;
+but to be compatible with dimension scaling in the untwisted theory, one needs
 \[
 \Delta^{hol}(Q) = \left(n + m + \frac23\right) Q .
 \]
-What this says is that as a representation for infinitesimal holomorphic diffeomorphisms the fields $Q, P$ do not take values in the trivial vector bundle, but actually take values in some line bundle.  
-In fact, if one keeps track of the appropriate {\em twisting homomorphism} in the style of \cite{WittenTwist} one finds that the $\beta\gamma$ matter fields live in
+What this constraint means is that, as a representation for holomorphic vector fields, the quark fields $Q$, $R$ take values in some interesting line bundle and not in the trivial vector bundle.  
+In fact, if one keeps track of the appropriate {\em twisting homomorphism} in the style of \cite{WittenTwist}, 
+one finds that the quark fields are
 \[
-Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{1/3}) \otimes (\CC^{N_c})^{\oplus N_f} , \quad P \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{2/3}) \otimes (\CC^{N_c})^{\oplus N_f}
+Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{1/3}) \otimes V_Q 
+\] 
+and
+\[ P \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{2/3}) \otimes V_Q^*,
 \]
-and similarly for $\Tilde{Q}, \Tilde{P}$. 
+and similarly for the antiquark ${Q}^\dag$ and~${P}^\dag$. 
 
 \begin{prop}
-Consider the symmetry of the electric and magnetic theories $\cT_{\sfE / \sfM}(N_c,N_f)$ by the local Lie algebra of holomorphic vector fields described by Theorem \ref{thm:swsuco}. 
-There is an anomaly for this symmetry to exist at the quantum level and it is proportional to the local functional
+For either an electric theory $\cT_{\sfE}(F,N)$ or magnetic theory $\cT_{\sfM}(F,N)$,
+the symmetry by the local Lie algebra of holomorphic vector fields, described by Theorem~\ref{thm:swsuco}
+has an anomaly to exist at the quantum level. 
+It is proportional to the local functional
 \[
-\left(N_f - 3N_c\right) \frac12 \int \partial_{z_i} X_i \op{Tr} (\partial A \partial A)  .
+\left(F - 3N\right) \frac12 \int \partial_{z_i} X_i \op{Tr} (\partial A \, \partial A)  .
 \]
-where $X = X_i \partial_{z_i} \in \Omega^{0,\bu}(\CC^2, \T_{\CC^2}^{1,0})$ denotes a Dolbeault form valued vector field and $A$ is a gauge field.
+where $X = X_i \partial_{z_i} \in \Omega^{0,\bu}(\CC^2, \T_{\CC^2}^{1,0})$ denotes a Dolbeault form-valued vector field and $A$ is a gauge field.
+
+In particular, when $F = 3N$, the symmetry lifts to the quantum level.
 \end{prop}
 
-In particular, for the {\em same value} $N_f = 3 N_c$ both the electric and magnetic theories are endowed with an action by holomorphic vector fields at the quantum level. 
+\owen{I'm not clear how this intertwines with duality. It looks like the anomalies don't match?}
 
 \subsection{A second pass at holomorphic Seiberg duality, and its relations to Hori-Tong duality}
 
