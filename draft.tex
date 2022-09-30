@@ -2347,6 +2347,8 @@ S_{QCD} = \int B\, F^{0,2}_A + \int R \,\dbar_A Q + \int r \,\dbar_A q,
 \]
 where $\dbar_A = \dbar + A$ is the covariant $\dbar$-operator.
 \owen{Should we make explicit how we're using the evaluation pairing on fields and their ``conjugates''? Or do we explain that in our review of BF theories?}
+\brian{BTW, I think you've now switched from lower case $r,q$ for antiquarks to $R^\dag, Q^\dag$, is that right?
+}
 %We will denote this theory by $\cT(N,F)$.
 \footnote{Although this perturbative theory only depends on the Lie algebra of $G$, the group structure will be relevant when we discuss local operators and moduli of vacua.} 
 \end{dfn}
@@ -2362,7 +2364,7 @@ is a holomorphic QCD with $N$ colors and $F$ flavors along with {\em meson field
 \]
 The action functional is
 \[
-S_{QCDwM} = S_{QCD} + \int \nu \,\dbar \mu + \int \d^2 z \; W(Q, \Tilde{Q}, \mu) .
+S_{QCDwM} = S_{QCD} + \int \nu \,\dbar \mu + \int \d^2 z \; W(Q, Q^\dag, \mu) .
 \] 
 Notice that to write down the superpotential term we are utilizing the holomorphic volume form $\Omega_X = \d^2 z$. 
 \end{dfn}
@@ -2569,8 +2571,6 @@ where $X$ is a derived stack with a $G$-action and $[X/G]$ denotes the quotient 
 In studying questions about the classical vacua of supersymmetric field theories, however, physicists have not typically worked with the {\em stack}.
 Instead, they have worked with a GIT quotient.
 For instance, in the setting of a gauge theory with moduli stack of classical vacua $[V/G]$, it means they work with 
-\brian{I don't like this notation, its confusing since it looks like symplectic reduction which has already appeared. 
-What about $[V/G]$?} \owen{I'm happy to do that, but symplectic reduction is the GIT quotient.}
 \[
 V\Sslash G = \Spec(\cO(V)^G),
 \]
@@ -2661,7 +2661,7 @@ This relationship, which holds already for the supersymmetric theory before twis
 The proof boils down to checking that the mesons and the superpotential on the magnetic side ensure the isomorphism.
 
 \begin{rmk}
-In the physics literature this isomorphism is given by explicitly matching gauge-invariant functions, 
+In the literature this isomorphism is given by explicitly matching gauge-invariant functions, 
 which are often called mesons or baryons, 
 as they can be identified with the data that identifies such particles.
 These meson and baryons are precisely the usual generators of the ring of invariant functions, 
@@ -2685,7 +2685,6 @@ The antiquarks take values in $\Hom(\CC^N, \CC^F)$ and so have a canonical actio
 The action functional is invariant for this action, and thus $SL(F)$ acts naturally on the space of solutions to the equations of motion.
 This symmetry is known as {\em flavor} symmetry.
 The magnetic theory has an analogous flavor symmetry, where $SL(F)$ acts on the mesons by conjugation.
-\owen{Right?}
 
 %We fix some notation for the fields of the electric and magnetic theories. 
 %The `flavor' index will be denoted by letters $i,j=1,\ldots, N_f$. 
@@ -2705,23 +2704,16 @@ The magnetic theory has an analogous flavor symmetry, where $SL(F)$ acts on the 
 %
 %Holomorphic QCD enjoys a few familiar holomorphic symmetries in the style that we discussed in this note.
 
-For holomorphic QCD theories, the infinitesimal flavor symmetry by the Lie algebra $\sl(F)$ enhances to a symmetry for the infinite-dimensional dg Lie algebra $\Omega^{0,*}(\CC^2, \sl(F))$, 
+For holomorphic QCD theories, the infinitesimal flavor symmetry by the Lie algebra $\sl(F)$ enhances to a symmetry for the infinite-dimensional dg Lie algebra $\Omega^{0,\bu}(\CC^2, \sl(F))$, 
 which we call a $2$-dimensional holomorphic current algebra.
 It acts by wedging the forms and applying $\sl(F)$ to the relevant vector space, such as~$\Hom(\CC^F,\CC^N)$.
-
-%The holomorphic background field $\fa = (\fa_i^j) \in \Omega^{0,\bu}(\CC^2 , \sl(N_f))$ naturally couples to both the electric and magnetic theory in the following ways:
-%\[
-%I^F_\sfE = \int P_j \fa_i^j Q^i , \qquad I^F_\sfM = \int \Tilde{p}_j \sfa_j^i \Tilde{q}^j + \int L^k_j \sfa_i^j M^i_k . 
-%\]
-%
-%This determines a classical symmetry of both sides of the duality by the local Lie algebra $\Omega^{0,\bu}(\CC^2, \sl(N_f))$. 
-%In particular, the two state spaces form a module for the $S^3$-current algebra $\sfA_2 \otimes \sl(N_f)$ at the classical level.
+On local observables, the $S^3$-mode algebra $\lie{sl}(F) \otimes \sfA_2$ (which is the algebraic version of $\sl(F) \otimes \Omega^{0,\bu}(\CC^2 - 0)$) acts at the classical level.
 
 A natural question is whether this symmetry persists at the quantum level. 
 The answer is {\em yes}, but on both sides of the duality one must use a central extension of the current algebra as an $L_\infty$ algebra.
 The extension arises because the symmetry has an anomaly under quantization (on either side of the duality),
 and this anomaly is determined by an  invariant cubic polynomial $\theta_\sfE$, $\theta_\sfM$, respectively, on the Lie algebra~$\sl(F)$. 
-(In terms of Section \owen{cross ref}, these determine higher Kac--Moody algebras $\Hat{\sl(N_f)}_{2,\theta_{\sfE}}, \Hat{\sl(N_f)}_{2,\theta_{\sfM}}$ when studying the theories on the punctured space~$\CC^2 - \{0\}$.)
+(In terms of Section \owen{cross ref}, these determine higher Kac--Moody algebras $\Hat{\sl(N_f)}_{2,\theta_{\sfE}}, \Hat{\sl(N_f)}_{2,\theta_{\sfM}}$ when studying the theories on the punctured space~$\CC^2 - 0$.)
 
 \begin{prop}
 There is an anomaly at the quantum level for the holomorphic flavor symmetry action for both the electric and magnetic theories,
@@ -2729,7 +2721,7 @@ and they agree: they are labeled by the same cocycle
 \[
 \theta_\sfE = \theta_\sfM.
 \] 
-In particular, the state spaces $\sfV_\sfE, \sfV_\sfM$ are modules for the {\em same} $2$-dimensional higher Kac--Moody algebra $\Hat{\sl(N_f)}_{2,\theta}$.
+In particular, the local observables $\Obs_{\sfE} (0), \Obs_{\sfM} (0)$ are modules for the {\em same} $2$-dimensional higher Kac--Moody algebra $\Hat{\sl(F)}_{2,\theta}$ which is a central extension of the $S^3$-mode algebra $\sl(F) \otimes \sfA_2$.
 \end{prop}
 
 An analogous result holds for the flavor symmetry on the antiquarks. 
@@ -2737,7 +2729,7 @@ An analogous result holds for the flavor symmetry on the antiquarks.
 \begin{proof}[Sketch of proof]
 The argument boils down to an explicit presentation of anomalies using the Feynman diagrammatic analysis for holomorphic theories surveyed in Section~\ref{sec:renorm}. 
 For this calculation the gauge algebra $\sl(N)$ plays a minimal role. 
-The central extension is represented by a series of Feynman diagrams that are wheels with three vertices, each labeled by an element of the current algebra $\sfa \in \Omega^{0,*}(\CC^2, \sl(F))$, which we treat as a background gauge field.
+The central extension is represented by a series of Feynman diagrams that are wheels with three vertices, each labeled by an element of the current algebra $\sfa \in \Omega^{0,\bu}(\CC^2, \sl(F))$, which we treat as a background gauge field.
 In formulas, we couple the current algebra to both the electric and magnetic theory via interactions
 \[
 I^F_\sfE = \int (R, \sfa Q)  \qquad\text{and}\qquad I^F_\sfM = \int (\check{R}, \sfa \check{Q}) + \int (\check{\nu}, \sfa \check{\mu}),
@@ -2797,7 +2789,7 @@ this symmetry {\em enhances} to a symmetry by an infinite dimensional dg Lie alg
 \begin{thm}[\cite{SWsuco}] 
 \label{thm:swsuco}
 Consider the local Lie algebra $\Omega^{0,\bu}(\CC^2, \T^{1,0})$ that resolves the Lie algebra of {\em all} holomorphic vector fields on $\CC^2$. 
-This local Lie algebra is a classical symmetry of any holomorphic QCD theory. 
+This local Lie algebra is a classical symmetry of the holomorphic QCD theory (in particular, the holomorphic twist of any four-dimensional supersymmetric QCD). 
 \end{thm}
 
 We now ask when this classical symmetry persists at the quantum level. 
@@ -2810,7 +2802,7 @@ In particular, the Euler vector field $\Delta^{hol}$ acts diagonally in the natu
 On the gauge fields, this naive action is consistent with the one present in the untwisted theory. 
 For the matter fields, however, the action at the untwisted level is {\em not} compatible with this naive one. 
 The issue can be seen already just for the holomorphic Euler vector field.
-Naively, the field $Q = z_1^n z_2^m \otimes v \in \Omega^0 (\CC^2$ transforms like $\Delta^{hol}(Q) = (n+m) Q$;
+Naively, the field $Q = z_1^n z_2^m \otimes v$ transforms like $\Delta^{hol}(Q) = (n+m) Q$;
 but to be compatible with dimension scaling in the untwisted theory, one needs
 \[
 \Delta^{hol}(Q) = \left(n + m + \frac23\right) Q .
@@ -2824,7 +2816,7 @@ Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{1/3}) \otimes V_Q
 and
 \[ P \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{2/3}) \otimes V_Q^*,
 \]
-and similarly for the antiquark ${Q}^\dag$ and~${P}^\dag$. 
+and similarly for the antiquarks ${Q}^\dag$ and~${P}^\dag$. 
 
 \begin{prop}
 For either an electric theory $\cT_{\sfE}(F,N)$ or magnetic theory $\cT_{\sfM}(F,N)$,
@@ -2832,7 +2824,7 @@ the symmetry by the local Lie algebra of holomorphic vector fields, described by
 has an anomaly to exist at the quantum level. 
 It is proportional to the local functional
 \[
-\left(F - 3N\right) \frac12 \int \partial_{z_i} X_i \op{Tr} (\partial A \, \partial A)  .
+ \frac{F - 3N}{2} \int \partial_{z_i} X_i \op{Tr} (\partial A \, \partial A)  .
 \]
 where $X = X_i \partial_{z_i} \in \Omega^{0,\bu}(\CC^2, \T_{\CC^2}^{1,0})$ denotes a Dolbeault form-valued vector field and $A$ is a gauge field.
 
@@ -2840,6 +2832,13 @@ In particular, when $F = 3N$, the symmetry lifts to the quantum level.
 \end{prop}
 
 \owen{I'm not clear how this intertwines with duality. It looks like the anomalies don't match?}
+\brian{
+I'm not sure how to interpret this, so we may want to leave it out. 
+The thing I don't understand is what we can glean about `scale' at the level of the holomorphic twist. 
+I was hopeful about this computation since it's curious that this anomaly vanishes precisely at the upper bound of the `conformal window', but I'm not sure how to see the full window at the level of the twist. 
+Any thoughts?
+}
+
 
 \subsection{A second pass at holomorphic Seiberg duality, and its relations to Hori-Tong duality}
 
