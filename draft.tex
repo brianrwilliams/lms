@@ -2502,8 +2502,7 @@ There are then two further pieces of evidence when these quantum theories are ex
 and these can be matched under the duality. 
 For the classical holomorphic theories, these symmetries enhance to an action of holomorphic $\sl(F)$-valued functions on the quark and antiquark fields.
 Under quantization, these have isomorphic anomalies.
-\item[(3)] There are {\em spacetime} symmetries that act on each theory, notably isometries, 
-and on the classical holomorphic theories, these enhance to an action of holomorphic vector fields. Under quantization, these have isomorphic anomalies.
+\item[(3)] There are {\em spacetime} symmetries that act on each theory, notably isometries, and these can be matched under duality.
 \end{enumerate}
 This triple of evidence is analogous (and sometimes stronger) than results for Seiberg duality for SQCD. 
 We now turn to fleshing out these assertions.
@@ -2765,8 +2764,9 @@ we see that the sum of these two terms agrees with \eqref{eqn:electricflavor} on
 \subsubsection{Twisted superconformal symmetry}
 
 In the original version of Seiberg duality, there are certain values of $F$ and $N$ where the dual theories flow to the same superconformal fixed point in the infrared limit. 
-These values are known as the ``superconformal window'',
-and we will explore how it appears from the point of view of holomorphic QCD. 
+This range of values $F/3 < N < 2F/3$ is known as the ``superconformal window''
+(note that it is preserved under swapping $N \leftrightarrow F-N$).
+Here we will explore how it appears from the point of view of holomorphic QCD. 
 
 Consider the (complexified) 4-dimensional $\cN=1$ superconformal algebra $\sl(4|1)$.
 This super Lie algebra is the defining symmetry of a 4-dimensional $\cN=1$ superconformal field theory. 
@@ -2781,35 +2781,24 @@ In \cite{SWsuco} the second author and Saberi show that there is a quasi-isomorp
 \]
 Thus, if one starts with a superconformal theory, the Lie algebra $\sl(3)$ will act on the holomorphically twisted theory.  
 In this sense, $\sl(3)$ is the residual superconformal symmetry of this twist. 
-Inside of this twisted algebra $\sl(3)$, we have the ``holomorphic scaling'' operator $\Delta^{hol} = \sum_i z_i \partial_{z_i}$, which is simply the holomorphic Euler vector field.  
-In fact, the entire algebra $\sl(3)$ naturally embeds inside of the Lie algebra of holomorphic vector fields on $\CC^2$,
+The entire algebra $\sl(3)$ naturally embeds inside of the Lie algebra of holomorphic vector fields on $\CC^2$,
 where we view $\CC^2$ as an open subset of $\CC \PP^2$ as an ${\rm SL}(3)$-homogenous space.
-In the holomorphic twist as a classical theory, 
-this symmetry {\em enhances} to a symmetry by an infinite dimensional dg Lie algebra. 
+(In a moment we will discuss how all holomorphic vector fields act on the theories.)
 
-\begin{thm}[\cite{SWsuco}] 
-\label{thm:swsuco}
-Consider the local Lie algebra $\Omega^{0,\bu}(\CC^2, \T^{1,0})$ that resolves the Lie algebra of {\em all} holomorphic vector fields on $\CC^2$. 
-This local Lie algebra is a classical symmetry of the holomorphic QCD theory (in particular, the holomorphic twist of any four-dimensional supersymmetric QCD). 
-\end{thm}
-
-We now ask when this classical symmetry persists at the quantum level. 
-
-Consider first the electric theory. 
-Naively, the symmetry of holomorphic vector fields is obvious: all fields are described in terms of a Dolbeault complex resolving trivial holomorphic vector bundles of various ranks. 
-Therefore, holomorphic vector fields act naturally by Lie derivative everywhere. 
-In particular, the Euler vector field $\Delta^{hol}$ acts diagonally in the natural way. 
-
-On the gauge fields, this naive action is consistent with the one present in the untwisted theory. 
-For the matter fields, however, the action at the untwisted level is {\em not} compatible with this naive one. 
-The issue can be seen already just for the holomorphic Euler vector field.
-Naively, the field $Q = z_1^n z_2^m \otimes v$ transforms like $\Delta^{hol}(Q) = (n+m) Q$;
-but to be compatible with dimension scaling in the untwisted theory, one needs
+Inside of this twisted algebra $\sl(3)$, we have the ``holomorphic scaling'' operator $\Delta^{\rm hol} = \sum_i z_i \partial_{z_i}$, which is simply the holomorphic Euler vector field.  
+We focus on this scaling operator as it is closely related to questions of renormalization group flow in the original, untwisted theory.
+Consider the electric theory. 
+On the gauge fields, $\Delta^{\rm hol}$ acts by the Lie derivative,
+but on matter fields, the action via Lie derivative is {\em not} what one obtains from the untwisted theory.
+Given a quark field $Q = z_1^n z_2^m \otimes v$, 
+one needs
 \[
-\Delta^{hol}(Q) = \left(n + m + \frac23\right) Q .
+\Delta^{hol}(Q) = \left(n + m + \frac23\right) Q 
 \]
-What this constraint means is that, as a representation for holomorphic vector fields, the quark fields $Q$, $R$ take values in some interesting line bundle and not in the trivial vector bundle.  
-In fact, if one keeps track of the appropriate {\em twisting homomorphism} in the style of \cite{WittenTwist}, 
+to be compatible with dimension scaling in the untwisted theory.
+What this constraint means is that, as a representation for holomorphic vector fields, 
+the quark fields $Q$, $R$ take values in some interesting holomorphic vector bundle and not in the trivial vector bundle.  
+In fact, if one keeps track of the appropriate {\em twisting homomorphism} in the style of~\cite{WittenTwist}, 
 one finds that the quark fields are
 \[
 Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{1/3}) \otimes V_Q 
@@ -2817,31 +2806,55 @@ Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{1/3}) \otimes V_Q
 and
 \[ P \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{2/3}) \otimes V_Q^*,
 \]
-and similarly for the antiquarks ${Q}^\dag$ and~${P}^\dag$. 
+where $K$ denotes the canonical bundle.
+(The antiquarks ${Q}^\dag$ and~${P}^\dag$ live in a similar twisted bundle.) 
+\owen{Maybe we should discuss what this means for globalization: we need the canonical bundle to have cube roots!}
+
+This action of $\sl(3)$ extends to the quantizations, on both sides of the putative duality, by direct verification.
+In fact it holds for all holomorphic QCD theories, not just those in the superconformal window.
+
+\begin{lmm}
+The action of $\sl(3)$ on $\cT_{\sfE}(F,N)$ and $\cT_{\sfM}(F,\check{N})$ extends to their quantizations.
+\end{lmm}
+
+In the holomorphic twist as a classical theory,
+this $\sl(3)$-symmetry {\em enhances} to a symmetry by an infinite dimensional dg Lie algebra.
+In fact, this enhancement also works for all holomorphic QCD theories, not just those in the superconformal window.
+\owen{Am I understanding that correctly?}
+
+\begin{thm}[\cite{SWsuco}] 
+\label{thm:swsuco}
+Consider the local Lie algebra $\Omega^{0,\bu}(\CC^2, \T^{1,0})$ that resolves the Lie algebra of {\em all} holomorphic vector fields on $\CC^2$. 
+This local Lie algebra is a classical symmetry of {\em any} holomorphic QCD theory. 
+\end{thm}
+
+We now ask when this classical symmetry persists at the quantum level, and an interesting anomaly emerges.
 
 \begin{prop}
-For either an electric theory $\cT_{\sfE}(F,N)$ or magnetic theory $\cT_{\sfM}(F,N)$,
+For an electric theory $\cT_{\sfE}(F,N)$,
 the symmetry by the local Lie algebra of holomorphic vector fields, described by Theorem~\ref{thm:swsuco}
-has an anomaly to exist at the quantum level. 
+has an anomaly to lift to the quantum level. 
 It is proportional to the local functional
 \[
- \frac{F - 3N}{2} \int \partial_{z_i} X_i \op{Tr} (\partial A \, \partial A)  .
+\frac{F - 3N}{2} \int {\rm div}(X) \op{Tr} (\partial A \, \partial A)  .
 \]
 where $X = X_i \partial_{z_i} \in \Omega^{0,\bu}(\CC^2, \T_{\CC^2}^{1,0})$ denotes a Dolbeault form-valued vector field and $A$ is a gauge field.
-
-In particular, when $F = 3N$, the symmetry lifts to the quantum level.
 \end{prop}
 
-\owen{I'm not clear how this intertwines with duality. It looks like the anomalies don't match?}
-\brian{
-I'm not sure how to interpret this, so we may want to leave it out. 
-The thing I don't understand is what we can glean about `scale' at the level of the holomorphic twist. 
-I was hopeful about this computation since it's curious that this anomaly vanishes precisely at the upper bound of the `conformal window', but I'm not sure how to see the full window at the level of the twist. 
-Any thoughts?
-}
+The first factor ${\rm div}(X)$ denotes the divergence $\sum_i\partial_{z_i} X_i$ of the vector field~$X$.
+We thus deduce the following.
 
+\begin{cor}
+Only when $F = 3N$ do all holomorphic vector fields lift to a symmetry lifts at the quantum level.
+There is, however, a symmetry of {\em divergence-free} holomorphic vector fields at the quantum level for any values of $F$ and~$N$.
+\end{cor}
+
+We will discuss how these enhanced symmetries might intertwine with duality below.
 
 \subsection{A second pass at holomorphic Seiberg duality, and its relations to Hori-Tong duality}
+
+\owen{Add section with conjecture about local spacetime symmetry and its quantization}
+and on the classical holomorphic theories, these enhance to an action of holomorphic vector fields. Under quantization, these have isomorphic anomalies.
 
 ******** Discussion about quantization **********
 
