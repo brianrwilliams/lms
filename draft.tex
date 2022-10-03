@@ -2764,8 +2764,8 @@ we see that the sum of these two terms agrees with \eqref{eqn:electricflavor} on
 \subsubsection{Twisted superconformal symmetry}
 
 In the original version of Seiberg duality, there are certain values of $F$ and $N$ where the dual theories flow to the same superconformal fixed point in the infrared limit. 
-This range of values $F/3 < N < 2F/3$ is known as the ``superconformal window''
-(note that it is preserved under swapping $N \leftrightarrow F-N$).
+This range of values $F/3 < N < 2F/3$ is known as the ``superconformal window.''
+(Note that it is preserved under swapping $N \leftrightarrow F-N$.)
 Here we will explore how it appears from the point of view of holomorphic QCD. 
 
 Consider the (complexified) 4-dimensional $\cN=1$ superconformal algebra $\sl(4|1)$.
@@ -2851,50 +2851,82 @@ There is, however, a symmetry of {\em divergence-free} holomorphic vector fields
 
 We will discuss how these enhanced symmetries might intertwine with duality below.
 
-\subsection{A second pass at holomorphic Seiberg duality, and its relations to Hori-Tong duality}
+\owen{Should we check that the quantum magnetic theory also has a divergence-free symmetry?}
 
-\owen{Add section with conjecture about local spacetime symmetry and its quantization}
-and on the classical holomorphic theories, these enhance to an action of holomorphic vector fields. Under quantization, these have isomorphic anomalies.
+\subsection{A relation to Hori-Tong duality}
 
+A beautiful maneuver of physics is compactification, where one takes a field theory $\cT$ in $n$ dimensions and produces a field theory $\cT_N$ in $k$ dimensions by studying $\cT$ on manifolds of the form $N \times \Sigma$, where $\Sigma$ is $k$-dimensional.
+A close cousin is dimensional reduction, where one restricts to solutions of the classical field theory that are constant along $N$.
+We have already worked with a factorization algebra version of these maneuvers: 
+pushing forward along the map $\rho: \C^\times \times \CC^\times \to \RR_{>0} \times \RR_{>0}$ that sends $(z_1,z_2)$ to $(|z_1|, |z_2|)$.
+For a holomorphic factorization algebra $\cF$, the pushforward $\rho_* \cF$ is locally constant on $\RR_{\geq 0}^2 \cong \RR^2$, and hence it encodes an $E_2$-algebra.
+We now apply this result in the context of holomorphic QCD and see what Seiberg duality would mean.
+
+\begin{lmm}
+For a holomorphic QCD theory, this compactification is a Landau-Ginzburg B-model for \owen{finish! would it be easier just to spell out what happens to matter, gauge, and the QCD?}
+\end{lmm}
+
+Holomorphic Seiberg duality then predicts an equivalence of two-dimensional topological field theories,
+or at least of $E_2$-algebras.
+
+\begin{conj}
+\owen{Unpack in some detail.}
+\end{conj}
+
+This conjecture is essentially due to Hori and Tong. \owen{Add some history, cite some references.}
+
+\subsection{A second pass at holomorphic Seiberg duality}
+
+In our attempts above to explore (and test) Eager's conjecture, we developed insights and highlighted issues that help to refine it.
+ 
 ******** Discussion about quantization **********
 
 
 On the other hand, there is an open locus where the moduli stacks are equivalent:
-the semi-stable points of $[V/G]$ \owen{fix description, as it's possibly just the stable locus}.
+the semi-stable points of the moduli stacks $\cM_{\rm vac}$ \owen{fix description, as it's possibly just the stable locus or (weakly) stable locus}.
 This locus determines the space $V\Sslash G$ and hence we have the isomorphism desired.
 Let us try to unravel what this equivalence means for the field theories, both classical and quantum.
 
-Consider any semistable point $x$ in $[V/G]s$.
+Consider any semistable point $x$.
 We view $x$ as a vacuum, which thus labels a perturbative classical theory describing the behavior of the theory $\cT$ near $x$ in the space of fields. 
-For the vacuum $x$, the perturbative theory is equivalent to a holomorphic $\sigma$-model into the tangent space $T_x (V//G)$ \owen{Elaborate}. 
+For the vacuum $x$, the perturbative theory is equivalent to a holomorphic $\sigma$-model into the tangent space $T_x \cM_{\rm vac}$ \owen{Elaborate: more accurately, it's into the formal neighborhood}. 
 Hence the isomorphism of moduli spaces assures us there is a dual vacuum $x_D$ to $x$ in the dual theory, and its perturbative theory is equivalent to the perturbative theory for $x$
 because there is an explicit identification of the tangent space to the corresponding point in the moduli space of the dual theory.
 Thanks to this identification, a quantization of the theory labelled by $x$ determines a quantization of the theory labelled by $x_D$.
-Hence on the semistable locus of $[V/G]$, we can guarantee an equivalence of quantizations.
+Hence on the semistable locus of $\cM_{\rm vac}$, we can guarantee an equivalence of quantizations.
 
-This identification breaks down on the unstable locus, raising the following question.
-
-{\bf Question:}
+This identification breaks down on the unstable locus, raising the following question:
+\begin{quote}
 At the quantum level, what happens on the unstable locus? 
-
+\end{quote}
+Each unstable point labels a theory with a nonabelian gauge group (``enhanced gauge symmetry''),
+and hence its quantization is more involved that at a semistable point and depends nontrivially the gauge group.
 
 In a related vein, we want to know what correspondence of quantum factorization algebras we expect from Seiberg duality. 
-The mismatch for the moduli stack of classical vacua must be fixed somehow.
+The mismatch between the moduli stack of classical vacua makes it seem highly unlikely that we obtain an equivalence after quantization.
 
 We note that in the physics literature, there are a number of modifications that are explored in this setting.
 For instance, there are ``instanton corrections'' that cannot be found by perturbative techniques, although they can be treated in a mathematically precise way. 
 \owen{Mention others? RG flow, symmetry breaking, ...}
 It is interesting to wonder how these would appear in the holomorphic setting.
 
-\owen{Other things: affinization as polydiscs algebras, comparison with mirror symmetry (note A-model involves instanton corrections)}
-
-
+\owen{Other things: affinization as polydiscs algebras}
 
 * Explain that you get a sheaf of polydiscs algebras over the moduli stack. We can view this as presenting a ``quantization of the moduli stack'' $\cM_{vac}^{\rm q}$ There is thus an ``affinization'' of the quantum moduli stack.
 
-Conjecture: There is an equivalence of affinizations of the quantum moduli stacks for Seiberg dual theories.
+\begin{conj}
+There is an equivalence of affinizations of the quantum moduli stacks for Seiberg dual theories.
+That is, the quantum moduli spaces are isomorphic.
+\end{conj}
 
-This process probably looks away from the unstable locus in the same way that the classical part does. 
+This process probably ``looks away'' from the unstable locus in much the way that it does at the classical level,
+which provided our identification of moduli spaces of classical vacua. 
+
+*********** Discuss enhanced spacetime symmetries ****************
+
+\owen{Add section with conjecture about local spacetime symmetry and its quantization}
+and on the classical holomorphic theories, these enhance to an action of holomorphic vector fields. Under quantization, these have isomorphic anomalies.
+
 
 
 \end{document}
