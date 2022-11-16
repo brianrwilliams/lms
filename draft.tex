@@ -2472,7 +2472,7 @@ how do physical results about supersymmetric gauge theories behave under twistin
 We have found, so far, that these results often admit clean mathematical formulations and that the holomorphic (or topological) twists involve constructions of natural interest in geometry and representation theory.
 In \cite{EGW} we and Chris Elliott explored twists of $\cN=4$ supersymmetric Yang--Mills theory,
 provided their quantizations, and began analyzing their factorization algebras.
-Following Eager, we can ask about the twisted versions of S-duality and how to provide those conjectured equivalences.
+Following Eager, one might can ask about the twisted versions of S-duality and how to provide those conjectured equivalences.
 \owen{This should be rephrased, and we should mention more people, like Philsang and Surya. We can mention pre-S-duality things (like our work and the EY stuff) and S-duality stuff.}
 
 \begin{rmk}
@@ -2575,6 +2575,8 @@ V\Sslash G = \Spec(\cO(V)^G),
 \]
 the scheme whose ring of functions are the $G$-invariant functions on the representation~$V$.
 This affine scheme is known as the {\em affinization} of the stack $V/G$, as it is the best affine approximation to the stack (i.e., apply the left adjoint to the inclusion of affine schemes among stacks).
+It might be seen as parametrizing ``states'' rather than solutions, 
+as it is defined via functions on the solutions (see Remark~\ref{sols vs states} for more).
 We will call this GIT quotient the moduli {\em space} of classical vacua and denote it by~$M_{\rm vac}(\cT)$.
 (Note that the font of M changes between stack and space.)
 
@@ -2602,7 +2604,7 @@ The canonical map here records the characteristic polynomial of a matrix and hen
 In other words, the canonical map collapses together Jordan blocks with the same diagonal entries.
 For this reason, it loses details about the classical vacua remembered by the stack quotient.
 
-\begin{rmk}
+\begin{rmk}\label{sols vs states}
 The physicists' focus on the moduli space is not unreasonable:
 one must make measurements --- i.e., evaluate functions --- to identify the state of a physical system.
 The moduli space captures what can be seen by measurements (notably here, the ``vacuum expectation values'' of different vacua).
@@ -2617,7 +2619,7 @@ For instance, it remembers ``enhanced symmetries'' (such as the residual gauge f
 For the holomorphic QCD theory with $F$ flavors and $N$ colors (without mesons), 
 the moduli stack of classical vacua is 
 \[
-\cM_{\rm vac}(F,N) \cong T^*[1] \left(V_Q \oplus V_Q^*/SL(N)\right).
+\cM_{\rm vac}(\cT_{\sfE}(F,N)) \cong T^*[1] \left(V_Q \times V_Q^*/SL(N)\right).
 \]
 By contrast the moduli space $M_{\rm vac}$ is a variety already well-studied in classical algebraic geometry.
 Before we describe the full space, let's examine a simpler case involving just the quarks.
@@ -2629,33 +2631,36 @@ and it is a classic result of invariant theory that
 where ${\rm Gr}(F, N)$ denotes the Grassmannian of $N$-planes in $\CC^F$ and the hat indicates we take the affine cone with respect to this standard Pl\"ucker embedding.
 For the full problem, we have both quarks and antiquarks, so
 \begin{align*}
-M_{\rm vac}(F,N) 
-&\cong V_Q \oplus V_Q^*\Sslash SL(N) \\
-&= \Hom(\CC^F, \CC^N) \oplus \Hom(\CC^N, \CC^F)\Sslash SL(N),
+M_{\rm vac}(\cT_{\sfE}(F,N)) 
+&\cong V_Q \times V_Q^*\Sslash SL(N) \\
+&= \Hom(\CC^F, \CC^N) \times \Hom(\CC^N, \CC^F)\Sslash SL(N),
 \end{align*}
 whose ring of functions is also computed by the fundamental theorems of invariant theory.
 Those theorems tell us that the GIT quotient is a closed conical subvariety
 \[
-M_{\rm vac}(F,N)  \hookrightarrow \Lambda^N \CC^F \times \Lambda^N (\CC^F)^* \times \End(\CC^F)
+M_{\rm vac}(\cT_{\sfE}(F,N))  \hookrightarrow \Lambda^N \CC^F \times \Lambda^N (\CC^F)^* \times \End(\CC^F)
 \]
 where a pair of matrices $(X,Y) \in \Hom(\CC^F, \CC^N) \times \Hom(\CC^N, \CC^F)$ goes to $(\Lambda^N X, \Lambda^N Y, YX)$, with $\Lambda^N X$ denoting the wedge product of the rows of $X$ (and of columns for $Y$).
 The image thus satisfies both sets of Pl\"ucker relations, the condition that the composite $YX$ has rank at most $N$, and some further relations, given by the Second Fundamental Theorem, such as that the pairing of $\Lambda^N X$ and $\Lambda^N Y$ can be related to $\Lambda^N (YX)$.
 (See Chapter 2, Section C of \cite{Weyl}.)
 In other words, we have a closed subvariety
 \[
-M_{\rm vac}(F,N) \hookrightarrow \widehat{{\rm Gr}(F, N)} \times \widehat{{\rm Gr}(F, N)} \times {\rm R}(F,N)
+M_{\rm vac}(\cT_{\sfE}(F,N)) \hookrightarrow \widehat{{\rm Gr}(F, N)} \times \widehat{{\rm Gr}(F, N)} \times {\rm R}(F,N)
 \]
 with ${\rm R}(F,N) \subset \End(\CC^F)$ the matrices with rank bounded above by~$N$.
 The moduli space for the magnetic theory is a bit more complicated but follows from classical invariant theory as well.
 
 Note that $\check{N} = F-N$, so $\widehat{{\rm Gr}(F, N)} \cong \widehat{{\rm Gr}(F, \check{N})}$,
 but ${\rm R}(F,N)$ is not isomorphic to ${\rm R}(F,\check{N})$ except when $N = \check{N}$.
-Hence one should not be optimistic that $M_{\rm vac}(F,N) \cong M_{\rm vac}(F,\check{N})$.
+Hence one should not be optimistic that $M_{\rm vac}(\cT_{\sfE}(F,N)) \cong M_{\rm vac}(\cT_{\sfE}(F,N))$.
 To ``fix'' this issue, one might try to slightly modify the dual side, which Seiberg did by adding the meson fields.
 Hence the following holds.
 
 \begin{prop}
-Seiberg dual theories have isomorphic moduli spaces.
+Seiberg dual theories have isomorphic moduli spaces:
+\[
+M_{\rm vac}(\cT_{\sfE}(F,N)) \cong M_{\rm vac}(\cT_{\sfM}(F,\check{N})).
+\]
 \end{prop}
 
 This relationship, which holds already for the supersymmetric theory before twisting, was one of the original pieces of evidence offered by Seiberg for his duality.
@@ -2885,20 +2890,31 @@ In our attempts above to explore (and test) Eager's conjecture, we developed ins
 
 We saw that the moduli stacks of classical vacua are not equivalent, due to points with interesting stabilizers.
 On the other hand, there is an open locus where the moduli stacks are equivalent:
-the semi-stable points of the moduli stacks $\cM_{\rm vac}$ \owen{fix description, as it's possibly just the stable locus or (weakly) stable locus}.
-This locus determines the GIT quotients and hence explains the isomorphism we saw on the moduli spaces.
+the semi-stable points of each moduli stack $\cM_{\rm vac}(\cT_{\sfE}(F,N))$ and $\cM_{\rm vac}(\cT_{\sfM}(F,\check{N}))$ \owen{fix description, as it's possibly just the stable locus or (weakly) stable locus}.
+This locus agrees with a dense open subset of the GIT quotient, 
+and the isomorphism of the moduli spaces determines an isomorphism between the stable locus of each stack.
 Let us try to unravel what this equivalence means for the field theories, both classical and quantum.
 
-Consider any semistable point $x$.
+Consider any semistable point $x$ in $\cM_{\rm vac}(\cT)$ for some holomorphic QCD theory.
 We view $x$ as a vacuum, which thus labels a perturbative classical theory describing the behavior of the theory $\cT$ near $x$ in the space of fields. 
 For the vacuum $x$, the perturbative theory is equivalent to a holomorphic $\sigma$-model into the formal neighborhood of $x$ inside the moduli stack of vacua. 
-The isomorphism of moduli spaces ensures that there is a dual vacuum $x_D$ to $x$ in the dual theory, and its perturbative theory is equivalent to the perturbative theory for $x$,
+We can assemble these perturbative theories into a curved curved $\beta\gamma$ system from $\CC^2$ into~$\cM_{\rm vac}^{ss}$.
+
+\begin{prop}
+The semistable locus $\cM_{\rm vac}^{ss}(\cT)$ of the the moduli stack $\cM_{\rm vac}(\cT)$ parametrizes a family of holomorphic field theories on $\CC^2$, 
+and this family is isomorphic to the curved $\beta\gamma$ system from $\CC^2$ into~$\cM_{\rm vac}^{ss}(\cT)$.
+\end{prop}
+
+The isomorphism of moduli spaces then ensures that there is a dual vacuum $x_D$ to $x$ in the dual theory, and its perturbative theory is equivalent to the perturbative theory for $x$,
 because there is an explicit identification of the formal neighborhood of $x$ with the formal neighborhood of $x_D$. 
 Thanks to this identification, a quantization of the theory labelled by $x$ determines a quantization of the theory labelled by $x_D$.
 Hence on the semistable locus of $\cM_{\rm vac}$, we can guarantee an equivalence of quantizations.
 
 \begin{prop}
-The isomorphism between the semi-stable locus of the two moduli stacks determines an isomorphism between quantizations over those loci.
+The semistable locus $\cM_{\rm vac}^{ss}$ of the the moduli stack $\cM_{\rm vac}$ parametrizes a family of holomorphic field theories on $\CC^2$, 
+and this family is isomorphic to the curved $\beta\gamma$ system from $\CC^2$ into~$\cM_{\rm vac}^{ss}$.
+
+The isomorphism between the semistable loci of the two moduli stacks determines an isomorphism between quantizations over those loci.
 \end{prop}
 
 This identification breaks down on the unstable locus, raising the following question:
@@ -2920,9 +2936,9 @@ and we hope the spaces are isomorphic.
 We sketch the idea as follows.
 
 \begin{dfn}
-For a holomorphic QCD theory let $\cM^q_{\rm vac}(F,N)$ denote the stack $\cM_{\rm vac}(F,N)$ equipped with a sheaf of factorization algebras on $\CC^2$.
+For a holomorphic QCD theory let $\cM^q_{\rm vac}(F,N)$ denote the stack $\cM_{\rm vac}(F,N)$ equipped with a sheaf with values in factorization algebras on $\CC^2$.
 The value at a solution $x$ is a quantization of the observables for the classical perturbative theory labeled by~$x$.
-(One could focus, for simplicity, on the sheaf of polydiscs algebras.)
+(One could focus, for simplicity, on the sheaf with values in polydiscs algebras.)
 
 Let $M^q_{\rm vac}(F,N)$ denote the global sections over $\cM_{\rm vac}(F,N)$ of this sheaf. 
 It is a factorization algebra on~$\CC^2$.
@@ -2947,8 +2963,7 @@ We note that in the physics literature, there are a number of issues that are re
 For instance, there are ``instanton corrections'' that cannot be found by perturbative techniques, although they can be treated in a mathematically precise way. 
 It is interesting to wonder how these would appear in the holomorphic setting.
 
-
-*********** Discuss enhanced spacetime symmetries ****************
+\subsubsection{Enhanced spacetime symmetries}
 
 \owen{Add section with conjecture about local spacetime symmetry and its quantization}
 and on the classical holomorphic theories, these enhance to an action of holomorphic vector fields. Under quantization, these have isomorphic anomalies.
