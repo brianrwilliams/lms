@@ -1361,6 +1361,37 @@ guarantees that we have
 
 \owen{I think I should swap the location of $a$ and $b$ to match VOA conventions. I want to explain that taking the extremal radii means we cannot compose, which leads to the complicated VOA formulas.}
 
+\subsubsection{Examples related to vertex algebras} 
+
+We have just recalled that in the complex dimension one case, holomorphic  polydiscs algebras (with a compatible $U(1)$ action) correspond to vertex algebras.
+Let us briefly point out a few examples of this correspondence.
+
+Given a Lie algebra $\lie{g}$ we obtain a one-dimensional holomorphic disc algebra $A_{\lie{g}}$ by the following construction. 
+To a disk $D_r(z)$ of radius $r$ centered at $z \in \CC$ we attach the cochain complex
+\beqn
+A_{\lie{g}} (D_r(z)) = C_\bu \left(\lie{g} \otimes \Omega^{0,\bu}_c(D_r(z)) \right) 
+\eeqn
+Here, $\Omega^{0,\bu}_c(D_r(z))$ denotes the Dolbeault complex of compactly supported $(0,\bu)$ forms on the disc.
+Because the space of $(0,\bu)$ forms define a commutative dg algebra, 
+the complex $\lie{g} \otimes \Omega^{0,\bu}_c(D_r(z))$ has the natural structure of a dg Lie algebra---the complex on the right hand side is the Chevalley--Eilenberg complex which computes the Lie algebra homology of this dg Lie algebra.
+Using the formalism of factorization algebras (which we recall in the next section) it is shown in \cite{CG2} how to equip $A_{\lie{g}}$ with the structure of a holomorphic disc algebra.
+The corresponding vertex algebra is the Kac--Moody vertex algebra of $\fg$ at level zero. 
+To obtain the vertex algebra associated to a nonzero level $\kappa$ one can deform this holomorphic polydisc algebra $A_{\fg} \rightsquigarrow A_{\fg, \kappa}$.
+
+Let $V$ be a vector space.
+Then, we can define a holomorphic disc algebra $A_V$ which corresponds to another familiar vertex algebra: the $\beta\gamma$ system with values in~$V$.
+To a disc $D = D_r(z)$ this assigns the following cochain complex
+\beqn
+\Sym \left(\Omega^{1,\bu}_c(D) \otimes V^* [1] \oplus \Omega^{0,\bu}_c (D) \otimes V [1]\right) 
+\eeqn
+where the differential is $\dbar + \triangle$ which we will explain momentarily. 
+We denote the linear generators of this symmetric algebra by $\gamma \in \Omega^{1,\bu}_c(D) \otimes V^* [1]$ and $\beta \in \Omega^{0,\bu}_c(D) \otimes V^* [1]$.
+Now, for the differential, $\dbar$ is the familiar operator (which acts in the standard way on $(0,\bu)$ and $(1,\bu)$ forms) and $\triangle$ can be defined on $\Sym^2$ summand by the formula
+\beqn
+\triangle (\gamma \cdot \beta) = \int_D \<\gamma, \beta\> . 
+\eeqn
+The operator can be extended to the entire complex $A_V(D)$ by the rule that it is a BV operator for the $1$-shifted Poisson bracket given by wedge and integration.
+
 \subsubsection{Revisiting the higher Kac-Moody algebras}
 
 \owen{I want to mention here that we have a polydisc version}
@@ -1915,8 +1946,10 @@ Those books use the Batalin-Vilkovisky (BV) formalism for quantization, a homolo
 The observables of a classical field theory on $M$ form a factorization algebra $\Obs^{cl}$ that assigns to every open set, a 1-shifted Poisson algebra (i.e., a commutative dg algebra equipped with a Poisson bracket of cohomological degree one). A BV quantization of this theory yields a factorization algebra $\Obs^q$ that is a flat deformation of $\Obs^{cl}$ over~$\RR[[\hbar]]$.
 \end{thm}
 
-This theorem provides an elegant interpretation of BV quantization as a kind of deformation quantization. In the setting of mechanics (or one-dimensional field theory, since a particle has a worldline), deformation quantization explains the transition from classical to quantum as deforming the observables from a Poisson algebra to an associative algebra. 
+This theorem provides an elegant interpretation of BV quantization as a kind of deformation quantization. 
+In the setting of mechanics (or one-dimensional field theory, since a particle has a worldline), deformation quantization explains the transition from classical to quantum as deforming the observables from a Poisson algebra to an associative algebra. 
 This theorem allows one to interpret quantization of field theories---on manifolds of arbitrary dimension---as a deformation quantization from a 1-shifted Poisson factorization algebra to a plain factorization algebra. 
+In fact, in \cite{GLL,Si Kai and Zhengping} it is shown how BV quantization for one-dimensional quantum field theories connects with the ordinary theory of deformation quantization. 
 
 This theorem is also a key connection between field theories and higher algebras.
 \owen{I feel like I should say a little more, but not a lot more. I've commented out some old versions of this.}
