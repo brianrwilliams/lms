@@ -1467,9 +1467,9 @@ In Section~\ref{???} we will examine another relationship --- generalizing the c
 \section{Factorization algebras and holomorphic field theories}
 \label{prefactorization_algebras}
 
-\owen{Much of what's below is borrowed and scarcely modified from the books, so we probably should do more revision so it's not plagiarism!}
+\owen{Some of what's below is borrowed and scarcely modified from the books, so we probably should do more revision so it's not plagiarism!}
 
-\owen{We can cut this sharply now. My main concerns are (1) to mention working on arbitrary complex manifolds and not just $\CC^d$, (2) to mention Beilinson-Drinfeld's approach, and (3) to explain chiralization/reduction for $d > 1$.}
+\owen{My main concerns are (1) to mention working on arbitrary complex manifolds and not just $\CC^d$, (2) to mention Beilinson-Drinfeld's approach, and (3) to explain chiralization/reduction for $d > 1$.}
 
 A key idea for us is that much of the content in field theories --- both classical and quantum --- is captured by factorization algebras.
 We will introduce that concept now, in the style that sheaves are defined, so first we describe {\em pre}\/factorization algebras and then impose a local-to-global condition to characterize factorization algebras.
@@ -1653,6 +1653,15 @@ There is another, more sophisticated way to phrase prefactorization algebras, us
 Associated to each topological space $M$, there is a colored operad $\Disj_M$ such that a prefactorization algebra is an algebra over~$\Disj_M$.
 For a discussion, see Chapter 3 of~\cite{CG1};
 related ideas are developed in~\cite{AF, LurieHA, Ginot}.
+
+\begin{rmk}
+The reader fond of higher abstract nonsense will note that we could have factorization algebras take values in other target categories (better, $\infty$-categories),
+not just vector spaces or cochain complexes.
+For instance, one might assign an $\infty$-category to each open set.
+This generalization is fruitful.
+In the Beilinson-Drinfeld style, it leads to chiral categories, which play an increasingly central role in the geometric Langlands program.
+In the style advocated above, it would likewise be useful for capturing notions like defects or extended operators from quantum field theory.
+\end{rmk}
 
 %\subsection{Prefactorization algebras as algebras over an operad}
 %\label{sec:disj}
@@ -2066,6 +2075,8 @@ but these connections with functorial TFTs raise the question of producing funct
 
 \subsection{Examples of holomorphic factorization algebras}
 
+\owen{Somewhere we should mention Henriques' work connecting factorization algebras with conformal nets,
+Daniel Bruegmann's thesis, and how the web of 2d CFT stuff should fit together.}
 
 
 \subsection{Toric (KK) reduction vs. chiralization}
@@ -2295,37 +2306,24 @@ The twisted vector multiplet defines a field theory on any complex surface $X$ o
 It will be convenient for us to assume that $X$ is equipped with a holomorphic volume form that we denote by $\Omega_X$. 
 A solution encodes a holomorphic $G_\CC$-bundle $\cP \to X$ (by picking out a $\dbar$-connection on the underlying smooth bundle) and a holomorphic section of the adjoint bundle $\mathrm{ad}(\cP) \to X$.
 The moduli space can be expressed as the mapping space ${\rm Map}(X, T^*[1]BG_{\CC})$, as a derived stack.
+(Note that $T^*[1]BG_{\CC}$ is the coadjoint quotient stack $[\fg_\CC^*/G_{\CC}]$.)
 
 \def\Sslash{\!\sslash\!}
 
 A twisted matter multiplet also defines a field theory on any complex surface $X$. 
-The superpotential determines a derived affine scheme: the derived critical locus ${\rm Crit}^d(W)$, which can be modeled as the spectrum of the dg algebra given by polyvector fields $PV(V)$ on the vector space $V$ equipped with the differential~$\iota_{\d W}$.
-(This is the Koszul complex associated to the Jacobi ring of $W$.)
+The superpotential determines a derived affine scheme: the derived critical locus ${\rm Crit}^d(W)$, which can be modeled as the spectrum of the dg algebra given by polyvector fields $PV(V)$ on $V$ with differential $\iota_{\d W}$.
+(It is the Koszul complex associated to the Jacobi ring of $W$.)
 This description makes manifest an odd symplectic structure on ${\rm Crit}^d(W)$,
 as polyvector fields are an odd Poisson algebra via the Schouten bracket.
 %As a dg space, the ring of functions of the derived critical locus is $\cO(\T^* [-1] V)$ equipped with the differential $\iota_{\d W}$. 
 By itself (i.e., before coupling to a gauge theory) the twisted matter multiplet corresponds to the mapping space ${\rm Map}(X, {\rm Crit}^d(W))$.\footnote{Notice that AKSZ formalism equips this mapping space with a $1$-shifted symplectic structure as opposed to the desired $(-1)$-shifted symplectic structure.
 Hereon we totalize all gradings to $\ZZ/2$.}
 
-Since $W$ is $G_\CC$-invariant, the critical locus has a residual Hamiltonian $G_\CC$-action. 
-There is a version of Hamiltonian reduction for odd symplectic manifolds \cite{Pavel, Kevin, who else},
-which we denote by ${\rm Crit}(W) \Sslash G_\CC$. 
-\owen{I'm not sure we even need this.} \brian{Probably if we want to cite a model for it, I think its fine to list the references here though.}
-\owen{Part of my concern is that Hamiltonian reduction is a version of GIT, and hence it is {\em not} stacky. The stack quotient seems more appropriate to me.}
-%As a dg space, the ring of functions is $\clie^\bu\big(\fg , \cO(\fg^* \oplus \Pi \T^* V) \big)$ where the differential is the Chevalley--Eilenberg differential plus $\iota_{\d W}$. 
 The holomorphic twist of a theory with both vector and matter multiplets then corresponds to the  derived mapping space
 \[
-{\rm Map}(X , {\rm Crit}^d(W) \Sslash G_\CC), 
+{\rm Map}(X , \left( \fg_\CC^*\times {\rm Crit}^d(W) \right)/ G_\CC), 
 \]
-which comes equipped with an odd symplectic structure. 
-\owen{Should there also be a factor involving the $B$-fields of the BF gauge theory?}
-\brian{That's already in this hamiltonian reduction. 
-If $V$ is $(-1)$ shifted symplectic then I think the tangent space of $V \Sslash G$ should be
-\beqn
-\lie{g}[1] \oplus V \oplus \lie{g}^*[-2] .
-\eeqn
-Since we're forgetting to $\ZZ/2$ this is just $\Pi \lie{g} \oplus (V \oplus \lie{g})$.
-}
+where the target is a derived quotient stack whose first factor arises from the BF theory and whose second factor arises from the matter multiplet.
 
 We wish to study a holomorphic analog of supersymmetric chromodynamics.
 We will call the relevant theory {\it QCD}, following convention, even though it is classical and not yet quantum.
@@ -2379,7 +2377,6 @@ The action functional is
 S_{QCD} = \int B\, F^{0,2}_A + \int R \,\dbar_A Q + \int R^\dag \,\dbar_A Q^\dag,
 \]
 where $\dbar_A = \dbar + A$ is the covariant $\dbar$-operator.\footnote{Although this perturbative theory only depends on the Lie algebra of $G$, the group structure will be relevant when we discuss local operators and moduli of vacua.}
-\owen{Should we make explicit how we're using the evaluation pairing on fields and their ``conjugates''? Or do we explain that in our review of BF theories?}
 %We will denote this theory by $\cT(N,F)$.
 \end{dfn}
 
@@ -2924,39 +2921,52 @@ In our attempts above to explore (and test) Eager's conjecture, we developed ins
 
 We saw that the moduli stacks of classical vacua are not equivalent, due to points with interesting stabilizers.
 On the other hand, there is an open locus where the moduli stacks are equivalent:
-the semi-stable points of each moduli stack $\cM_{\rm vac}(\cT_{\sfE}(F,N))$ and $\cM_{\rm vac}(\cT_{\sfM}(F,\check{N}))$ \owen{fix description, as it's possibly just the stable locus or (weakly) stable locus}.
-This locus agrees with a dense open subset of the GIT quotient, 
+take the points of each moduli stack $\cM_{\rm vac}(\cT_{\sfE}(F,N))$ and $\cM_{\rm vac}(\cT_{\sfM}(F,\check{N}))$ where the stabilizer is a finite group,
+in other words, the stable locus.
+We use $\cM_{\rm vac}(\cT)^s$ to denote this open locus in the moduli stack of a theory~$\cT$.
+This locus agrees with a dense open subset of the affinization (or GIT quotient), 
 and the isomorphism of the moduli spaces determines an isomorphism between the stable locus of each stack.
 Let us try to unravel what this equivalence means for the field theories, both classical and quantum.
 
-Consider any semistable point $x$ in $\cM_{\rm vac}(\cT)$ for some holomorphic QCD theory.
+Consider any stable point $x$ in $\cM_{\rm vac}(\cT)$ for some holomorphic QCD theory.
 We view $x$ as a vacuum, which thus labels a perturbative classical theory describing the behavior of the theory $\cT$ near $x$ in the space of fields. 
 For the vacuum $x$, the perturbative theory is equivalent to a holomorphic $\sigma$-model into the formal neighborhood of $x$ inside the moduli stack of vacua. 
-We can assemble these perturbative theories into a curved curved $\beta\gamma$ system from $\CC^2$ into~$\cM_{\rm vac}^{ss}$.
+(This argument is a version of the Higgs mechanism, as phrased using the BV formalism.
+See \cite{EG} for an expository account.)
+We can assemble these perturbative theories into a holomorphic $\sigma$-model from $\CC^2$ into~$\cM_{\rm vac}^{s}$,
+using the methods of~\cite{GGW, WilThesis}.
+This emergence of a $\sigma$-model is reminiscent of chiral symmetry breaking.
 
 \begin{prop}
-The semistable locus $\cM_{\rm vac}^{ss}(\cT)$ of the the moduli stack $\cM_{\rm vac}(\cT)$ parametrizes a family of holomorphic field theories on $\CC^2$, 
-and this family is isomorphic to the curved $\beta\gamma$ system from $\CC^2$ into~$\cM_{\rm vac}^{ss}(\cT)$.
+For each holomorphic QCD theory $\cT$, 
+the stable locus $\cM_{\rm vac}(\cT)^s$ of its moduli stack parametrizes a family of holomorphic field theories on $\CC^2$, 
+and this family is isomorphic to the holomorphic $\sigma$-model from $\CC^2$ into~$\cM_{\rm vac}(\cT)^s$.
 \end{prop}
+
+\owen{Is that true?}
+
+This result tells us that, over the stable locus, the observables of a holomorphic QCD theory agree with a sheaf of two-dimensional chiral differential operators, as discussed in \owen{reference section of this paper}.
+\owen{Do we see a WZ term? That often shows up in chiral symmetry breaking. It would be reminiscent of our $ch_2$ stuff in lower dimensions.}
 
 The isomorphism of moduli spaces then ensures that there is a dual vacuum $x_D$ to $x$ in the dual theory, and its perturbative theory is equivalent to the perturbative theory for $x$,
 because there is an explicit identification of the formal neighborhood of $x$ with the formal neighborhood of $x_D$. 
 Thanks to this identification, a quantization of the theory labelled by $x$ determines a quantization of the theory labelled by $x_D$.
-Hence on the semistable locus of $\cM_{\rm vac}$, we can guarantee an equivalence of quantizations.
+Hence on the stable locus of $\cM_{\rm vac}$, we can guarantee an equivalence of quantizations.
 
 \begin{prop}
-The semistable locus $\cM_{\rm vac}^{ss}$ of the the moduli stack $\cM_{\rm vac}$ parametrizes a family of holomorphic field theories on $\CC^2$, 
-and this family is isomorphic to the curved $\beta\gamma$ system from $\CC^2$ into~$\cM_{\rm vac}^{ss}$.
+There is an isomorphism of these holomorphic $\sigma$-models for the electric theory $\cT_{\sfE}(F,N)$ and the magnetic theory $\cT_{\sfM}(F,\check{N})$, lifting the isomorphism between their moduli spaces.
 
-The isomorphism between the semistable loci of the two moduli stacks determines an isomorphism between quantizations over those loci.
+This isomorphism determines an isomorphism between quantizations of these holomorphic $\sigma$-models, and hence between quantizations of the holomorphic QCD theories over the stable loci.
 \end{prop}
 
-This identification breaks down on the unstable locus, raising the following question:
+In other words, Eager's conjecture is true over the stable loci: there is an isomorphism of sheaves of two-dimensional chiral differential operators.
+
+This identification breaks down on the non-stable locus, raising the following question:
 \begin{quote}
-At the quantum level, what happens on the unstable locus? 
+At the quantum level, what happens on the non-stable locus? 
 \end{quote}
-Each unstable point labels a theory with a nonabelian gauge group (``enhanced gauge symmetry''),
-and hence its quantization is more involved that at a semistable point and depends nontrivially the gauge group.
+Each non-stable point labels a theory with a nonabelian gauge group (``enhanced gauge symmetry''),
+and hence its quantization is more involved that at a stable point and depends nontrivially the gauge group.
 The mismatch between the moduli stack of classical vacua makes it seem highly unlikely that we obtain an equivalence after quantization.
 
 \subsubsection{A proposal}
@@ -2964,17 +2974,33 @@ The mismatch between the moduli stack of classical vacua makes it seem highly un
 Recall that the moduli space arises from the moduli stack by affinization.
 In other words, we move from studying translation-invariant solutions (the stack) to studying ``states'' (multiplicative linear functionals on the stack of solutions).
 The moduli of classical states are isomorphic.
-We hope that something similar happens at the quantum level.
-In other words, there is a moduli stack of quantum vacua and a moduli space of quantum vacua,
+We hope that something similar happens at the quantum level:
+there is a moduli stack of quantum vacua and a moduli space of quantum vacua,
 and we hope the spaces are isomorphic.
-We sketch the idea as follows.
+We sketch the suggestion as follows.
 
 \begin{dfn}
-For a holomorphic QCD theory let $\cM^q_{\rm vac}(F,N)$ denote the stack $\cM_{\rm vac}(F,N)$ equipped with a sheaf with values in factorization algebras on $\CC^2$.
+For a holomorphic QCD theory let the {\em moduli stack of quantum vacua} $\cM^q_{\rm vac}(F,N)$ mean the stack $\cM_{\rm vac}(F,N)$ equipped with a sheaf with values in factorization algebras on $\CC^2$.
 The value at a solution $x$ is a quantization of the observables for the classical perturbative theory labeled by~$x$.
 (One could focus, for simplicity, on the sheaf with values in polydiscs algebras.)
+\end{dfn}
 
-Let $M^q_{\rm vac}(F,N)$ denote the global sections over $\cM_{\rm vac}(F,N)$ of this sheaf. 
+Bear in mind an important feature of this sheaf.
+Working on the stable locus $\cM_{\rm vac}(F,N)^{s}$, 
+we note that the sheaf of classical observables (as a sheaf with values in factorization algebras) has the property that its factorization homology on $\CC^2$ is the sheaf of {\em jets} of functions on $\cM_{\rm vac}(F,N)^{s}$.
+This sheaf has a natural flat connection, sometimes called the Grothendieck connection, and the horizontal sections are the structure sheaf $\cO$ of $\cM_{\rm vac}(F,N)^{s}$.
+In fact, as shown in \cite{GGW, WilThesis}, this flat connection makes sense even at the level of the factorization algebra,
+and not just on factorization homology.
+When we quantize, we wish to lift this flat connection as well.
+
+In fact, we expect that a version of this relationship extends to the whole stack $\cM_{\rm vac}(F,N)$,
+by using the methods of \cite{CPTVV}.
+In formulating the definition above, we are assuming that expectation holds. 
+
+We now posit the following.
+
+\begin{dfn}
+Let {\em moduli space of quantum vacua} $M^q_{\rm vac}(F,N)$ mean the global horizontal sections over $\cM_{\rm vac}(F,N)$ of this sheaf. 
 It is a factorization algebra on~$\CC^2$.
 (Again, one could focus, for simplicity, on the polydiscs algebra.)
 \end{dfn}
@@ -2993,9 +3019,11 @@ M^q_{\rm vac}(F,N)_{\sfE} \simeq M^q_{\rm vac}(F,\check{N})_{\sfM}.
 We note that there may be many quantizations possible, but our experience in $\cN=4$ case suggests that there is an ``obvious'' one.
 \owen{Feel free to reel back this overblown statement.}
 
+\begin{rmk}
 We note that in the physics literature, there are a number of issues that are relevant in this setting.
 For instance, there are ``instanton corrections'' that cannot be found by perturbative techniques, although they can be treated in a mathematically precise way. 
 It is interesting to wonder how these would appear in the holomorphic setting.
+\end{rmk}
 
 \subsubsection{Enhanced spacetime symmetries}
 
