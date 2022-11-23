@@ -2295,15 +2295,12 @@ The twisted vector multiplet defines a field theory on any complex surface $X$ o
 It will be convenient for us to assume that $X$ is equipped with a holomorphic volume form that we denote by $\Omega_X$. 
 A solution encodes a holomorphic $G_\CC$-bundle $\cP \to X$ (by picking out a $\dbar$-connection on the underlying smooth bundle) and a holomorphic section of the adjoint bundle $\mathrm{ad}(\cP) \to X$.
 The moduli space can be expressed as the mapping space ${\rm Map}(X, T^*[1]BG_{\CC})$, as a derived stack.
-\brian{got rid of the term `shifted' section. Also, to write theory like this we use a CY structure, which I've now fixed.e}
 
 \def\Sslash{\!\sslash\!}
 
 A twisted matter multiplet also defines a field theory on any complex surface $X$. 
-\owen{Is it a cotangent theory? It looks like a twisted cotangent theory.}
-\brian{right, $i_{dW}$ is the `twist'.}
-The superpotential determines a derived affine scheme: the derived critical locus ${\rm Crit}^d(W)$ \brian{How do you feel about the notation $\RR \text{Crit}(W)$?}, which can be modeled as the spectrum of the dg algebra given by polyvector fields $PV(V)$ on $V$ with differential $\iota_{\d W}$.
-(It is the Koszul complex associated to the Jacobi ring of $W$.)
+The superpotential determines a derived affine scheme: the derived critical locus ${\rm Crit}^d(W)$, which can be modeled as the spectrum of the dg algebra given by polyvector fields $PV(V)$ on the vector space $V$ equipped with the differential~$\iota_{\d W}$.
+(This is the Koszul complex associated to the Jacobi ring of $W$.)
 This description makes manifest an odd symplectic structure on ${\rm Crit}^d(W)$,
 as polyvector fields are an odd Poisson algebra via the Schouten bracket.
 %As a dg space, the ring of functions of the derived critical locus is $\cO(\T^* [-1] V)$ equipped with the differential $\iota_{\d W}$. 
@@ -2337,6 +2334,7 @@ The matter fields will consist of two types: quarks and antiquarks.
 Let $\underline{N}$ denote the {\em fundamental} (or defining) representation of $SL(N)$,
 so $\underline{N} = \CC^N$ with its natural left action.
 \owen{That's kind of crappy notation. Let's discuss.}
+\brian{Does it help us much? Or are you trying to use this to disambiguate what $\CC^N$ means.}
 
 %All of the holomorphic theories we consider below will be special cases of this gauged linear mapping space with $X = \CC^2$. 
 %We slightly refine notation and associate a holomorphic theory $\cT(G, V, Z, W)$ on $\CC^2$ associated to the following data:
@@ -2505,15 +2503,17 @@ how do physical results about supersymmetric gauge theories behave under twistin
 We have found, so far, that these results often admit clean mathematical formulations and that the holomorphic (or topological) twists involve constructions of natural interest in geometry and representation theory.
 In \cite{EGW} we and Chris Elliott explored twists of $\cN=4$ supersymmetric Yang--Mills theory,
 provided their quantizations, and began analyzing their factorization algebras.
-Following Eager, one might can ask about the twisted versions of S-duality and how to provide those conjectured equivalences.
-\owen{This should be rephrased, and we should mention more people, like Philsang and Surya. We can mention pre-S-duality things (like our work and the EY stuff) and S-duality stuff.}
+One might can also ask about the twisted versions of S-duality and how to provide those conjectured equivalences.
+The answer to this question has been studied by Surya Raghavendran and Philsang Yoo \cite{RYsduality} using Costello and Li's description of spacetime twists of superstring theories in terms of topological string theory \cite{CLsugra,CLtypeI}. 
+A further localization of $S$-duality has also been studied by Costello and Gaiotto \cite{CGholography}.
 
 \begin{rmk}
 Our discussion here is ahistorical.
-Witten initiated this vein of research for topological twists \cite{},
-and Costello advocated it for holomorphic twists, particularly in the setting of holography \cite{}.
+Witten initiated this vein of research for twists which are topological \cite{WittenTwist},
+and Costello advocated holomorphic twists \cite{CostelloHol}.  
+Costello and Li initiated the use of holomorphic twists to study dualities particularly in the setting of the topological B-model \cite{CLbcov1,CLbcov2,CLbcov3}, and further extended this to non-topological strings \cite{CLsugra}. 
 Eager's suggestion was a natural variation on this theme but it (seems to) involve physical ideas and methods that have not (yet) played a large role in Costello's program.
-\owen{Add a remark (?) about Kevin and Si's work on twisted holography and other related directions.}
+These ideas are extensively used in the program of twisted holography \brian{this is a rabbit hole, not sure how many people to mention.}
 \end{rmk}
 
 \subsection{Evidence for holomorphic Seiberg duality}
@@ -2527,7 +2527,7 @@ This map determines a map of factorization algebras of classical observables,
 and it should deform to the map between the factorization algebras for the quantum theories.
 (There are some interesting geometric subtleties --- about stacks versus their affinizations --- that we discuss below.)
 
-As we discuss in a moment, holomorphic QCD can be quantized using the techniques of \cite{BW work}.
+As we discuss in a moment, holomorphic QCD can be quantized using the techniques of \cite{Whol}.
 There are then two further pieces of evidence when these quantum theories are examined:
 \begin{enumerate}
 \item[(2)] There are {\em flavor} symmetries by $SL(F)$ that act on the quarks and antiquarks of each theory, 
@@ -2592,6 +2592,7 @@ For example, pure $\cN =1$ holomorphic Yang-Mills theory for group $G$ (i.e., th
 \cM_{\rm vac} \cong [\fg^*/G],
 \]
 the coadjoint quotient stack of the group.
+\brian{The paragraph began with holomorphic theories, do you want to say twist of 4d N=1?}
 (We are working in a $\ZZ/2$-graded world here.)
 Using the invariant pairing on $\fg$ we can further identify this with the adjoint quotient stack~$[\fg / G]$. 
 For general supersymmetric field theories, which involve both a $\sigma$-model and gauge fields, the holomorphic twist has a moduli stack of classical vacua of the form
@@ -3000,7 +3001,5 @@ It is interesting to wonder how these would appear in the holomorphic setting.
 
 \owen{Add section with conjecture about local spacetime symmetry and its quantization}
 and on the classical holomorphic theories, these enhance to an action of holomorphic vector fields. Under quantization, these have isomorphic anomalies.
-
-
 
 \end{document}
