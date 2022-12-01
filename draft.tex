@@ -2645,19 +2645,21 @@ V\Sslash G = \Spec(\cO(V)^G),
 \]
 the scheme whose ring of functions are the $G$-invariant functions on the representation~$V$.
 This affine scheme is known as the {\em affinization} of the stack $V/G$, as it is the best affine approximation to the stack (i.e., apply the left adjoint to the inclusion of affine schemes among stacks).
-It might be seen as parametrizing ``states'' rather than solutions, 
-as it is defined via functions on the solutions (see Remark~\ref{sols vs states} for more).
+This affinization might be seen as parametrizing ``states'' rather than solutions, 
+as it is defined via functions on the solutions (see Remark~\ref{sols vs states} for more on this aspect).
+
 We will call this GIT quotient the moduli {\em space} of classical vacua and denote it by~$M_{\rm vac}(\cT)$.
-(Note that the font of M changes between stack and space.)
+Note that the font of M changes between stack and space.
 
 \begin{rmk}
-In practice physicists work ordinary schemes (i.e., without any derived directions), 
+In practice physicists work with ordinary schemes (i.e., without any derived directions), 
 although one can also study the derived affine scheme that is the best approximation to a derived stack.
-Below we will always provide an ordinary scheme as the moduli {\em space}.
+Below we will always provide an ordinary scheme as the moduli {\em space},
+following the physicists.
 \end{rmk}
 
 It is familiar to geometers that this affinization forgets interesting information about the stack because an invariant function must be constant on the closure of any orbit.
-Thus, the canonical map
+The canonical map
 \[
 [V/G] \to V\Sslash G
 \]
@@ -2669,7 +2671,7 @@ Its affinization is
 \]
 by the Chevalley restriction theorem, 
 which says $\cO(\gl_N)^{\GL_N} \cong \cO(\frak{h})^{S_N}$ where $\frak{h}$ denotes the maximal torus.
-(The rightmost algebra is symmetric polynomials.)
+(The rightmost algebra is symmetric polynomials in the eigenvalues.)
 The canonical map here records the characteristic polynomial of a matrix and hence only knows its generalized eigenvalues and not its Jordan decomposition.
 In other words, the canonical map collapses together Jordan blocks with the same diagonal entries.
 For this reason, it loses details about the classical vacua remembered by the stack quotient.
@@ -2699,6 +2701,7 @@ and it is a classic result of invariant theory that
 \Hom(\CC^F, \CC^N)\Sslash SL(N) \cong \widehat{{\rm Gr}(F, N)} \subset \Lambda^N \CC^F
 \]
 where ${\rm Gr}(F, N)$ denotes the Grassmannian of $N$-planes in $\CC^F$ and the hat indicates we take the affine cone with respect to this standard Pl\"ucker embedding.
+
 For the full problem, we have both quarks and antiquarks, so
 \begin{align*}
 M_{\rm vac}(\cT_{\sfE}(F,N)) 
@@ -2720,8 +2723,8 @@ M_{\rm vac}(\cT_{\sfE}(F,N)) \hookrightarrow \widehat{{\rm Gr}(F, N)} \times \wi
 with ${\rm R}(F,N) \subset \End(\CC^F)$ the matrices with rank bounded above by~$N$.
 The moduli space for the magnetic theory is a bit more complicated but follows from classical invariant theory as well.
 
-Note that $\check{N} = F-N$, so $\widehat{{\rm Gr}(F, N)} \cong \widehat{{\rm Gr}(F, \check{N})}$,
-but ${\rm R}(F,N)$ is not isomorphic to ${\rm R}(F,\check{N})$ except when $N = \check{N}$.
+Note that $\check{N} = F-N$, so ${\rm Gr}(F, N) \cong {\rm Gr}(F, \check{N})$ and a (partial) duality is apparent.
+On the other hand, ${\rm R}(F,N)$ is not isomorphic to ${\rm R}(F,\check{N})$ except when $N = \check{N}$.
 Hence one should not be optimistic that $M_{\rm vac}(\cT_{\sfE}(F,N)) \cong M_{\rm vac}(\cT_{\sfE}(F,N))$.
 To ``fix'' this issue, one might try to slightly modify the dual side, which Seiberg did by adding the meson fields.
 Hence the following holds.
@@ -2738,7 +2741,7 @@ The proof boils down to checking that the mesons and the superpotential on the m
 
 \begin{rmk}
 In the literature this isomorphism is given by explicitly matching gauge-invariant functions, 
-which are often called mesons or baryons, 
+which physics paper often call mesons or baryons, 
 as they can be identified with the data that identifies such particles.
 These meson and baryons are precisely the usual generators of the ring of invariant functions, 
 so an isomorphism of generators determines the desired isomorphism of rings. 
@@ -2930,7 +2933,7 @@ We will discuss how these enhanced symmetries might intertwine with duality belo
 \owen{Should we check that the quantum magnetic theory also has a divergence-free symmetry?}
 
 
-\subsubsection{$SU(2)$ SQCD}
+\subsubsection{The special case of $SU(2)$ SQCD}
 
 Let's consider the special case where $N=2$ so that the gauge group on the electric side is $G = SU(2)$. 
 In this case, the fundamental and anti-fundamental representations are isomorphic $V_Q = V^*_Q$, so the quarks are valued in
