@@ -2270,6 +2270,7 @@ In our opinion this direction could be quite fruitful and we welcome others to j
 We begin this section by describing the holomorphic twist of $\cN=1$ supersymmetric Yang--Mills theory,
 and then we offer a holomorphic version of Seiberg duality, 
 initially conjectured by Richard Eager.
+We will point out an enrichment of this conjecture which accounts for a large symmetry enhancement that both sides of the theory enjoy after performing the holomorphic twist.
 We explain our first efforts in this direction and how it offers evidence for the conjecture;
 we then refine Eager's version.
 We also explain how this duality, when compactified along Riemann surfaces,
@@ -2759,7 +2760,7 @@ On the electric side its stabilizer is $SL(N)$ and on the magnetic side it is $S
 Thus each theory has a vacuum whose associated perturbative classical theory has no partner on the other side.
 Hence Seiberg duality cannot hold at the stack level for the classical theories.
 
-\subsubsection{Flavor symmetries}
+\subsubsection{Flavor symmetry enhancement}
 
 The quarks of the electric theory take values in $\Hom(\CC^F, \CC^N)$ and hence have a canonical action of $SL(F)$ by precomposition.
 We view each factor $\CC$ inside $\CC^F$ as a different ``flavor'' of quark, so this action mixes flavors.
@@ -2786,16 +2787,21 @@ The magnetic theory has an analogous flavor symmetry, where $SL(F)$ acts on the 
 %
 %Holomorphic QCD enjoys a few familiar holomorphic symmetries in the style that we discussed in this note.
 
-For holomorphic QCD theories, the infinitesimal flavor symmetry by the Lie algebra $\sl(F)$ enhances to a symmetry for the infinite-dimensional dg Lie algebra $\Omega^{0,\bu}(\CC^2, \sl(F))$, 
-which we call a $2$-dimensional holomorphic current algebra.
+For holomorphic QCD theories, the infinitesimal flavor symmetry by the Lie algebra $\sl(F)$ enhances to a symmetry for the infinite-dimensional dg Lie algebra $\Omega^{0,\bu}(\CC^2, \sl(F))$.
 It acts by wedging the forms and applying $\sl(F)$ to the relevant vector space, such as~$\Hom(\CC^F,\CC^N)$.
-On local observables, the $S^3$-mode algebra $\lie{sl}(F) \otimes \sfA_2$ (which is the algebraic version of $\sl(F) \otimes \Omega^{0,\bu}(\CC^2 - 0)$) acts at the classical level.
+On affine space, this dg Lie algebra is quasi-isomorphic to $\lie{sl}(F) \otimes \cO(\C^2)$, where $\cO(\C^2)$ denotes holomorphic functions on $\C^2$---this is like a current algebra in two complex dimensions.
+
+There is another dg Lie algebra obtained by evaluating the theory on punctured affine space $\C^2 - 0$.
+We recalled in \S \ref{sec:punctured} an algebraic model $\sfA_2$ for the dg algebra $\Omega^{0,\bu}(\C^2 - 0)$.
+The dg Lie algebra we assign to the punctured affine space, classically, is $\lie{sl}(F) \otimes \sfA_2$.
+Recall that we can think about elements of this algebra as being supported on three-spheres $S^3$ inside $\C^2 - 0$.
+This $S^3$-mode algebra acts on the local observables at the classical level.
 
 A natural question is whether this symmetry persists at the quantum level. 
 The answer is {\em yes}, but on both sides of the duality one must use a central extension of the current algebra as an $L_\infty$ algebra.
 The extension arises because the symmetry has an anomaly under quantization (on either side of the duality),
 and this anomaly is determined by an  invariant cubic polynomial $\theta_\sfE$, $\theta_\sfM$, respectively, on the Lie algebra~$\sl(F)$. 
-(In terms of Section \owen{cross ref}, these determine higher Kac--Moody algebras $\Hat{\sl(N_f)}_{2,\theta_{\sfE}}, \Hat{\sl(N_f)}_{2,\theta_{\sfM}}$ when studying the theories on the punctured space~$\CC^2 - 0$.)
+(In terms of Section \owen{cross ref}, these determine higher Kac--Moody algebras $\Hat{\sl(F)}_{2,\theta_{\sfE}}, \Hat{\sl(F)}_{2,\theta_{\sfM}}$ when studying the theories on the punctured space~$\CC^2 - 0$.)
 
 \begin{prop}
 For both the electric and magnetic theories, there is an anomaly at the quantum level for the holomorphic flavor symmetry action.
@@ -2845,95 +2851,128 @@ we see that the sum of these two terms agrees with \eqref{eqn:electricflavor} on
 
 \subsubsection{Twisted superconformal symmetry}
 
-In the original version of Seiberg duality, there are certain values of $F$ and $N$ where the dual theories flow to the same superconformal fixed point in the infrared limit. 
-This range of values $F/3 < N < 2F/3$ is known as the ``superconformal window.''
-(Note that it is preserved under swapping $N \leftrightarrow F-N$.)
-Here we will explore how it appears from the point of view of holomorphic QCD. 
+A superconformal algebra is a simple super Lie algebra which contains both the ordinary algebra of infinitesimal conformal transformations and the super Lie algebra of supertranslations.
+It is a basic fact of life that all (super)conformal algebras in dimensions $\geq 3$ are finite-dimensional.
+Being a superconformal theory means that the theory admits a symmetry by a particular superconformal algebra---it is, generally speaking, a very rigid condition on a theory. 
 
-Consider the (complexified) 4-dimensional $\cN=1$ superconformal algebra $\sl(4|1)$.
+The (complexified) $\cN=1$ superconformal in four-dimensions is $\sl(4|1)$.
 This super Lie algebra is the defining symmetry of a 4-dimensional $\cN=1$ superconformal field theory. 
-The Poincar\'{e} algebra is a subalgebra of $\sl(4|1)$. %which in particular consists of supercharges $\cQ_{\alpha}, \cQ_{\dot{\alpha}}$ where $\alpha = 1,2$ is an $\SU(2)$ index.
-Inside of this algebra is the Cartan generator $\Delta$ of scaling transformations in~$\RR^4$.
+%The Poincar\'{e} algebra is a subalgebra of $\sl(4|1)$. %which in particular consists of supercharges $\cQ_{\alpha}, \cQ_{\dot{\alpha}}$ where $\alpha = 1,2$ is an $\SU(2)$ index.
+Inside of this algebra is the Cartan generator $\Delta$ of which is an infinitesimal generator for scaling transformations in~$\RR^4$.
 
-Fix a nonzero square-zero supercharge $\cQ$. 
+Fix the same square-zero supercharge $\cQ$ inside of the four-dimensional $\cN=1$ supersymmetry algebra which we use to define the holomorphic twists of Seiberg dual gauge theories. 
 Naturally, such a $\cQ$ acts by the (super)commutator on the superconformal Lie algebra.
-In \cite{SWsuco} the second author and Saberi show that there is a quasi-isomorphism of dg Lie algebras
+There is a quasi-isomorphism of dg Lie algebras
 \[
-\bigg(\sl(4|1) \; , \; [\cQ, -] \bigg) \simeq \sl(3) .
+\bigg(\sl(4|1) \; , \; [\cQ, -] \bigg) \simeq \sl(3) ,
 \]
-Thus, if one starts with a superconformal theory, the Lie algebra $\sl(3)$ will act on the holomorphically twisted theory.  
+see \cite{SWsuco}, for example.
+So, if one starts with a superconformal theory, the Lie algebra $\sl(3)$ is guaranteed to act on the holomorphically twisted theory. 
 In this sense, $\sl(3)$ is the residual superconformal symmetry of this twist. 
 The entire algebra $\sl(3)$ naturally embeds inside of the Lie algebra of holomorphic vector fields on $\CC^2$,
-where we view $\CC^2$ as an open subset of $\CC \PP^2$ as an ${\rm SL}(3)$-homogenous space.
+where we view $\CC^2$ as an open subset of $\CC \PP^2$ as an $SL(3)$-homogenous space.
 (In a moment we will discuss how all holomorphic vector fields act on the theories.)
-
-Inside of this twisted algebra $\sl(3)$, we have the ``holomorphic scaling'' operator $\Delta^{\rm hol} = \sum_i z_i \partial_{z_i}$, which is simply the holomorphic Euler vector field.  
+Inside of this twisted algebra $\sl(3)$, we have the ``holomorphic scaling'' operator 
+\beqn
+\Delta^{hol} = z_1 \del_{z_1} + z_2 \del_{z_2},
+\eeqn 
+which is simply the holomorphic Euler vector field.  
 We focus on this scaling operator as it is closely related to questions of renormalization group flow in the original, untwisted theory.
-Consider the electric theory. 
-On the gauge fields, $\Delta^{\rm hol}$ acts by the Lie derivative,
-but on matter fields, the action via Lie derivative is {\em not} what one obtains from the untwisted theory.
-Given a quark field $Q = z_1^n z_2^m \otimes v$, 
-one needs
+
+Let's consider just a free theory consisting of a single chiral multiplet, for the moment.
+Here, the $R$-symmetry group is $U(1)$.
+The holomorphic supercharges breaks the $SO(4;\C)$ symmetry down to the group $MU(2)$ which is a double cover of $U(2)$.
+To perform the twist of a theory there are always two steps: the first is to `twist' the fields of the theory using the $R$-symmetry and the second is to deform the action by the supercharge $\cQ$.
+To have a consistent data to twist, one usually imposes the condition that with respect to the twisted $R$-symmetry action the supercharge $Q$ is invariant.
+The odd part of the four-dimensional $\cN = 1$ algebra is given by 
+\beqn
+S_+ \otimes W \oplus S_- \otimes W^*
+\eeqn
+where $W \cong \C$ is just a one-dimensional vector space and $S_{\pm}$ are the positive and negative semi-chiral spin representations of $\lie{so}(4;\C)$.
+We will take the square-zero supercharge to live in $\cQ \in S_+ \otimes W$.
+As an $MU(2)$ representation one has $S_+ \cong \det(L)^{+1/2} \oplus \det(L)^{-1/2}$.
+Thus, if $\cQ$ lies in the first summand, in order to make $\cQ$-invariant we must twist by the condition that $W$ has weight $-1/2$ under the $R$-symmetry.
+We will fix this twisting data.
+
+The basic components of the chiral multiplet is a pair of bosons $(\phi,\Bar{\phi})$, and a pair of fermions $(\psi_+, ,\psi_-)$ where $\psi_{+}$ takes values in $S_+$ and $\psi_-$ takes values in $S_-$.
+For a free theory, we may assign any $R$-charge to $\psi_+$ and this determines the $R$-charges of all remaining fields. 
+For example, if the $R$-charge of $\psi_+$ is $r$ then the $R$-charge of $\phi$ is $r+1$, the $R$-charge of $\psi_-$ is $-r$, and the $R$-charge of $\Bar{\phi}$ is $-r - 1$. 
+
+If we twist using the data where $\cQ$ is invariant, then the particular choice of $r$ will dictate how the holomorphic scaling operator $\Delta^{hol}$ acts on the theory.
+One finds that the holomorphic twist of the free chiral theory (which is just a single quark in the above terminology) has fundamental field
 \[
-\Delta^{hol}(Q) = \left(n + m + \frac23\right) Q 
-\]
-to be compatible with dimension scaling in the untwisted theory.
-What this constraint means is that, as a representation for holomorphic vector fields, 
-the quark fields $Q$, $R$ take values in some interesting holomorphic vector bundle and not in the trivial vector bundle.  
-In fact, if one keeps track of the appropriate {\em twisting homomorphism} in the style of~\cite{WittenTwist}, 
-one finds that the quark fields are
-\[
-Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{1/3}) \otimes V_Q 
+Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2}) 
 \] 
-and
-\[ P \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{2/3}) \otimes V_Q^*,
-\]
-where $K$ denotes the canonical bundle.
-(The antiquarks ${Q}^\dag$ and~${P}^\dag$ live in a similar twisted bundle.) 
-\owen{Maybe we should discuss what this means for globalization: we need the canonical bundle to have cube roots!}
+where $K$ denotes the holomorphic canonical bundle.
+Of course, the canonical bundle on $\C^2$ is trivializable, so we obtain a theory with isomorphic space of fields for any choice of $r$; what changes is how the twisted superconformal symmetry algebra $\lie{sl}(3)$ acts.  
 
-This action of $\sl(3)$ extends to the quantizations, on both sides of the putative duality, by direct verification.
-In fact it holds for all holomorphic QCD theories, not just those in the superconformal window.
 
-\begin{lem}
-The action of $\sl(3)$ on $\cT_{\sfE}(F,N)$ and $\cT_{\sfM}(F,\check{N})$ extends to their quantizations.
-\end{lem}
-
-In the holomorphic twist as a classical theory,
-this $\sl(3)$-symmetry {\em enhances} to a symmetry by an infinite dimensional dg Lie algebra.
-In fact, this enhancement also works for all holomorphic QCD theories, not just those in the superconformal window.
-\owen{Am I understanding that correctly?}
-
-\begin{thm}[\cite{SWsuco}] 
-\label{thm:swsuco}
-Consider the local Lie algebra $\Omega^{0,\bu}(\CC^2, \T^{1,0})$ that resolves the Lie algebra of {\em all} holomorphic vector fields on $\CC^2$. 
-This local Lie algebra is a classical symmetry of {\em any} holomorphic QCD theory. 
-\end{thm}
-
-We now ask when this classical symmetry persists at the quantum level, and an interesting anomaly emerges.
-
-\begin{prop}
-For an electric theory $\cT_{\sfE}(F,N)$,
-the symmetry by the local Lie algebra of holomorphic vector fields, described by Theorem~\ref{thm:swsuco}
-has an anomaly to lift to the quantum level. 
-It is proportional to the local functional
+Now, let's consider the electric theory.
+We assume that the $R$-charges of the fermions in the quarks and anti-quark multiplets is the same.
+If this $R$-charge is $r$ then the twisted quarks and anti-quarks take the form
 \[
-\frac{F - 3N}{2} \int {\rm div}(X) \op{Tr} (\partial A \, \partial A)  .
+Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q),\quad Q^\dagger \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q^*)
 \]
-where $X = X_i \partial_{z_i} \in \Omega^{0,\bu}(\CC^2, \T_{\CC^2}^{1,0})$ denotes a Dolbeault form-valued vector field and $A$ is a gauge field.
-\end{prop}
+where $V_Q \cong \C^{NF}$.
+In the untwisted theory the value $r$ is fixed by the condition that the $R$-symmetry is anomaly free.
+In the twisted theory, the value of $r$ is fixed by the condition that the action by the holomorphic scaling operator is anomaly free.
+This anomaly comes from a one-loop diagram with a single vertex labeled by $\Delta^{hol}$, and leads to the constraint that
+\beqn
+N + F r = 0 .
+\eeqn
+In other words, $r = - N / F$. 
+This is the exact condition one must require for $R$-symmetry to be anomaly free in the untwisted theory. 
+On the magnetic side the condition becomes $r = N/F - 1$.
 
-The first factor ${\rm div}(X)$ denotes the divergence $\sum_i\partial_{z_i} X_i$ of the vector field~$X$.
-We thus deduce the following.
+In the original version of Seiberg duality, there are certain values of $F$ and $N$ where the dual theories are expected to flow to the same superconformal fixed point in the infrared limit. 
+This range of values $F/3 < N < 2F/3$ is known as the ``superconformal window.''
+(Note that it is preserved under swapping $N \leftrightarrow F-N$.)
+It would be interesting to explore how it appears from the point of view of holomorphic QCD. 
 
-\begin{cor}
-Only when $F = 3N$ do all holomorphic vector fields lift to a symmetry lifts at the quantum level.
-There is, however, a symmetry of {\em divergence-free} holomorphic vector fields at the quantum level for any values of $F$ and~$N$.
-\end{cor}
 
-We will discuss how these enhanced symmetries might intertwine with duality below.
+%
+%This action of $\sl(3)$ extends to the quantizations, on both sides of the putative duality, by direct verification.
+%In fact it holds for all holomorphic QCD theories, not just those in the superconformal window.
 
-\owen{Should we check that the quantum magnetic theory also has a divergence-free symmetry?}
+%\begin{lem}
+%The action of $\sl(3)$ on $\cT_{\sfE}(F,N)$ and $\cT_{\sfM}(F,\check{N})$ extends to their quantizations.
+%\end{lem}
+%
+%In the holomorphic twist as a classical theory,
+%this $\sl(3)$-symmetry {\em enhances} to a symmetry by an infinite dimensional dg Lie algebra.
+%In fact, this enhancement also works for all holomorphic QCD theories, not just those in the superconformal window.
+%\owen{Am I understanding that correctly?}
+%
+%\begin{thm}[\cite{SWsuco}] 
+%\label{thm:swsuco}
+%Consider the local Lie algebra $\Omega^{0,\bu}(\CC^2, \T^{1,0})$ that resolves the Lie algebra of {\em all} holomorphic vector fields on $\CC^2$. 
+%This local Lie algebra is a classical symmetry of {\em any} holomorphic QCD theory. 
+%\end{thm}
+%
+%We now ask when this classical symmetry persists at the quantum level, and an interesting anomaly emerges.
+%
+%\begin{prop}
+%For an electric theory $\cT_{\sfE}(F,N)$,
+%the symmetry by the local Lie algebra of holomorphic vector fields, described by Theorem~\ref{thm:swsuco}
+%has an anomaly to lift to the quantum level. 
+%It is proportional to the local functional
+%\[
+%\frac{F - 3N}{2} \int {\rm div}(X) \op{Tr} (\partial A \, \partial A)  .
+%\]
+%where $X = X_i \partial_{z_i} \in \Omega^{0,\bu}(\CC^2, \T_{\CC^2}^{1,0})$ denotes a Dolbeault form-valued vector field and $A$ is a gauge field.
+%\end{prop}
+%
+%The first factor ${\rm div}(X)$ denotes the divergence $\sum_i\partial_{z_i} X_i$ of the vector field~$X$.
+%We thus deduce the following.
+%
+%\begin{cor}
+%Only when $F = 3N$ do all holomorphic vector fields lift to a symmetry lifts at the quantum level.
+%There is, however, a symmetry of {\em divergence-free} holomorphic vector fields at the quantum level for any values of $F$ and~$N$.
+%\end{cor}
+%
+%We will discuss how these enhanced symmetries might intertwine with duality below.
+%
+%\owen{Should we check that the quantum magnetic theory also has a divergence-free symmetry?}
 
 
 \subsubsection{The special case of $SU(2)$ SQCD}
@@ -2981,7 +3020,7 @@ On the magnetic side we have $SU(2)$ gauge theory with $F=4$ flavors and mesons 
 We have pointed out that for any $F$ the global flavor symmetry group admits an enhancement to $SU(2F)$. 
 For $F \geq 4$ the 
 
-\subsection{Two-dimensional TFTs by compactification}
+\subsection{Two-dimensional TFTs by reduction}
 
 A standard maneuver used in physics is compactification:
 given a field theory $\cT$ in $n$ dimensions, one takes compact $n-k$-manifold $N$ and produces a field theory $\cT_N$ in $k$ dimensions by studying $\cT$ on manifolds of the form $N \times \Sigma$, where $\Sigma$ is $k$-dimensional.
@@ -3072,9 +3111,11 @@ and this family is isomorphic to the holomorphic $\sigma$-model from $\CC^2$ int
 \end{prop}
 
 \owen{Is that true?}
+\brian{I'm happy with this.}
 
 This result tells us that, over the stable locus, the observables of a holomorphic QCD theory agree with a sheaf of two-dimensional chiral differential operators, as discussed in \owen{reference section of this paper}.
 \owen{Do we see a WZ term? That often shows up in chiral symmetry breaking. It would be reminiscent of our $ch_2$ stuff in lower dimensions.}
+\brian{that's a great question}
 
 The isomorphism of moduli spaces then ensures that there is a dual vacuum $x_D$ to $x$ in the dual theory, and its perturbative theory is equivalent to the perturbative theory for $x$,
 because there is an explicit identification of the formal neighborhood of $x$ with the formal neighborhood of $x_D$. 
