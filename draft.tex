@@ -2526,8 +2526,7 @@ These ideas are extensively used in the program of twisted holography, which is 
 There is a way to define the dual of any supersymmetric QCD theory with mesons that satisfies the following properties:
 \begin{itemize}
 \item In the case that there are no mesons in the original theory, like in the electric theory, the dual agrees with the magnetic theory.
-\item The dual of the magnetic theory is equivalent to the original electric theory.
-In other words, the double dual of the electric theory is equivalent to itself. 
+\item The dual of the magnetic theory is equivalent to the original electric theory. In other words, the double dual of the electric theory is equivalent to itself. 
 \end{itemize}
 %In fact, more generally, the double dual of any supersymmetric QCD with mesons returns the same theory (up to equivalence). 
 Let us briefly remark how this general duality looks classically in the holomorphic context. 
@@ -2852,6 +2851,8 @@ we see that the sum of these two terms agrees with \eqref{eqn:electricflavor} on
 
 \subsubsection{Twisted superconformal symmetry}
 
+\owen{I'm now pretty lost in how this section discusses evidence for Seiberg duality.}
+
 A superconformal algebra is a simple super Lie algebra which contains both the ordinary algebra of infinitesimal conformal transformations and the super Lie algebra of supertranslations.
 It is a basic fact of life that all (super)conformal algebras in dimensions $\geq 3$ are finite-dimensional.
 Being a superconformal theory means that the theory admits a symmetry by a particular superconformal algebra---it is, generally speaking, a very rigid condition on a theory. 
@@ -2882,7 +2883,7 @@ We focus on this scaling operator as it is closely related to questions of renor
 
 Let's consider just a free theory consisting of a single chiral multiplet, for the moment.
 Here, the $R$-symmetry group is $U(1)$.
-The holomorphic supercharges breaks the $SO(4;\C)$ symmetry down to the group $MU(2)$ which is a double cover of $U(2)$.
+The holomorphic supercharges breaks the $SO(4;\C)$ symmetry down to the group $MU(2)$, a double cover of $U(2)$.
 To perform the twist of a theory there are always two steps: the first is to `twist' the fields of the theory using the $R$-symmetry and the second is to deform the action by the supercharge $\cQ$.
 To have a consistent data to twist, one usually imposes the condition that with respect to the twisted $R$-symmetry action the supercharge $Q$ is invariant.
 The odd part of the four-dimensional $\cN = 1$ algebra is given by 
@@ -2909,21 +2910,21 @@ Of course, the canonical bundle on $\C^2$ is trivializable, so we obtain a theor
 
 
 Now, let's consider the electric theory.
-We assume that the $R$-charges of the fermions in the quarks and anti-quark multiplets is the same.
-If this $R$-charge is $r$ then the twisted quarks and anti-quarks take the form
+We assume that the fermions in the quarks and anti-quark multiplets have the same $R$-charges.
+If this $R$-charge is $r$, then the twisted quarks and anti-quarks take the form
 \[
-Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q),\quad Q^\dagger \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q^*)
+Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q) \quad\text{and}\quad Q^\dagger \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q^*)
 \]
 where $V_Q \cong \C^{NF}$.
-In the untwisted theory the value $r$ is fixed by the condition that the $R$-symmetry is anomaly free.
-In the twisted theory, the value of $r$ is fixed by the condition that the action by the holomorphic scaling operator is anomaly free.
-This anomaly comes from a one-loop diagram with a single vertex labeled by $\Delta^{hol}$, and leads to the constraint that
+In the untwisted theory the value $r$ is fixed by the condition that the $R$-symmetry is anomaly-free.
+In the twisted theory, the value of $r$ is fixed by the condition that the action by the holomorphic scaling operator is anomaly-free.
+This anomaly comes from a one-loop diagram with a single vertex labeled by $\Delta^{hol}$, and it leads to the constraint 
 \beqn
 N + F r = 0 .
 \eeqn
 In other words, $r = - N / F$. 
-This is the exact condition one must require for $R$-symmetry to be anomaly free in the untwisted theory. 
-On the magnetic side the condition becomes $r = N/F - 1$.
+This condition matches the corresponding condition for $R$-symmetry to be anomaly-free in the untwisted theory. 
+On the magnetic side the condition is $r = N/F - 1$.
 
 In the original version of Seiberg duality, there are certain values of $F$ and $N$ where the dual theories are expected to flow to the same superconformal fixed point in the infrared limit. 
 This range of values $F/3 < N < 2F/3$ is known as the ``superconformal window.''
@@ -2985,6 +2986,8 @@ Only when $F = 3N$ do {\em all} holomorphic vector fields lift to a symmetry lif
 
 \subsubsection{The special case of $SU(2)$ SQCD}
 
+\owen{I like the idea of analyzing a special case, but I'm not sure what lesson the reader is supposed to learn.}
+
 Let's consider the special case where $N=2$ so that the gauge group on the electric side is $G = SU(2)$. 
 In this case, the fundamental and anti-fundamental representations are isomorphic $V_Q = V^*_Q$, so the quarks are valued in
 \beqn
@@ -3028,60 +3031,6 @@ On the magnetic side we have $SU(2)$ gauge theory with $F=4$ flavors and mesons 
 We have pointed out that for any $F$ the global flavor symmetry group admits an enhancement to $SU(2F)$. 
 For $F \geq 4$ the 
 
-\subsection{Two-dimensional TFTs by reduction}
-
-A standard maneuver used in physics is compactification:
-given a field theory $\cT$ in $n$ dimensions, one takes compact $n-k$-manifold $N$ and produces a field theory $\cT_N$ in $k$ dimensions by studying $\cT$ on manifolds of the form $N \times \Sigma$, where $\Sigma$ is $k$-dimensional.
-One then considers the push forward of the theory along the obvious map $N \times \Sigma \to \Sigma$, to obtain an effective theory along $\Sigma$.
-A close cousin is dimensional reduction, where one restricts to solutions of the classical field theory that are constant along $N$.
-
-We consider a holomorphic theory defined on $\C^\times \times \C^\times$ and the pushforward along the map $\rho: \CC^\times \times \CC^\times \to \RR_{>0} \times \RR_{>0}$ that sends $(z_1,z_2)$ to $(|z_1|, |z_2|)$.
-In other words, this is the $T^2$ compactification of the holomorphic theory.
-For a holomorphic factorization algebra $\cF$, one can extract from the pushforward $\rho_* \cF$ a locally constant factorization algebra on $\RR_{> 0}^2 \cong \RR^2$, hence an $E_2$-algebra.
-We now apply this result in the context of holomorphic QCD and see what Seiberg duality would imply.
-
-Let's first consider the electric side which breaks up into holomorphic BF theory coupled to a complex two-dimensional $\beta\gamma$ system.
-The $T^2$ compactification of the $\beta\gamma$ system with target $\C^{NF}$ is the topological B-model theory whose target is the formal double loop space $L^2\C^{NF}$. 
-This is the space whose algebra of functions is $\cO(\C^{NF}) ((z))((w))$ where $z,w$ are formal loop parameters which we imagine as describing the winding of the two circles we have compactified. 
-The dimensional reduction simply picks out the constant modes along each circle, so we find a linear topological B-model with target $\C^{NF}$.
-Similarly, the dimensional reduction of holomorphic BF theory is topological BF theory (which is a stacky version of the B-model whose target is $B GL(N)$).
-In sum, the dimensional reduction of the electric holomorphic QCD is the topological B-model whose target is the stack $\C^{NF} / GL(N)$.
-As a derived mapping space, this model is given by
-\beqn
-{\rm Map}\left(\RR^2, T^*[1] \C^{NF} / GL(N)\right) .
-\eeqn
-The factorization algebra of observables obtained from reduction encodes the $E_2$ algebra of (holomorphic) polyvector fields on the stack $\C^{NF} / GL(N)$. 
-
-On the magnetic side the reduction is similar, except this time we must take into account the superpotential. 
-What results is a Landau--Ginzburg B-model whose target is the stack
-\beqn
-\C^{(F-N)F} / GL(F-N) \times \C^{F^2} .
-\eeqn
-The first factor comes from the reduction of the dual quarks coupled to the dual gauge theory, and the second factor comes from the reduction of the mesons. 
-The potential of the Landau--Ginzburg model is given by the same expression $\check{W}$ as in \eqref{eqn:checkW}.
-
-Holomorphic Seiberg duality then predicts an equivalence of two-dimensional topological field theories,
-or at least of $E_2$-algebras.
-
-\begin{conj}
-There is an equivalence of $E_2$ algebras between:
-\begin{itemize} 
-\item (electric) the $E_2$ algebra of polyvector fields on the stack $\C^{NF} / GL(N)$.
-\item (magnetic) the $E_2$ algebra which results from deforming the $E_2$ algebra of polyvector fields on the stack $\C^{(F-N)F} / GL(F-N) \times \C^{F^2}$ by the differential $\{\check{W},-\}$ where $\{-,-\}$ is the Schouten bracket.
-\end{itemize}
-\end{conj}
-
-
-
-%\begin{conj}
-%There is an equivalence between $\cT_{\sfE}(F,N)_2$ and $\cT_{\sfM}(F,N)_2$, 
-%the compactifications of the electric and magnetic holomorphic QCD theories.
-%\end{conj}
-
-This conjectured equivalence resembles Hori-Tong dualities \cite{HoriTong, Hori, others}.
-(In those papers, it is often said that Hori-Tong dualities are like Seiberg dualities!)
-We hope that insights from the study of these dualities --- such as the deep work on homological projective duality \cite{Kuznetsov, Thomas, Segal, others} ---- might apply here, and also feed back towards holomorphic Seiberg duality.
-
 %A duality 
 %
 %The basic two-dimensional supersymmetric theories involved in both sides of this duality are particular gauged linear $\sigma$-models (GLSMs) with $\cN=(2,2)$ supersymmetry. 
@@ -3117,9 +3066,6 @@ For each holomorphic QCD theory $\cT$,
 the stable locus $\cM_{\rm vac}(\cT)^s$ of its moduli stack parametrizes a family of holomorphic field theories on $\CC^2$, 
 and this family is isomorphic to the holomorphic $\sigma$-model from $\CC^2$ into~$\cM_{\rm vac}(\cT)^s$.
 \end{prop}
-
-\owen{Is that true?}
-\brian{I'm happy with this.}
 
 This result tells us that, over the stable locus, the observables of a holomorphic QCD theory agree with a sheaf of two-dimensional chiral differential operators, as discussed in \owen{reference section of this paper}.
 \owen{Do we see a WZ term? That often shows up in chiral symmetry breaking. It would be reminiscent of our $ch_2$ stuff in lower dimensions.}
@@ -3194,7 +3140,6 @@ M^q_{\rm vac}(F,N)_{\sfE} \simeq M^q_{\rm vac}(F,\check{N})_{\sfM}.
 \end{conj}
 
 We note that there may be many quantizations possible, but our experience in $\cN=4$ case suggests that there is an ``obvious'' one.
-\owen{Feel free to reel back this overblown statement.}
 
 \begin{rmk}
 We note that in the physics literature, there are a number of issues that are relevant in this setting.
@@ -3202,9 +3147,84 @@ For instance, there are ``instanton corrections'' that cannot be found by pertur
 It is interesting to wonder how these would appear in the holomorphic setting.
 \end{rmk}
 
-\subsubsection{Enhanced spacetime symmetries}
+\subsubsection{Two intriguing possibilities}
 
-\owen{Add section with conjecture about local spacetime symmetry and its quantization}
-and on the classical holomorphic theories, these enhance to an action of holomorphic vector fields. Under quantization, these have isomorphic anomalies.
+In discussions with Costello and Gaiotto, there appeared two suggestions that, while optimistic, would make studying these theories and this duality much more tractable.
+\begin{enumerate}
+
+\item For any space $M$ and any point $p \in M$, there is a canonical algebra map $\cO(M) \to \cO(M)^\wedge_p$ sending a function on $M$ to its ``Taylor expansion'' at $p$. 
+Sometimes this map is injective. 
+Similarly, there is a map of holomorphic factorization algebras from the moduli space of quantum vacua to the observables of a perturbative theory (e.g., at a point $x$ in the stable locus).
+One might ask if this map retains all essential information. 
+If it does, then holomorphic Seiberg duality can be analyzed via the correspondence between points on the stable loci.
+(Of course, one must characterize ``essential'' here with precision.)
+
+\item We have described a quantum Noether map from the (enhanced) flavor symmetries to the observables of holomorphic QCD. 
+Optimistically, these symmetries might ``saturate'': this current map might be essentially surjective.
+In that case, these theories could be analyzed via the representation theory of the flavor symmetries.
+Such a situation would be reminiscent of minimal models in the one-dimensional chiral conformal setting.
+
+\end{enumerate}
+Exploring these possibilities would likely lead to substantially deeper understanding of holomorphic Seiberg duality.
+
+\subsection{Two-dimensional dualities by reduction}
+
+A standard maneuver used in physics is compactification:
+given a field theory $\cT$ in $n$ dimensions, one takes compact $n-k$-manifold $N$ and produces a field theory $\cT_N$ in $k$ dimensions by studying $\cT$ on manifolds of the form $N \times \Sigma$, where $\Sigma$ is $k$-dimensional.
+One then considers the push forward of the theory along the obvious map $N \times \Sigma \to \Sigma$, to obtain an effective theory along $\Sigma$.
+A close cousin is dimensional reduction, where one restricts to solutions of the classical field theory that are constant along $N$.
+
+We consider a holomorphic theory defined on $\C^\times \times \C^\times$ and the pushforward along the map $\rho: \CC^\times \times \CC^\times \to \RR_{>0} \times \RR_{>0}$ that sends $(z_1,z_2)$ to $(|z_1|, |z_2|)$.
+In other words, this is the $T^2$ compactification of the holomorphic theory.
+For a holomorphic factorization algebra $\cF$, one can extract from the pushforward $\rho_* \cF$ a locally constant factorization algebra on $\RR_{> 0}^2 \cong \RR^2$, hence an $E_2$-algebra.
+We now apply this result in the context of holomorphic QCD and see what Seiberg duality would imply.
+
+Let's first consider the electric side, 
+which can be seen as two-dimensional holomorphic BF theory to a complex two-dimensional $\beta\gamma$ system.
+The $T^2$ compactification of the $\beta\gamma$ system with target $\C^{NF}$ is the topological B-model theory whose target is the formal double loop space $L^2\C^{NF}$. 
+The algebra of functions of this target space is $\cO(\C^{NF}) ((z))((w))$, 
+where $z,w$ are formal loop parameters which we imagine as describing the winding of the two circles we have compactified. 
+The dimensional reduction simply picks out the constant modes along each circle, so we find a linear topological B-model with target $\C^{NF}$.
+Similarly, the dimensional reduction of holomorphic BF theory is topological BF theory (which is a stacky version of the B-model whose target is the classifying space $BGL(N)$).
+In sum, the dimensional reduction of the electric holomorphic QCD is the topological B-model whose target is the stack $\C^{NF} / GL(N)$.
+As a derived mapping space, the moduli of solutions is given by
+\beqn
+{\rm Map}\left(\RR^2, T^*[1] \C^{NF} / GL(N)\right) .
+\eeqn
+The factorization algebra of observables obtained from reduction encodes the $E_2$ algebra of (holomorphic) polyvector fields on the stack~$\C^{NF} / GL(N)$. 
+
+On the magnetic side the reduction is similar, except this time we must take into account the superpotential. 
+What results is a Landau--Ginzburg B-model whose target is the stack
+\beqn
+\C^{(F-N)F} / GL(F-N) \times \C^{F^2} .
+\eeqn
+The first factor comes from the reduction of the dual quarks coupled to the dual gauge theory, and the second factor comes from the reduction of the mesons. 
+The potential of the Landau--Ginzburg model is given by the same expression $\check{W}$ as in~\eqref{eqn:checkW}.
+
+Holomorphic Seiberg duality then predicts an equivalence of two-dimensional topological field theories,
+or at least of $E_2$-algebras.
+
+\begin{conj}
+There is an equivalence of the following $E_2$ algebras:
+\begin{itemize} 
+\item (electric) the $E_2$ algebra of polyvector fields on the stack $\C^{NF} / GL(N)$, and 
+\item (magnetic) the $E_2$ algebra that results from deforming the $E_2$ algebra of polyvector fields on the stack $\C^{(F-N)F} / GL(F-N) \times \C^{F^2}$ by the differential $\{\check{W},-\}$ where $\{-,-\}$ is the Schouten bracket.
+\end{itemize}
+\end{conj}
+
+%\begin{conj}
+%There is an equivalence between $\cT_{\sfE}(F,N)_2$ and $\cT_{\sfM}(F,N)_2$, 
+%the compactifications of the electric and magnetic holomorphic QCD theories.
+%\end{conj}
+
+This conjectured equivalence resembles Hori-Tong dualities \cite{HoriTong, Hori, others}.
+(In those papers, it is often said that Hori-Tong dualities are like Seiberg dualities!)
+We hope that insights from the study of these dualities --- such as the deep work on homological projective duality \cite{Kuznetsov, Thomas, Segal, others} ---- might apply here, and also feed back towards holomorphic Seiberg duality.
+For instance, in this mathematical work, 
+one sees different choices of GIT quotients associated to the same stack yielding equivalent derived categories (and cousins),
+and these quotients only know about certain pieces of the stack,
+an issue we have flagged in our comparison of the moduli stack and the moduli space.
+
+
 
 \end{document}
