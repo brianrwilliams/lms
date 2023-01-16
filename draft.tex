@@ -2580,6 +2580,53 @@ The first term arises from substituting $\til \mu = \check Q \check Q^\dagger$ i
 This term has the effect of making both $\mu,\check \mu$ massive, and hence they can be integrated out to obtain the original electric theory. 
 (In fact, this argument can be upgraded to give an equivalence of BV theories from the electric theory and its double dual.)
 
+\subsubsection{The special case of $SU(2)$ SQCD}
+
+\owen{I like the idea of analyzing a special case, but I'm not sure what lesson the reader is supposed to learn.}
+
+Let's consider the special case where $N=2$ so that the gauge group on the electric side is $G = SU(2)$. 
+In this case, the fundamental and anti-fundamental representations are isomorphic $V_Q = V^*_Q$, so the quarks are valued in
+\beqn
+(Q, Q^\dagger) \in \Omega^{0,\bu}(\CC^2, V_Q^{\oplus 2}) .
+\eeqn
+This implies that the flavor symmetry group $SU(F) \times SU(F)$ admits an enhancement to $SU(2F)$. 
+
+On the magnetic side, the mesons still take values in the $SU(F) \times SU(F)$ representation
+\beqn
+V_{\check{M}} = (\CC^F)^* \otimes \CC^F \cong \CC^{\oplus F^2} .
+\eeqn
+There are $F$ dual quarks $\check{Q}$ transforming in the $SU(F-2)$ fundamental representation and $F$ dual antiquarks $\check{Q}^\dagger$ transforming in the antifundamental representation. 
+Again the flavor symmetry group admits an enhancement to $SU(2F)$.
+
+Let's further consider some special cases for small values of flavors. 
+
+$\bullet \ul{F=2}$. \brian{I'm confused}
+
+$\bullet \ul{F=3}$. 
+In this case the dual gauge group is trivial and we only have quarks, antiquarks, and mesons which together are valued in the following $SU(3) \times SU(3)$ representation
+\beqn
+(\CC^3)^* \otimes \CC^3 \oplus \CC^3 \oplus (\CC^3)^* .
+\eeqn
+In a way that is consistent with the flavor symmetry enhancement on the electric side, this representation which appears on the dual magnetic side enhances to the $SU(2 \cdot 3) = SU(6)$ representation $\wedge^2 (\C^6)$, where $\C^6$ is the fundamental $SU(6)$ representation.
+If we denote by $\Phi$ the field which combines all magnetic quarks, antiquarks, and mesons, then the classical superpotential can be written in an manifestly $SU(6)$ invariant way as
+\beqn
+W = \frac16 \Phi \wedge \Phi \wedge \Phi .
+\eeqn
+We conclude that the magnetic dual holomorphic theory can be expressed in a $SU(6)$ invariant way as a holomorphic $\sigma$-model from $\C^2$ to the (derived) critical locus of $W$. 
+The critical locus of $W$ is simply the space of solutions to the equation
+\beqn
+\Phi \wedge \Phi = 0 \in \wedge^4 (\C^6) .
+\eeqn
+This description is the affine Pl\"ucker embedding of the affine cone of the Grassmannian~$\text{Gr}(2,6)$.
+
+$\bullet \ul{F=4}$.
+This case is special since the gauge group on both sides of Seiberg duality is $SU(2)$. 
+On the electric side we have $SU(2)$ gauge theory with $F=4$ flavors. 
+On the magnetic side we have $SU(2)$ gauge theory with $F=4$ flavors and mesons which take values in $\C^{4^2} = \C^{16}$.
+
+We have pointed out that for any $F$ the global flavor symmetry group admits an enhancement to $SU(2F)$. 
+For $F \geq 4$ the 
+
 \subsection{Evidence for holomorphic Seiberg duality}
 
 We now turn to examining evidence for the conjecture, which will, in turn, allow us to refine it.
@@ -2601,7 +2648,10 @@ Under quantization, these have isomorphic anomalies.
 \item[(3)] There are {\em spacetime} symmetries that act on each theory, notably isometries, and these can be matched under duality.
 \end{enumerate}
 This triple of evidence is analogous (and sometimes stronger) than results for Seiberg duality for SQCD. 
-We now turn to fleshing out these assertions.
+We now turn to fleshing out these assertions, but we will only discuss (1) and (2).
+Aspect (1) is necessary even to formulate a precise statement,
+and aspect (2) uses results --- notably the higher Kac-Moody algebras --- that we've already encountered in this survey.
+Spacetime symmetries involve similar tools and ideas, albeit in a modified form, much like similarities between studying the Virasoro algebra and affine Lie algebras.
 
 \subsubsection{Moduli of vacua and quantization}
 
@@ -2873,95 +2923,95 @@ Since $\op{tr}_{\underline{F}^*} (T^3) = - \op{tr}_{\underline{F}} (T^3)$ for an
 we see that the sum of these two terms agrees with \eqref{eqn:electricflavor} on the electric side.
 \end{proof}
 
-\subsubsection{Twisted superconformal symmetry}
-
-\owen{I'm now pretty lost in how this section discusses evidence for Seiberg duality.}
-
-A superconformal algebra is a simple super Lie algebra which contains both the ordinary algebra of infinitesimal conformal transformations and the super Lie algebra of supertranslations.
-It is a basic fact of life that all (super)conformal algebras in dimensions $\geq 3$ are finite-dimensional.
-Being a superconformal theory means that the theory admits a symmetry by a particular superconformal algebra---it is, generally speaking, a very rigid condition on a theory. 
-
-The (complexified) $\cN=1$ superconformal in four-dimensions is $\sl(4|1)$.
-This super Lie algebra is the defining symmetry of a 4-dimensional $\cN=1$ superconformal field theory. 
-%The Poincar\'{e} algebra is a subalgebra of $\sl(4|1)$. %which in particular consists of supercharges $\cQ_{\alpha}, \cQ_{\dot{\alpha}}$ where $\alpha = 1,2$ is an $\SU(2)$ index.
-Inside of this algebra is the Cartan generator $\Delta$ of which is an infinitesimal generator for scaling transformations in~$\RR^4$.
-
-Fix the same square-zero supercharge $\cQ$ inside of the four-dimensional $\cN=1$ supersymmetry algebra which we use to define the holomorphic twists of Seiberg dual gauge theories. 
-Naturally, such a $\cQ$ acts by the (super)commutator on the superconformal Lie algebra.
-There is a quasi-isomorphism of dg Lie algebras
-\[
-\bigg(\sl(4|1) \; , \; [\cQ, -] \bigg) \simeq \sl(3) ,
-\]
-see \cite{SWsuco}, for example.
-So, if one starts with a superconformal theory, the Lie algebra $\sl(3)$ is guaranteed to act on the holomorphically twisted theory. 
-In this sense, $\sl(3)$ is the residual superconformal symmetry of this twist. 
-The entire algebra $\sl(3)$ naturally embeds inside of the Lie algebra of holomorphic vector fields on $\CC^2$,
-where we view $\CC^2$ as an open subset of $\CC \PP^2$ as an $SL(3)$-homogenous space.
-(In a moment we will discuss how all holomorphic vector fields act on the theories.)
-Inside of this twisted algebra $\sl(3)$, we have the ``holomorphic scaling'' operator 
-\beqn
-\Delta^{hol} = z_1 \del_{z_1} + z_2 \del_{z_2},
-\eeqn 
-which is simply the holomorphic Euler vector field.  
-We focus on this scaling operator as it is closely related to questions of renormalization group flow in the original, untwisted theory.
-
-Let's consider just a free theory consisting of a single chiral multiplet, for the moment.
-Here, the $R$-symmetry group is $U(1)$.
-The holomorphic supercharges breaks the $SO(4;\C)$ symmetry down to the group $MU(2)$, a double cover of $U(2)$.
-To perform the twist of a theory there are always two steps: the first is to `twist' the fields of the theory using the $R$-symmetry and the second is to deform the action by the supercharge $\cQ$.
-To have a consistent data to twist, one usually imposes the condition that with respect to the twisted $R$-symmetry action the supercharge $Q$ is invariant.
-The odd part of the four-dimensional $\cN = 1$ algebra is given by 
-\beqn
-S_+ \otimes W \oplus S_- \otimes W^*
-\eeqn
-where $W \cong \C$ is just a one-dimensional vector space and $S_{\pm}$ are the positive and negative semi-chiral spin representations of $\lie{so}(4;\C)$.
-We will take the square-zero supercharge to live in $\cQ \in S_+ \otimes W$.
-As an $MU(2)$ representation one has $S_+ \cong \det(L)^{+1/2} \oplus \det(L)^{-1/2}$.
-Thus, if $\cQ$ lies in the first summand, in order to make $\cQ$-invariant we must twist by the condition that $W$ has weight $-1/2$ under the $R$-symmetry.
-We will fix this twisting data.
-
-The basic components of the chiral multiplet is a pair of bosons $(\phi,\Bar{\phi})$, and a pair of fermions $(\psi_+, ,\psi_-)$ where $\psi_{+}$ takes values in $S_+$ and $\psi_-$ takes values in $S_-$.
-For a free theory, we may assign any $R$-charge to $\psi_+$ and this determines the $R$-charges of all remaining fields. 
-For example, if the $R$-charge of $\psi_+$ is $r$ then the $R$-charge of $\phi$ is $r+1$, the $R$-charge of $\psi_-$ is $-r$, and the $R$-charge of $\Bar{\phi}$ is $-r - 1$. 
-
-If we twist using the data where $\cQ$ is invariant, then the particular choice of $r$ will dictate how the holomorphic scaling operator $\Delta^{hol}$ acts on the theory.
-One finds that the holomorphic twist of the free chiral theory (which is just a single quark in the above terminology) has fundamental field
-\[
-Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2}) 
-\] 
-where $K$ denotes the holomorphic canonical bundle.
-Of course, the canonical bundle on $\C^2$ is trivializable, so we obtain a theory with isomorphic space of fields for any choice of $r$; what changes is how the twisted superconformal symmetry algebra $\lie{sl}(3)$ acts.  
-
-
-Now, let's consider the electric theory.
-We assume that the fermions in the quarks and anti-quark multiplets have the same $R$-charges.
-If this $R$-charge is $r$, then the twisted quarks and anti-quarks take the form
-\[
-Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q) \quad\text{and}\quad Q^\dagger \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q^*)
-\]
-where $V_Q \cong \C^{NF}$.
-In the untwisted theory the value $r$ is fixed by the condition that the $R$-symmetry is anomaly-free.
-In the twisted theory, the value of $r$ is fixed by the condition that the action by the holomorphic scaling operator is anomaly-free.
-This anomaly comes from a one-loop diagram with a single vertex labeled by $\Delta^{hol}$, and it leads to the constraint 
-\beqn
-N + F r = 0 .
-\eeqn
-In other words, $r = - N / F$. 
-This condition matches the corresponding condition for $R$-symmetry to be anomaly-free in the untwisted theory. 
-On the magnetic side the condition is $r = N/F - 1$.
-
-In the original version of Seiberg duality, there are certain values of $F$ and $N$ where the dual theories are expected to flow to the same superconformal fixed point in the infrared limit. 
-This range of values $F/3 < N < 2F/3$ is known as the ``superconformal window.''
-(Note that it is preserved under swapping $N \leftrightarrow F-N$.)
-It would be interesting to explore how it appears from the point of view of holomorphic QCD. 
-
-<<<<<<< HEAD
-\begin{cor}
-{\em Divergence-free} holomorphic vector fields are a symmetry at the quantum level for any values of $F$ and~$N$.
-Only when $F = 3N$ do {\em all} holomorphic vector fields lift to a symmetry lifts at the quantum level.
-\end{cor}
-=======
->>>>>>> 8d2b48799f0de9991260e8451b5287400da94e98
+%\subsubsection{Twisted superconformal symmetry}
+%
+%\owen{I'm now pretty lost in how this section discusses evidence for Seiberg duality.}
+%
+%A superconformal algebra is a simple super Lie algebra which contains both the ordinary algebra of infinitesimal conformal transformations and the super Lie algebra of supertranslations.
+%It is a basic fact of life that all (super)conformal algebras in dimensions $\geq 3$ are finite-dimensional.
+%Being a superconformal theory means that the theory admits a symmetry by a particular superconformal algebra---it is, generally speaking, a very rigid condition on a theory. 
+%
+%The (complexified) $\cN=1$ superconformal in four-dimensions is $\sl(4|1)$.
+%This super Lie algebra is the defining symmetry of a 4-dimensional $\cN=1$ superconformal field theory. 
+%%The Poincar\'{e} algebra is a subalgebra of $\sl(4|1)$. %which in particular consists of supercharges $\cQ_{\alpha}, \cQ_{\dot{\alpha}}$ where $\alpha = 1,2$ is an $\SU(2)$ index.
+%Inside of this algebra is the Cartan generator $\Delta$ of which is an infinitesimal generator for scaling transformations in~$\RR^4$.
+%
+%Fix the same square-zero supercharge $\cQ$ inside of the four-dimensional $\cN=1$ supersymmetry algebra which we use to define the holomorphic twists of Seiberg dual gauge theories. 
+%Naturally, such a $\cQ$ acts by the (super)commutator on the superconformal Lie algebra.
+%There is a quasi-isomorphism of dg Lie algebras
+%\[
+%\bigg(\sl(4|1) \; , \; [\cQ, -] \bigg) \simeq \sl(3) ,
+%\]
+%see \cite{SWsuco}, for example.
+%So, if one starts with a superconformal theory, the Lie algebra $\sl(3)$ is guaranteed to act on the holomorphically twisted theory. 
+%In this sense, $\sl(3)$ is the residual superconformal symmetry of this twist. 
+%The entire algebra $\sl(3)$ naturally embeds inside of the Lie algebra of holomorphic vector fields on $\CC^2$,
+%where we view $\CC^2$ as an open subset of $\CC \PP^2$ as an $SL(3)$-homogenous space.
+%(In a moment we will discuss how all holomorphic vector fields act on the theories.)
+%Inside of this twisted algebra $\sl(3)$, we have the ``holomorphic scaling'' operator 
+%\beqn
+%\Delta^{hol} = z_1 \del_{z_1} + z_2 \del_{z_2},
+%\eeqn 
+%which is simply the holomorphic Euler vector field.  
+%We focus on this scaling operator as it is closely related to questions of renormalization group flow in the original, untwisted theory.
+%
+%Let's consider just a free theory consisting of a single chiral multiplet, for the moment.
+%Here, the $R$-symmetry group is $U(1)$.
+%The holomorphic supercharges breaks the $SO(4;\C)$ symmetry down to the group $MU(2)$, a double cover of $U(2)$.
+%To perform the twist of a theory there are always two steps: the first is to `twist' the fields of the theory using the $R$-symmetry and the second is to deform the action by the supercharge $\cQ$.
+%To have a consistent data to twist, one usually imposes the condition that with respect to the twisted $R$-symmetry action the supercharge $Q$ is invariant.
+%The odd part of the four-dimensional $\cN = 1$ algebra is given by 
+%\beqn
+%S_+ \otimes W \oplus S_- \otimes W^*
+%\eeqn
+%where $W \cong \C$ is just a one-dimensional vector space and $S_{\pm}$ are the positive and negative semi-chiral spin representations of $\lie{so}(4;\C)$.
+%We will take the square-zero supercharge to live in $\cQ \in S_+ \otimes W$.
+%As an $MU(2)$ representation one has $S_+ \cong \det(L)^{+1/2} \oplus \det(L)^{-1/2}$.
+%Thus, if $\cQ$ lies in the first summand, in order to make $\cQ$-invariant we must twist by the condition that $W$ has weight $-1/2$ under the $R$-symmetry.
+%We will fix this twisting data.
+%
+%The basic components of the chiral multiplet is a pair of bosons $(\phi,\Bar{\phi})$, and a pair of fermions $(\psi_+, ,\psi_-)$ where $\psi_{+}$ takes values in $S_+$ and $\psi_-$ takes values in $S_-$.
+%For a free theory, we may assign any $R$-charge to $\psi_+$ and this determines the $R$-charges of all remaining fields. 
+%For example, if the $R$-charge of $\psi_+$ is $r$ then the $R$-charge of $\phi$ is $r+1$, the $R$-charge of $\psi_-$ is $-r$, and the $R$-charge of $\Bar{\phi}$ is $-r - 1$. 
+%
+%If we twist using the data where $\cQ$ is invariant, then the particular choice of $r$ will dictate how the holomorphic scaling operator $\Delta^{hol}$ acts on the theory.
+%One finds that the holomorphic twist of the free chiral theory (which is just a single quark in the above terminology) has fundamental field
+%\[
+%Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2}) 
+%\] 
+%where $K$ denotes the holomorphic canonical bundle.
+%Of course, the canonical bundle on $\C^2$ is trivializable, so we obtain a theory with isomorphic space of fields for any choice of $r$; what changes is how the twisted superconformal symmetry algebra $\lie{sl}(3)$ acts.  
+%
+%
+%Now, let's consider the electric theory.
+%We assume that the fermions in the quarks and anti-quark multiplets have the same $R$-charges.
+%If this $R$-charge is $r$, then the twisted quarks and anti-quarks take the form
+%\[
+%Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q) \quad\text{and}\quad Q^\dagger \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q^*)
+%\]
+%where $V_Q \cong \C^{NF}$.
+%In the untwisted theory the value $r$ is fixed by the condition that the $R$-symmetry is anomaly-free.
+%In the twisted theory, the value of $r$ is fixed by the condition that the action by the holomorphic scaling operator is anomaly-free.
+%This anomaly comes from a one-loop diagram with a single vertex labeled by $\Delta^{hol}$, and it leads to the constraint 
+%\beqn
+%N + F r = 0 .
+%\eeqn
+%In other words, $r = - N / F$. 
+%This condition matches the corresponding condition for $R$-symmetry to be anomaly-free in the untwisted theory. 
+%On the magnetic side the condition is $r = N/F - 1$.
+%
+%In the original version of Seiberg duality, there are certain values of $F$ and $N$ where the dual theories are expected to flow to the same superconformal fixed point in the infrared limit. 
+%This range of values $F/3 < N < 2F/3$ is known as the ``superconformal window.''
+%(Note that it is preserved under swapping $N \leftrightarrow F-N$.)
+%It would be interesting to explore how it appears from the point of view of holomorphic QCD. 
+%
+%<<<<<<< HEAD
+%\begin{cor}
+%{\em Divergence-free} holomorphic vector fields are a symmetry at the quantum level for any values of $F$ and~$N$.
+%Only when $F = 3N$ do {\em all} holomorphic vector fields lift to a symmetry lifts at the quantum level.
+%\end{cor}
+%=======
+%>>>>>>> 8d2b48799f0de9991260e8451b5287400da94e98
 
 %
 %This action of $\sl(3)$ extends to the quantizations, on both sides of the putative duality, by direct verification.
@@ -3006,60 +3056,6 @@ Only when $F = 3N$ do {\em all} holomorphic vector fields lift to a symmetry lif
 %We will discuss how these enhanced symmetries might intertwine with duality below.
 %
 %\owen{Should we check that the quantum magnetic theory also has a divergence-free symmetry?}
-
-
-\subsubsection{The special case of $SU(2)$ SQCD}
-
-\owen{I like the idea of analyzing a special case, but I'm not sure what lesson the reader is supposed to learn.}
-
-Let's consider the special case where $N=2$ so that the gauge group on the electric side is $G = SU(2)$. 
-In this case, the fundamental and anti-fundamental representations are isomorphic $V_Q = V^*_Q$, so the quarks are valued in
-\beqn
-(Q, Q^\dagger) \in \Omega^{0,\bu}(\CC^2, V_Q^{\oplus 2}) .
-\eeqn
-This implies that the flavor symmetry group $SU(F) \times SU(F)$ admits an enhancement to $SU(2F)$. 
-
-On the magnetic side, the mesons still take values in the $SU(F) \times SU(F)$ representation
-\beqn
-V_{\check{M}} = (\CC^F)^* \otimes \CC^F \cong \CC^{\oplus F^2} .
-\eeqn
-There are $F$ dual quarks $\check{Q}$ transforming in the $SU(F-2)$ fundamental representation and $F$ dual antiquarks $\check{Q}^\dagger$ transforming in the antifundamental representation. 
-Again the flavor symmetry group admits an enhancement to $SU(2F)$.
-
-Let's further consider some special cases for small values of flavors. 
-
-$\bullet \ul{F=2}$. \brian{I'm confused}
-
-$\bullet \ul{F=3}$. 
-In this case the dual gauge group is trivial and we only have quarks, antiquarks, and mesons which together are valued in the following $SU(3) \times SU(3)$ representation
-\beqn
-(\CC^3)^* \otimes \CC^3 \oplus \CC^3 \oplus (\CC^3)^* .
-\eeqn
-In a way that is consistent with the flavor symmetry enhancement on the electric side, this representation which appears on the dual magnetic side enhances to the $SU(2 \cdot 3) = SU(6)$ representation $\wedge^2 (\C^6)$, where $\C^6$ is the fundamental $SU(6)$ representation.
-If we denote by $\Phi$ the field which combines all magnetic quarks, antiquarks, and mesons, then the classical superpotential can be written in an manifestly $SU(6)$ invariant way as
-\beqn
-W = \frac16 \Phi \wedge \Phi \wedge \Phi .
-\eeqn
-We conclude that the magnetic dual holomorphic theory can be expressed in a $SU(6)$ invariant way as a holomorphic $\sigma$-model from $\C^2$ to the (derived) critical locus of $W$. 
-The critical locus of $W$ is simply the space of solutions to the equation
-\beqn
-\Phi \wedge \Phi = 0 \in \wedge^4 (\C^6) .
-\eeqn
-This description is the affine Pl\"ucker embedding of the affine cone of the Grassmannian~$\text{Gr}(2,6)$.
-
-$\bullet \ul{F=4}$.
-This case is special since the gauge group on both sides of Seiberg duality is $SU(2)$. 
-On the electric side we have $SU(2)$ gauge theory with $F=4$ flavors. 
-On the magnetic side we have $SU(2)$ gauge theory with $F=4$ flavors and mesons which take values in $\C^{4^2} = \C^{16}$.
-
-We have pointed out that for any $F$ the global flavor symmetry group admits an enhancement to $SU(2F)$. 
-For $F \geq 4$ the 
-
-%A duality 
-%
-%The basic two-dimensional supersymmetric theories involved in both sides of this duality are particular gauged linear $\sigma$-models (GLSMs) with $\cN=(2,2)$ supersymmetry. 
-%The physics terminology for the supersymmetric GLSM is a two-dimensional $\cN=(2,2)$ supersymmetric gauge theory coupled to some number of chiral multiplets transforming in a particular representation.
-%For gauge group $U(N)$, one takes $F_f$ chiral multiplets valued in the fundamental representation $\CC^N$ and $F_a$ chiral multiplets valued in the anti-fundamental representation.
 
 \subsection{A second pass at holomorphic Seiberg duality}
 
@@ -3190,6 +3186,7 @@ Such a situation would be reminiscent of minimal models in the one-dimensional c
 
 \end{enumerate}
 Exploring these possibilities would likely lead to substantially deeper understanding of holomorphic Seiberg duality.
+One motivation for these suggestions comes from work on two-dimensional (0,2)-theories, such as \cite{DeduGuk, EagLocSha}.
 
 \subsection{Two-dimensional dualities by reduction}
 
