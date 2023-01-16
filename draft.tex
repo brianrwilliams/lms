@@ -2357,8 +2357,6 @@ We will specialize $G = SU(N)$ and so $G_\CC = SL(N)$.
 The matter fields will consist of two types: quarks and antiquarks.
 Let $\underline{N}$ denote the {\em fundamental} (or defining) representation of $SL(N)$,
 so $\underline{N} = \CC^N$ with its natural left action.
-\owen{That's kind of crappy notation. Let's discuss.}
-\brian{Does it help us much? Or are you trying to use this to disambiguate what $\CC^N$ means.}
 
 %All of the holomorphic theories we consider below will be special cases of this gauged linear mapping space with $X = \CC^2$. 
 %We slightly refine notation and associate a holomorphic theory $\cT(G, V, Z, W)$ on $\CC^2$ associated to the following data:
@@ -2501,9 +2499,6 @@ There is an equivalence of 2-dimensional holomorphic factorization algebras
 \]
 where these are the observables of the electric and magnetic theories, respectively.
 \end{conj}
-
-\owen{Do we want $F > N+1$? The physicists break things into several cases. In particular, I think the moduli is unchanged under quantization only if $F$ is big enough relative to $N$ and $\check{N}$.}
-\brian{I expect we want a similar condition, but I was never able to understand how that appears at the level of factorization algebras.}
 
 \begin{rmk}
 The statement is an equivalence of factorization algebras valued in $\ZZ/2$-graded cochain complexes since the field theories are only $\ZZ/2$-graded.
@@ -2686,7 +2681,7 @@ As the solutions $\Sol(\RR^n)$ is a derived stack (at least if you adhere to the
 \cM_{\rm vac}(\cT) = \Sol_\cT(\RR^n)^{\RR^n}
 \]
 given by the substack of constant solutions.
-We call it the {\em moduli stack of classical vacua} for the theory~$\cT$.
+We call it the {\em moduli stack of classical vacuum solutions} for the theory~$\cT$.
 
 Many stacks of interest to geometers and representation theorists appear naturally from holomorphic field theories.
 For example, the holomorphic $\sigma$-model from $\CC^d$ into a target complex manifold $X$ has
@@ -2755,13 +2750,13 @@ In other words, the canonical map collapses together Jordan blocks with the same
 For this reason, it loses details about the classical vacua remembered by the stack quotient.
 
 \begin{rmk}\label{sols vs states}
-The physicists' focus on the moduli space is not unreasonable:
+The physicists' focus on the moduli space is quite reasonable:
 one must make measurements --- i.e., evaluate functions --- to identify the state of a physical system.
-The moduli space captures what can be seen by measurements (notably here, the ``vacuum expectation values'' of different vacua).
-In other words, the possible classical states --- viewed as multiplicative linear functionals on the algebra of observables --- are parametrized by the underlying affine scheme of the derived moduli stack.
+The moduli space captures what can be seen by measurements (here, the ``vacuum expectation values'' of different vacua).
+In other words, the possible classical states --- viewed as multiplicative linear functionals on the algebra of observables --- are parametrized by an affine scheme underlying the derived moduli stack.
 On the other hand, the moduli stack knows each orbit, which provides a distinct solution to the equations of motion,
-and hence records much more about the classical theory; 
-the space cannot distinguish between some vacua because it collapses orbits.
+and hence records much more about the classical theory.
+By contrast, the space cannot distinguish between some vacua because it collapses orbits.
 Moreover, the stack encodes much more data about the theory near each vacuum.
 For instance, it remembers ``enhanced symmetries'' (such as the residual gauge fields) at each vacuum.
 \end{rmk}
@@ -3087,9 +3082,9 @@ the stable locus $\cM_{\rm vac}(\cT)^s$ of its moduli stack parametrizes a famil
 and this family is isomorphic to the holomorphic $\sigma$-model from $\CC^2$ into~$\cM_{\rm vac}(\cT)^s$.
 \end{prop}
 
-This result tells us that, over the stable locus, the observables of a holomorphic QCD theory agree with a sheaf of two-dimensional chiral differential operators, as discussed in \owen{reference section of this paper}.
-\owen{Do we see a WZ term? That often shows up in chiral symmetry breaking. It would be reminiscent of our $ch_2$ stuff in lower dimensions.}
-\brian{that's a great question}
+This result tells us that, over the stable locus, the observables of a holomorphic QCD theory agree with a sheaf of two-dimensional chiral differential operators, as discussed in Section~\owen{reference section of this paper}.
+%\owen{Do we see a WZ term? That often shows up in chiral symmetry breaking. It would be reminiscent of our $ch_2$ stuff in lower dimensions.}
+%\brian{that's a great question}
 
 The isomorphism of moduli spaces then ensures that there is a dual vacuum $x_D$ to $x$ in the dual theory, and its perturbative theory is equivalent to the perturbative theory for $x$,
 because there is an explicit identification of the formal neighborhood of $x$ with the formal neighborhood of $x_D$. 
@@ -3210,14 +3205,14 @@ Similarly, the dimensional reduction of holomorphic BF theory is topological BF 
 In sum, the dimensional reduction of the electric holomorphic QCD is the topological B-model whose target is the stack $\C^{NF} / GL(N)$.
 As a derived mapping space, the moduli of solutions is given by
 \beqn
-{\rm Map}\left(\RR^2, T^*[1] \C^{NF} / GL(N)\right) .
+{\rm Map}\left(\RR^2, T^*[1] \left[ \C^{NF} / GL(N)\right]\right) .
 \eeqn
 The factorization algebra of observables obtained from reduction encodes the $E_2$ algebra of (holomorphic) polyvector fields on the stack~$\C^{NF} / GL(N)$. 
 
 On the magnetic side the reduction is similar, except this time we must take into account the superpotential. 
 What results is a Landau--Ginzburg B-model whose target is the stack
 \beqn
-\C^{(F-N)F} / GL(F-N) \times \C^{F^2} .
+\left[\C^{(F-N)F} / GL(F-N) \right] \times \C^{F^2} .
 \eeqn
 The first factor comes from the reduction of the dual quarks coupled to the dual gauge theory, and the second factor comes from the reduction of the mesons. 
 The potential of the Landau--Ginzburg model is given by the same expression $\check{W}$ as in~\eqref{eqn:checkW}.
@@ -3228,8 +3223,8 @@ or at least of $E_2$-algebras.
 \begin{conj}
 There is an equivalence of the following $E_2$ algebras:
 \begin{itemize} 
-\item (electric) the $E_2$ algebra of polyvector fields on the stack $\C^{NF} / GL(N)$, and 
-\item (magnetic) the $E_2$ algebra that results from deforming the $E_2$ algebra of polyvector fields on the stack $\C^{(F-N)F} / GL(F-N) \times \C^{F^2}$ by the differential $\{\check{W},-\}$ where $\{-,-\}$ is the Schouten bracket.
+\item (electric) the $E_2$ algebra of polyvector fields on the stack $[\C^{NF} / GL(N)]$, and 
+\item (magnetic) the $E_2$ algebra that results from deforming the $E_2$ algebra of polyvector fields on the stack $[\C^{(F-N)F} / GL(F-N)] \times \C^{F^2}$ by the differential $\{\check{W},-\}$ where $\{-,-\}$ is the Schouten bracket.
 \end{itemize}
 \end{conj}
 
