@@ -530,16 +530,24 @@ We will set fermions aside for the remainder of this section,
 but the discussion below extends easily to them and fermions appear naturally in the study of holomorphic field theories.
 \end{rmk}
 
-\subsection{A first step in the holomorphic direction}
+\brian{something about states}
+So far we've recalled how quantization looks like for algebras.
+There is also a quantization for modules.
+Let $L \subset M$ be a Lagrangian submanifold.
+Then, functions $C^\infty(L)$ on $L$ are naturally a module for $C^\infty(M)$.
+The Fock module $F(L)$ associated to $L$ is defined to be the quotient of 
+
+\subsection{A loopy version}
 
 What could provide the {\em holomorphic} analog of the story above?
-Let us indicate one possible answer before we motivate it.
+Let us indicate one possible answer before we motivate it from the point of view of holomorphic field theory.
+Roughly, the idea is that associated to any finite-dimensional symplectic space is another, infinite-dimensional, symplectic space of `loops' into the original symplectic space.
 
-\owen{Add pictures!}
+%\owen{Add pictures!}
 
-Let $X$ be a algebraic variety defined over $\CC$, equipped with a symplectic form $\omega_X$.
+Let $X$ be an algebraic variety defined over $\CC$, equipped with a symplectic form $\omega_X$.
 Then we posit for the relevant phase space, the ``symplectic space'' $LX$---the formal loop space of $X$.
-This is the space of maps $\Hat{D}^\times \to X$ from the formal punctured disk to $X$. 
+This is the space of maps $\Hat{D}^\times \to X$ from the formal punctured disk to $X$.
 %
 %Let $V$ be a finite-dimensional complex vector space, equipped with a symplectic pairing $\omega$ that is complex-valued.
 %We can view $V$ as $T^* L$ for some Lagrangian vector subspace $L \subset V$, if we wish.
@@ -549,22 +557,28 @@ This is the space of maps $\Hat{D}^\times \to X$ from the formal punctured disk 
 %so we view it as a kind of algebraic loop space of~$V$.
 (There are clearly variations on this idea, such as the holomorphic loop space of all holomorphic maps from $\CC^\times$ to~$X$, when $X$ is a complex manifold.)
 
-Observables for this classical theory then consist of algebraic functions on $V[z,z^{-1}]$, 
-which happens to be a vector space.
-That is, we want to produce a symmetric algebra on the linear dual to this vector space.
-Recall that Laurent series $\CC((z))$ provide a model of the linear dual to Laurent polynomials via the residue pairing: if $p(z) = \sum_{n = -i}^j a_n z^n$ is a Laurent polynomial and $f(z) = \sum_{m = -k}^\infty b_m z^m$ is a Laurent series, then the pairing is
-\[
-(f, p) = \Res_{z=0}(f p) = \sum_{m+n=-1} a_n b_m.
-\]
-Thus $V^* ((z))$, the $V^*$-valued Laurent series, are a linear dual to $V[z,z^{-1}]$ by combining the residue pairing with the evaluation pairing between $V$ and its linear dual~$V^*$.
-The symmetric algebra $\Sym(V^* ((z)))$ thus encodes a class of observables that we will denote $\cO(V[z,z^{-1}])$.
+When $X=V$ is a complex vector space equipped with a linear symplectic form $\omega_V$, we can identify $LX$ with the vector space $V((z))$ of $V$-valued Laurent series in a single variable.
+The symplectic form on this vector space is given in terms of the residue
+\beqn
+\omega_{LV} (f,g) = \underset{z=0}{\text{Res}} \, \omega_V(f,g) \d z .
+\eeqn
+One can get rid of the appearance of the holomorphic line element $\d z$ if we `twist' Laurent series by the square-root element $\d z^{1/2}$---in other words, we take sections of the line bundle $K^{1/2}_{D^\times}$.
+%Observables for this classical theory then consist of algebraic functions on $V[z,z^{-1}]$, 
+%which happens to be a vector space.
+%That is, we want to produce a symmetric algebra on the linear dual to this vector space.
+%Recall that Laurent series $\CC((z))$ provide a model of the linear dual to Laurent polynomials via the residue pairing: if $p(z) = \sum_{n = -i}^j a_n z^n$ is a Laurent polynomial and $f(z) = \sum_{m = -k}^\infty b_m z^m$ is a Laurent series, then the pairing is
+%\[
+%(f, p) = \Res_{z=0}(f p) = \sum_{m+n=-1} a_n b_m.
+%\]
+%Thus $V^* ((z))$, the $V^*$-valued Laurent series, are a linear dual to $V[z,z^{-1}]$ by combining the residue pairing with the evaluation pairing between $V$ and its linear dual~$V^*$.
+%The symmetric algebra $\Sym(V^* ((z)))$ thus encodes a class of observables that we will denote $\cO(V[z,z^{-1}])$.
 (Again, there are clearly alternative algebras to consider.)
 When we quantize, this algebra will be related to a well-known vertex algebra.
 
-There is one last feature we would like to point out, before we turn to explaining our interest in this space and algebra.
-The inclusion $\CC^\times \hookrightarrow \CC$ means that any algebraic map  $\phi: \CC \to V$ restricts to an algebraic map $\phi \colon \CC^\times \to V$.
-In our notation, this restriction map is the inclusion $V[z] \hookrightarrow V[z,z^{-1}]$ of $V$-valued polynomials in $V$-valued Laurent polynomials.
-In terms of observables, there is a quotient map $\cO(V[z,z^{-1}]) \to \cO(V[z])$, since observables on the loop space restrict to observables on~$V[z]$.
+There is a feature we would like to point out, before we turn to explaining our interest in this space and algebra.
+The inclusion $\Hat{D}^\times \hookrightarrow \Hat{D}$ means that any algebraic map  $\phi: \Hat{D} \to V$ restricts to an algebraic map $\phi \colon \Hat{D}^\times \to V$.
+In our notation, this restriction map is the inclusion $V[[z]] \hookrightarrow V((z))$ of $V$-valued power series in $V$-valued Laurent series.
+%In terms of observables, there is a quotient map $\cO(V[z,z^{-1}]) \to \cO(V[z])$, since observables on the loop space restrict to observables on~$V[z]$.
 When we quantize, this relationship will produce the underlying vector space (or Fock space, or vacuum module) of the vertex algebra.
 
 Now we will discuss why we might focus on these constructions,
@@ -593,8 +607,8 @@ and they suffice to distinguish distinct solutions.
 This view generalizes nicely to the holomorphic setting,
 and it amounts to using the Lagrangian formalism to study the holomorphic field theories we have already introduced.
 In this model case, we replace the path space ${\rm Map}(\RR, \RR^n)$ by ${\rm Map}(\CC^\times, \CC^n)$ or, if one wishes, ${\rm Map}(S, \CC^n)$ with $S$ a Riemann surface.
-We start with $\CC^\times$ since it has a ``time'' direction given by the radial coordinate ($t$ becomes $r = e^t)$),
-letting us view ${\rm Map}(\CC^\times, \CC^n)$ as  ${\rm Map}(\RR, \Map(S^1,\CC^n))$, namely mechanics into the loop space of $\CC^n$.
+We start with $\CC^\times$ since it has a ``time'' direction given by the radial coordinate ($t$ becomes $r = e^t)$).
+Letting us view $\CC^\times$ as a cylinder $\RR \times S^1$, we can view the mapping space as  ${\rm Map}(\RR, \Map(S^1,\CC^n))$, namely mechanics into the loop space of $\CC^n$.
 We replace Newton's equations of motion with a holomorphic version
 so that the space of solutions is given by holomorphic maps from $\CC^\times$ into $\CC^n$.
 If we wish to focus on a more algebraic version, as we did at the beginning,
@@ -608,23 +622,28 @@ The algebraic maps are precisely $T^* \CC^n$-valued Laurent polynomials.
 \footnote{One can extract the algebraic model from the holomorphic model by taking formal power series expansions at the level of observables.}
 
 We now turn to quantization, and our phase space will be, for simplicity, the algebraic loop space $V[z,z^{-1}]$ of a symplectic complex vector space $V$.
-Following the case of mechanics, we might ask for a deformation of $\cO(V[z,z^{-1}])$ into an associative algebra.
-A subtlety here is that $\cO(V[z,z^{-1}])$ does not possess a Poisson bracket, 
-due to the  infinite-dimensionality of $V[z,z^{-1}]$.
-The naive formulas from functions on a finite-dimensional symplectic vector space only make sense on a subset of observables here.
-One workaround is to replace $V[z,z^{-1}]$ with $V((z))$, the $V$-valued Laurent series,
-which we view as ``formal loops in $V$.''
-There is manifestly an inclusion $V[z,z^{-1}] \hookrightarrow V((z))$ and hence an algebra map $\cO(V((z))) \to \cO(V[z,z^{-1}])$
-where 
-\[
-\cO(V((z))) = \Sym(V^* [z,z^{-1}]).
-\]
-On this subalgebra, the naive Poisson bracket makes sense: it is given by extending the nondegenerate skew-symmetric pairing $\omega^* \otimes \Res$ on $V^* [z,z^{-1}]$.
-Hence for $\cO(V((z)))$, we can ask for a deformation quantization,
-and there is a nice answer: 
-the Heisenberg commutation relations determine a Weyl algebra $W[V]$ for this formal loop space.
+Following the case of mechanics, we might ask for a deformation of the Poisson algebra
+\beqn
+\cO\left( V((z)) \right) .
+\eeqn
+Like the symplectic form on $V((z))$, the Poisson bracket is given in terms of the residue pairing.
+%into an associative algebra.
+%A subtlety here is that $\cO(V[z,z^{-1}])$ does not possess a Poisson bracket, 
+%due to the  infinite-dimensionality of $V[z,z^{-1}]$.
+%The naive formulas from functions on a finite-dimensional symplectic vector space only make sense on a subset of observables here.
+%One workaround is to replace $V[z,z^{-1}]$ with $V((z))$, the $V$-valued Laurent series,
+%which we view as ``formal loops in $V$.''
+%There is manifestly an inclusion $V[z,z^{-1}] \hookrightarrow V((z))$ and hence an algebra map $\cO(V((z))) \to \cO(V[z,z^{-1}])$
+%where 
+%\[
+%\cO(V((z))) = \Sym(V^* [z,z^{-1}]).
+%\]
+%On this subalgebra, the naive Poisson bracket makes sense: it is given by extending the nondegenerate skew-symmetric pairing $\omega^* \otimes \Res$ on $V^* [z,z^{-1}]$.
+%Hence for $\cO(V((z)))$, we can ask for a deformation quantization,
+%and there is a nice answer: 
+The standard Heisenberg commutation relations determine a Weyl algebra $W[V]$ for this formal loop space.
 As a vector space $W[V]$ is isomorphic to $\cO(V((z)))$, 
-just as the simplest Weyl algebra is isomorphic to $\CC[p,q]$ as a vector space,
+just as the simplest Weyl algebra is isomorphic to $\cO(V)$ as a vector space,
 but the product structure is modified by quantization.
 We expect, by analogy with the simplest case, that any quantization of a bigger algebra (e.g., for observables of the holomorphic loop space) contains this quantization as its algebraic skeleton.
 
@@ -654,16 +673,19 @@ Let us briefly comment on how symmetries extend to the holomorphic setting.
 In other words, we wish to explain how the affine Lie algebras $\widehat{\fg}$ and free field realizations arise in analogy with our discussion of quantum moment maps.
 
 Suppose now that $G$ is a complex Lie group and it acts on the symplectic complex vector space $V$ by holomorphic symplectomorphisms.
-Then $G$ also acts on the algebraic loop space $V[z,z^{-1}]$ and also on formal loops $V((z))$ as a ``global'' symmetry:
+Then $G$ also acts on the formal loop space $V((z))$ as a ``global'' symmetry:
 the action is independent of $z$.
 On the other hand, if we consider the infinitesimal action $\rho \colon \fg \to {\rm SympVect}(V)$,
-there is, in fact, a natural extension to a ``local'' symmetry $\rho^{\rm loc} \colon \fg[z,z^{-1}] \to {\rm SympVect}(V((z)))$.
+there is, in fact, a natural extension to a ``local'' symmetry by the ``loop algebra'' 
+\beqn
+\rho^{\rm loc} \colon L \fg = \fg ((z)) \to {\rm SympVect}(V((z))) .
+\eeqn
 Geometrically, a $\fg$-valued function $x(z)$ acts pointwise (with respect to the formal disc) on the formal loop space.
-(Although the algebraic loop space is not symplectic in a strict sense,
-there is still a local symmetry as $\fg[z,z^{-1}]$ maps to vector fields on the algebraic loop space.)
-This action factors through a map $H_\rho^{\rm loc}: \fg[z,z^{-1}] \to \cO(V((z)))$,
+%(Although the algebraic loop space is not symplectic in a strict sense,
+%there is still a local symmetry as $\fg[z,z^{-1}]$ maps to vector fields on the algebraic loop space.)
+This action factors through a map $H_\rho^{\rm loc}: \fg((z)) \to \cO(V((z)))$,
 and hence is Hamiltonian.
-Thus the loop algebra $\fg[z,z^{-1}]$ arises naturally as symmetries of a classical holomorphic field theory.
+Thus the loop algebra $\fg((z))$ arises naturally as symmetries of a classical holomorphic field theory.
 
 When we try to quantize, we run into an interesting phenomenon:
 the Hamiltonian action $H_\rho^{\rm loc}$ does not extend as a Lie algebra map into the Weyl algebra $W[V]$,
@@ -675,7 +697,7 @@ by
 \]
 There is thus a central extension of the loop algebra 
 \[
-\CC c \to \widehat{\fg} \to \fg[z,z^{-1}]
+\CC K\to \widehat{\fg} \to \fg((z))
 \]
 so that 
 \[
@@ -688,8 +710,6 @@ and there is a Lie algebra map
 This is an example of a {\em free field realization} for the affine Lie algebra~$\widehat{\fg}$.
 This relationship --- and its extension to a map between the vertex algebras associated to $\widehat{\fg}$ and $V$ --- is small part of the rich dialogue that has developed between complex analysis, representation theory, and the physics of chiral conformal field theory.
 (To get Riemann surfaces into the game, we will need a richer framework than ordinary algebra.)
-
-\owen{Discuss modules?}
 
 \subsection{Reduction vs. chiralization}
 
@@ -740,36 +760,34 @@ The naive idea is to replace the algebraic loop space $\Map(\CC^\times,  V)$, or
 If one considers ordinary algebraic or holomorphic maps for $d > 1$, 
 then every such map extends across the origin, by Hartogs' lemma,
 so this seems uninteresting.
-One should notice, however, that punctured affine space $\mathring{\CC}^d = \CC^d -\{0\}$ is, as a scheme, not affine, 
+One should notice, however, that punctured affine space $\mathring{D}^d = \Hat{D}^n -\{0\}$ is, as a scheme, not affine, 
 and so the {\em derived} global sections of the structure sheaf $\cO_{\rm alg}$ are interesting:
 \[
-H^\bu(\RR \Gamma(\mathring{\CC}^d, \cO_{\rm alg})) = H^\bu (\mathring{\AA}^d, \cO) 
-= \begin{cases} 
+H^\bu(\RR \Gamma(\mathring{D}^d, \cO)) = \begin{cases} 
 0, & \bu \neq 0, d-1 \\ 
-\CC[z_1,\ldots,z_d], & \bu = 0 \\ 
+\CC[[z_1,\ldots,z_d]], & \bu = 0 \\ 
 \CC[z_1^{-1},\ldots,z_d^{-1}] \frac{1}{z_1 \cdots z_d}, & \bu = d-1 
 \end{cases} .
 \]
-Here $\mathring{\AA}^d$ stands for punctured affine space as a scheme. 
+%Here $\mathring{\AA}^d$ stands for punctured affine space as a scheme. 
 We are providing a natural basis for the cohomology 
 that aims to emphasize analogies with the $d=1$ case.
-When $d=1$, note that this recovers the Laurent polynomials,
+When $d=1$, note that this recovers the Laurent series,
 so when $d > 1$, 
 we view the cohomology in degree $d-1$ as providing the derived replacement of the polar part of the Laurent polynomials.
 Checking this computation is a straightforward exercise in algebraic geometry;
-for instance, use the cover by the affine opens of the form $\CC^d - \{z_i =0\}$.
+for instance, use the cover by the affine opens which are the complements of the coordinate hyperplanes $\{z_i =0\}$.
 The full cohomology has the structure of a commutative algebra. 
 In degree zero, the algebra structure is the ordinary one on functions, or polynomials.
 The module structure in the basis above is given by the apparent multiplication: $z_i^k \cdot z_i^{-l-1} = z_i^{k-l-1}$ if $k < l$ and zero otherwise.
 
+There is also an algebraic version where we replace the formal disk by the affine space $\AA^d$ and its punctured version $\mathring{\AA}^d$.
 A similar result holds in analytic geometry, of course,
-so that we have a natural map
+so that we have natural maps
 \[
-\RR \Gamma(\mathring{\CC}^d, \cO_{\rm alg}) \to \RR \Gamma(\mathring{\CC}^d, \cO_{\rm an}) \simeq \Omega^{0,\bu}(\mathring{\CC}^d).
+\RR \Gamma(\mathring{D}^d, \cO) \leftarrow \RR \Gamma(\mathring{\AA}^d, \cO) \to \RR \Gamma(\mathring{\CC}^d, \cO_{\rm an}) 
 \]
-We can also replace punctured affine space $\mathring{\AA}^d$ by the punctured formal disk
-$\mathring{\DD}^d$.
-Here the cohomology is identical to the above formula except in degree zero polynomials are replaced by power series.
+given by the embedding of polynomials into power series and holomorphic functions, respectively.
 
 It is important to have an explicit dg commutative algebra that models the derived global sections for functions on punctured formal disk,
 and not just the cohomology groups.
@@ -786,8 +804,10 @@ The right embedding replaces the inclusion of Laurent polynomials into the Dolbe
 \item There is a higher residue map $\text{Res} \colon \sfA_d^{\bu} \to \CC[-d+1]$ which is compatible with integration over the $2d-1$ sphere
 \beqn
 \label{eq:res}
-\Res(\alpha) = \oint_{S^{2d-1}} \alpha \wedge \d z_1 \wedge \cdots \wedge \d z_d.
+\Res(\alpha) = \oint_{S^{2d-1}} \alpha \wedge \d^d z,
 \eeqn
+under the above embeddings.
+Here $\d^d z = \d z_1 \wedge \cdots \wedge \d z_d$ is the standard holomorphic volume form.
 \end{itemize}
 
 %In fact, they provide a model $A^{p,*}_d$ for the algebraic $p$-forms as well.
@@ -820,23 +840,24 @@ The right embedding replaces the inclusion of Laurent polynomials into the Dolbe
 
 The ingredients are in place to mimic the construction of the Weyl algebra for the formal loop space, of the affine Lie algebras, and of free field realization, but now with $\mathring{\CC}^d$ in place of $\mathring{\CC}^1 = \CC^\times$.
 We must be careful about parity, however. 
-In dimension $d = 1$, the Laurent polynomials valued in a symplectic vector space $V[z,z^{-1}]$ again has the structure of a symplectic vector space via the residue. 
+In dimension $d = 1$, the Laurent polynomials valued in a symplectic vector space $V((z))$ again has the structure of a symplectic vector space via the residue. 
 Because of the appearance of the cohomological shift in the higher dimensional residue it is no longer the case that 
 \beqn
-V \otimes \RR\Gamma(\mathring{\DD}^d, \cO) \simeq V \otimes \sfA_d
+V \otimes \RR\Gamma(\mathring{D}^d, \cO) \simeq V \otimes \sfA_d
 \eeqn
 is symplectic if $V$ is.
 
 The residue map $\Res$ in equation \eqref{eq:res} is of cohomological degree $1-d$. 
 Thus, to get a symplectic pairing on $V \otimes \sfA_d$ via the residue we can ask that $V$ is equipped with a {\em $(d-1)$-shifted symplectic structure}. 
-A typical example of such a space is $V = \T^*[d-1] L = L \oplus L^*[d-1]$, where $L$ is any vector space.
+A typical example of such a space is $V = T^*[d-1] L = L \oplus L^*[d-1]$, where $L$ is any vector space.
+\footnote{In the generality of shifted symplectic geometry, we expect that the derived mapping space $\text{Map}(\mathring{D}^n, X)$ is symplectic provided that $X$ is a $(d-1)$-shifted symplectic space.}
 
 Let $\omega_V$ be a $(d-1)$-shifted symplectic pairing on the graded vector space $V$. 
 Then $\omega_V$ extends to a map $\til \omega_V \colon (V \otimes \sfA_2)^{\otimes 2} \to \sfA_d$ where we use the algebra structure on $\sfA_d$. 
 We then obtain a ($0$-shifted) symplectic pairing on $V \otimes \sfA_d$ by the formula
 \beqn
 \label{eqn:omega}
-\omega(a,b) = \Res ( \til \omega_V (a,b) ) .
+\omega(a,b) = \Res ( \til \omega_V (a,b) \wedge \d^d z) .
 \eeqn
 As in the construction of the ordinary Weyl algebra, we can think about $\omega$ as defining two-cocycle on the (abelian) dg Lie algebra $V \otimes \sfA_d$.
 In particular, $\omega$ determines a central extension of dg Lie algebras
@@ -850,7 +871,7 @@ Let $V$ be a $(d-1)$-symplectic graded vector space.
 Then, the $d$-dimensional Weyl algebra $W_d[V]$ is the enveloping algebra of the dg Lie algebra $\lie{h}_d [V]$ where we set the central term equal to the unit.
 \end{dfn}
 
-There is a close relationship of the higher dimensional Weyl algebra to the higher dimensional $\beta\gamma$ system on $\CC^d - 0$ just as the loopy Weyl algebra is related to the $\beta\gamma$ system on $\CC^\times$. 
+There is a close relationship of the higher dimensional Weyl algebra to the higher dimensional $\beta\gamma$ system on $\CC^d - 0$ just as the loopy Weyl algebra is related to the $\beta\gamma$ system on~$\CC^\times$. 
 
 The trick of turning providing a higher dimensional version of the Weyl algebra can be easily modified to obtain higher dimensional version of current, or loop, algebras. 
 This is one of the starting points of \cite{FHK} in their construction of higher dimensional Kac--Moody algebras. 
@@ -871,7 +892,7 @@ For any $\fg$-invariant degree $d+1$ polynomial $\theta \in \Sym^{d+1}(\fg^*)^\f
 \[
 \label{fhk cocycle}
 \begin{array}{cccc}
-\theta_{\rm FHK} : & (A_d \tensor \fg)^{\tensor (d+1)} & \to & \CC\\ 
+\theta_{\rm FHK} : & (\sfA_d \tensor \fg)^{\tensor (d+1)} & \to & \CC\\ 
 & a_0 \otimes \cdots \otimes a_d & \mapsto & \Res \left(\theta(a_0,\partial a_1,\ldots,\partial a_d)\right)
 \end{array}.
 \]
@@ -886,7 +907,6 @@ as they specialize to the affine Lie algebras when~$d =1$.
 These $L_\infty$ algebras are not just introduced on a whim.
 In \cite{FHK} they are shown to appear naturally in various contexts,
 notably in studying the derived moduli of $G$-bundles on a complex varieties of dimension~$d$.
-\owen{Other applications?}
 
 With the higher dimensional Weyl and Kac--Moody algebras in place, a natural question to ask is whether there are higher dimensional versions of the free field realization as in \eqref{eqn:freefield1}. 
 If $V$ is a representation of a Lie algebra $\fg$,
