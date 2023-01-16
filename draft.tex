@@ -494,28 +494,28 @@ given a classical holomorphic field theory, what are the natural deformations of
 Many of the results we discuss later can be seen as generalizations of phenomena associated with deformation quantization.
 
 In particular, consider how symmetries appear in mechanics.
-Let $X$ be a symplectic manifold encoding the ``phase space'' of a classical mechanical system,
+Let $M$ be a symplectic manifold encoding the ``phase space'' of a classical mechanical system,
 and let $\{-,-\}$ denote the Poisson bracket on $C^\infty(X)$.
 If a Lie group $G$ acts on $X$ by symplectomorphisms (i.e., respects the symplectic structure),
-there is a map of Lie algebras $\rho \colon\fg \to {\rm SympVect}(X)$ so that an ``infinitesimal symmetry'' $x \in \fg$ acts by a symplectic vector field.
+there is a map of Lie algebras $\rho \colon\fg \to {\rm SympVect}(M)$ so that an ``infinitesimal symmetry'' $x \in \fg$ acts by a symplectic vector field.
 In many cases, such infinitesimal symmetries are realized as observables: 
-there is a map of Lie algebras $H_\rho \colon \fg \to C^\infty(X)$ such that $\{ H_\rho(x), - \} = \rho(x)$.
-One says that each element $x$ has a Hamiltonian function $H_\rho(x)$ whose associated Hamiltonian vector field is $\rho(X)$.
+there is a map of Lie algebras $H_\rho \colon \fg \to C^\infty(M)$ such that $\{ H_\rho(x), - \} = \rho(x)$.
+One says that each element $x$ has a Hamiltonian function $H_\rho(x)$ whose associated Hamiltonian vector field is $\rho(x)$.
 Classic examples include the momenta for $T^* \RR^n$ arising from translation and rotational symmetry.
 
 How does this set-up fit into the deformation quantization view?
 First, note that the free commutative algebra $\Sym(\fg)$ has a canonical Poisson bracket by defining $ \{x, y \}   = [x, y]$ for generators $x, y \in \fg$ and extending by the Leibniz rule.
-Hence the Hamiltonian map $H_\rho$ extends to a Poisson map $H_\rho: \Sym(\fg) \to C^\infty(X)$.
+Hence the Hamiltonian map $H_\rho$ extends to a Poisson map $H_\rho: \Sym(\fg) \to C^\infty(M)$.
 We can then ask: does this map quantize? That is, can we compatibly deform the domain and range of the maps to interesting associative algebras as well as deforming to a map of associative algebras?
 Here it might be useful to recognize that the enveloping algebra $U\fg$ is a natural deformation quantization of $\Sym(\fg)$, thanks to the Poincar\'e-Birkhoff-Witt theorem.
-Thus our question might be reformulated to asking whether there is an associative algebra map $H^q_\rho: U\fg \to C^\infty(X)^q$, where $C^\infty(X)^q$ is a deformation quantization, such that $H^q_\rho$ recovers $H_\rho$ in the classical limit.
+Thus our question might be reformulated to asking whether there is an associative algebra map $H^q_\rho: U\fg \to C_\hbar^\infty(M)$, where $C_\hbar^\infty(X)$ is a deformation quantization, such that $H^q_\rho$ recovers $H_\rho$ in the classical limit.
 Such a map is sometimes called a {\em quantum moment map},
-as $H_\rho$ is the pullback of (polynomial) functions along a moment map~$\mu_\rho \colon X \to \fg^*$.
+as $H_\rho$ is the pullback of (polynomial) functions along a moment map~$\mu_\rho \colon M \to \fg^*$.
 
 This class of questions appears throughout mathematics,
 and it has played a key role in geometric representation theory and the theory of $D$-modules, where $D$ denotes a ring of differential operators.
-After all, for any manifold $X$, the algebra of differential operators $D_X$ is a natural deformation quantization of functions on $T^* X$.
-Hence, for any $G$-manifold $X$, it is natural to ask whether there is a representation $\fg \to D_X$ deforming the canonical Poisson representation.
+After all, for any manifold $M$, the algebra of differential operators $D_X$ is a natural deformation quantization of functions on $T^* M$.
+Hence, for any $G$-manifold $M$, it is natural to ask whether there is a representation $\fg \to D_M$ deforming the canonical Poisson representation.
 In this spirit, we will search for analogues of the kind of mathematics that has grown out of results by Beilinson-Bernstein \owen{cite}, Kashiwara \owen{cite}, and others.
 
 \begin{rmk}
@@ -537,13 +537,17 @@ Let us indicate one possible answer before we motivate it.
 
 \owen{Add pictures!}
 
-Let $V$ be a finite-dimensional complex vector space, equipped with a symplectic pairing $\omega$ that is complex-valued.
-We can view $V$ as $T^* L$ for some Lagrangian vector subspace $L \subset V$, if we wish.
-Then we posit for the relevant phase space, the ``symplectic complex manifold'' $V[z,z^{-1}]$,
-by which we mean the $V$-valued Laurent polynomials in a coordinate~$z$.
-The space encodes algebraic maps from the variety $\CC^\times = \CC \setminus 0$ to $V$,
-so we view it as a kind of algebraic loop space of~$V$.
-(There are clearly variations on this idea, such as the holomorphic loop space of all holomorphic maps from $\CC^\times$ to~$V$.)
+Let $X$ be a algebraic variety defined over $\CC$, equipped with a symplectic form $\omega_X$.
+Then we posit for the relevant phase space, the ``symplectic space'' $LX$---the formal loop space of $X$.
+This is the space of maps $\Hat{D}^\times \to X$ from the formal punctured disk to $X$. 
+%
+%Let $V$ be a finite-dimensional complex vector space, equipped with a symplectic pairing $\omega$ that is complex-valued.
+%We can view $V$ as $T^* L$ for some Lagrangian vector subspace $L \subset V$, if we wish.
+%Then we posit for the relevant phase space, the ``symplectic complex manifold'' $V[z,z^{-1}]$,
+%by which we mean the $V$-valued Laurent polynomials in a coordinate~$z$.
+%The space encodes algebraic maps from the variety $\CC^\times = \CC \setminus 0$ to $V$,
+%so we view it as a kind of algebraic loop space of~$V$.
+(There are clearly variations on this idea, such as the holomorphic loop space of all holomorphic maps from $\CC^\times$ to~$X$, when $X$ is a complex manifold.)
 
 Observables for this classical theory then consist of algebraic functions on $V[z,z^{-1}]$, 
 which happens to be a vector space.
