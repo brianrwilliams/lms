@@ -751,6 +751,7 @@ Notice that the $k=0$ summand is just the Lagrangian of ordinary mechanics into 
 In general, we find mechanics into the symplectic vector space $LV$, where the symplectic structure uses the residue pairing in addition to the symplectic form on $V$, with a nontrivial Hamiltonian which encodes the $U(1)$-symmetry arising from rotating $LV$ in the natural way.
 
 \subsection{Algebras in higher dimensions }
+\label{subsec: FHK}
 
 The story we have just told admits a natural extension to higher complex dimensions,
 but it requires a first step in the direction of derived geometry.
@@ -2109,6 +2110,7 @@ Daniel Bruegmann's thesis, and how the web of 2d CFT stuff should fit together.}
 \owen{revisit this theme, and discuss the "modes" algebra}
 
 \section{Holomorphic $\sigma$-models, higher algebras of differential operators, and higher free field realization}
+\label{sec: higher CDO}
 
 \owen{We should also discuss how these can reduce to LG B-models, as precursor to the Hori-Tong dualities.}
 
@@ -2284,7 +2286,7 @@ and even impacted mathematics through the Seiberg-Witten equations (which are re
 The class of supersymmetric theories closest to the Standard Model, however, has only $\cN=1$ supersymmetry.
 There too Seiberg offered inspiring and powerful insights about SQCD ($\cN=1$ supersymmetric QCD),
 and one of his leading contributions is referred to as {\em Seiberg duality}.
-It has had a large impact in theoretical physics \owen{give the citation number on that paper},
+It has had a large impact in theoretical physics (with nearly two thousand citations),
 but the impact in mathematics is much more muted,
 possibly due to the lack of a topological twist for any $\cN=1$ theory.
 Such theories do admit {\em holomorphic} twists, however, 
@@ -2299,7 +2301,7 @@ We explain our first efforts in this direction and how it offers evidence for th
 we then refine Eager's version.
 We also explain how this duality, when compactified along Riemann surfaces,
 should produce equivalences between different kinds of 2-dimensional B-model theories;
-these reductions are related to work of Hori and Hori--Tong \owen{citations} and its mathematical development by Ed Segal, \owen{list others}.
+these reductions are related to work of Hori and Hori--Tong \cite{Hori, HorTon} and their mathematical offshoots \cite{Segal, etc}.
 
 \subsection{Holomorphic QCD}
 
@@ -2540,20 +2542,21 @@ These ideas are extensively used in the program of twisted holography, which is 
 (The interested reader might track the papers that cite those we have mentioned.)
 \end{rmk}
 
-\subsubsection{The duality functor} 
+\subsubsection{Extending the duality} 
 
 There is a way to define the dual of any supersymmetric QCD theory with mesons that satisfies the following properties:
 \begin{itemize}
-\item In the case that there are no mesons in the original theory, like in the electric theory, the dual agrees with the magnetic theory.
-\item The dual of the magnetic theory is equivalent to the original electric theory. In other words, the double dual of the electric theory is equivalent to itself. 
+\item In the case that there are no mesons in the original theory, as in the electric theory, the dual agrees with the magnetic theory.
+\item The dual of the magnetic theory is equivalent to the original electric theory. 
+In other words, the double dual of the electric theory is equivalent to itself. 
 \end{itemize}
 %In fact, more generally, the double dual of any supersymmetric QCD with mesons returns the same theory (up to equivalence). 
-Let us briefly remark how this general duality looks classically in the holomorphic context. 
+Let us briefly remark how to state this more general duality in the holomorphic context. 
 
 Suppose that we have a holomorphic QCD theory with $N$ colors, $F$ flavors, and with mesons $\mu$ valued in some vector space $V_M$. 
 The superpotential is $W(QQ^\dagger, \mu)$.
-The dual theory is again a holomorphic QCD theory with mesons.
-Precisely the dual theory is holomorphic QCD with $F-N$ colors, $F$ flavors, and mesons valued in 
+The dual theory should again be a holomorphic QCD theory with mesons:
+it is holomorphic QCD with $F-N$ colors, $F$ flavors, and with mesons valued in 
 \beqn
 (\mu, \til \mu) \in V_M \oplus \C^{F^2} .
 \eeqn
@@ -2561,66 +2564,21 @@ The superpotential of this dual holomorphic QCD theory (whose quarks we label by
 \beqn
 \til W (\mu, \til \mu, \til Q) = W|_{\til \mu = Q Q^\dagger}(\mu, \til \mu) + \Tr \til{Q}^\dagger \til{\mu} \til{Q} .
 \eeqn
-Notice that when $V_M = 0, W=0$ this agrees with the dual magnetic theory that we introduced above. 
+Notice that when $V_M = 0, W=0$, this construction agrees with the dual magnetic theory that we introduced above. 
 
-Now, let's suppose we start with the magnetic theory with $F-N$ colors, $F$ flavors, and $F^2$ mesons.
-The superpotential is $W = \Tr \check{Q}^\dagger \check{\mu} \check{Q}$. 
+Now, let's check how it fits with the second condition we requested. 
+Start with the magnetic theory with $F-N$ colors, $F$ flavors, and $F^2$ mesons.
+The superpotential is $W = \Tr(\check{Q}^\dagger \check{\mu} \check{Q})$. 
 Taking the dual of this theory we obtain holomorphic QCD with $N$ colors and $F$ flavors as expected.
-However, we have mesons $\check{\mu}$ and $\til \mu$ both valued in $\End(\C^F)$. 
+However, we have mesons $\check{\mu}$ and $\til \mu$, both valued in $\End(\C^F)$. 
 The superpotential is simply
 \beqn
-\til W = \Tr \check \mu \til \mu + \Tr \til Q^\dagger \check{\mu} \til Q .
+\til W = \Tr( \check \mu \til \mu) + \Tr (\til Q^\dagger \check{\mu} \til Q ).
 \eeqn
 The first term arises from substituting $\til \mu = \check Q \check Q^\dagger$ in the original magnetic superpotential. 
-This term has the effect of making both $\mu,\check \mu$ massive, and hence they can be integrated out to obtain the original electric theory. 
+This term has the effect of equipping both the mesons $\mu$ and $\check \mu$ with mass, 
+and hence these fields can be integrated out to obtain the original electric theory. 
 (In fact, this argument can be upgraded to give an equivalence of BV theories from the electric theory and its double dual.)
-
-\subsubsection{The special case of $SU(2)$ SQCD}
-
-\owen{I like the idea of analyzing a special case, but I'm not sure what lesson the reader is supposed to learn.}
-
-Let's consider the special case where $N=2$ so that the gauge group on the electric side is $G = SU(2)$. 
-In this case, the fundamental and anti-fundamental representations are isomorphic $V_Q = V^*_Q$, so the quarks are valued in
-\beqn
-(Q, Q^\dagger) \in \Omega^{0,\bu}(\CC^2, V_Q^{\oplus 2}) .
-\eeqn
-This implies that the flavor symmetry group $SU(F) \times SU(F)$ admits an enhancement to $SU(2F)$. 
-
-On the magnetic side, the mesons still take values in the $SU(F) \times SU(F)$ representation
-\beqn
-V_{\check{M}} = (\CC^F)^* \otimes \CC^F \cong \CC^{\oplus F^2} .
-\eeqn
-There are $F$ dual quarks $\check{Q}$ transforming in the $SU(F-2)$ fundamental representation and $F$ dual antiquarks $\check{Q}^\dagger$ transforming in the antifundamental representation. 
-Again the flavor symmetry group admits an enhancement to $SU(2F)$.
-
-Let's further consider some special cases for small values of flavors. 
-
-$\bullet \ul{F=2}$. \brian{I'm confused}
-
-$\bullet \ul{F=3}$. 
-In this case the dual gauge group is trivial and we only have quarks, antiquarks, and mesons which together are valued in the following $SU(3) \times SU(3)$ representation
-\beqn
-(\CC^3)^* \otimes \CC^3 \oplus \CC^3 \oplus (\CC^3)^* .
-\eeqn
-In a way that is consistent with the flavor symmetry enhancement on the electric side, this representation which appears on the dual magnetic side enhances to the $SU(2 \cdot 3) = SU(6)$ representation $\wedge^2 (\C^6)$, where $\C^6$ is the fundamental $SU(6)$ representation.
-If we denote by $\Phi$ the field which combines all magnetic quarks, antiquarks, and mesons, then the classical superpotential can be written in an manifestly $SU(6)$ invariant way as
-\beqn
-W = \frac16 \Phi \wedge \Phi \wedge \Phi .
-\eeqn
-We conclude that the magnetic dual holomorphic theory can be expressed in a $SU(6)$ invariant way as a holomorphic $\sigma$-model from $\C^2$ to the (derived) critical locus of $W$. 
-The critical locus of $W$ is simply the space of solutions to the equation
-\beqn
-\Phi \wedge \Phi = 0 \in \wedge^4 (\C^6) .
-\eeqn
-This description is the affine Pl\"ucker embedding of the affine cone of the Grassmannian~$\text{Gr}(2,6)$.
-
-$\bullet \ul{F=4}$.
-This case is special since the gauge group on both sides of Seiberg duality is $SU(2)$. 
-On the electric side we have $SU(2)$ gauge theory with $F=4$ flavors. 
-On the magnetic side we have $SU(2)$ gauge theory with $F=4$ flavors and mesons which take values in $\C^{4^2} = \C^{16}$.
-
-We have pointed out that for any $F$ the global flavor symmetry group admits an enhancement to $SU(2F)$. 
-For $F \geq 4$ the 
 
 \subsection{Evidence for holomorphic Seiberg duality}
 
@@ -2696,14 +2654,14 @@ For supersymmetric gauge theories, the moduli stack of the holomorphic twist has
 where $V$ is a (graded) $G$-representation and $[V/G]$ denotes the quotient stack.
 The factor $V$ depends on the non-gauge fields (i.e., matter multiplets), which are sections of some associated vector bundle;
 the quotient by $G$ arises from the gauge transformation.
-For example, pure $\cN =1$ holomorphic Yang-Mills theory for group $G$ (i.e., the vector multiplet) has
+For example, the holomorphic twist of pure $\cN =1$ Yang-Mills theory for group $G$ (i.e., the vector multiplet) has
 \[
 \cM_{\rm vac} \cong [\fg^*/G],
 \]
 the coadjoint quotient stack of the group.
-\brian{The paragraph began with holomorphic theories, do you want to say twist of 4d N=1?}
 (We are working in a $\ZZ/2$-graded world here.)
-Using the invariant pairing on $\fg$ we can further identify this with the adjoint quotient stack~$[\fg / G]$. 
+When $G$ is semisimple and using the invariant pairing on $\fg$, 
+we can further identify this with the adjoint quotient stack~$[\fg / G]$. 
 For general supersymmetric field theories, which involve both a $\sigma$-model and gauge fields, the holomorphic twist has a moduli stack of classical vacua of the form
 \[
 \cM_{\rm vac} \cong [X/G]
@@ -2711,7 +2669,7 @@ For general supersymmetric field theories, which involve both a $\sigma$-model a
 where $X$ is a derived stack with a $G$-action and $[X/G]$ denotes the quotient stack.
 
 In studying questions about the classical vacua of supersymmetric field theories, however, physicists have not typically worked with the {\em stack}.
-Instead, they have worked with a GIT quotient.
+Instead, they have worked with a variety arising as a GIT quotient.
 For instance, in the setting of a gauge theory with moduli stack of classical vacua $[V/G]$, it means they work with 
 \[
 V\Sslash G = \Spec(\cO(V)^G),
@@ -2766,7 +2724,11 @@ the moduli stack of classical vacua is
 \[
 \cM_{\rm vac}(\cT_{\sfE}(F,N)) \cong T^*[1] \left(V_Q \times V_Q^*/SL(N)\right).
 \]
-By contrast the moduli space $M_{\rm vac}$ is a variety already well-studied in classical algebraic geometry.
+By contrast the moduli space $M_{\rm vac}$ analyzed by physicists is a variety already well-studied in classical algebraic geometry.
+We will now discuss the moduli spaces appearing in the physics literature on Seiberg duality.
+(There are some subtleties in relating the moduli spaces of the supersymmetric theories to the moduli stacks of their twists;
+we will not dwell on them here, but they need to be resolved to obtain a complete story.)
+
 Before we describe the full space, let's examine a simpler case involving just the quarks.
 A vacuum for the quark field is an element of $V_Q = \Hom(\CC^F, \CC^N)$,
 and it is a classic result of invariant theory that
@@ -2809,7 +2771,7 @@ M_{\rm vac}(\cT_{\sfE}(F,N)) \cong M_{\rm vac}(\cT_{\sfM}(F,\check{N})).
 \]
 \end{prop}
 
-This relationship, which holds already for the supersymmetric theory before twisting, was one of the original pieces of evidence offered by Seiberg for his duality.
+This relationship, which holds for the supersymmetric theory before twisting, was one of the original pieces of evidence offered by Seiberg for his duality.
 The proof boils down to checking that the mesons and the superpotential on the magnetic side ensure the isomorphism.
 
 \begin{rmk}
@@ -2828,6 +2790,53 @@ Consider, for instance, the origin in each vector space.
 On the electric side its stabilizer is $SL(N)$ and on the magnetic side it is $SL(\check{N})$.
 Thus each theory has a vacuum whose associated perturbative classical theory has no partner on the other side.
 Hence Seiberg duality cannot hold at the stack level for the classical theories.
+
+%\subsubsection{The special case of $SU(2)$ SQCD}
+%
+%\owen{I like the idea of analyzing a special case, but I'm not sure what lesson the reader is supposed to learn.}
+%
+%Let's consider the special case where $N=2$ so that the gauge group on the electric side is $G = SU(2)$. 
+%In this case, the fundamental and anti-fundamental representations are isomorphic $V_Q = V^*_Q$, so the quarks are valued in
+%\beqn
+%(Q, Q^\dagger) \in \Omega^{0,\bu}(\CC^2, V_Q^{\oplus 2}) .
+%\eeqn
+%This implies that the flavor symmetry group $SU(F) \times SU(F)$ admits an enhancement to $SU(2F)$. 
+%
+%On the magnetic side, the mesons still take values in the $SU(F) \times SU(F)$ representation
+%\beqn
+%V_{\check{M}} = (\CC^F)^* \otimes \CC^F \cong \CC^{\oplus F^2} .
+%\eeqn
+%There are $F$ dual quarks $\check{Q}$ transforming in the $SU(F-2)$ fundamental representation and $F$ dual antiquarks $\check{Q}^\dagger$ transforming in the antifundamental representation. 
+%Again the flavor symmetry group admits an enhancement to $SU(2F)$.
+%
+%Let's further consider some special cases for small values of flavors. 
+%
+%$\bullet \ul{F=2}$. \brian{I'm confused}
+%
+%$\bullet \ul{F=3}$. 
+%In this case the dual gauge group is trivial and we only have quarks, antiquarks, and mesons which together are valued in the following $SU(3) \times SU(3)$ representation
+%\beqn
+%(\CC^3)^* \otimes \CC^3 \oplus \CC^3 \oplus (\CC^3)^* .
+%\eeqn
+%In a way that is consistent with the flavor symmetry enhancement on the electric side, this representation which appears on the dual magnetic side enhances to the $SU(2 \cdot 3) = SU(6)$ representation $\wedge^2 (\C^6)$, where $\C^6$ is the fundamental $SU(6)$ representation.
+%If we denote by $\Phi$ the field which combines all magnetic quarks, antiquarks, and mesons, then the classical superpotential can be written in an manifestly $SU(6)$ invariant way as
+%\beqn
+%W = \frac16 \Phi \wedge \Phi \wedge \Phi .
+%\eeqn
+%We conclude that the magnetic dual holomorphic theory can be expressed in a $SU(6)$ invariant way as a holomorphic $\sigma$-model from $\C^2$ to the (derived) critical locus of $W$. 
+%The critical locus of $W$ is simply the space of solutions to the equation
+%\beqn
+%\Phi \wedge \Phi = 0 \in \wedge^4 (\C^6) .
+%\eeqn
+%This description is the affine Pl\"ucker embedding of the affine cone of the Grassmannian~$\text{Gr}(2,6)$.
+%
+%$\bullet \ul{F=4}$.
+%This case is special since the gauge group on both sides of Seiberg duality is $SU(2)$. 
+%On the electric side we have $SU(2)$ gauge theory with $F=4$ flavors. 
+%On the magnetic side we have $SU(2)$ gauge theory with $F=4$ flavors and mesons which take values in $\C^{4^2} = \C^{16}$.
+%
+%We have pointed out that for any $F$ the global flavor symmetry group admits an enhancement to $SU(2F)$. 
+%For $F \geq 4$ the 
 
 \subsubsection{Flavor symmetry enhancement}
 
@@ -2861,7 +2870,7 @@ It acts by wedging the forms and applying $\sl(F)$ to the relevant vector space,
 On affine space, this dg Lie algebra is quasi-isomorphic to $\lie{sl}(F) \otimes \cO(\C^2)$, where $\cO(\C^2)$ denotes holomorphic functions on $\C^2$---this is like a current algebra in two complex dimensions.
 
 There is another dg Lie algebra obtained by evaluating the theory on punctured affine space $\C^2 - 0$.
-We recalled in \S \ref{sec:punctured} an algebraic model $\sfA_2$ for the dg algebra $\Omega^{0,\bu}(\C^2 - 0)$.
+We recalled in Section~\ref{subsec: FHK} an algebraic model $\sfA_2$ for the dg algebra $\Omega^{0,\bu}(\C^2 - 0)$.
 The dg Lie algebra we assign to the punctured affine space, classically, is $\lie{sl}(F) \otimes \sfA_2$.
 Recall that we can think about elements of this algebra as being supported on three-spheres $S^3$ inside $\C^2 - 0$.
 This $S^3$-mode algebra acts on the local observables at the classical level.
@@ -2870,11 +2879,11 @@ A natural question is whether this symmetry persists at the quantum level.
 The answer is {\em yes}, but on both sides of the duality one must use a central extension of the current algebra as an $L_\infty$ algebra.
 The extension arises because the symmetry has an anomaly under quantization (on either side of the duality),
 and this anomaly is determined by an  invariant cubic polynomial $\theta_\sfE$, $\theta_\sfM$, respectively, on the Lie algebra~$\sl(F)$. 
-(In terms of Section \owen{cross ref}, these determine higher Kac--Moody algebras $\Hat{\sl(F)}_{2,\theta_{\sfE}}, \Hat{\sl(F)}_{2,\theta_{\sfM}}$ when studying the theories on the punctured space~$\CC^2 - 0$.)
+(In terms of Section~\ref{subsec: FHK}, these determine higher Kac--Moody algebras $\Hat{\sl(F)}_{2,\theta_{\sfE}}, \Hat{\sl(F)}_{2,\theta_{\sfM}}$ when studying the theories on the punctured space~$\CC^2 - 0$.)
 
 \begin{prop}
 For both the electric and magnetic theories, there is an anomaly at the quantum level for the holomorphic flavor symmetry action.
-These anaomlies agree: they are labeled by the same cocycle 
+These anomlies agree: they are labeled by the same cocycle 
 \[
 \theta_\sfE = \theta_\sfM.
 \] 
@@ -3082,7 +3091,7 @@ the stable locus $\cM_{\rm vac}(\cT)^s$ of its moduli stack parametrizes a famil
 and this family is isomorphic to the holomorphic $\sigma$-model from $\CC^2$ into~$\cM_{\rm vac}(\cT)^s$.
 \end{prop}
 
-This result tells us that, over the stable locus, the observables of a holomorphic QCD theory agree with a sheaf of two-dimensional chiral differential operators, as discussed in Section~\owen{reference section of this paper}.
+This result tells us that, over the stable locus, the observables of a holomorphic QCD theory agree with a sheaf of two-dimensional chiral differential operators, as discussed in Section~\ref{sec: higher CDO}.
 %\owen{Do we see a WZ term? That often shows up in chiral symmetry breaking. It would be reminiscent of our $ch_2$ stuff in lower dimensions.}
 %\brian{that's a great question}
 
