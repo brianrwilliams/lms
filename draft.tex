@@ -182,6 +182,7 @@ Any holomorphic vector bundle has an associated Dolbeault complex $\Omega^{0,\bu
 If $V$ is a holomorphic dg Lie algebra, 
 then $\Omega^{0,\bu}(X, V)$ is a dg Lie algebra. 
 The differential is of the form $\dbar + Q^{hol}$ and the bracket is given by extending the bracket on $\cV^{hol}$ with the wedge product of differential forms. 
+Notice that this dg Lie algebra has the appealing feature that it is the $C^\infty$-sections of a smooth vector bundle on $X$.
 
 Formal moduli spaces arise from the space of Maurer--Cartan elements of a dg Lie algebra.
 In our case, this dg Lie algebra will always be of the form $\Omega^{0,\bu}(X, V)$.
@@ -209,8 +210,8 @@ The basic types are\footnote{For the experts, we remark that we focus above on t
 \begin{itemize}
 \item {\em Scalar} field theories where the fields are maps from $M$ to a vector space $V$, or natural generalizations like taking sections of a vector bundle $V \to M$. The Higgs boson appears as part of a scalar field theory.
 \item {\em Fermionic} field theories where the fields are maps from $M$ to an {\em odd} vector space or, typically, a section of a spinor bundle. Such theories are often used to describe matter, such as electron fields.
-\item {\em Gauge} field theories where the fields are connections on a principal $G$-bundle over $M$, with $G$ a Lie group. The Yang--Mills theories for the electroweak and strong forces are examples.
 \item $\sigma$-{\em models} where the fields are maps from $M$ into a manifold~$X$. (One can view these as generalizations of scalar field theories.)
+\item {\em Gauge} field theories where the fields are connections on a principal $G$-bundle over $M$, with $G$ a Lie group. The Yang--Mills theories for the electroweak and strong forces are examples.
 \item {\em Gravity} theories where the fields are metrics on $M$, or something that similarly controls the geometry of $M$. Einstein's theory is a paradigmatic example.
 \end{itemize}
 The Standard Model involves the first three types,
@@ -232,26 +233,40 @@ which is typically much cleaner and more accessible.
 
 \subsubsection{Holomorphic scalar field theories}
 
-The most elementary holomorphic field theory is a generalization of the so-called `$\beta\gamma$ system' which is primarily studied in the context of string theory.
-The input data is simply a complex manifold $X$ of arbitrary complex dimension $n$ together with a (super) holomorphic vector bundle $V$ on $X$.
+A typical scalar field theory is the free boson which exists on any Riemannian manifold $\Sigma$.
+Its action functional is simply $\int_\Sigma \phi \triangle \phi$ where $\phi$ is a smooth function on $\Sigma$.
+When $\Sigma$ is a surface this theory can be written in such a way that makes its complex structure apparent.
+First, we complexify the field $\phi$ which we can view as a pair of fields $\gamma, \Bar{\gamma}$.
+When we do this, we can split it up into its chiral and anti-chiral `sectors'.
+By chiral (anti-chiral) we mean part involving $\gamma$ ($\Bar{\gamma}$).
+The holomorphic part is described by the following action
+\beqn
+\int_\Sigma \beta \wedge \dbar \gamma
+\eeqn
+where $\beta$ is a $(1,0)$ form on $\Sigma$ and should be thought of as a Lagrange multiplier for the field $\del \Bar{\gamma}$ which we now think about as having its own degrees of freedom (this is called the first-order formalism).
+There is also a coupling between the chiral and anti-chiral sectors, 
+for more details we refer to \cite{Kapustin,GGW}. 
+This piece of the free boson is the simplest holomorphic field theory; aptly called the $\beta-\gamma$-\textit{system}.
+It plays a role in superstring theory as the free field theory underlying bosonic ghosts corresponding to worldsheet supersymmetry~\cite{Polchinski}.
+
+There is a holomorphic field theory defined on an arbitrary complex manifold as a simple generalization of this `$\beta-\gamma$ system'.
+The input data is simply a complex manifold $X$ of arbitrary complex dimension $n$ together with a (super) holomorphic vector bundle $V$ on~$X$.
+Above we took this bundle to be trivial.
 The fields of the theory consist of pairs 
 \begin{align*}
 \gamma & \in \Gamma(X,V)\\
 \beta & \in \Omega^{n,n-1}(X,V^*) .
 \end{align*}
-The action functional is 
-\beqn
-\int_X \beta \wedge \dbar \gamma 
-\eeqn
-which utilizes the natural pairing between $V$ and $V^*$. 
-The theory is free, just like the ordinary $\beta\gamma$ system on Riemann surfaces.
+The action functional is identical $\int_X \beta \wedge \dbar \gamma$.
 
-Notice that there is a linear symmetry present in the above action given by shifting $\beta$ by a $\dbar$-exact form
+Notice that when $n = \dim_\C X > 1$ that there is a linear symmetry present in the above action given by shifting $\beta$ by a $\dbar$-exact form
 \beqn
 \beta \mapsto \beta + \dbar \eta , \quad \eta \in \Omega^{n,n-2}(X,V^*)
 \eeqn
 For this model to be well-posed at the quantum level we must include the ghosts $\eta$.
 Further, $\eta$ can be shifted by an exact form in a way that does not effect the above gauge transformation, so we must also include ghosts for ghosts, etc..
+This is one of the key differences between the ordinary $\beta-\gamma$ system and its higher dimensional version.
+Nevertheless, many techniques we have for understanding free field theories can still by applied to this model as we will explain later in this note.
 
 \subsubsection{Holomorphic gauge theories}
 
@@ -289,26 +304,29 @@ The action functional is the familiar one
 \beqn
 \int_X \beta \dbar \gamma .
 \eeqn 
+Solutions to the equations of motion describe, in part, holomorphic maps $X \to Y$, but there is also derived information contained in this model.
 
-
-\subsubsection{Holomorphic gravity}
+\subsubsection{Holomorphic ``gravity''}
 
 Perturbatively, any model of gravity describes, in part, deformations of the moduli space of metric structures on a given manifold. 
-There is a holomorphic avatar of this which describes deformations of complex structure.
-The fields consist of pairs $(\mu, \eta)$ where
-\begin{align*}
-\mu & \in \Omega^{0,1}(X, \T_X) \\
-\nu & \in \Omega^{0,n-2}(X, K_X \otimes \T^*_X) .
-\end{align*}
-The action functional is
-\beqn
-\int_X \left(\eta \dbar \mu + \frac12 \eta [\mu,\mu]\right)
-\eeqn
-where $[\mu, \mu] \in \Omega^{0,2} (X, \T_X)$ stands for the Lie bracket of holomorphic vector fields extended to the Dolbeault valued sections of $\T_X$ in the natural way.
+There is a holomorphic avatar of this which describes deformations of complex structure which has first appeared in the literature in work related to topological string theory on Calabi--Yau threefolds~\cite{BCOV}.
+Because of its relationship to complex structures, the theory is referred to as \textit{Kodaira--Spencer theory}.
+It has been mathematically championed in the works of Costello and Li \cite{CLbcov1,CLbcov2,LiThesis} as an approach to the quantum higher genus $B$-model.
+In these works, Costello and Li also provide a generalization of the theory that makes sense in any complex dimension; here we focus just on the more familiar three-dimensional version.
+%The fields consist of pairs $(\mu, \eta)$ where
+%\begin{align*}
+%\mu & \in \Omega^{0,1}(X, \T_X) \\
+%\nu & \in \Omega^{0,n-2}(X, K_X \otimes \T^*_X) .
+%\end{align*}
+%The action functional is
+%\beqn
+%\int_X \left(\eta \dbar \mu + \frac12 \eta [\mu,\mu]\right)
+%\eeqn
+%where $[\mu, \mu] \in \Omega^{0,2} (X, \T_X)$ stands for the Lie bracket of holomorphic vector fields extended to the Dolbeault valued sections of $\T_X$ in the natural way.
 
-In complex dimension $3$ there is a related theory, called Kodaira--Spencer theory, which only consists of the field $\mu$ describing the complex structure in the above example.
-Let $X$ be a complex threefold equipped with a Calabi--Yau structure where we denote by $\Omega \in \Omega^{3,hol}(X)$ the holomorphic volume form.
-Kodaira--Spencer theory is the holomorphic theory whose fields consist of $(0,1)$ forms on $X$ with values in the holomorphic tangent bundle $\T_X$
+%In complex dimension $3$ there is a related theory, called Kodaira--Spencer theory, which only consists of the field $\mu$ describing the complex structure in the above example.
+Let $X$ be a complex threefold equipped with a Calabi--Yau structure; we denote by $\Omega \in \Omega^{3,hol}(X)$ the holomorphic volume form.
+The primary field of Kodaira spencer theory is a $(0,1)$ form on $X$ with values in the holomorphic tangent bundle $\T_X$
 \beqn
 \mu \in \Omega^{0,1}(X,\T_X) .
 \eeqn 
@@ -317,10 +335,16 @@ The action functional is very similar to the Chern--Simons action
 \beqn
 S(\mu) = \int_X \left(\frac12 \mu \dbar \del^{-1} \mu + \frac13 \mu^3\right) .
 \eeqn
-The integrand is not defined globally.
-In the integral we use the Calabi--Yau form to identify the integrand with 
-\brian{finish}
-
+In the integrand we use the Calabi--Yau form to obtain a $(3,3)$-form.
+The integrand is not defined globally as it involves the distributional operator $\del^{-1}$.
+Locally it is well-defined as any divergence-free vector field on affine space can be written as the divergence of a bivector field.
+Nevertheless, this model can be carefully put into the rigorous framework of the Batalin--Vilkovisky formalism \cite{CLbcov1}.
+Forgoing the apparent global issues, we can still apply formal variational calculus to the action to obtain the equation of motion
+\beqn
+\dbar \mu + \frac12 [\mu,\mu] = 0 ,
+\eeqn
+where $[-,-]$ is the Schouten--Nijenhuis bracket (which reduces to just the natural bracket when restricted to vector fields).
+The reader can recognize this equation as the Maurer--Cartan equation controlling deformations of complex structure $\dbar\rightsquigarrow \dbar + \mu$.
 \subsection{Local version and examples from supersymmetric field theories}
 
 %this section aimed at physicists
@@ -351,8 +375,8 @@ by the formula $[\cQ, \cQ'] = \Gamma(\cQ, \cQ')$.
 
 By a {\em supercharge}, one means an odd supertranslation $\cQ \in \ft$, and
 a {\em twist} is a (nonzero) supercharge $\cQ$ such that $[\cQ,\cQ] = \cQ^2 = 0$. 
-The classification of all twists is a completely algebraic question,
-and we refer to~\autocite{ESsusy} for a complete classification of all twists \owen{of SYM?} in dimensions from $1$ to~$10$. 
+The classification of twisting supercharges is a completely algebraic question,
+and we refer to~\autocite{ESsusy} for a complete classification for supersymmetry algebras in dimensions from $1$ to~$10$. 
 
 If a Lagrangian field theory $\cT$ has $\ft$ as a symmetry, 
 then a choice of twist $\cQ$ determines a deformation of the theory that we call a {\em twisted supersymmetric theory} $\cT^\cQ$.
@@ -621,7 +645,7 @@ actually has holomorphic maps into $T^* \CC^n$ as the space of solutions.
 The algebraic maps are precisely $T^* \CC^n$-valued Laurent polynomials.
 \footnote{One can extract the algebraic model from the holomorphic model by taking formal power series expansions at the level of observables.}
 
-We now turn to quantization, and our phase space will be, for simplicity, the algebraic loop space $V[z,z^{-1}]$ of a symplectic complex vector space $V$.
+We now turn to quantization, and our phase space will be, for simplicity, the formal loop space $V((z))$ of a symplectic complex vector space $V$.
 Following the case of mechanics, we might ask for a deformation of the Poisson algebra
 \beqn
 \cO\left( V((z)) \right) .
@@ -638,7 +662,7 @@ Like the symplectic form on $V((z))$, the Poisson bracket is given in terms of t
 %\[
 %\cO(V((z))) = \Sym(V^* [z,z^{-1}]).
 %\]
-%On this subalgebra, the naive Poisson bracket makes sense: it is given by extending the nondegenerate skew-symmetric pairing $\omega^* \otimes \Res$ on $V^* [z,z^{-1}]$.
+%On this subalgebra, the naive Poisson bracket makes sense: it is given by extending the nondegenerate skew-symmetric pairing $\Omega^\bu \otimes \Res$ on $V^* [z,z^{-1}]$.
 %Hence for $\cO(V((z)))$, we can ask for a deformation quantization,
 %and there is a nice answer: 
 The standard Heisenberg commutation relations determine a Weyl algebra $W[V]$ for this formal loop space.
@@ -662,8 +686,8 @@ known as the {\em vertex operator} or {\em state-field correspondence},
 which is closely related to the $W[V]$-action.
 The intuition behind $Y$ is that for any map $\phi: \CC^\times \to V$ and for any point $w \in \CC^\times$, 
 there is a restriction of $\phi$ to a little disc around $w$.
-That is, there is a restriction map $r_w: V[z,z^{-1}] \to V[[t]]$, where $t$ is the local coordinate $t = z-w$.
-Hence there is a $w$-dependent map $\cO(V[[t]]) \to \cO(V[z,z^{-1}])$ by pulling back a function along $r_w$;
+That is, there is a restriction map $r_w: V((z)) \to V[[t]]$, where $t$ is the local coordinate $t = z-w$.
+Hence there is a $w$-dependent map $\cO(V[[t]]) \to \cO(V((z)))$ by pulling back a function along $r_w$;
 this map determines a $w$-dependent action of $\cO(V[[t]])$ on $\cO(V[[z]])$.
 One can, in essence, quantize this map, by trying to extend the formulas of the $W[V]$-action,
 and this leads to the map~$Y$.
@@ -741,7 +765,7 @@ Concretely, any smooth function on $\CC^\times$ can be decomposed in polar coord
 \]
 where $\phi_k(r)$ is a smooth function depending only on the radius $r \in \RR_+$.
 Alternatively, by taking the logarithm we can view $\phi_k(t)$ as a function of the `time' parameter $t = \log r \in \RR$. 
-We interpret $\sum_{k \in \ZZ} \phi_k(t)$ as smooth map from $\RR$ to the formal (free) loop space $LV = V[z,z^{-1}]$. 
+We interpret $\sum_{k \in \ZZ} \phi_k(r)$ as smooth map from $\RR$ to the formal loop space $LV$. 
 
 At the level of Lagrangians we can integrate $L_{2d}(\phi)$ over $S^1$ to obtain the following infinite sum of one-dimensional Lagrangians
 \beqn
@@ -751,7 +775,7 @@ Notice that the $k=0$ summand is just the Lagrangian of ordinary mechanics into 
 In general, we find mechanics into the symplectic vector space $LV$, where the symplectic structure uses the residue pairing in addition to the symplectic form on $V$, with a nontrivial Hamiltonian which encodes the $U(1)$-symmetry arising from rotating $LV$ in the natural way.
 
 \subsection{Algebras in higher dimensions }
-\label{subsec: FHK}
+\label{s:alghigh}
 
 The story we have just told admits a natural extension to higher complex dimensions,
 but it requires a first step in the direction of derived geometry.
@@ -792,7 +816,7 @@ given by the embedding of polynomials into power series and holomorphic function
 
 It is important to have an explicit dg commutative algebra that models the derived global sections for functions on punctured formal disk,
 and not just the cohomology groups.
-There is a beautiful, explicit dg model $\sfA^\bu_d$ for the formal version derived global sections due to Faonte-Hennion-Kapranov \cite{FHK} and based on the Jouanolou method for resolving singularities. 
+There is a beautiful, explicit dg model $\sfA^\bu_d$ for the formal version derived global sections due to Faonte, Hennion, and Kapranov \cite{FHK} and based on the Jouanolou method for resolving singularities. 
 While we won't go into details about this model, we remark on a few important points all of which we take from \cite{FHK}:
 \begin{itemize}
 \item The complex $\sfA^\bu_d$ is concentrated in degrees $0,\ldots,d-1$ and its cohomology is the same as the cohomology of $\RR \Gamma(\mathring{\DD}^d, \cO)$ described above.
@@ -878,18 +902,16 @@ The trick of turning providing a higher dimensional version of the Weyl algebra 
 This is one of the starting points of \cite{FHK} in their construction of higher dimensional Kac--Moody algebras. 
 
 \begin{dfn}[\cite{FHK}]
+\label{dfn:sphere}
 For a Lie algebra $\fg$, the {\em sphere algebra} in complex dimension $d$ is the dg Lie algebra~$\fg \otimes \sfA_d$.
 We denote it by~$\fg^\bullet_d$.
 \end{dfn}
 
-There are natural central extensions of this sphere algebra as {\em $L_\infty$ algebras},
+There are natural central extensions of this sphere algebra 
+%as {\em $L_\infty$ algebras},
 parallel to the affine Lie algebras appearing as central extensions of the loop algebra.
-An $L_\infty$ algebra is a generalization of a Lie algebra;
-it is graded vector space $L$ equipped with a countable collection of ``higher brackets'' $[-]_k \colon L^{\otimes k} \to L$ that satisfy a system of equations generalizing the Jacobi condition for a standard Lie algebra.
-For an overview (and an actual definition!) we recommend \owen{add citations}.
-
-In our setting of $\fg^\bullet_d$, Faonte-Hennion-Kapranov introduced central extensions of the sphere algebra that only affect the $d$-bracket.
-For any $\fg$-invariant degree $d+1$ polynomial $\theta \in \Sym^{d+1}(\fg^*)^\fg$, the cocycle which defines the $L_\infty$ central extension is
+They are given by the data of a $\fg$-invariant degree $d+1$ polynomial $\theta \in \Sym^{d+1}(\fg^*)^G$.
+The cocycle which defines the $L_\infty$ central extension is
 \[
 \label{fhk cocycle}
 \begin{array}{cccc}
@@ -897,15 +919,19 @@ For any $\fg$-invariant degree $d+1$ polynomial $\theta \in \Sym^{d+1}(\fg^*)^\f
 & a_0 \otimes \cdots \otimes a_d & \mapsto & \Res \left(\theta(a_0,\partial a_1,\ldots,\partial a_d)\right)
 \end{array}.
 \]
-This cocycle has total cohomological degree $+2$ as an element in the Lie algebra cohomology of $\fg^\bu_{d}$ and so determines a central extension of $L_\infty$ algebras
+This cocycle has total cohomological degree $+2$ as an element in the Lie algebra cohomology of $\fg^\bu_{d}$ and so determines a central extension of dg Lie algebras
 \[
-\CC c \to \widetilde{\fg}^\bullet_{d, \theta} \to \fg^\bullet_d ,
+\CC c \to \Hat{\fg}^\bullet_{d, \theta} \to \fg^\bullet_d .
 \]
-so that the usual bracket (the 2-bracket) of $\fg^\bullet_d$ is unchanged but there is now a nontrivial $d$-bracket defined by~$\theta_{\rm FHK}$.
-They dubbed these the {\em higher Kac-Moody algebras}, 
-as they specialize to the affine Lie algebras when~$d =1$.
+There is a particularly nice model for this dg Lie algebra as an $L_\infty$ \textit{algebra} that we use in \cite{GWkm}.
+An $L_\infty$ algebra is a generalization of a dg Lie algebra;
+it is a graded vector space $L$ equipped with a countable collection of ``higher brackets'' $[-]_k \colon L^{\otimes k} \to L$ that satisfy a system of equations generalizing the Jacobi identity.
+For an overview (and an actual definition!) we recommend \owen{add citations}.
+In our setting the usual bracket (the 2-bracket) of $\fg^\bullet_d$ is unchanged but there is now a nontrivial $d$-bracket defined by~$\theta_{\rm FHK}$.
+%They dubbed these the {\em higher Kac-Moody algebras}, 
+%as they specialize to the affine Lie algebras when~$d =1$.
 
-These $L_\infty$ algebras are not just introduced on a whim.
+The algebras $\Hat{\fg}^\bullet_{d, \theta}$ are not just introduced on a whim.
 In \cite{FHK} they are shown to appear naturally in various contexts,
 notably in studying the derived moduli of $G$-bundles on a complex varieties of dimension~$d$.
 
@@ -1123,16 +1149,16 @@ Observables, however, are supposed to live in vector spaces or dg vector spaces,
 so we need to explain how to get algebras in that setting.
 Thankfully, it is straightforward to get a linear version of this operad a dg operad (i.e., operad with values in dg vector spaces and using the tensor product as the symmetric monoidal product).
 One simply takes the singular chain complex on each space of operations:
-for each natural number $n$, take $C_*(\Disc_d(n); \CC)$ and take the induced chain map 
+for each natural number $n$, take $C_\bu(\Disc_d(n); \CC)$ and take the induced chain map 
 \[
-C_*(\circ_i): C_*(\Disc_d(n); \CC) \otimes C_*(\Disc_d(m); \CC) \to C_*(\Disc_d(n+m-1); \CC)
+C_\bu(\circ_i): C_\bu(\Disc_d(n); \CC) \otimes C_\bu(\Disc_d(m); \CC) \to C_\bu(\Disc_d(n+m-1); \CC)
 \]
-to produce a dg operad we denote~$C_*(\Disc_d)$.
-(Note that as we always want to work with cochain complexes, we regrade the usual singular chains $C_*(X, \CC)$ to sit in nonpositive cohomological degrees. 
-Likewise the composition $C_*(\circ_i)$ is then a cochain map.)
+to produce a dg operad we denote~$C_\bu(\Disc_d)$.
+(Note that as we always want to work with cochain complexes, we regrade the usual singular chains $C_\bu(X, \CC)$ to sit in nonpositive cohomological degrees. 
+Likewise the composition $C_\bu(\circ_i)$ is then a cochain map.)
 
 \begin{dfn}
-An {\em algebra over the little $d$-discs operad} (or little $d$-discs algebra or $E_d$-algebra) is a cochain complex $A$ that is an algebra over the dg operad~$C_*(\Disc_d)$.
+An {\em algebra over the little $d$-discs operad} (or little $d$-discs algebra or $E_d$-algebra) is a cochain complex $A$ that is an algebra over the dg operad~$C_\bu(\Disc_d)$.
 \end{dfn}
 
 \owen{Perhaps mention classic examples like $n$-fold loop spaces or Hochschild cohomology?}
@@ -1243,12 +1269,13 @@ so we get a {\em co}\/operad rather than an operad.
 This notion bears the same relationship to operad as a coalgebra does to an algebra;
 one simply reverses all the arrows and asks for an appropriate variant of the relations.
 For instance, there is a composition
-\begin{align}
+\begin{multline}
 \label{pdcirc}
-\circ_i: \Omega^{0,*}(\PDisc_d(r_1, \ldots, s_1, &\ldots, s_m, r_{i+1}, \ldots, r_n| R)) \to \\
-&\Omega^{0,*}(\PDisc_d(r_1, \ldots, r_n| R)) \otimes \Omega^{0,*}(\PDisc_d(s_1, \ldots, s_m| S))
-\end{align}
+\circ_i: \Omega^{0,\bu}(\PDisc_d(r_1, \ldots, s_1, \ldots, s_m, r_{i+1}, \ldots, r_n| R)) \to \\
+\Omega^{0,\bu}(\PDisc_d(r_1, \ldots, r_n| R)) \otimes \Omega^{0,\bu}(\PDisc_d(s_1, \ldots, s_m| S))
+\end{multline}
 \owen{I don't know how to eliminate the two numbers}
+\brian{I like using multline instead of align}
 when $r_i = S$, and in that case, the composition $\mu \circ_i \nu$ is given by embedding an output polydisc into an input polydisc of the same radius.
 (Composition is not defined if the radii do not match.)
 
@@ -1256,12 +1283,12 @@ An important technical point arises here:
 we need to be careful about functional analysis.
 The wedge product map
 \[
-\Omega^{0,*}(X) \otimes \Omega^{0,*}(Y) \to \Omega^{0,*}(X \times Y)
+\Omega^{0,\bu}(X) \otimes \Omega^{0,\bu}(Y) \to \Omega^{0,\bu}(X \times Y)
 \]
 is not a quasi-isomorphism in general (unlike with de Rham complexes),
 but the completed projective tensor product as topological vector spaces 
 \[
-\Omega^{0,*}(X) \widehat{\otimes}_\pi \Omega^{0,*}(Y) \to \Omega^{0,*}(X \times Y)
+\Omega^{0,\bu}(X) \widehat{\otimes}_\pi \Omega^{0,\bu}(Y) \to \Omega^{0,\bu}(X \times Y)
 \]
 is an isomorphism.
 (We use here the standard Fr\'echet topology on smooth functions, extended to sections of vector bundles.)
@@ -1276,13 +1303,13 @@ with an appropriate symmetric monoidal category left implicit.
 The {\em $d$-polydiscs dg cooperad} is the colored operad in the category of dg vector spaces where each positive real number $r \in (0,\infty)$ is a color 
 and where there is a dg vector space of $n$-ary cooperations
 \[
-\Omega^{0,*}(\PDisc_d(r_1, \ldots, r_n| R)) 
+\Omega^{0,\bu}(\PDisc_d(r_1, \ldots, r_n| R)) 
 \]
 for any list of radii $r_1,\ldots, r_n, R$.
 There is a composition
-\[
-\circ_i: \Omega^{0,*}(\PDisc_d(r_1, \ldots, s_1, \ldots, s_m, r_{i+1}, \ldots, r_n| R))\to \Omega^{0,*}(\PDisc_d(r_1, \ldots, r_n| R)) \otimes \Omega^{0,*}(\PDisc_d(s_1, \ldots, s_m| S))
-\]
+\begin{multline}
+\circ_i \colon \Omega^{0,\bu}(\PDisc_d(r_1, \ldots, s_1, \ldots, s_m, r_{i+1}, \ldots, r_n| R)) \to \\ \Omega^{0,\bu}(\PDisc_d(r_1, \ldots, r_n| R)) \otimes \Omega^{0,\bu}(\PDisc_d(s_1, \ldots, s_m| S))
+\end{multline}
 only when $r_i = S$, 
 and in that case, the composition $\mu \circ_i \nu$ is given by embedding an output polydisc into an input polydisc of the same radius.
 (Composition is not defined if the radii do not match.)
@@ -1293,7 +1320,7 @@ An algebra $A$ over this cooperad means that for each radius~$r$,
 there is a dg vector space $A(r)$, and for any list of radii $r_1,\ldots, r_n, R$,
 there is a cochain map
 \[
-\alpha(r_1, \ldots, r_n| R): A(r_1) \otimes \cdots \otimes A(r_n) \to A(R) \otimes \Omega^{0,*}(\PDisc_d(r_1, \ldots, r_n| R)) .
+\alpha(r_1, \ldots, r_n| R): A(r_1) \otimes \cdots \otimes A(r_n) \to A(R) \otimes \Omega^{0,\bu}(\PDisc_d(r_1, \ldots, r_n| R)) .
 \]
 To invest the map $\alpha$ with more meaning, 
 pick a real, closed submanifold $T \subset \PDisc_d(r_1, \ldots, r_n| R)$, along which one can integrate $(0,k)$-forms.
@@ -1344,7 +1371,7 @@ Hence, the Dolbeault cohomology consists of holomorphic functions on this space;
 there is no higher cohomology.
 Inside the holomorphic functions 
 \[
-\cO({\rm Conf}_n(\CC)) = H^{0,*}({\rm Conf}_n(\CC)),
+\cO({\rm Conf}_n(\CC)) = H^{0,\bu}({\rm Conf}_n(\CC)),
 \] 
 as a dense but understandable subalgebra, are the algebraic functions:
 \[
@@ -1357,7 +1384,7 @@ Each such algebraic function provides an operation on $H^*(A)$, where $A$ denote
 Let us unravel things in the special case of two points.
 For simplicity, we will fix $w_1 = 0$ so that we focus on where place the other point $w_2 \in \CC^\times$.
 We will use $z$ to denote this point $w_2$.
-Then we have binary co-operations parametrized by $\CC[z, z^{-1}]$.
+Then we have binary co-operations parametrized by the space $\C^\times$.
 Let 
 \[
 V = \lim_{r \to 0} H^*(A(D_r(0)))
@@ -1395,17 +1422,18 @@ Let us briefly point out a few examples of this correspondence.
 Given a Lie algebra $\lie{g}$ we obtain a one-dimensional holomorphic disc algebra $A_{\lie{g}}$ by the following construction. 
 To a disk $D_r(z)$ of radius $r$ centered at $z \in \CC$ we attach the cochain complex
 \beqn
-A_{\lie{g}} (D_r(z)) = C_\bu \left(\lie{g} \otimes \Omega^{0,\bu}_c(D_r(z)) \right) 
+\label{eqn:diskskm}
+A^{\lie{g}} (D_r(z)) = C_\bu \left(\lie{g} \otimes \Omega^{0,\bu}_c(D_r(z)) \right) 
 \eeqn
 Here, $\Omega^{0,\bu}_c(D_r(z))$ denotes the Dolbeault complex of compactly supported $(0,\bu)$ forms on the disc.
 Because the space of $(0,\bu)$ forms define a commutative dg algebra, 
 the complex $\lie{g} \otimes \Omega^{0,\bu}_c(D_r(z))$ has the natural structure of a dg Lie algebra---the complex on the right hand side is the Chevalley--Eilenberg complex which computes the Lie algebra homology of this dg Lie algebra.
 Using the formalism of factorization algebras (which we recall in the next section) it is shown in \cite{CG2} how to equip $A_{\lie{g}}$ with the structure of a holomorphic disc algebra.
 The corresponding vertex algebra is the Kac--Moody vertex algebra of $\fg$ at level zero. 
-To obtain the vertex algebra associated to a nonzero level $\kappa$ one can deform this holomorphic polydisc algebra $A_{\fg} \rightsquigarrow A_{\fg, \kappa}$.
+To obtain the vertex algebra associated to a nonzero level $\kappa$ one can deform this holomorphic polydisc algebra $A^{\fg} \rightsquigarrow A^\fg_{\kappa}$.
 
 Let $V$ be a vector space.
-Then, we can define a holomorphic disc algebra $A_V$ which corresponds to another familiar vertex algebra: the $\beta\gamma$ system with values in~$V$.
+Then, we can define a holomorphic disc algebra $A_V$ which corresponds to another familiar vertex algebra: the $\beta-\gamma$ system with values in~$V$.
 To a disc $D = D_r(z)$ this assigns the following cochain complex
 \beqn
 \Sym \left(\Omega^{1,\bu}_c(D) \otimes V^* [1] \oplus \Omega^{0,\bu}_c (D) \otimes V [1]\right) 
@@ -1417,10 +1445,25 @@ Now, for the differential, $\dbar$ is the familiar operator (which acts in the s
 \triangle (\gamma \cdot \beta) = \int_D \<\gamma, \beta\> . 
 \eeqn
 The operator can be extended to the entire complex $A_V(D)$ by the rule that it is a BV operator for the $1$-shifted Poisson bracket given by wedge and integration.
+The vertex algebra associated to this disk algebra is the familiar $\beta-\gamma$-vertex algebra.
 
 \subsubsection{Revisiting the higher Kac-Moody algebras}
 
-\owen{I want to mention here that we have a polydisc version}
+It is apparent that the formula in \eqref{eqn:diskskm} makes sense for a (poly)disk of arbitrary complex dimension $d$.
+In this way, we obtain functor from Lie algebras to $d$-polydisks algebras $\fg \mapsto A^{\fg}_d$.
+(Here $A^{\fg}_1 = A^{\fg}$.)
+
+In this section we have mostly focused on disks.
+If we evaluate $A^{\lie{g}}_{d}$ on a punctured disk rather than a disk then we obtain a complex which receives a dense embedding from the complex
+\beqn
+\Sym \left(\lie{g}^\bu_{d}\right) 
+\eeqn
+where $\lie{g}^\bu_d$ is the higher sphere algebra from Definition \ref{dfn:sphere}.
+A natural question is how the Lie algebra structure appears; to address this we will use the language of factorization algebras in the next section.
+
+Given an invariant polynomial $\theta \in \Sym^{d+1}(\lie{g}^*)^G$ as in \S \ref{s:alghigh} we can obtain a twisted version of this $d$-polydisks algebra $A^{\lie{g}}_{d,\theta}$.
+At the level of the punctured disk this corresponds to the higher Kac--Moody algebra which is the central extension of the sphere algebra $\lie{\fg}^\bu_{d}$.
+This is a $d$-polydisks avatar of the higher Kac--Moody algebra, in the same way that the Kac--Moody vertex algebra is related to the affine Kac--Moody Lie algebra \cite{GWkm}.
 
 \subsubsection{Polydiscs algebras from holomorphic field theories}
 
@@ -1460,16 +1503,16 @@ where people sometimes present an $E_2$-algebra as a dg vertex algebra with extr
 The essential idea is simple.
 On a complex manifold $X$, there is a cochain map
 \[
-\Omega^*(X) \to \Omega^{0,*}(X)
+\Omega^\bu(X) \to \Omega^{0,\bu}(X)
 \]
 where one quotients by the dg ideal of Dolbeault $(p,q)$-forms where $p \geq 1$.
 If we consider the complex manifold $\PDisc_d(r_1,\ldots,r_n|R)$, 
 we get a map from its de Rham complex --- which only cares about the topology of that configuration space --- to its Dolbeault complex --- which is sensitive to its complex geometry.
-Hence an algebra over the cooperad $\Omega^*(\PDisc_d)$ forgets to an algebra over the cooperad~$\Omega^{0,*}(\PDisc_d)$.
+Hence an algebra over the cooperad $\Omega^\bu(\PDisc_d)$ forgets to an algebra over the cooperad~$\Omega^{0,\bu}(\PDisc_d)$.
 Moreover, it is straightforward (if one is comfortable with operads and higher categories) to show that 
 \begin{enumerate}
-\item algebras over the dg operad $C_*(\PDisc_d)$ are equivalent to algebras over the dg cooperad~$\Omega^*(\PDisc_d)$, as $\infty$-categories, and
-\item $E_{2d}$-algebras are equivalent to the algebras over $C_*(\PDisc_d)$ such that an inclusion of a polydisc is always a quasi-isomorphism (the ``locally constant'' algebras).
+\item algebras over the dg operad $C_\bu(\PDisc_d)$ are equivalent to algebras over the dg cooperad~$\Omega^\bu(\PDisc_d)$, as $\infty$-categories, and
+\item $E_{2d}$-algebras are equivalent to the algebras over $C_\bu(\PDisc_d)$ such that an inclusion of a polydisc is always a quasi-isomorphism (the ``locally constant'' algebras).
 \end{enumerate}
 The second item holds because any configuration space of polydiscs is weakly equivalent, as a topological space, to the analogous configuration space of discs.
 Thus we have sketched the following result.
@@ -1484,7 +1527,7 @@ There is a forgetful functor
 The primary interest for us is the following consequence.
 
 \begin{cor}
-The observables of a topological field theory on $\RR^{2d}$ determine an algebra over the polydiscs cooperad~$\Omega^{0,*}(\PDisc_d)$.
+The observables of a topological field theory on $\RR^{2d}$ determine an algebra over the polydiscs cooperad~$\Omega^{0,\bu}(\PDisc_d)$.
 \end{cor}
 
 In Section~\ref{???} we will examine another relationship --- generalizing the compactification/chiralization on $\CC$ --- that yields an $E_d$ algebra from a $\PDisc_d$-algebra.
@@ -2035,7 +2078,7 @@ This theorem is also a key connection between field theories and higher algebras
 %\[
 %0 = \d A + \frac{1}{2} [A,A] + \frac{1}{3!}[A,A,A]_3 + \cdots = \sum_{k=1}^\infty \frac{1}{k!} [A, \ldots, A]_k
 %\]
-%of the $L_\infty$ algebra $\Omega^*(\RR^d) \otimes \fg$ with $k$-ary brackets $[-]_k$.
+%of the $L_\infty$ algebra $\Omega^\bu(\RR^d) \otimes \fg$ with $k$-ary brackets $[-]_k$.
 %The {\em action functional} is the expression
 %\[
 %S(A) = \int_{\RR^d} \sum_{k=1}^\infty \frac{1}{{k+1}!} \langle A, [A, \ldots, A]_k \rangle
@@ -2055,7 +2098,7 @@ This theorem is also a key connection between field theories and higher algebras
 %\begin{thm}[\cite{CG2;ElliottSafronov}]
 %For a classical AKSZ-type theory on $\RR^d$, the observables 
 %\[
-%\Obs^{cl}(U) = \clie^*(\Omega^*(U) \otimes \fg)
+%\Obs^{cl}(U) = \clie^*(\Omega^\bu(U) \otimes \fg)
 %\]
 %form a locally constant factorization algebra and hence determine an $E_d$ algebra~$\cA^{cl}$.
 %A quantization, if it exists, determines a deformation $\cA^q$ of this $E_d$ algebra.
@@ -2110,7 +2153,6 @@ Daniel Bruegmann's thesis, and how the web of 2d CFT stuff should fit together.}
 \owen{revisit this theme, and discuss the "modes" algebra}
 
 \section{Holomorphic $\sigma$-models, higher algebras of differential operators, and higher free field realization}
-\label{sec: higher CDO}
 
 \owen{We should also discuss how these can reduce to LG B-models, as precursor to the Hori-Tong dualities.}
 
@@ -2286,7 +2328,7 @@ and even impacted mathematics through the Seiberg-Witten equations (which are re
 The class of supersymmetric theories closest to the Standard Model, however, has only $\cN=1$ supersymmetry.
 There too Seiberg offered inspiring and powerful insights about SQCD ($\cN=1$ supersymmetric QCD),
 and one of his leading contributions is referred to as {\em Seiberg duality}.
-It has had a large impact in theoretical physics (with nearly two thousand citations),
+It has had a large impact in theoretical physics \owen{give the citation number on that paper},
 but the impact in mathematics is much more muted,
 possibly due to the lack of a topological twist for any $\cN=1$ theory.
 Such theories do admit {\em holomorphic} twists, however, 
@@ -2301,7 +2343,7 @@ We explain our first efforts in this direction and how it offers evidence for th
 we then refine Eager's version.
 We also explain how this duality, when compactified along Riemann surfaces,
 should produce equivalences between different kinds of 2-dimensional B-model theories;
-these reductions are related to work of Hori and Hori--Tong \cite{Hori, HorTon} and their mathematical offshoots \cite{Segal, etc}.
+these reductions are related to work of Hori and Hori--Tong \owen{citations} and its mathematical development by Ed Segal, \owen{list others}.
 
 \subsection{Holomorphic QCD}
 
@@ -2359,6 +2401,8 @@ We will specialize $G = SU(N)$ and so $G_\CC = SL(N)$.
 The matter fields will consist of two types: quarks and antiquarks.
 Let $\underline{N}$ denote the {\em fundamental} (or defining) representation of $SL(N)$,
 so $\underline{N} = \CC^N$ with its natural left action.
+\owen{That's kind of crappy notation. Let's discuss.}
+\brian{Does it help us much? Or are you trying to use this to disambiguate what $\CC^N$ means.}
 
 %All of the holomorphic theories we consider below will be special cases of this gauged linear mapping space with $X = \CC^2$. 
 %We slightly refine notation and associate a holomorphic theory $\cT(G, V, Z, W)$ on $\CC^2$ associated to the following data:
@@ -2502,6 +2546,9 @@ There is an equivalence of 2-dimensional holomorphic factorization algebras
 where these are the observables of the electric and magnetic theories, respectively.
 \end{conj}
 
+\owen{Do we want $F > N+1$? The physicists break things into several cases. In particular, I think the moduli is unchanged under quantization only if $F$ is big enough relative to $N$ and $\check{N}$.}
+\brian{I expect we want a similar condition, but I was never able to understand how that appears at the level of factorization algebras.}
+
 \begin{rmk}
 The statement is an equivalence of factorization algebras valued in $\ZZ/2$-graded cochain complexes since the field theories are only $\ZZ/2$-graded.
 \end{rmk}
@@ -2542,21 +2589,20 @@ These ideas are extensively used in the program of twisted holography, which is 
 (The interested reader might track the papers that cite those we have mentioned.)
 \end{rmk}
 
-\subsubsection{Extending the duality} 
+\subsubsection{The duality functor} 
 
 There is a way to define the dual of any supersymmetric QCD theory with mesons that satisfies the following properties:
 \begin{itemize}
-\item In the case that there are no mesons in the original theory, as in the electric theory, the dual agrees with the magnetic theory.
-\item The dual of the magnetic theory is equivalent to the original electric theory. 
-In other words, the double dual of the electric theory is equivalent to itself. 
+\item In the case that there are no mesons in the original theory, like in the electric theory, the dual agrees with the magnetic theory.
+\item The dual of the magnetic theory is equivalent to the original electric theory. In other words, the double dual of the electric theory is equivalent to itself. 
 \end{itemize}
 %In fact, more generally, the double dual of any supersymmetric QCD with mesons returns the same theory (up to equivalence). 
-Let us briefly remark how to state this more general duality in the holomorphic context. 
+Let us briefly remark how this general duality looks classically in the holomorphic context. 
 
 Suppose that we have a holomorphic QCD theory with $N$ colors, $F$ flavors, and with mesons $\mu$ valued in some vector space $V_M$. 
 The superpotential is $W(QQ^\dagger, \mu)$.
-The dual theory should again be a holomorphic QCD theory with mesons:
-it is holomorphic QCD with $F-N$ colors, $F$ flavors, and with mesons valued in 
+The dual theory is again a holomorphic QCD theory with mesons.
+Precisely the dual theory is holomorphic QCD with $F-N$ colors, $F$ flavors, and mesons valued in 
 \beqn
 (\mu, \til \mu) \in V_M \oplus \C^{F^2} .
 \eeqn
@@ -2564,20 +2610,18 @@ The superpotential of this dual holomorphic QCD theory (whose quarks we label by
 \beqn
 \til W (\mu, \til \mu, \til Q) = W|_{\til \mu = Q Q^\dagger}(\mu, \til \mu) + \Tr \til{Q}^\dagger \til{\mu} \til{Q} .
 \eeqn
-Notice that when $V_M = 0, W=0$, this construction agrees with the dual magnetic theory that we introduced above. 
+Notice that when $V_M = 0, W=0$ this agrees with the dual magnetic theory that we introduced above. 
 
-Now, let's check how it fits with the second condition we requested. 
-Start with the magnetic theory with $F-N$ colors, $F$ flavors, and $F^2$ mesons.
-The superpotential is $W = \Tr(\check{Q}^\dagger \check{\mu} \check{Q})$. 
+Now, let's suppose we start with the magnetic theory with $F-N$ colors, $F$ flavors, and $F^2$ mesons.
+The superpotential is $W = \Tr \check{Q}^\dagger \check{\mu} \check{Q}$. 
 Taking the dual of this theory we obtain holomorphic QCD with $N$ colors and $F$ flavors as expected.
-However, we have mesons $\check{\mu}$ and $\til \mu$, both valued in $\End(\C^F)$. 
+However, we have mesons $\check{\mu}$ and $\til \mu$ both valued in $\End(\C^F)$. 
 The superpotential is simply
 \beqn
-\til W = \Tr( \check \mu \til \mu) + \Tr (\til Q^\dagger \check{\mu} \til Q ).
+\til W = \Tr \check \mu \til \mu + \Tr \til Q^\dagger \check{\mu} \til Q .
 \eeqn
 The first term arises from substituting $\til \mu = \check Q \check Q^\dagger$ in the original magnetic superpotential. 
-This term has the effect of equipping both the mesons $\mu$ and $\check \mu$ with mass, 
-and hence these fields can be integrated out to obtain the original electric theory. 
+This term has the effect of making both $\mu,\check \mu$ massive, and hence they can be integrated out to obtain the original electric theory. 
 (In fact, this argument can be upgraded to give an equivalence of BV theories from the electric theory and its double dual.)
 
 \subsection{Evidence for holomorphic Seiberg duality}
@@ -2601,10 +2645,7 @@ Under quantization, these have isomorphic anomalies.
 \item[(3)] There are {\em spacetime} symmetries that act on each theory, notably isometries, and these can be matched under duality.
 \end{enumerate}
 This triple of evidence is analogous (and sometimes stronger) than results for Seiberg duality for SQCD. 
-We now turn to fleshing out these assertions, but we will only discuss (1) and (2).
-Aspect (1) is necessary even to formulate a precise statement,
-and aspect (2) uses results --- notably the higher Kac-Moody algebras --- that we've already encountered in this survey.
-Spacetime symmetries involve similar tools and ideas, albeit in a modified form, much like similarities between studying the Virasoro algebra and affine Lie algebras.
+We now turn to fleshing out these assertions.
 
 \subsubsection{Moduli of vacua and quantization}
 
@@ -2639,7 +2680,7 @@ As the solutions $\Sol(\RR^n)$ is a derived stack (at least if you adhere to the
 \cM_{\rm vac}(\cT) = \Sol_\cT(\RR^n)^{\RR^n}
 \]
 given by the substack of constant solutions.
-We call it the {\em moduli stack of classical vacuum solutions} for the theory~$\cT$.
+We call it the {\em moduli stack of classical vacua} for the theory~$\cT$.
 
 Many stacks of interest to geometers and representation theorists appear naturally from holomorphic field theories.
 For example, the holomorphic $\sigma$-model from $\CC^d$ into a target complex manifold $X$ has
@@ -2654,14 +2695,14 @@ For supersymmetric gauge theories, the moduli stack of the holomorphic twist has
 where $V$ is a (graded) $G$-representation and $[V/G]$ denotes the quotient stack.
 The factor $V$ depends on the non-gauge fields (i.e., matter multiplets), which are sections of some associated vector bundle;
 the quotient by $G$ arises from the gauge transformation.
-For example, the holomorphic twist of pure $\cN =1$ Yang-Mills theory for group $G$ (i.e., the vector multiplet) has
+For example, pure $\cN =1$ holomorphic Yang-Mills theory for group $G$ (i.e., the vector multiplet) has
 \[
 \cM_{\rm vac} \cong [\fg^*/G],
 \]
 the coadjoint quotient stack of the group.
+\brian{The paragraph began with holomorphic theories, do you want to say twist of 4d N=1?}
 (We are working in a $\ZZ/2$-graded world here.)
-When $G$ is semisimple and using the invariant pairing on $\fg$, 
-we can further identify this with the adjoint quotient stack~$[\fg / G]$. 
+Using the invariant pairing on $\fg$ we can further identify this with the adjoint quotient stack~$[\fg / G]$. 
 For general supersymmetric field theories, which involve both a $\sigma$-model and gauge fields, the holomorphic twist has a moduli stack of classical vacua of the form
 \[
 \cM_{\rm vac} \cong [X/G]
@@ -2669,7 +2710,7 @@ For general supersymmetric field theories, which involve both a $\sigma$-model a
 where $X$ is a derived stack with a $G$-action and $[X/G]$ denotes the quotient stack.
 
 In studying questions about the classical vacua of supersymmetric field theories, however, physicists have not typically worked with the {\em stack}.
-Instead, they have worked with a variety arising as a GIT quotient.
+Instead, they have worked with a GIT quotient.
 For instance, in the setting of a gauge theory with moduli stack of classical vacua $[V/G]$, it means they work with 
 \[
 V\Sslash G = \Spec(\cO(V)^G),
@@ -2708,13 +2749,13 @@ In other words, the canonical map collapses together Jordan blocks with the same
 For this reason, it loses details about the classical vacua remembered by the stack quotient.
 
 \begin{rmk}\label{sols vs states}
-The physicists' focus on the moduli space is quite reasonable:
+The physicists' focus on the moduli space is not unreasonable:
 one must make measurements --- i.e., evaluate functions --- to identify the state of a physical system.
-The moduli space captures what can be seen by measurements (here, the ``vacuum expectation values'' of different vacua).
-In other words, the possible classical states --- viewed as multiplicative linear functionals on the algebra of observables --- are parametrized by an affine scheme underlying the derived moduli stack.
+The moduli space captures what can be seen by measurements (notably here, the ``vacuum expectation values'' of different vacua).
+In other words, the possible classical states --- viewed as multiplicative linear functionals on the algebra of observables --- are parametrized by the underlying affine scheme of the derived moduli stack.
 On the other hand, the moduli stack knows each orbit, which provides a distinct solution to the equations of motion,
-and hence records much more about the classical theory.
-By contrast, the space cannot distinguish between some vacua because it collapses orbits.
+and hence records much more about the classical theory; 
+the space cannot distinguish between some vacua because it collapses orbits.
 Moreover, the stack encodes much more data about the theory near each vacuum.
 For instance, it remembers ``enhanced symmetries'' (such as the residual gauge fields) at each vacuum.
 \end{rmk}
@@ -2724,11 +2765,7 @@ the moduli stack of classical vacua is
 \[
 \cM_{\rm vac}(\cT_{\sfE}(F,N)) \cong T^*[1] \left(V_Q \times V_Q^*/SL(N)\right).
 \]
-By contrast the moduli space $M_{\rm vac}$ analyzed by physicists is a variety already well-studied in classical algebraic geometry.
-We will now discuss the moduli spaces appearing in the physics literature on Seiberg duality.
-(There are some subtleties in relating the moduli spaces of the supersymmetric theories to the moduli stacks of their twists;
-we will not dwell on them here, but they need to be resolved to obtain a complete story.)
-
+By contrast the moduli space $M_{\rm vac}$ is a variety already well-studied in classical algebraic geometry.
 Before we describe the full space, let's examine a simpler case involving just the quarks.
 A vacuum for the quark field is an element of $V_Q = \Hom(\CC^F, \CC^N)$,
 and it is a classic result of invariant theory that
@@ -2771,7 +2808,7 @@ M_{\rm vac}(\cT_{\sfE}(F,N)) \cong M_{\rm vac}(\cT_{\sfM}(F,\check{N})).
 \]
 \end{prop}
 
-This relationship, which holds for the supersymmetric theory before twisting, was one of the original pieces of evidence offered by Seiberg for his duality.
+This relationship, which holds already for the supersymmetric theory before twisting, was one of the original pieces of evidence offered by Seiberg for his duality.
 The proof boils down to checking that the mesons and the superpotential on the magnetic side ensure the isomorphism.
 
 \begin{rmk}
@@ -2790,53 +2827,6 @@ Consider, for instance, the origin in each vector space.
 On the electric side its stabilizer is $SL(N)$ and on the magnetic side it is $SL(\check{N})$.
 Thus each theory has a vacuum whose associated perturbative classical theory has no partner on the other side.
 Hence Seiberg duality cannot hold at the stack level for the classical theories.
-
-%\subsubsection{The special case of $SU(2)$ SQCD}
-%
-%\owen{I like the idea of analyzing a special case, but I'm not sure what lesson the reader is supposed to learn.}
-%
-%Let's consider the special case where $N=2$ so that the gauge group on the electric side is $G = SU(2)$. 
-%In this case, the fundamental and anti-fundamental representations are isomorphic $V_Q = V^*_Q$, so the quarks are valued in
-%\beqn
-%(Q, Q^\dagger) \in \Omega^{0,\bu}(\CC^2, V_Q^{\oplus 2}) .
-%\eeqn
-%This implies that the flavor symmetry group $SU(F) \times SU(F)$ admits an enhancement to $SU(2F)$. 
-%
-%On the magnetic side, the mesons still take values in the $SU(F) \times SU(F)$ representation
-%\beqn
-%V_{\check{M}} = (\CC^F)^* \otimes \CC^F \cong \CC^{\oplus F^2} .
-%\eeqn
-%There are $F$ dual quarks $\check{Q}$ transforming in the $SU(F-2)$ fundamental representation and $F$ dual antiquarks $\check{Q}^\dagger$ transforming in the antifundamental representation. 
-%Again the flavor symmetry group admits an enhancement to $SU(2F)$.
-%
-%Let's further consider some special cases for small values of flavors. 
-%
-%$\bullet \ul{F=2}$. \brian{I'm confused}
-%
-%$\bullet \ul{F=3}$. 
-%In this case the dual gauge group is trivial and we only have quarks, antiquarks, and mesons which together are valued in the following $SU(3) \times SU(3)$ representation
-%\beqn
-%(\CC^3)^* \otimes \CC^3 \oplus \CC^3 \oplus (\CC^3)^* .
-%\eeqn
-%In a way that is consistent with the flavor symmetry enhancement on the electric side, this representation which appears on the dual magnetic side enhances to the $SU(2 \cdot 3) = SU(6)$ representation $\wedge^2 (\C^6)$, where $\C^6$ is the fundamental $SU(6)$ representation.
-%If we denote by $\Phi$ the field which combines all magnetic quarks, antiquarks, and mesons, then the classical superpotential can be written in an manifestly $SU(6)$ invariant way as
-%\beqn
-%W = \frac16 \Phi \wedge \Phi \wedge \Phi .
-%\eeqn
-%We conclude that the magnetic dual holomorphic theory can be expressed in a $SU(6)$ invariant way as a holomorphic $\sigma$-model from $\C^2$ to the (derived) critical locus of $W$. 
-%The critical locus of $W$ is simply the space of solutions to the equation
-%\beqn
-%\Phi \wedge \Phi = 0 \in \wedge^4 (\C^6) .
-%\eeqn
-%This description is the affine Pl\"ucker embedding of the affine cone of the Grassmannian~$\text{Gr}(2,6)$.
-%
-%$\bullet \ul{F=4}$.
-%This case is special since the gauge group on both sides of Seiberg duality is $SU(2)$. 
-%On the electric side we have $SU(2)$ gauge theory with $F=4$ flavors. 
-%On the magnetic side we have $SU(2)$ gauge theory with $F=4$ flavors and mesons which take values in $\C^{4^2} = \C^{16}$.
-%
-%We have pointed out that for any $F$ the global flavor symmetry group admits an enhancement to $SU(2F)$. 
-%For $F \geq 4$ the 
 
 \subsubsection{Flavor symmetry enhancement}
 
@@ -2870,7 +2860,7 @@ It acts by wedging the forms and applying $\sl(F)$ to the relevant vector space,
 On affine space, this dg Lie algebra is quasi-isomorphic to $\lie{sl}(F) \otimes \cO(\C^2)$, where $\cO(\C^2)$ denotes holomorphic functions on $\C^2$---this is like a current algebra in two complex dimensions.
 
 There is another dg Lie algebra obtained by evaluating the theory on punctured affine space $\C^2 - 0$.
-We recalled in Section~\ref{subsec: FHK} an algebraic model $\sfA_2$ for the dg algebra $\Omega^{0,\bu}(\C^2 - 0)$.
+We recalled in \S \ref{sec:punctured} an algebraic model $\sfA_2$ for the dg algebra $\Omega^{0,\bu}(\C^2 - 0)$.
 The dg Lie algebra we assign to the punctured affine space, classically, is $\lie{sl}(F) \otimes \sfA_2$.
 Recall that we can think about elements of this algebra as being supported on three-spheres $S^3$ inside $\C^2 - 0$.
 This $S^3$-mode algebra acts on the local observables at the classical level.
@@ -2879,11 +2869,11 @@ A natural question is whether this symmetry persists at the quantum level.
 The answer is {\em yes}, but on both sides of the duality one must use a central extension of the current algebra as an $L_\infty$ algebra.
 The extension arises because the symmetry has an anomaly under quantization (on either side of the duality),
 and this anomaly is determined by an  invariant cubic polynomial $\theta_\sfE$, $\theta_\sfM$, respectively, on the Lie algebra~$\sl(F)$. 
-(In terms of Section~\ref{subsec: FHK}, these determine higher Kac--Moody algebras $\Hat{\sl(F)}_{2,\theta_{\sfE}}, \Hat{\sl(F)}_{2,\theta_{\sfM}}$ when studying the theories on the punctured space~$\CC^2 - 0$.)
+(In terms of Section \owen{cross ref}, these determine higher Kac--Moody algebras $\Hat{\sl(F)}_{2,\theta_{\sfE}}, \Hat{\sl(F)}_{2,\theta_{\sfM}}$ when studying the theories on the punctured space~$\CC^2 - 0$.)
 
 \begin{prop}
 For both the electric and magnetic theories, there is an anomaly at the quantum level for the holomorphic flavor symmetry action.
-These anomlies agree: they are labeled by the same cocycle 
+These anaomlies agree: they are labeled by the same cocycle 
 \[
 \theta_\sfE = \theta_\sfM.
 \] 
@@ -2927,95 +2917,92 @@ Since $\op{tr}_{\underline{F}^*} (T^3) = - \op{tr}_{\underline{F}} (T^3)$ for an
 we see that the sum of these two terms agrees with \eqref{eqn:electricflavor} on the electric side.
 \end{proof}
 
-%\subsubsection{Twisted superconformal symmetry}
-%
-%\owen{I'm now pretty lost in how this section discusses evidence for Seiberg duality.}
-%
-%A superconformal algebra is a simple super Lie algebra which contains both the ordinary algebra of infinitesimal conformal transformations and the super Lie algebra of supertranslations.
-%It is a basic fact of life that all (super)conformal algebras in dimensions $\geq 3$ are finite-dimensional.
-%Being a superconformal theory means that the theory admits a symmetry by a particular superconformal algebra---it is, generally speaking, a very rigid condition on a theory. 
-%
-%The (complexified) $\cN=1$ superconformal in four-dimensions is $\sl(4|1)$.
-%This super Lie algebra is the defining symmetry of a 4-dimensional $\cN=1$ superconformal field theory. 
-%%The Poincar\'{e} algebra is a subalgebra of $\sl(4|1)$. %which in particular consists of supercharges $\cQ_{\alpha}, \cQ_{\dot{\alpha}}$ where $\alpha = 1,2$ is an $\SU(2)$ index.
-%Inside of this algebra is the Cartan generator $\Delta$ of which is an infinitesimal generator for scaling transformations in~$\RR^4$.
-%
-%Fix the same square-zero supercharge $\cQ$ inside of the four-dimensional $\cN=1$ supersymmetry algebra which we use to define the holomorphic twists of Seiberg dual gauge theories. 
-%Naturally, such a $\cQ$ acts by the (super)commutator on the superconformal Lie algebra.
-%There is a quasi-isomorphism of dg Lie algebras
-%\[
-%\bigg(\sl(4|1) \; , \; [\cQ, -] \bigg) \simeq \sl(3) ,
-%\]
-%see \cite{SWsuco}, for example.
-%So, if one starts with a superconformal theory, the Lie algebra $\sl(3)$ is guaranteed to act on the holomorphically twisted theory. 
-%In this sense, $\sl(3)$ is the residual superconformal symmetry of this twist. 
-%The entire algebra $\sl(3)$ naturally embeds inside of the Lie algebra of holomorphic vector fields on $\CC^2$,
-%where we view $\CC^2$ as an open subset of $\CC \PP^2$ as an $SL(3)$-homogenous space.
-%(In a moment we will discuss how all holomorphic vector fields act on the theories.)
-%Inside of this twisted algebra $\sl(3)$, we have the ``holomorphic scaling'' operator 
-%\beqn
-%\Delta^{hol} = z_1 \del_{z_1} + z_2 \del_{z_2},
-%\eeqn 
-%which is simply the holomorphic Euler vector field.  
-%We focus on this scaling operator as it is closely related to questions of renormalization group flow in the original, untwisted theory.
-%
-%Let's consider just a free theory consisting of a single chiral multiplet, for the moment.
-%Here, the $R$-symmetry group is $U(1)$.
-%The holomorphic supercharges breaks the $SO(4;\C)$ symmetry down to the group $MU(2)$, a double cover of $U(2)$.
-%To perform the twist of a theory there are always two steps: the first is to `twist' the fields of the theory using the $R$-symmetry and the second is to deform the action by the supercharge $\cQ$.
-%To have a consistent data to twist, one usually imposes the condition that with respect to the twisted $R$-symmetry action the supercharge $Q$ is invariant.
-%The odd part of the four-dimensional $\cN = 1$ algebra is given by 
-%\beqn
-%S_+ \otimes W \oplus S_- \otimes W^*
-%\eeqn
-%where $W \cong \C$ is just a one-dimensional vector space and $S_{\pm}$ are the positive and negative semi-chiral spin representations of $\lie{so}(4;\C)$.
-%We will take the square-zero supercharge to live in $\cQ \in S_+ \otimes W$.
-%As an $MU(2)$ representation one has $S_+ \cong \det(L)^{+1/2} \oplus \det(L)^{-1/2}$.
-%Thus, if $\cQ$ lies in the first summand, in order to make $\cQ$-invariant we must twist by the condition that $W$ has weight $-1/2$ under the $R$-symmetry.
-%We will fix this twisting data.
-%
-%The basic components of the chiral multiplet is a pair of bosons $(\phi,\Bar{\phi})$, and a pair of fermions $(\psi_+, ,\psi_-)$ where $\psi_{+}$ takes values in $S_+$ and $\psi_-$ takes values in $S_-$.
-%For a free theory, we may assign any $R$-charge to $\psi_+$ and this determines the $R$-charges of all remaining fields. 
-%For example, if the $R$-charge of $\psi_+$ is $r$ then the $R$-charge of $\phi$ is $r+1$, the $R$-charge of $\psi_-$ is $-r$, and the $R$-charge of $\Bar{\phi}$ is $-r - 1$. 
-%
-%If we twist using the data where $\cQ$ is invariant, then the particular choice of $r$ will dictate how the holomorphic scaling operator $\Delta^{hol}$ acts on the theory.
-%One finds that the holomorphic twist of the free chiral theory (which is just a single quark in the above terminology) has fundamental field
-%\[
-%Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2}) 
-%\] 
-%where $K$ denotes the holomorphic canonical bundle.
-%Of course, the canonical bundle on $\C^2$ is trivializable, so we obtain a theory with isomorphic space of fields for any choice of $r$; what changes is how the twisted superconformal symmetry algebra $\lie{sl}(3)$ acts.  
-%
-%
-%Now, let's consider the electric theory.
-%We assume that the fermions in the quarks and anti-quark multiplets have the same $R$-charges.
-%If this $R$-charge is $r$, then the twisted quarks and anti-quarks take the form
-%\[
-%Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q) \quad\text{and}\quad Q^\dagger \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q^*)
-%\]
-%where $V_Q \cong \C^{NF}$.
-%In the untwisted theory the value $r$ is fixed by the condition that the $R$-symmetry is anomaly-free.
-%In the twisted theory, the value of $r$ is fixed by the condition that the action by the holomorphic scaling operator is anomaly-free.
-%This anomaly comes from a one-loop diagram with a single vertex labeled by $\Delta^{hol}$, and it leads to the constraint 
-%\beqn
-%N + F r = 0 .
-%\eeqn
-%In other words, $r = - N / F$. 
-%This condition matches the corresponding condition for $R$-symmetry to be anomaly-free in the untwisted theory. 
-%On the magnetic side the condition is $r = N/F - 1$.
-%
-%In the original version of Seiberg duality, there are certain values of $F$ and $N$ where the dual theories are expected to flow to the same superconformal fixed point in the infrared limit. 
-%This range of values $F/3 < N < 2F/3$ is known as the ``superconformal window.''
-%(Note that it is preserved under swapping $N \leftrightarrow F-N$.)
-%It would be interesting to explore how it appears from the point of view of holomorphic QCD. 
-%
-%<<<<<<< HEAD
-%\begin{cor}
-%{\em Divergence-free} holomorphic vector fields are a symmetry at the quantum level for any values of $F$ and~$N$.
-%Only when $F = 3N$ do {\em all} holomorphic vector fields lift to a symmetry lifts at the quantum level.
-%\end{cor}
-%=======
-%>>>>>>> 8d2b48799f0de9991260e8451b5287400da94e98
+\subsubsection{Twisted superconformal symmetry}
+
+\owen{I'm now pretty lost in how this section discusses evidence for Seiberg duality.}
+
+A superconformal algebra is a simple super Lie algebra which contains both the ordinary algebra of infinitesimal conformal transformations and the super Lie algebra of supertranslations.
+It is a basic fact of life that all (super)conformal algebras in dimensions $\geq 3$ are finite-dimensional.
+Being a superconformal theory means that the theory admits a symmetry by a particular superconformal algebra---it is, generally speaking, a very rigid condition on a theory. 
+
+The (complexified) $\cN=1$ superconformal in four-dimensions is $\sl(4|1)$.
+This super Lie algebra is the defining symmetry of a 4-dimensional $\cN=1$ superconformal field theory. 
+%The Poincar\'{e} algebra is a subalgebra of $\sl(4|1)$. %which in particular consists of supercharges $\cQ_{\alpha}, \cQ_{\dot{\alpha}}$ where $\alpha = 1,2$ is an $\SU(2)$ index.
+Inside of this algebra is the Cartan generator $\Delta$ of which is an infinitesimal generator for scaling transformations in~$\RR^4$.
+
+Fix the same square-zero supercharge $\cQ$ inside of the four-dimensional $\cN=1$ supersymmetry algebra which we use to define the holomorphic twists of Seiberg dual gauge theories. 
+Naturally, such a $\cQ$ acts by the (super)commutator on the superconformal Lie algebra.
+There is a quasi-isomorphism of dg Lie algebras
+\[
+\bigg(\sl(4|1) \; , \; [\cQ, -] \bigg) \simeq \sl(3) ,
+\]
+see \cite{SWsuco}, for example.
+So, if one starts with a superconformal theory, the Lie algebra $\sl(3)$ is guaranteed to act on the holomorphically twisted theory. 
+In this sense, $\sl(3)$ is the residual superconformal symmetry of this twist. 
+The entire algebra $\sl(3)$ naturally embeds inside of the Lie algebra of holomorphic vector fields on $\CC^2$,
+where we view $\CC^2$ as an open subset of $\CC \PP^2$ as an $SL(3)$-homogenous space.
+(In a moment we will discuss how all holomorphic vector fields act on the theories.)
+Inside of this twisted algebra $\sl(3)$, we have the ``holomorphic scaling'' operator 
+\beqn
+\Delta^{hol} = z_1 \del_{z_1} + z_2 \del_{z_2},
+\eeqn 
+which is simply the holomorphic Euler vector field.  
+We focus on this scaling operator as it is closely related to questions of renormalization group flow in the original, untwisted theory.
+
+Let's consider just a free theory consisting of a single chiral multiplet, for the moment.
+Here, the $R$-symmetry group is $U(1)$.
+The holomorphic supercharges breaks the $SO(4;\C)$ symmetry down to the group $MU(2)$, a double cover of $U(2)$.
+To perform the twist of a theory there are always two steps: the first is to `twist' the fields of the theory using the $R$-symmetry and the second is to deform the action by the supercharge $\cQ$.
+To have a consistent data to twist, one usually imposes the condition that with respect to the twisted $R$-symmetry action the supercharge $Q$ is invariant.
+The odd part of the four-dimensional $\cN = 1$ algebra is given by 
+\beqn
+S_+ \otimes W \oplus S_- \otimes W^*
+\eeqn
+where $W \cong \C$ is just a one-dimensional vector space and $S_{\pm}$ are the positive and negative semi-chiral spin representations of $\lie{so}(4;\C)$.
+We will take the square-zero supercharge to live in $\cQ \in S_+ \otimes W$.
+As an $MU(2)$ representation one has $S_+ \cong \det(L)^{+1/2} \oplus \det(L)^{-1/2}$.
+Thus, if $\cQ$ lies in the first summand, in order to make $\cQ$-invariant we must twist by the condition that $W$ has weight $-1/2$ under the $R$-symmetry.
+We will fix this twisting data.
+
+The basic components of the chiral multiplet is a pair of bosons $(\phi,\Bar{\phi})$, and a pair of fermions $(\psi_+,\psi_-)$ where $\psi_{+}$ takes values in $S_+$ and $\psi_-$ takes values in $S_-$.
+For a free theory, we may assign any $R$-charge to $\psi_+$ and this determines the $R$-charges of all remaining fields. 
+For example, if the $R$-charge of $\psi_+$ is $r$ then the $R$-charge of $\phi$ is $r+1$, the $R$-charge of $\psi_-$ is $-r$, and the $R$-charge of $\Bar{\phi}$ is $-r - 1$. 
+
+If we twist using the data where $\cQ$ is invariant, then the particular choice of $r$ will dictate how the holomorphic scaling operator $\Delta^{hol}$ acts on the theory.
+One finds that the holomorphic twist of the free chiral theory (which is just a single quark in the above terminology) has fundamental field
+\[
+Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2}) 
+\] 
+where $K$ denotes the holomorphic canonical bundle.
+Of course, the canonical bundle on $\C^2$ is trivializable, so we obtain a theory with isomorphic space of fields for any choice of $r$; what changes is how the twisted superconformal symmetry algebra $\lie{sl}(3)$ acts.  
+
+
+Now, let's consider the electric theory.
+We assume that the fermions in the quarks and anti-quark multiplets have the same $R$-charges.
+If this $R$-charge is $r$, then the twisted quarks and anti-quarks take the form
+\[
+Q \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q) \quad\text{and}\quad Q^\dagger \in \Omega^{0,\bu}(\CC^2 , K_{\CC^2}^{(r+1)/2} \otimes V_Q^*)
+\]
+where $V_Q \cong \C^{NF}$.
+In the untwisted theory the value $r$ is fixed by the condition that the $R$-symmetry is anomaly-free.
+In the twisted theory, the value of $r$ is fixed by the condition that the action by the holomorphic scaling operator is anomaly-free.
+This anomaly comes from a one-loop diagram with a single vertex labeled by $\Delta^{hol}$, and it leads to the constraint 
+\beqn
+N + F r = 0 .
+\eeqn
+In other words, $r = - N / F$. 
+This condition matches the corresponding condition for $R$-symmetry to be anomaly-free in the untwisted theory. 
+On the magnetic side the condition is $r = N/F - 1$.
+
+In the original version of Seiberg duality, there are certain values of $F$ and $N$ where the dual theories are expected to flow to the same superconformal fixed point in the infrared limit. 
+This range of values $F/3 < N < 2F/3$ is known as the ``superconformal window.''
+(Note that it is preserved under swapping $N \leftrightarrow F-N$.)
+It would be interesting to explore how it appears from the point of view of holomorphic QCD. 
+
+\begin{cor}
+{\em Divergence-free} holomorphic vector fields are a symmetry at the quantum level for any values of $F$ and~$N$.
+Only when $F = 3N$ do {\em all} holomorphic vector fields lift to a symmetry lifts at the quantum level.
+\end{cor}
 
 %
 %This action of $\sl(3)$ extends to the quantizations, on both sides of the putative duality, by direct verification.
@@ -3025,6 +3012,7 @@ we see that the sum of these two terms agrees with \eqref{eqn:electricflavor} on
 %The action of $\sl(3)$ on $\cT_{\sfE}(F,N)$ and $\cT_{\sfM}(F,\check{N})$ extends to their quantizations.
 %\end{lem}
 %
+
 %In the holomorphic twist as a classical theory,
 %this $\sl(3)$-symmetry {\em enhances} to a symmetry by an infinite dimensional dg Lie algebra.
 %In fact, this enhancement also works for all holomorphic QCD theories, not just those in the superconformal window.
@@ -3061,6 +3049,60 @@ we see that the sum of these two terms agrees with \eqref{eqn:electricflavor} on
 %
 %\owen{Should we check that the quantum magnetic theory also has a divergence-free symmetry?}
 
+
+\subsubsection{The special case of $SU(2)$ SQCD}
+
+\owen{I like the idea of analyzing a special case, but I'm not sure what lesson the reader is supposed to learn.}
+
+Let's consider the special case where $N=2$ so that the gauge group on the electric side is $G = SU(2)$. 
+In this case, the fundamental and anti-fundamental representations are isomorphic $V_Q = V^*_Q$, so the quarks are valued in
+\beqn
+(Q, Q^\dagger) \in \Omega^{0,\bu}(\CC^2, V_Q^{\oplus 2}) .
+\eeqn
+This implies that the flavor symmetry group $SU(F) \times SU(F)$ admits an enhancement to $SU(2F)$. 
+
+On the magnetic side, the mesons still take values in the $SU(F) \times SU(F)$ representation
+\beqn
+V_{\check{M}} = (\CC^F)^* \otimes \CC^F \cong \CC^{\oplus F^2} .
+\eeqn
+There are $F$ dual quarks $\check{Q}$ transforming in the $SU(F-2)$ fundamental representation and $F$ dual antiquarks $\check{Q}^\dagger$ transforming in the antifundamental representation. 
+Again the flavor symmetry group admits an enhancement to $SU(2F)$.
+
+Let's further consider some special cases for small values of flavors. 
+
+$\bullet \ul{F=2}$. \brian{I'm confused}
+
+$\bullet \ul{F=3}$. 
+In this case the dual gauge group is trivial and we only have quarks, antiquarks, and mesons which together are valued in the following $SU(3) \times SU(3)$ representation
+\beqn
+(\CC^3)^* \otimes \CC^3 \oplus \CC^3 \oplus (\CC^3)^* .
+\eeqn
+In a way that is consistent with the flavor symmetry enhancement on the electric side, this representation which appears on the dual magnetic side enhances to the $SU(2 \cdot 3) = SU(6)$ representation $\wedge^2 (\C^6)$, where $\C^6$ is the fundamental $SU(6)$ representation.
+If we denote by $\Phi$ the field which combines all magnetic quarks, antiquarks, and mesons, then the classical superpotential can be written in an manifestly $SU(6)$ invariant way as
+\beqn
+W = \frac16 \Phi \wedge \Phi \wedge \Phi .
+\eeqn
+We conclude that the magnetic dual holomorphic theory can be expressed in a $SU(6)$ invariant way as a holomorphic $\sigma$-model from $\C^2$ to the (derived) critical locus of $W$. 
+The critical locus of $W$ is simply the space of solutions to the equation
+\beqn
+\Phi \wedge \Phi = 0 \in \wedge^4 (\C^6) .
+\eeqn
+This description is the affine Pl\"ucker embedding of the affine cone of the Grassmannian~$\text{Gr}(2,6)$.
+
+$\bullet \ul{F=4}$.
+This case is special since the gauge group on both sides of Seiberg duality is $SU(2)$. 
+On the electric side we have $SU(2)$ gauge theory with $F=4$ flavors. 
+On the magnetic side we have $SU(2)$ gauge theory with $F=4$ flavors and mesons which take values in $\C^{4^2} = \C^{16}$.
+
+We have pointed out that for any $F$ the global flavor symmetry group admits an enhancement to $SU(2F)$. 
+For $F \geq 4$ the 
+
+%A duality 
+%
+%The basic two-dimensional supersymmetric theories involved in both sides of this duality are particular gauged linear $\sigma$-models (GLSMs) with $\cN=(2,2)$ supersymmetry. 
+%The physics terminology for the supersymmetric GLSM is a two-dimensional $\cN=(2,2)$ supersymmetric gauge theory coupled to some number of chiral multiplets transforming in a particular representation.
+%For gauge group $U(N)$, one takes $F_f$ chiral multiplets valued in the fundamental representation $\CC^N$ and $F_a$ chiral multiplets valued in the anti-fundamental representation.
+
 \subsection{A second pass at holomorphic Seiberg duality}
 
 In our attempts above to explore (and test) Eager's conjecture, we developed insights and highlighted issues that help to refine it.
@@ -3091,9 +3133,9 @@ the stable locus $\cM_{\rm vac}(\cT)^s$ of its moduli stack parametrizes a famil
 and this family is isomorphic to the holomorphic $\sigma$-model from $\CC^2$ into~$\cM_{\rm vac}(\cT)^s$.
 \end{prop}
 
-This result tells us that, over the stable locus, the observables of a holomorphic QCD theory agree with a sheaf of two-dimensional chiral differential operators, as discussed in Section~\ref{sec: higher CDO}.
-%\owen{Do we see a WZ term? That often shows up in chiral symmetry breaking. It would be reminiscent of our $ch_2$ stuff in lower dimensions.}
-%\brian{that's a great question}
+This result tells us that, over the stable locus, the observables of a holomorphic QCD theory agree with a sheaf of two-dimensional chiral differential operators, as discussed in \owen{reference section of this paper}.
+\owen{Do we see a WZ term? That often shows up in chiral symmetry breaking. It would be reminiscent of our $ch_2$ stuff in lower dimensions.}
+\brian{that's a great question}
 
 The isomorphism of moduli spaces then ensures that there is a dual vacuum $x_D$ to $x$ in the dual theory, and its perturbative theory is equivalent to the perturbative theory for $x$,
 because there is an explicit identification of the formal neighborhood of $x$ with the formal neighborhood of $x_D$. 
@@ -3190,7 +3232,6 @@ Such a situation would be reminiscent of minimal models in the one-dimensional c
 
 \end{enumerate}
 Exploring these possibilities would likely lead to substantially deeper understanding of holomorphic Seiberg duality.
-One motivation for these suggestions comes from work on two-dimensional (0,2)-theories, such as \cite{DeduGuk, EagLocSha}.
 
 \subsection{Two-dimensional dualities by reduction}
 
@@ -3214,14 +3255,14 @@ Similarly, the dimensional reduction of holomorphic BF theory is topological BF 
 In sum, the dimensional reduction of the electric holomorphic QCD is the topological B-model whose target is the stack $\C^{NF} / GL(N)$.
 As a derived mapping space, the moduli of solutions is given by
 \beqn
-{\rm Map}\left(\RR^2, T^*[1] \left[ \C^{NF} / GL(N)\right]\right) .
+{\rm Map}\left(\RR^2, T^*[1] \C^{NF} / GL(N)\right) .
 \eeqn
 The factorization algebra of observables obtained from reduction encodes the $E_2$ algebra of (holomorphic) polyvector fields on the stack~$\C^{NF} / GL(N)$. 
 
 On the magnetic side the reduction is similar, except this time we must take into account the superpotential. 
 What results is a Landau--Ginzburg B-model whose target is the stack
 \beqn
-\left[\C^{(F-N)F} / GL(F-N) \right] \times \C^{F^2} .
+\C^{(F-N)F} / GL(F-N) \times \C^{F^2} .
 \eeqn
 The first factor comes from the reduction of the dual quarks coupled to the dual gauge theory, and the second factor comes from the reduction of the mesons. 
 The potential of the Landau--Ginzburg model is given by the same expression $\check{W}$ as in~\eqref{eqn:checkW}.
@@ -3232,8 +3273,8 @@ or at least of $E_2$-algebras.
 \begin{conj}
 There is an equivalence of the following $E_2$ algebras:
 \begin{itemize} 
-\item (electric) the $E_2$ algebra of polyvector fields on the stack $[\C^{NF} / GL(N)]$, and 
-\item (magnetic) the $E_2$ algebra that results from deforming the $E_2$ algebra of polyvector fields on the stack $[\C^{(F-N)F} / GL(F-N)] \times \C^{F^2}$ by the differential $\{\check{W},-\}$ where $\{-,-\}$ is the Schouten bracket.
+\item (electric) the $E_2$ algebra of polyvector fields on the stack $\C^{NF} / GL(N)$, and 
+\item (magnetic) the $E_2$ algebra that results from deforming the $E_2$ algebra of polyvector fields on the stack $\C^{(F-N)F} / GL(F-N) \times \C^{F^2}$ by the differential $\{\check{W},-\}$ where $\{-,-\}$ is the Schouten bracket.
 \end{itemize}
 \end{conj}
 
