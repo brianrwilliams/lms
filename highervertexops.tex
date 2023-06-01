@@ -1,0 +1,88 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{macros, setspace}
+
+\spacing{1.1}
+
+\usepackage{parskip}
+\setlength{\parindent}{18pt}
+\setlength{\parindent}{0cm}
+
+
+\author{Owen Gwilliam and Brian R. Williams}
+\date{\today}
+\title{Holomorphic field theories and higher algebra}
+
+\def\g{{\mathfrak g}}
+\def\U{{\rm U}}
+\def\mc{\mathcal}
+\def\mcol{\, | \,}
+\def\ot{\otimes}
+\def\Disj{\operatorname{Disj}}
+\def\Open{\operatorname{Open}}
+\def\Vect{\operatorname{Vect}}
+\def\jou{{\mathtt{j}}}
+\def\bgamma{{\mathbf{\gamma}}}
+\def\bbeta{{\mathbf{\beta}}}
+\def\CDO{{\cC\cD}}
+\def\SU{{\rm SU}}
+\def\sfa{\mathsf{a}}
+\def\del{\partial}
+\def\til{\Tilde}
+\def\Sol{\text{Sol}}
+\def\Spec{\text{Spec}}
+\def\C{{\mathbb{C}}}
+\def\RHom{{\rm RHom}}
+
+\renewcommand{\op}{\operatorname}
+\def\lie#1{\ensuremath{\mathfrak{#1}}}
+
+\def\brian#1{{\textcolor{blue!65!red}{BW: {#1}}}}
+\def\owen#1{{\textcolor{violet!65!black}{OG: {#1}}}}
+
+%\usepackage[upint]{stix}
+
+\begin{document}
+
+The goal here is to record higher-dimensional analogs of the ingredients for defining a {\em vertex operator}. We do not aspire (yet!) to give the higher-dimensional version of a vertex algebra.
+
+Let $\cO_d$ denote a (preferably ``small'' or convenient) model of the derived sections of the structure sheaf (of {\em algebraic} functions) on the punctured affine space $\mathring{\AA}^d$.
+When $d=1$, it is the Laurent polynomials~$\CC[z,z^{-1}]$.
+
+Let $\widehat{\cO}_d$ denote a (preferably ``small'' or convenient) model of the derived sections of the structure sheaf (of {\em algebraic} functions) on the punctured formal disk $\mathring{\DD}^d$.
+When $d=1$, it is the Laurent series $\CC((z))$.
+
+Let $\cD_d$ denote a model of the derived ``distributions'' on the punctured affine space $\mathring{\AA}^d$. It is the linear dual to~$\cO_d$.
+When $d=1$, it is $\CC[[z,z^{-1}]]$, which is a notation that indicates infinite formal sums in both directions. (This notation is poor because it suggests an algebra, but it is not.)
+The pairing is via the residue pairing.
+
+Let $\widehat{\cD}_d$ denote a model of the derived ``distributions'' on the punctured formal disk $\mathring{\DD}^d$. It is the linear dual to~$\widehat{\cO}_d$.
+When $d=1$, it is again $\CC((z))$, via the residue pairing.
+
+Let $V$ be a cochain complex, which we will treat as a {\em state space}.
+
+A {\em field} is an element of 
+\[
+\RHom(V \otimes \widehat{\cO}_d, V) \cong \RHom(V, V \widehat{\otimes} \widehat{\cD}_d).
+\]
+When $d=1$, this becomes the usual version $\Hom(V, V((z)))$.
+
+Note that a field can be seen as a distribution that eats a function on the formal disk and gives a linear operator on $V$ because
+\[
+\RHom(V \otimes \widehat{\cO}_d, V) \cong \RHom(\widehat{\cO}_d, \RHom(V,V)).
+\]
+This corresponds to a traditional notion of a ``quantum field'' as an operator-valued distribution.
+
+For notation, if $z$ denotes a coordinate $(z_1,\ldots,z_d)$ for the formal disk $\DD^d$,
+we write $a(z)$ for a field using that coordinate.
+
+Given two fields $a(z)$ and $b(w)$, we have a commutator $[a(z),b(w)]$ that eats a 
+ 
+
+
+
+
+
+
+
+\end{document}
