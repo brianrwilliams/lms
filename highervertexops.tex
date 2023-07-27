@@ -44,20 +44,49 @@
 
 \begin{document}
 
-The goal here is to record higher-dimensional analogs of the ingredients for defining a {\em vertex operator}. We do not aspire (yet!) to give the higher-dimensional version of a vertex algebra.
+The goal here is to record higher-dimensional analogs of the ingredients for defining a {\em field} in a holomorphic theory (i.e., a higher-dimensional {\em vertex operator}). We do not aspire (yet!) to give the higher-dimensional version of a vertex algebra.
 
-Let $\cO_d$ denote a (preferably ``small'' or convenient) model of the derived sections of the structure sheaf (of {\em algebraic} functions) on the punctured affine space $\mathring{\AA}^d$.
-When $d=1$, it is the Laurent polynomials~$\CC[z,z^{-1}]$.
+{\it Notations for spaces, functions, and distributions}
 
-Let $\widehat{\cO}_d$ denote a (preferably ``small'' or convenient) model of the derived sections of the structure sheaf (of {\em algebraic} functions) on the punctured formal disk $\mathring{\DD}^d$.
-When $d=1$, it is the Laurent series $\CC((z))$.
+Let $\cO_d$ denote a (preferably ``small'' or convenient) model of the derived sections of the structure sheaf (of {\em algebraic} functions) on the punctured affine space $\mathring{\AA}^d$.\\
+{\tiny When $d=1$, it is the Laurent polynomials~$\CC[z,z^{-1}]$.}
 
-Let $\cD_d$ denote a model of the derived ``distributions'' on the punctured affine space $\mathring{\AA}^d$. It is the linear dual to~$\cO_d$.
-When $d=1$, it is $\CC[[z,z^{-1}]]$, which is a notation that indicates infinite formal sums in both directions. (This notation is poor because it suggests an algebra, but it is not.)
-The pairing is via the residue pairing.
+Let $\widehat{\cO}_d$ denote a (preferably ``small'' or convenient) model of the derived sections of the structure sheaf (of {\em algebraic} functions) on the punctured formal disk $\mathring{\DD}^d$.\\
+{\tiny When $d=1$, it is the Laurent series $\CC((z))$.}
 
-Let $\widehat{\cD}_d$ denote a model of the derived ``distributions'' on the punctured formal disk $\mathring{\DD}^d$. It is the linear dual to~$\widehat{\cO}_d$.
-When $d=1$, it is again $\CC((z))$, via the residue pairing.
+Let $\cD_d$ denote a model of the derived ``distributions'' on the punctured affine space $\mathring{\AA}^d$. It is the linear dual to~$\cO_d$.\\
+{\tiny When $d=1$, it is $\CC[[z,z^{-1}]]$, which is a notation that indicates infinite formal sums in both directions. The pairing is via the residue pairing. (This notation is poor because it suggests an algebra, but it is not.)}
+
+Let $\widehat{\cD}_d$ denote a model of the derived ``distributions'' on the punctured formal disk $\mathring{\DD}^d$. It is the linear dual to~$\widehat{\cO}_d$.\\
+{\tiny When $d=1$, it is again $\CC((z))$, via the residue pairing.}
+
+There are analogs of these constructions for products of affine or formal spaces with the fat diagonal removed.
+We will write here the two-variable version.
+
+Consider the space 
+\[
+\mathring{\AA}^{d}[2]= (\AA^d \times \AA^d) - \Delta_f{[2]}, 
+\]
+where $\Delta[2]_f$ denotes the fat diagonal
+\[
+\AA^d \times \{0\} \cup \{0\} \times \AA^d \cup \AA^{2d}_\Delta
+\]
+with
+\[
+ \AA^{2d}_\Delta = \{ (x,y) \in \AA^d \times \AA^d \; : \; x \neq y\}.
+\]
+Let $\mathring{\DD}^d[2]$ denote the corresponding formal space.
+
+Let $\cO_d{[2]}$ denote a model of the derived sections of the structure sheaf (of {\em algebraic} functions) on $\mathring{\AA}^d[2]$.
+
+Let $\widehat{\cO}_d{[2]}$ denote a model of the derived sections of the structure sheaf (of {\em algebraic} functions) on $\mathring{\DD}^d[2]$.
+
+Let $\cD_d[2]$ denote a model of the derived distributions on $\mathring{\AA}^d[2]$.
+
+Let $\widehat{\cD}_d[2]$ denote a model of the derived distributions on $\mathring{\DD}^d[2]$.
+\newpage
+
+{\it Operators}
 
 Let $V$ be a cochain complex, which we will treat as a {\em state space}.
 
@@ -65,7 +94,7 @@ A {\em field} is an element of
 \[
 \RHom(V \otimes \widehat{\cO}_d, V) \cong \RHom(V, V \widehat{\otimes} \widehat{\cD}_d).
 \]
-When $d=1$, this becomes the usual version $\Hom(V, V((z)))$.
+When $d=1$, this definition becomes the usual version: $\Hom(V, V((z)))$.
 
 Note that a field can be seen as a distribution that eats a function on the formal disk and gives a linear operator on $V$ because
 \[
@@ -76,7 +105,15 @@ This corresponds to a traditional notion of a ``quantum field'' as an operator-v
 For notation, if $z$ denotes a coordinate $(z_1,\ldots,z_d)$ for the formal disk $\DD^d$,
 we write $a(z)$ for a field using that coordinate.
 
-Given two fields $a(z)$ and $b(w)$, we have a commutator $[a(z),b(w)]$ that eats a 
+Given two fields $a(z)$ and $b(w)$, we have a commutator $[a(z),b(w)]$ that eats a function in $\widehat{\cO}_d[2]$ and returns an endomorphism of~$V$.
+
+Two fields are {\em mutually local} if there exists a nonnegative exponent $N \in \NN^d$ such that $(z-w)^N[a(z),b(w)]$ is cohomological to zero (i.e., it is exact).
+
+\owen{I suspect there's something better to say here, informed by your work with Nik. I'm least happy with this definition.}
+
+{\it Free field realizations}
+
+We want to show that the $L_\infty$-action of a higher Kac-Moody algebra on the state space of a free theory is via mutually local fields.
  
 
 
