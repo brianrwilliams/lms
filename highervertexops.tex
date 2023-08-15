@@ -124,7 +124,7 @@ We want to show that the $L_\infty$-action of a higher Kac-Moody algebra on the 
 
 \newpage
 
-\section{A model for punctured affine space}
+\section{Models for functions and distributions on punctured affine space}
 
 We want a convenient and explicit model for the commutative algebra-up-to-homotopy $\RR \Gamma(\mathring{\AA}^2)$.
 Our approach follows the approach of Keyou Zeng but is written in a more algebraic style.
@@ -297,40 +297,33 @@ To see that the differentials are compatible we observe that
 
 \subsection{Homotopy data}
 
-Let $\sfH \define H^\bu(\sfA)$ and let $i,p$ be the $SU(2)$-equivariant inclusions and projections $i \colon \sfH_2 \hookrightarrow \sfA_2$, $p \colon \sfA_2 \to \sfH_2$, given by the direct sum description of the corollary above.
+Let $\sfH \define H^\bu(\sfA)$ and let $i,p$ be the $SU(2)$-equivariant inclusions and projections $i \colon \sfH_2 \hookrightarrow \sfA$, $p \colon \sfA \to \sfH$, given by the direct sum description of the corollary above.
 
-\begin{rmk}
-The inclusion $i$ is a map of commutative dg algebras.
-Note that $p$ is not a map of algebras; for example
+There is a canonical contracting homotopy 
+\beqn
+H \colon \sfA \to \sfA[-1]
+\eeqn 
+because for each $b > 0$, there is a canonical equivariant inverse $\sfR_{a,b} \to \sfR_{a+1,b-1} \omega$.
+Explicitly, send the highest weight vector $z_1^{a+1} \lambda_2^{b-1} \omega$ to the highest weight vector $z_1^{a} \lambda_2^{b}$ and then determine where other vector go via the lowering operator.
+For $b = 0$, $H|_{\sfR_{0,b}\omega} = 0$.
+
+\owen{Check the side conditions!}
+
+\begin{lem}
+The data $(i,p,H)$ determines a deformation retraction where $i$ is a map of dg commutative algebras.
+\end{lem}
+
+Note that $p$ is not a map of algebras. 
+For example,
 \beqn
 p(z_1 \lambda_1) = \frac12
 \eeqn
-as $z_1 \lambda_1$ admits an orthogonal decomposition
+as $z_1 \lambda_1$ admits a decomposition
 \beqn
 z_1 \lambda_1 = \frac12 (z_1 \lambda_1 - z_2 \lambda_2) + \frac12 .
 \eeqn
-\end{rmk}
 
-Define the degree $-1$ operator 
-\beqn
-H \colon \sfA_2 \to \sfA_2 [-1]
-\eeqn
-by the condition that $H|_{\sfR_{0,b}\omega} = 0$ and 
-\beqn
-H(z_1^a \lambda_2^b) = \frac{1}{(b+1)} z_1^{a-1} \lambda_2^{b+1} .
-\eeqn
-Extend this to all of $\sfA_2$ using $SU(2)$ equivariance.
-Note that for $a > 0$ this is an operator 
-\beqn
-H \colon \sfR_{a,b} \omega \to \sfR_{a-1,b+1} .
-\eeqn
-
-\begin{prop}
-The triple $(p,i,H)$ defines a special deformation retract between $\sfA$ and its cohomology.
-\end{prop}
-
-
-\section{Distributions on punctured affine space}
+\subsection{Distributions on punctured affine space}
 
 The model $\sfA$ for algebraic functions on punctured affine space was constructed using the ring
 \beqn
@@ -345,10 +338,41 @@ So I think
 Let $\Hat{A}$ be the graded algebra free generated over $\Hat{\sfR}$ and the degree one variable $\omega$.
 The cohomology of $(\sfA, \dbar)$ is $\C[[z_i]]$ in degree zero and $\C[\lambda_i]$ in degree one.
 
+\section{Recollection on anomalies for quantum moment maps}
 
+Let $V$ be a dg vector space and let $V^* = \Hom(V, \CC)$ denote its dual complex. 
+Consider the dg Poisson algebra $\cP = \Sym(V \oplus V^*)$ whose Poisson bracket extends the skew-symmetrized evaluation pairing on $V \oplus V^*$.
+We view $\cP$ as functions on the cotangent bundle~$T^* V$.
+Observe that the quadratic functions form a dg Lie subalgebra
+\[
+\cP_2 = (\Sym^2(V \oplus V^*), \{-,-\})
+\]
+of $\cP$.
 
+There is a natural deformation quantization of $\cP$ as a Weyl algebra $\cW$.
+Observe that there is a dg Lie subalgebra
+\[
+\cW_2 = (\Sym^2(V \oplus V^*) \oplus \Sym^0(V \oplus V^*), [-,-])
+\]
+of $\cW$.
+It is a central extension of $\cP_2$, and let $\omega \in H^2(\cP_2)$ denote the associated 2-cocycle.
 
+Suppose that there is a Lie algebra map $J: \fg \to \cP_2$.
+We view as a special class of symmetries for the free theory encoded by $\cP$:
+these are the symmetries where $\fg$ deforms the system to another {\em free} system.
+This situation appears in the free field realization we are studying.
 
+\begin{lem}
+Given a Lie algebra map $J: \fg \to \cP_2$, the obstruction to lifting it to a map of Lie algebras $\fg \to \cW_2$ is the 2-cocycle $J^* \omega \in H^2(\fg)$.
+\end{lem}
 
+We call $J^*\omega$ the {\em anomaly} for quantizing this symmetry.
+
+\begin{cor}
+If the anomaly $J^*\omega$ does not vanish, then there is an $L_\infty$ algebra map $J^q: \widehat{\fg} \to \cW_2$ out of the $L_\infty$ extension
+\[
+\CC \to \widehat{\fg} \to \fg.
+\]
+\end{cor}
 
 \end{document}
