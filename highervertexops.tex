@@ -134,11 +134,11 @@ We quickly recall his results before introducing our version.
 
 The punctured affine space $\mathring{\AA}^2$ contains a natural real hypersurface given by the unit sphere $S^3 = \{|w_1|^2 + |w_2|^2 = 1\}$, with the $w_i$ being holomorphic coordinates on $\AA^2$.
 The theory of CR manifolds provides an analogue of the Dolbeault complex, 
-and Zeng works with polynomial functions and forms within it:
+and Zeng works with polynomial functions and polynomial forms within it:\footnote{Zeng claims to compute the CR cohomology but he in fact just works with the direct sum of the $SU(2)$-representations therein, and hence he works with this algebraic subcomplex instead.}
 \beqn
 \Omega^{0,\bu}_b (S^3) = \big(\C[w_i,\Bar{w}_i, \xi_i] \slash (w_i \Bar{w}_i = 1, w_i \xi_i = 0) \big) .
 \eeqn
-with differential $\dbar_b = \xi_i \del_{\Bar{w}_i}$.
+where the $\xi_i$ have degree 1 (and represent $\d \Bar{w}_i$) and where the differential is $\dbar_b = \xi_i \del_{\Bar{w}_i}$.
 \owen{I'm not sure why it must provide a model for $\RR \Gamma(\mathring{\AA}^2)$, but I give some heuristic reasoning. Maybe Zeng gives a reference or proof?}
 Note that one can see that polynomials in the coordinates, both holomorphic $w_i$ and antiholomorphic $\Bar{w}_i$, span the complex-valued polynomial functions on $\CC^2 \cong \RR^4$.
 Their restriction to the unit-sphere $S^3$ wholly determines their behavior as functions on affine space, and hence also on punctured affine space. 
@@ -173,31 +173,39 @@ That is, $\dbar(\lambda_1) = z_2 \omega$ and $\dbar(\lambda_1) = -z_1 \omega$.
 
 We view the $z_i$ as the $w_i$ in Zeng's complex, and the $\lambda_i$ as the $\Bar{w}_i$.
 The element $\omega$ corresponds to $\Bar{w}_1\xi_2 - \Bar{w}_2\xi_1$.
-In fact, the key result is the following.
+In fact, the key result of this section is the following.
 
 \begin{prop}
-There is a $SU(2)$-equivariant isomorphism of commutative dg algebras
+There is a $SU(2)$-equivariant isomorphism of dg commutative algebras
 \beqn
-\Phi \colon \sfA_2 \to \Omega^{0,\bu}_b (S^3) 
+\Phi \colon \sfA \to \Omega^{0,\bu}_b (S^3) 
 \eeqn
 defined by $\Phi(z_i) = w_i$, $\Phi(\lambda_i) = \Bar{w}_i$, and $\Phi (\omega) = \ep_{ij} \Bar{w}_i \xi_j$.
 \end{prop}
 
-The algebra $\sfR$ is naturally an $SL(2)$ representation where the $(z_1,z_2)$ transform in the fundamental representation and $(\lambda_1,\lambda_2)$ transforms in the dual (or contragredient) representation.
-Explicitly, the lowering and raising operators are
+This proposition guarantees that we have a well-behaved model for~$\RR \Gamma(\mathring{\AA}^2)$.
+
+The algebra $\sfR$ is naturally an $SL(2)$ representation where the linear span of $z_1$, $z_2$ transforms in the fundamental representation and the linear span of  $\lambda_1$, $\lambda_2$ transforms in the dual (or contragredient) representation.
+In particular, with respect to the standard Cartan subgroup, $z_1$ and $\lambda_2$ have weight 1 and $z_2$ and $\lambda_1$ have weight $-1$.
+For the Lie algebra, the lowering and raising operators are
 \beqn
-f = z_2 \del_{z_1} - \lambda_1 \del_{\lambda_2}, \quad e = z_1 \del_{z_2} - \lambda_2 \del_{\lambda_1} .
+f = z_2 \del_{z_1} - \lambda_1 \del_{\lambda_2} \quad\text{and}\quad e = z_1 \del_{z_2} - \lambda_2 \del_{\lambda_1}.
 \eeqn
 These actions determine an $SL(2)$-action on the space of all polynomials $\C[z_i,\lambda_i]$,
 which breaks up into a direct sum over the subspaces $V_{a,b}$ of polynomials that are homogenous of order $a$ in the variables $z_i$ and homogenous of order $b$ in the variables~$\lambda_i$.
+In $V_{a,b}$ , a highest weight vector is $z_1^a \lambda_2^b$.
+\owen{Can we identify the others?}
 
 Consider the Laplacian operator
 \beqn
-\triangle = \del_{z_1} \del_{\lambda_1} + \del_{z_2} \del_{\lambda_2}.
+\triangle = \del_{z_1} \del_{\lambda_1} + \del_{z_2} \del_{\lambda_2}
 \eeqn
+acting on $\C[z_i,\lambda_i]$.
+\owen{This isn't the image of the quadratic Casimir. In what sense is it the relevant Laplacian? On the other hand, it is a weight zero operator, even if it lowers the bigrading by (1,1).}
 Let $H_{a,b} \subset V_{a,b}$ denote the harmonic polynomials of bidegree $(a,b)$.
-An example of a harmonic polynomial is $z_1^a \lambda_2^b$.
-A direct computation shows that there is a direct sum decomposition of representations
+Examples of harmonic polynomials include $z_1^a \lambda_2^b$ for arbitrary $a,b$ and
+$z_1 \lambda_1 - z_2 \lambda_2$ for $a = 1 = b$.
+A direct computation shows that there is a direct sum decomposition \owen{of representations?}
 \begin{align*}
 V_{a,b} & = H_{a,b} \oplus |(z,\lambda)|^2 V_{a-1,b-1} \\
 & = H_{a,b} \oplus |(z,\lambda)|^2 H_{a-1,b-1} \oplus |(z,\lambda)|^4 H_{a-2,b-2} \oplus \cdots 
@@ -211,12 +219,12 @@ Consider now
 which describes the evaluation pairing. 
 It is preserved by the $SL(2)$-action, and hence we see that the canonical quotient map 
 \[
-q: \C[z_i,\lambda_i] \to R = \C[z_i,\lambda_i]/(\C[z_i,\lambda_i] = 1)
+q: \C[z_i,\lambda_i] \to R = \C[z_i,\lambda_i]/(|(z,\lambda)|^2 = 1)
 \]
 is $SL(2)$-equivariant.
 Moreover, inside $V_{a,b}$, any multiple of $|(z,\lambda)|^2$ is annihilated by $q$,
 so $R$ is spanned by the images of $H_{a,b}$.
-Thus, there is a direct sum decomposition $\sfR = \oplus \sfR_{a,b}$ where $\sfR_{a,b} = q(H_{a,b})$ is the image of the subspace of harmonic polynomials in $\C[z_i,\lambda_i]$ under the quotient map.
+Thus, there is a direct sum decomposition $\sfR = \bigoplus_{a,b} \sfR_{a,b}$ where $\sfR_{a,b} = q(H_{a,b})$ is the image of the subspace of harmonic polynomials in $\C[z_i,\lambda_i]$ under the quotient map.
 
 \begin{lem}
 Each $\sfR_{a,b}$ is isomorphic to the irreducible $SL(2)$-representation of dimension $(a+b+1)$.
@@ -225,8 +233,6 @@ Its highest weight vector is $z_1^a \lambda_2^b \in \sfR_{a,b}$, and a basis for
 \{z_1^a \lambda_2^b, f (z_1^a \lambda_2^b), f^2 (z_1^a \lambda_2^b), \ldots, f^{a+b} (z_1^a \lambda_2^b) \} .
 \eeqn
 \end{lem}
-
-\owen{We should write out the proof.}
 
 \begin{eg}
 The space $\sfR_{a,0}$ consists of polynomials in $z_1,z_2$ of homogenous degree~$a$.
@@ -237,8 +243,28 @@ z_1 \lambda_2, z_1 \lambda_1 - z_2 \lambda_2, z_2 \lambda_1 .
 \eeqn
 \end{eg}
 
+\begin{proof}
+\owen{We should write out the proof.}
+\end{proof}
+
 By direct inspection, one finds that the $\dbar$-operator is $SL(2)$-equivariant.
-It maps $\sfR_{a,b}$ to $\sfR_{a+1,b-1} \omega$.
+
+\begin{cor}
+The differential $\dbar$ is an isomorphism from $\sfR_{a,b}$ to $\sfR_{a+1,b-1} \omega$ for $b > 0$.
+Thus, the cohomology is 
+\[
+H^0(A) = \bigoplus_{a \in \NN} \sfR_{a,0}
+\]
+and
+\[
+H^1(A) = \bigoplus_{b \in \NN} \sfR_{0,b}.
+\]
+\end{cor}
+
+\begin{proof}
+For the first claim, note that the map is equivariant and nontrivial when $b > 0$. Thus by Schur's lemma it is an isomorphism.
+The description of cohomology follows by keeping the summands $\sfR_{a,b}$ that appear in the kernel (for $H^0$) and that do not appear in the image (for $H^1$).
+\end{proof}
 
 %Define the involution $\Bar{(-)}$ on $\sfR$ by $\zbar_i = \lambda_i$ and consider the inner product on $\sfR$ given by the formula
 %\beqn
@@ -271,7 +297,7 @@ To see that the differentials are compatible we observe that
 
 \subsection{Homotopy data}
 
-Let $\sfH \define H^\bu(\sfA)$ and let $i,p$ be the $SU(2)$-equivariant inclusions and projections $i \colon \sfH_2 \hookrightarrow \sfA_2$, $p \colon \sfA_2 \to \sfH_2$.
+Let $\sfH \define H^\bu(\sfA)$ and let $i,p$ be the $SU(2)$-equivariant inclusions and projections $i \colon \sfH_2 \hookrightarrow \sfA_2$, $p \colon \sfA_2 \to \sfH_2$, given by the direct sum description of the corollary above.
 
 \begin{rmk}
 The inclusion $i$ is a map of commutative dg algebras.
