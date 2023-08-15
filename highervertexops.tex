@@ -185,18 +185,33 @@ defined by $\Phi(z_i) = w_i$, $\Phi(\lambda_i) = \Bar{w}_i$, and $\Phi (\omega) 
 
 This proposition guarantees that we have a well-behaved model for~$\RR \Gamma(\mathring{\AA}^2)$.
 
-The algebra $\sfR$ is naturally an $SL(2)$ representation where the linear span of $z_1$, $z_2$ transforms in the fundamental representation and the linear span of  $\lambda_1$, $\lambda_2$ transforms in the dual (or contragredient) representation.
-In particular, with respect to the standard Cartan subgroup, $z_1$ and $\lambda_2$ have weight 1 and $z_2$ and $\lambda_1$ have weight $-1$.
-For the Lie algebra, the lowering and raising operators are
+The algebra $\sfR$ is naturally an $SL(2)$ representation where the linear span $V_z$ of $z_1$, $z_2$ transforms in the fundamental representation  and the linear span $V_\lambda$ of  $\lambda_1$, $\lambda_2$ transforms in the dual (or contragredient) representation.
+In particular, with respect to the standard Cartan subgroup, $z_1$ and $\lambda_2$ have weight 1 and $z_2$ and $\lambda_1$ have weight~$-1$.
+
+Consider now the space of all polynomials
+\[
+\C[z_i,\lambda_i] = \Sym(V_z \oplus V_\lambda) \cong \Sym(V_z) \otimes \Sym(V_\lambda).
+\]
+The Lie algebra $\sl(2)$ acts by the lowering and raising operators
 \beqn
 f = z_2 \del_{z_1} - \lambda_1 \del_{\lambda_2} \quad\text{and}\quad e = z_1 \del_{z_2} - \lambda_2 \del_{\lambda_1}.
 \eeqn
-These actions determine an $SL(2)$-action on the space of all polynomials $\C[z_i,\lambda_i]$,
-which breaks up into a direct sum over the subspaces $V_{a,b}$ of polynomials that are homogenous of order $a$ in the variables $z_i$ and homogenous of order $b$ in the variables~$\lambda_i$.
-In $V_{a,b}$ , a highest weight vector is $z_1^a \lambda_2^b$.
-\owen{Can we identify the others?}
+The space of polynomials breaks up into a direct sum over the subrepresentations 
+\[
+V_{a,b} = \Sym^a(V_z) \otimes \Sym^b(V_\lambda)
+\]
+of polynomials that are homogenous of order $a$ in the variables $z_i$ and homogenous of order $b$ in the variables~$\lambda_i$.
 
-Consider the Laplacian operator
+Recall that $\Sym^a(V_z)$ is an irreducible representation of dimension $a+1$ (and hence highest weight $a$) and $\Sym^b(V_\lambda)$ is an irreducible representation of dimension $b+1$ (and hence highest weight $a$).
+Let $I_m$ denote the irreducible representation of highest weight $m$ (and hence of dimension $m+1$).
+By standard facts about $SL(2)$, we see that $V_{a,b}$ decomposes as a direct sum of irreducible representations
+\[
+V_{a,b} \cong I_{a+b} \oplus I_{a+b-2} \oplus \cdots \oplus I_{a-b}
+\]
+for $a \geq b$. (The other situation can be seen by symmetry.)
+
+There is a more concrete way to describe this decomposition.
+Consider the differential operator
 \beqn
 \triangle = \del_{z_1} \del_{\lambda_1} + \del_{z_2} \del_{\lambda_2}
 \eeqn
@@ -226,14 +241,6 @@ Moreover, inside $V_{a,b}$, any multiple of $|(z,\lambda)|^2$ is annihilated by 
 so $R$ is spanned by the images of $H_{a,b}$.
 Thus, there is a direct sum decomposition $\sfR = \bigoplus_{a,b} \sfR_{a,b}$ where $\sfR_{a,b} = q(H_{a,b})$ is the image of the subspace of harmonic polynomials in $\C[z_i,\lambda_i]$ under the quotient map.
 
-\begin{lem}
-Each $\sfR_{a,b}$ is isomorphic to the irreducible $SL(2)$-representation of dimension $(a+b+1)$.
-Its highest weight vector is $z_1^a \lambda_2^b \in \sfR_{a,b}$, and a basis for $\sfR_{a,b}$ is obtained as
-\beqn
-\{z_1^a \lambda_2^b, f (z_1^a \lambda_2^b), f^2 (z_1^a \lambda_2^b), \ldots, f^{a+b} (z_1^a \lambda_2^b) \} .
-\eeqn
-\end{lem}
-
 \begin{eg}
 The space $\sfR_{a,0}$ consists of polynomials in $z_1,z_2$ of homogenous degree~$a$.
 The space $\sfR_{0,b}$ consists of polynomials in $\lambda_1,\lambda_2$ of homogenous degree $b$.
@@ -243,9 +250,17 @@ z_1 \lambda_2, z_1 \lambda_1 - z_2 \lambda_2, z_2 \lambda_1 .
 \eeqn
 \end{eg}
 
-\begin{proof}
-\owen{We should write out the proof.}
-\end{proof}
+The following fact is quite useful for us.
+
+\begin{lem}
+Each $\sfR_{a,b}$ is isomorphic to the irreducible $SL(2)$-representation of dimension $(a+b+1)$.
+Its highest weight vector is $z_1^a \lambda_2^b \in \sfR_{a,b}$, and a basis for $\sfR_{a,b}$ is obtained as
+\beqn
+\{z_1^a \lambda_2^b, f (z_1^a \lambda_2^b), f^2 (z_1^a \lambda_2^b), \ldots, f^{a+b} (z_1^a \lambda_2^b) \} .
+\eeqn
+\end{lem}
+
+This lemma is proved by applying the description of the decomposition into irreducibles.
 
 By direct inspection, one finds that the $\dbar$-operator is $SL(2)$-equivariant.
 
@@ -289,10 +304,11 @@ The description of cohomology follows by keeping the summands $\sfR_{a,b}$ that 
 
 \begin{proof}[Proof of proposition]
 In fact $\Phi$ maps the subspace $\sfR_{a,b}$ isomorphically to $\cH_{a,b}$ where $\cH_{a,b} \subset \Omega^{0,\bu}_b (S^3)$ is the space of harmonic polynomials that are of bidegree $(a,b)$ in the variables $(w_i,\Bar{w}_j)$.
-To see that the differentials are compatible we observe that
+Now observe that
 \beqn
-\Phi(\dbar(\lambda_i)) = - \Phi(\ep_{ij} z_j \omega) = - \ep_{ij} w_j \Phi (\omega) = \xi_i = \dbar_b \Phi (\lambda_i) .
+\Phi(\dbar(\lambda_i)) = - \Phi(\ep_{ij} z_j \omega) = - \ep_{ij} w_j \Phi (\omega) = \xi_i = \dbar_b \Phi (\lambda_i) 
 \eeqn
+to see that the differentials are compatible.
 \end{proof}
 
 \subsection{Homotopy data}
@@ -371,8 +387,9 @@ We call $J^*\omega$ the {\em anomaly} for quantizing this symmetry.
 \begin{cor}
 If the anomaly $J^*\omega$ does not vanish, then there is an $L_\infty$ algebra map $J^q: \widehat{\fg} \to \cW_2$ out of the $L_\infty$ extension
 \[
-\CC \to \widehat{\fg} \to \fg.
+\CC \to \widehat{\fg} \to \fg
 \]
+determined by $J^* \omega$.
 \end{cor}
 
 \end{document}
