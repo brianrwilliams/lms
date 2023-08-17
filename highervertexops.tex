@@ -257,7 +257,12 @@ q \colon \C[z_i,\lambda_i] \to \sfR = \C[z_i,\lambda_i]/(|(z,\lambda)|^2 = 1)
 is $SL(2)$-equivariant.
 Moreover, inside $V_{a,b}$, any multiple of $|(z,\lambda)|^2$ is annihilated by $q$,
 so $R$ is spanned by the images of $H_{a,b}$.
-Thus, there is a direct sum decomposition $\sfR = \bigoplus_{a,b} \sfR_{a,b}$ where $\sfR_{a,b} = q(H_{a,b})$ is the image of the subspace of harmonic polynomials in $\C[z_i,\lambda_i]$ under the quotient map.
+Thus, there is a direct sum decomposition 
+\beqn
+\sfR = \bigoplus_{a,b} \sfR_{a,b}
+\eeqn
+where $\sfR_{a,b} = q(H_{a,b})$ is the image of the subspace of harmonic polynomials in $\C[z_i,\lambda_i]$ under the quotient map.
+We remark that this decomposition does \textit{not} respect the commutative product.
 
 \begin{eg}
 The space $\sfR_{a,0}$ consists of polynomials in $z_1,z_2$ of homogenous degree~$a$.
@@ -279,18 +284,23 @@ Its highest weight vector is $z_1^a \lambda_2^b \in \sfR_{a,b}$, and a basis for
 \end{lem}
 
 This lemma is proved by applying the description of the decomposition into irreducibles.
+In turn, any polynomial $f(z,\lambda) \in \sfR$ admits a decomposition of the form
+\beqn\label{eqn:expand}
+f(z, \lambda) = \sum_{a,b,k \geq 0} c_{k}^{ab} \sff^k (z_1^a \lambda_2^b) 
+\eeqn
+for some coefficients $c_k^{ab}$.
 
 By direct inspection, one finds that the $\dbar$-operator is $SL(2)$-equivariant.
 
 \begin{cor}
 The differential $\dbar$ is an isomorphism from $\sfR_{a,b}$ to $\sfR_{a+1,b-1} \omega$ for $b > 0$.
-Thus, the cohomology is 
+Thus, the cohomology of $\sfA$ is 
 \[
-H^0(A) = \bigoplus_{a \in \NN} \sfR_{a,0}
+H^0(\sfA) = \bigoplus_{a \in \NN} \sfR_{a,0}
 \]
 and
 \[
-H^1(A) = \bigoplus_{b \in \NN} \sfR_{0,b}.
+H^1(\sfA) = \bigoplus_{b \in \NN} \sfR_{0,b}.
 \]
 \end{cor}
 
@@ -351,9 +361,8 @@ p(z_1 \lambda_1) = \frac12
 \eeqn
 as $z_1 \lambda_1$ admits a $\lie{sl}(2)$-decomposition
 \beqn
-z_1 \lambda_1 = \frac12 (z_1 \lambda_1 - z_2 \lambda_2) + \frac12 .
+z_1 \lambda_1 =  \frac12  + \frac12 (z_1 \lambda_1 - z_2 \lambda_2).
 \eeqn
-
 \subsection{The higher algebraic residue}
 
 Define
@@ -364,6 +373,12 @@ by the rules that $\op{Res}|_{\sfA^0} = 0$ and
 \beqn
 \op{Res} \left(f(z,\lambda) \omega \right) = p (f(z,\lambda)) (z=0) .
 \eeqn
+In terms of the expansion \eqref{eqn:expand} we have
+\beqn
+\op{Res} \left(f(z,\lambda) \omega \right) = c_{0}^{00} .
+\eeqn
+
+
 This residue extends to the completion to give a map
 \beqn
 \op{Res} \colon \laurent \to \C[-1] .
@@ -536,7 +551,7 @@ where $\beta \in \laurent^{(2)} [1]$ and $\gamma \in \laurent$.
 
 Let $J$ be the map
 \beqn
-J \colon \sfA \to \cP_2
+J \colon \laurent \to \cP_2
 \eeqn
 defined by sending an element $a \in \sfA$ to the quadratic functional
 \beqn
@@ -544,9 +559,13 @@ J_a (\beta \gamma) = \Res(\beta a \gamma) .
 \eeqn
 
 \begin{lem}
-The map $J$ is a cochain map.
-Furthermore, for any $a,a' \in \sfA$ we have $\{J_a, J_{a'}\} = 0$.
-Thus, if we endow $\sfA$ with the structure of an abelian dg Lie algebra then $J$ is a map of dg Lie algebras.
+The following are true of the map $J$.
+\begin{enumerate}
+\item $J$ is a cochain map.
+\item $J$ is $\lie{sl}(2)$-equivariant.
+\item For $a,a' \in \laurent$ one has $\{J_a, J_{a'}\} = 0$.
+\end{enumerate}
+In particular, if we endow $\sfA$ with the structure of an abelian dg Lie algebra then $J$ is a map of dg Lie algebras.
 \end{lem}
 \begin{proof}
 For the first claim observe that
