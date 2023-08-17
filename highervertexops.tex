@@ -139,13 +139,12 @@ and Zeng works with polynomial functions and polynomial forms within it:\footnot
 \Omega^{0,\bu}_b (S^3) = \big(\C[w_i,\Bar{w}_i, \xi_i] \slash (w_i \Bar{w}_i = 1, w_i \xi_i = 0) \big) .
 \eeqn
 where the $\xi_i$ have degree 1 (and represent $\d \Bar{w}_i$) and where the differential is $\dbar_b = \xi_i \del_{\Bar{w}_i}$.
-\owen{I'm not sure why it must provide a model for $\RR \Gamma(\mathring{\AA}^2)$, but I give some heuristic reasoning. Maybe Zeng gives a reference or proof?}
-Note that one can see that polynomials in the coordinates, both holomorphic $w_i$ and antiholomorphic $\Bar{w}_i$, span the complex-valued polynomial functions on $\CC^2 \cong \RR^4$.
-Their restriction to the unit-sphere $S^3$ wholly determines their behavior as functions on affine space, and hence also on punctured affine space. 
+Note that one can see that polynomials in the coordinates, both holomorphic $w_i$ and antiholomorphic $\Bar{w}_i$, span the complex-valued polynomial functions on $\CC^2 \cong \RR^4$, i.e., as a real vector space.
+Their restriction to the unit-sphere $S^3$ wholly determines their behavior as functions on $\RR^4$, and hence also on punctured affine space. 
 The elements $\xi_i$ correspond to $d\Bar{w}_i$ in the Dolbeault complex of punctured affine space.
 The differential $\dbar_b$ then imposes the constraint, in degree zero, that these functions be holomorphic,
 and its image is the image of $\dbar$ intersected with polynomial  forms in $d \Bar{w}_i$.
-Thus the cohomology of this complex $\Omega^{0,\bu}_b (S^3)$ is a model for $\RR \Gamma(\mathring{\AA}^2)$.
+Thus the cohomology of this complex $\Omega^{0,\bu}_b (S^3)$ is a model for $\RR \Gamma(\mathring{\AA}^2)$, by a result of~\cite{FHK}.
 
 Zeng analyzes this complex using the natural $SU(2)$-action on the 3-sphere, which is the restriction of the fundamental representation to this hypersurface.
 More accurately, $SU(2)$ acts on the linear span of $w_1$ and $w_2$ by the fundamental representation and on the linear span of $\Bar{w}_1$ and $\Bar{w}_2$ by the conjugate (or anti-fundamental) representation, 
@@ -210,14 +209,19 @@ V_{a,b} \cong I_{a+b} \oplus I_{a+b-2} \oplus \cdots \oplus I_{a-b}
 \]
 for $a \geq b$. (The other situation can be seen by symmetry.)
 
-There is a more concrete way to describe this decomposition.
+There is a more concrete way to describe this decomposition, 
+modeled on the construction of spherical harmonics as representations of $SO(n)$.
 Consider the differential operator
 \beqn
 \triangle = \del_{z_1} \del_{\lambda_1} + \del_{z_2} \del_{\lambda_2}
 \eeqn
-acting on $\C[z_i,\lambda_i]$.
-\owen{This isn't the image of the quadratic Casimir. In what sense is it the relevant Laplacian? On the other hand, it is a weight zero operator, even if it lowers the bigrading by (1,1).}
-Let $H_{a,b} \subset V_{a,b}$ denote the harmonic polynomials of bidegree $(a,b)$.
+acting on $\C[z_i,\lambda_i]$;
+it is inspired by the Laplacian on $\CC^2$ when we view $\lambda_i$ as a version of $\Bar{z_i}$.
+This operator has weight zero and, in fact, it is $SL(2)$-equivariant.
+\owen{I need to check this myself. If there's a slick way, we should include it.}
+On the other hand, it maps $V_{a,b}$ to $V_{a-1,b-1}$, i.e., it changes the bigrading by~$(-1,-1)$.
+
+Let $H_{a,b} = \ker \triangle|_{V_{a,b}}$ denote the ``harmonic'' polynomials of bidegree $(a,b)$.
 Examples of harmonic polynomials include $z_1^a \lambda_2^b$ for arbitrary $a,b$ and
 $z_1 \lambda_1 - z_2 \lambda_2$ for $a = 1 = b$.
 A direct computation shows that there is a direct sum decomposition \owen{of representations?}
@@ -225,7 +229,7 @@ A direct computation shows that there is a direct sum decomposition \owen{of rep
 V_{a,b} & = H_{a,b} \oplus |(z,\lambda)|^2 V_{a-1,b-1} \\
 & = H_{a,b} \oplus |(z,\lambda)|^2 H_{a-1,b-1} \oplus |(z,\lambda)|^4 H_{a-2,b-2} \oplus \cdots 
 \end{align*}
-(Compare with the well-known construction of spherical harmonics.)
+(Compare with the well-known )
 
 Consider now  
 \[
@@ -234,7 +238,7 @@ Consider now
 which describes the evaluation pairing. 
 It is preserved by the $SL(2)$-action, and hence we see that the canonical quotient map 
 \[
-q: \C[z_i,\lambda_i] \to R = \C[z_i,\lambda_i]/(|(z,\lambda)|^2 = 1)
+q: \C[z_i,\lambda_i] \to \sfR = \C[z_i,\lambda_i]/(|(z,\lambda)|^2 = 1)
 \]
 is $SL(2)$-equivariant.
 Moreover, inside $V_{a,b}$, any multiple of $|(z,\lambda)|^2$ is annihilated by $q$,
@@ -313,7 +317,7 @@ to see that the differentials are compatible.
 
 \subsection{Homotopy data}
 
-Let $\sfH \define H^\bu(\sfA)$ and let $i,p$ be the $SU(2)$-equivariant inclusions and projections $i \colon \sfH_2 \hookrightarrow \sfA$, $p \colon \sfA \to \sfH$, given by the direct sum description of the corollary above.
+Let $\sfH \define H^\bu(\sfA)$ and let $i,p$ be the $SU(2)$-equivariant inclusions and projections $i \colon \sfH \hookrightarrow \sfA$, $p \colon \sfA \to \sfH$, given by the direct sum description of the corollary above.
 
 There is a canonical contracting homotopy $H$ on $\sfA$ 
 because for each $b > 0$, there is a canonical equivariant inverse $\sfR_{a,b} \to \sfR_{a+1,b-1} \omega$.
@@ -340,12 +344,12 @@ z_1 \lambda_1 = \frac12 (z_1 \lambda_1 - z_2 \lambda_2) + \frac12 .
 
 The model $\sfA$ for algebraic functions on punctured affine space was constructed using the ring
 \beqn
-\sfR = \C[z_i,\lambda_i] \slash (z_i \lambda_i = 1) .
+\sfR = \C[z_i,\lambda_i] \slash (\sum_i z_i \lambda_i = 1) .
 \eeqn
 Let $\Hat{\sfR}$ denote the completion of this ring with respect to the ideal generated by $z_1,z_2$.
 So I think
 \beqn
-\Hat{\sfR} = \C[[z_i]][\lambda_i] \slash (z_i \lambda_i) .
+\Hat{\sfR} = \C[[z_i]][\lambda_i] \slash (\sum_i z_i \lambda_i) .
 \eeqn
 
 Let $\Hat{A}$ be the graded algebra free generated over $\Hat{\sfR}$ and the degree one variable $\omega$.
@@ -368,7 +372,7 @@ Observe that there is a dg Lie subalgebra
 \cW_2 = (\Sym^2(V \oplus V^*) \oplus \Sym^0(V \oplus V^*), [-,-])
 \]
 of $\cW$.
-It is a central extension of $\cP_2$, and let $\omega \in H^2(\cP_2)$ denote the associated 2-cocycle.
+It is a central extension of $\cP_2$; let $\omega \in H^2(\cP_2)$ denote the associated 2-cocycle.
 
 Suppose that there is a Lie algebra map $J: \fg \to \cP_2$.
 We view as a special class of symmetries for the free theory encoded by $\cP$:
@@ -376,7 +380,7 @@ these are the symmetries where $\fg$ deforms the system to another {\em free} sy
 This situation appears in the free field realization we are studying.
 
 \begin{lem}
-Given a Lie algebra map $J: \fg \to \cP_2$, the obstruction to lifting it to a map of Lie algebras $\fg \to \cW_2$ is the 2-cocycle $J^* \omega \in H^2(\fg)$.
+Given a Lie algebra map $J: \fg \to \cP_2$, the obstruction to $J$ being a map of Lie algebras $\fg \to \cW_2$ is the 2-cocycle $J^* \omega \in H^2(\fg)$.
 \end{lem}
 
 We call $J^*\omega$ the {\em anomaly} for quantizing this symmetry.
