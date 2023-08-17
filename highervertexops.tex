@@ -346,14 +346,16 @@ z_1 \lambda_1 = \frac12 (z_1 \lambda_1 - z_2 \lambda_2) + \frac12 .
 
 Define
 \beqn
-\op{Res} \colon \sfA \to \C[1]
+\op{Res} \colon \sfA \to \C[-1]
 \eeqn
 by the rules that $\op{Res}|_{\sfA^0} = 0$ and
 \beqn
 \op{Res} \left(f(z,\lambda) \omega \right) = p (f(z,\lambda)) (z=0) .
 \eeqn
 
-\begin{lem} The following are true regarding the higher algebraic residue:
+\begin{lem}
+\label{lem:res} 
+The following are true regarding the higher algebraic residue:
 \begin{enumerate}
 \item The residue is $\lie{sl}(2)$ invariant.
 \item For $f \in \C[z_1,z_2]$ one has $\op{Res}(f \omega) = f(0)$.
@@ -373,6 +375,46 @@ For $b = 1$ the right hand side is $p( z_1^{a+1})(0) = 0$ for all $a \geq 0$.
 Finally, for $b > 1$ one has $p(z_1^{a+1} \lambda_2^{b-1}) = 0$ for all $a \geq 0$.
 Using $\lie{sl}(2)$ invariance this proves (3).
 \end{proof}
+
+In the single-variable case, the residue map defines an identification
+\beqn
+\C((z)) \simeq \Omega^1 (\Hat{D})^\vee = \left(\C((z)) \d z\right)^\vee
+\eeqn
+where the right hand side is the continuous linear dual.
+Explicitly, this identification takes a Laurent series $f$ to the functional 
+\beqn
+g \d z \mapsto \op{Res}_{1d} (f g \d z) .
+\eeqn
+
+\begin{prop}
+The higher algebraic residue defines a cochain map
+\beqn
+\sfA \to \left(\sfA \, \d^2 z\right)^\vee [-1]
+\eeqn 
+which sends an element $a \in \sfA$ to the functional
+\beqn
+F_a \colon b \, \d^2 z \in \sfA\, \d^2 z \mapsto (-1)^{|a|} \Res(a b \, \d^2 z) .
+\eeqn
+\brian{weird sign, but I think it's there because of the $[-1]$ shift.}
+When extended to the completed version of punctured affine space, this assignment defines an isomorphism of cochain complexes 
+\beqn
+F \colon \Hat\sfA \simeq \left(\Hat\sfA \, \d^2 z\right)^\vee [-1] .
+\eeqn
+\end{prop}
+\begin{proof}
+Suppose that $a \in \sfA^0$. 
+Then
+\begin{align*}
+F_{\dbar a} (b \d^2 z) & = - \Res \left( (\dbar a) b \d^2 z \right) \\
+& = - \Res\left( \dbar(a b \d^2 z) \right) + \Res \left(a \dbar b \d^2 z\right) \\
+& = F_{a} (\dbar b \d^2 z) .
+\end{align*}
+In the final line we have used (3) from lemma \ref{lem:res}.
+If $a \in \sfA^1$ then $F_{\dbar a}(b \d^2 z) = 0 = F_{a} (\dbar b \d^2 z)$ for all $b$.
+
+\brian{Can you help me prove part 2?}
+\end{proof}
+
 
 \subsection{Distributions on punctured affine space}
 
