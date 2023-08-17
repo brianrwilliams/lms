@@ -33,6 +33,8 @@
 \def\Spec{\text{Spec}}
 \def\C{{\mathbb{C}}}
 \def\RHom{{\rm RHom}}
+\newcommand{\sff}{\mathsf{f}}
+\newcommand{\sfe}{\mathsf{e}}
 %\def\sfR{\mathsf{R}}
 %\def\sfA{\mathsf{A}}
 
@@ -193,7 +195,7 @@ Consider now the space of all polynomials
 \]
 The Lie algebra $\sl(2)$ acts by the lowering and raising operators
 \beqn
-f = z_2 \del_{z_1} - \lambda_1 \del_{\lambda_2} \quad\text{and}\quad e = z_1 \del_{z_2} - \lambda_2 \del_{\lambda_1}.
+\sff = z_2 \del_{z_1} - \lambda_1 \del_{\lambda_2} \quad\text{and}\quad \sfe = z_1 \del_{z_2} - \lambda_2 \del_{\lambda_1}.
 \eeqn
 The space of polynomials breaks up into a direct sum over the subrepresentations 
 \[
@@ -238,7 +240,7 @@ Consider now
 which describes the evaluation pairing. 
 It is preserved by the $SL(2)$-action, and hence we see that the canonical quotient map 
 \[
-q: \C[z_i,\lambda_i] \to \sfR = \C[z_i,\lambda_i]/(|(z,\lambda)|^2 = 1)
+q \colon \C[z_i,\lambda_i] \to \sfR = \C[z_i,\lambda_i]/(|(z,\lambda)|^2 = 1)
 \]
 is $SL(2)$-equivariant.
 Moreover, inside $V_{a,b}$, any multiple of $|(z,\lambda)|^2$ is annihilated by $q$,
@@ -260,7 +262,7 @@ The following fact is quite useful for us.
 Each $\sfR_{a,b}$ is isomorphic to the irreducible $SL(2)$-representation of dimension $(a+b+1)$.
 Its highest weight vector is $z_1^a \lambda_2^b \in \sfR_{a,b}$, and a basis for $\sfR_{a,b}$ is obtained as
 \beqn
-\{z_1^a \lambda_2^b, f (z_1^a \lambda_2^b), f^2 (z_1^a \lambda_2^b), \ldots, f^{a+b} (z_1^a \lambda_2^b) \} .
+\{z_1^a \lambda_2^b, \sff (z_1^a \lambda_2^b), \sff^2 (z_1^a \lambda_2^b), \ldots, \sff^{a+b} (z_1^a \lambda_2^b) \} .
 \eeqn
 \end{lem}
 
@@ -340,6 +342,38 @@ as $z_1 \lambda_1$ admits a decomposition
 z_1 \lambda_1 = \frac12 (z_1 \lambda_1 - z_2 \lambda_2) + \frac12 .
 \eeqn
 
+\subsection{Residues}
+
+Define
+\beqn
+\op{Res} \colon \sfA \to \C[1]
+\eeqn
+by the rules that $\op{Res}|_{\sfA^0} = 0$ and
+\beqn
+\op{Res} \left(f(z,\lambda) \omega \right) = p (f(z,\lambda)) (z=0) .
+\eeqn
+
+\begin{lem} The following are true regarding the higher algebraic residue:
+\begin{enumerate}
+\item The residue is $\lie{sl}(2)$ invariant.
+\item For $f \in \C[z_1,z_2]$ one has $\op{Res}(f \omega) = f(0)$.
+\item For any $f \in \sfA$ one has $\op{Res}(\dbar f) = 0$.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+Item (1) holds since $p$ is the $\lie{sl}(2)$-equivariant projection. 
+For (2), note that for $f \in \C[z_1,z_2]$ that $p(f) = f$.
+
+Finally, observe that for $f = z_1^a \lambda_2^b$ we have
+\beqn
+\op{Res}(\dbar f) = \op{Res}(b z_1^{a+1} \lambda_2^{b-1}) .
+\eeqn
+For $b =0$ this expression clearly vanishes. 
+For $b = 1$ the right hand side is $p( z_1^{a+1})(0) = 0$ for all $a \geq 0$.
+Finally, for $b > 1$ one has $p(z_1^{a+1} \lambda_2^{b-1}) = 0$ for all $a \geq 0$.
+Using $\lie{sl}(2)$ invariance this proves (3).
+\end{proof}
+
 \subsection{Distributions on punctured affine space}
 
 The model $\sfA$ for algebraic functions on punctured affine space was constructed using the ring
@@ -352,8 +386,8 @@ So I think
 \Hat{\sfR} = \C[[z_i]][\lambda_i] \slash (\sum_i z_i \lambda_i) .
 \eeqn
 
-Let $\Hat{A}$ be the graded algebra free generated over $\Hat{\sfR}$ and the degree one variable $\omega$.
-The cohomology of $(\sfA, \dbar)$ is $\C[[z_i]]$ in degree zero and $\C[\lambda_i]$ in degree one.
+Let $\Hat{\sfA}$ be the graded algebra free generated over $\Hat{\sfR}$ and the degree one variable $\omega$.
+The cohomology of $(\Hat\sfA, \dbar)$ is $\C[[z_i]]$ in degree zero and $\C[\lambda_i]$ in degree one.
 
 \section{Recollection on anomalies for quantum moment maps}
 
@@ -392,5 +426,7 @@ If the anomaly $J^*\omega$ does not vanish, then there is an $L_\infty$ algebra 
 \]
 determined by $J^* \omega$.
 \end{cor}
+
+
 
 \end{document}
