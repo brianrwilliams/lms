@@ -399,6 +399,8 @@ Observe that the quadratic functions form a dg Lie subalgebra
 \cP_2 = (\Sym^2(V \oplus V^*), \{-,-\})
 \]
 of $\cP$.
+Note that for $V$ a finite-dimensional vector space concentrated in degree zero,
+there is a natural identification $\cP_2 = \frak{sp}(T^*V)$, which plays an important role in corollary~\ref{cor:trivforsp}.
 
 There is a natural deformation quantization of $\cP$ as a Weyl algebra $\cW$.
 Observe that there is a dg Lie subalgebra
@@ -427,6 +429,16 @@ If the anomaly $J^*\omega$ does not vanish, then there is an $L_\infty$ algebra 
 determined by $J^* \omega$.
 \end{cor}
 
+On the other hand, this phenomenon does not happen in the most traditional situations.
 
+\begin{cor}
+\label{cor:trivforsp}
+For $V$ a finite-dimensional vector space concentrated in degree zero, the anomaly $\omega$ is trivial as $\frak{sp}(T^* V) = \cP_2$ is simple and hence $H^2(\cP_2) = 0$.
+\end{cor}
+
+In other words, quadratic Hamiltonians (elements of $\cP_2$) admit a natural quantization (lift to $\cW_2$).
+Normal ordering offers a method, but there are other choices.
+
+\owen{I am not sure what the status is for infinite-dimensional vector spaces. It seems like functional analysis plays a nontrivial role.}
 
 \end{document}
