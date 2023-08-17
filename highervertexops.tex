@@ -220,7 +220,14 @@ Consider the differential operator
 acting on $\C[z_i,\lambda_i]$;
 it is inspired by the Laplacian on $\CC^2$ when we view $\lambda_i$ as a version of $\Bar{z_i}$.
 This operator has weight zero and, in fact, it is $SL(2)$-equivariant.
-\owen{I need to check this myself. If there's a slick way, we should include it.}
+For example, notice that for any $g(z_i,\lambda_i)$ we have
+\begin{align*}
+(\del_{z_1} \del_{\lambda_1} + \del_{z_2} \del_{\lambda_2})(z_2 \del_{z_1} g - \lambda_1 \del_{\lambda_2}g )& = z_2 \del_{z_1}^2 \del_{\lambda_1} g - \del_{z_1} \del_{\lambda_2} g - \lambda_1 \del_{z_1} \del_{\lambda_1} \del_{\lambda_2} g \\ & \qquad + \del_{z_1} \del_{\lambda_2}  g + z_2 \del_{z_1} \del_{z_2} \del_{\lambda_2} g - \lambda_1 \del_{z_2} \del_{\lambda_2}^2 g 
+\\ & = z_2 \del_{z_1}^2 \del_{\lambda_1} g - \lambda_1 \del_{z_1} \del_{\lambda_1} \del_{\lambda_2} g + z_2 \del_{z_1} \del_{z_2} \del_{\lambda_2} g - \lambda_1 \del_{z_2} \del_{\lambda_2}^2 g .
+\end{align*}
+Thus $[\triangle,\sff] = 0$.
+Similarly, one can show that $[\triangle, \sfe] = 0$.
+\owen{I need to check this myself. If there's a slick way, we should include it.} \brian{I gave a computational proof.}
 On the other hand, it maps $V_{a,b}$ to $V_{a-1,b-1}$, i.e., it changes the bigrading by~$(-1,-1)$.
 
 Let $H_{a,b} = \ker \triangle|_{V_{a,b}}$ denote the ``harmonic'' polynomials of bidegree $(a,b)$.
@@ -342,7 +349,7 @@ as $z_1 \lambda_1$ admits a decomposition
 z_1 \lambda_1 = \frac12 (z_1 \lambda_1 - z_2 \lambda_2) + \frac12 .
 \eeqn
 
-\subsection{Residues}
+\subsection{The higher algebraic residue}
 
 Define
 \beqn
@@ -352,14 +359,19 @@ by the rules that $\op{Res}|_{\sfA^0} = 0$ and
 \beqn
 \op{Res} \left(f(z,\lambda) \omega \right) = p (f(z,\lambda)) (z=0) .
 \eeqn
+This residue extends to the completion to give a map
+\beqn
+\op{Res} \colon \Hat\sfA \to \C[-1] .
+\eeqn
 
 \begin{lem}
 \label{lem:res} 
 The following are true regarding the higher algebraic residue:
 \begin{enumerate}
 \item The residue is $\lie{sl}(2)$ invariant.
-\item For $f \in \C[z_1,z_2]$ one has $\op{Res}(f \omega) = f(0)$.
+\item For $f \in \C[[z_1,z_2]]$ one has $\op{Res}(f \omega) = f(0)$.
 \item For any $f \in \sfA$ one has $\op{Res}(\dbar f) = 0$.
+Thus $\op{Res}$ is a cochain map.
 \end{enumerate}
 \end{lem}
 \begin{proof}
