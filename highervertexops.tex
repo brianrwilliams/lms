@@ -553,20 +553,37 @@ Let $J$ be the map
 \beqn
 J \colon \laurent \to \cP_2
 \eeqn
-defined by sending an element $a \in \sfA$ to the quadratic functional
+defined by sending an element $\alpha \in \sfA$ to the quadratic functional $J_\alpha \in \cP_2$ defined by
 \beqn
-J_a (\beta \gamma) = \Res(\beta a \gamma) .
+J_\alpha (\beta \gamma) = \Res(\beta \alpha \gamma) .
 \eeqn
 
 \begin{lem}
-The following are true of the map $J$.
+Let $\alpha = z_1^m \lambda_2^n$.
+Then $J_\alpha$ corresponds to the infinite series
+\begin{multline}
+J_\alpha = \sum_{a,b \geq 0} \sum_{k=0}^{a+b} c_k^{a,b} \sff^k(z_1^{a+m}\lambda_2^{b+n} \omega) \cdot \sff^{a+b-k} (z_1^b \lambda_2^a) \d^2 z \\
++ \sum_{a,b \geq 0} \sum_{k=0}^{a+b} c_k^{a,b} \sff^k(z_1^{a+m}\lambda_2^{b+n}) \cdot \sff^{a+b-k} (z_1^b \lambda_2^a \omega) \d^2 z ,
+\end{multline}
+for some constants $c_{k}^{a,b}$.
+
+Similarly, let $\alpha = z_1^m \lambda_2^n \omega$.
+Then $J_\alpha$ corresponds to the infinite series
+\beqn
+J_\alpha = \sum_{a,b \geq 0} \sum_{k=0}^{a+b} c_k^{a,b} \sff^k(z_1^{a+m}\lambda_2^{b+n} \omega) \cdot \sff^{a+b-k} (z_1^b \lambda_2^a \omega) \d^2 z ,
+\eeqn
+which is of degree $+1$.
+\end{lem}
+
+\begin{prop}
+The following are true of the map $J$:
 \begin{enumerate}
 \item $J$ is a cochain map.
 \item $J$ is $\lie{sl}(2)$-equivariant.
 \item For $a,a' \in \laurent$ one has $\{J_a, J_{a'}\} = 0$.
 \end{enumerate}
 In particular, if we endow $\sfA$ with the structure of an abelian dg Lie algebra then $J$ is a map of dg Lie algebras.
-\end{lem}
+\end{prop}
 \begin{proof}
 For the first claim observe that
 \beqn
