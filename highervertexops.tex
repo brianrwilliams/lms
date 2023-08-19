@@ -40,6 +40,7 @@
 \newcommand{\laurent}{\Hat \sfA}
 \newcommand{\sfb}{\mathsf{b}}
 \newcommand{\sfc}{\mathsf{c}}
+\DeclareMathOperator{\colim}{colim}
 
 \renewcommand{\op}{\operatorname}
 \def\lie#1{\ensuremath{\mathfrak{#1}}}
@@ -53,7 +54,7 @@
 
 \begin{document}
 
-\section{Overview of definitions and goalds}
+\section{Overview of definitions and goals}
 
 The goal here is to record higher-dimensional analogs of the ingredients for defining a {\em field} in a holomorphic theory (i.e., a higher-dimensional {\em vertex operator}). We do not aspire (yet!) to give the higher-dimensional version of a vertex algebra.
 
@@ -625,5 +626,36 @@ Normal ordering offers a method, but there are other choices.
 \owen{I am not sure what the status is for infinite-dimensional vector spaces. It seems like functional analysis plays a nontrivial role.}
 
 \section{Recollections on one-dimensional algebraic free field realization}
+
+Let $\CC^\infty$ denote the direct sum of countably many copies of $\CC$.
+We will fix a basis $\{x_n\}_{n \in \ZZ}$.
+This vector space can also be described as the colimit of finite-dimensional spaces under inclusion 
+\[
+\CC^{2N+1} \cong \bigoplus_{n = -N}^N \CC x_n \hookrightarrow \bigoplus_{n = -N-1}^{N+1} \CC x_n \cong \CC^{2N+3}.
+\]
+Later we will identify this vector space with Laurent polynomials $\CC[t,t^{-1}]$ by identifying $t^n$ with~$x_n$.
+
+There are then two distinct infinite-dimensional Lie algebras that naturally act on this space:
+\[
+\gl_\infty \hookrightarrow \End(\CC^\infty).
+\]
+Here
+\[
+\gl_\infty = \colim \gl_{2N+1} = \bigoplus_{m,n \in \ZZ} \Hom(\CC x_m, \CC x_n),
+\]
+and, in concrete terms, it corresponds to those matrices acting on $\CC^\infty$ that have finitely many nonzero entries.
+By contrast, 
+\[
+\End(\CC^\infty) = \Hom \left(\bigoplus_{m \in \ZZ} \CC x_m, \bigoplus_{n \in \ZZ} \CC x_n \right) \cong \prod_{m\in \ZZ} \bigoplus_{n \in \ZZ} \Hom(\CC x_m, \CC x_n),
+\]
+and, in concrete terms, it corresponds to those matrices where each column has finitely many nonzero entries but a row can have arbitrarily many nonzero entries.
+
+In between these two sits an interesting Lie algebra $\Bar{\gl}(\infty)$ consisting of matrices with finitely many nonzero {\em diagonals}.
+
+This Lie algebra has two features crucial for us:
+\begin{enumerate}
+\item It contains the shift operators $S_k: x_n \mapsto x_{n+k}$ and hence contains $\CC[t,t^{-1}]$ as a subalgebra (note that multiplication by $t^k$ corresponds to $S_k$). More generally, every loop algebra $\gl_N(\CC[t,t^{-1}])$ embeds into $\Bar{\gl}(\infty)$.
+\item It has a nontrivial 2-cocycle
+\end{enumerate}
 
 \end{document}
