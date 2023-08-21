@@ -650,12 +650,96 @@ By contrast,
 \]
 and, in concrete terms, it corresponds to those matrices where each column has finitely many nonzero entries but a row can have arbitrarily many nonzero entries.
 
-In between these two sits an interesting Lie algebra $\Bar{\gl}(\infty)$ consisting of matrices with finitely many nonzero {\em diagonals}.
+In between these two sits an interesting Lie algebra $\Bar{\gl}_\infty$ consisting of matrices with finitely many nonzero {\em diagonals}.
 
 This Lie algebra has two features crucial for us:
 \begin{enumerate}
-\item It contains the shift operators $S_k: x_n \mapsto x_{n+k}$ and hence contains $\CC[t,t^{-1}]$ as a subalgebra (note that multiplication by $t^k$ corresponds to $S_k$). More generally, every loop algebra $\gl_N(\CC[t,t^{-1}])$ embeds into $\Bar{\gl}(\infty)$.
-\item It has a nontrivial 2-cocycle
+\item It contains the shift operators $S_k: x_n \mapsto x_{n+k}$ and hence contains $\CC[t,t^{-1}]$ as a subalgebra (note that multiplication by $t^k$ corresponds to $S_k$). More generally, every loop algebra $\gl_N(\CC[t,t^{-1}])$ embeds into~$\Bar{\gl}_\infty$.
+\item It has a nontrivial 2-cocycle $\Bar{\alpha}$ where
+\[
+\Bar{\alpha}(E_{ij}, E_{mn}) =
+\begin{cases}
+1, & i = n, j = m, i \leq 0, j \geq 1\\
+-1, & i = n, j = m, n \leq 0, m \geq 1\\
+0, & \text{otherwise}
+\end{cases}.
+\]
 \end{enumerate}
+These features interact because for any embedding $\iota$ of a loop algebra, 
+the pullback $\iota^*\Bar{\alpha}$ determines a nontrivial central extension: 
+it yields the famous affine Lie algebra using the residue pairing.
+(One can see $\Bar{\alpha}$ is nontrivial by using the fact that the affine Lie algebra is a nontrivial extension.)
+
+\begin{rmk}
+Kac and Peterson (as well as Date, Jimbo, et al) found this extension by $\Bar{\alpha}$ because they'd found that $\Bar{\gl}_\infty$ has a {\em projective} representation on the infinite wedge space.
+By the embedding fact, {\em every} affine Lie algebra also acts on the infinite wedge space.
+\end{rmk}
+
+\section{Trying to mimic this strategy}
+
+We will try to replicate the strategy above but replacing $\CC[t,t^{-1}]$ by $\sfH = H^\bullet(\sfA)$.
+Recall that
+\[
+\sfH^\bullet = 
+\begin{cases}
+\CC[z_1,z_2],&\bullet = 0\\
+\CC[z_1^{-1}, z_2^{-1}] \omega,&\bullet = 1\\
+0,&\text{otherwise}\\
+\end{cases}
+\]
+where $\omega$ denotes the Martinelli-Bochner form
+\[
+\frac{\zbar_2 \d\zbar_1 - \zbar_1 \d\zbar_2}{(2\pi i)^2|z_1 z_2|^2},
+\]
+which is the two-dimensional analog of $\d z/2\pi i z$.
+Note that we have a natural basis for $\sfH$ via monomials $z_1^a z_2^b$, with $a,b \in \NN$, and $z_1^{-a} z_2^{-b} \omega$, with $a,b \in \NN$.
+
+There is a natural {\em residue} operation on $\sfH$,
+which simply takes the coefficient on $\omega$ and vanishes on a nontrivial monomial times~$\omega$.
+In terms of calculus, it means that one wedges with $\d^2 z$ and then integrates over the unit ball.
+This residue determines a pairing on $\sfH$ by mimicking the one-dimensional case:
+\[
+(z_1^m z_2^n, z_1^{-k} z_2^{-l} \omega) =  \delta_{mk} \delta_{nl},
+\]
+which has degree -1 and hence vanishes between elements of the same degree.
+
+In a similar way, we introduce a trilinear form of degree -1 by
+\[
+\alpha_{(2)}( f, g, h \omega) = \int_{|z| \leq 1} \partial(f) \wedge \partial(g) \wedge h \omega.
+\]
+\owen{Up to a constant that I'll worry about later.}
+In terms of monomials, it is
+\[
+\alpha_{(2)}( z_1^a z_2^b , z_1^m z_2^n, z_1^{-k} z_2^{-l} \omega) = (an - bm) \delta_{(a+m-1)k} \delta_{(b+n-1)l}.
+\]
+This formula actually determines a nontrivial 2-cocycle on $\sfH$, viewed as an abelian graded  Lie algebra.
+
+We want to find a 2-cocycle $\Bar{\alpha}_{(2)}$ on a graded Lie algebra
+\[
+\Bar{\gl}_\infty^{(2)} \subset \End(\sfH)
+\]
+that pulls back to $\alpha_{(2)}$ along an embedding $\sfH \hookrightarrow \Bar{\gl}_\infty^{(2)}$ that factors the canonical inclusion $\sfH \hookrightarrow \End(\sfH)$ sending an element $a$ to left multiplication by~$a$.
+
+Here is a cheeky and inexplicit way to define $\Bar{\gl}_\infty^{(2)}$: take the smallest sub-associative algebra of $\End(\sfH)$ that contains both $\sfH$ and $\gl_\infty^{(2)}$ (which is simply the direct sum of the homs between basis elements). 
+\owen{I think this works but it's ``smaller'' than the corresponding one-dimensional $\Bar{\gl_\infty}$.}
+
+
+We introduce the following notation for elements of $\gl_\infty^{(2)}$:
+\begin{itemize}
+\item Let $E^0_{ab, cd}$ denote the matrix sending $z_1^a z_2^b$ to $z_1^c z_2^d$.
+\item Let $E^+_{ab, cd}$ denote the matrix sending $z_1^a z_2^b$ to $z_1^{-c} z_2^{-d} \omega$.
+\item Let $E^-_{ab, cd}$ denote the matrix sending $z_1^{-a} z_2^{-b} \omega$ to $z_1^c z_2^d $.
+\end{itemize}
+Note that the superscript indicates whether the matrix has degree 0, +1, or -1, respectively.
+The subscripts $a,b,c,d$ are all nonnegative integers.
+
+Here is a guess for $\Bar{\alpha}_{(2)}$.
+It vanishes unless there are two entries of degree 0 and one entry of degree 1.
+We define
+\[
+\Bar{\alpha}(E^0_{ab}, E^0_{mn}, E^{+}_{kl}) = \delta_{(a+m)k} \delta_{(b+n)l}
+\]
+and impose the relevant sign for permuting the entries.
+\owen{This description is under-determined. I need to improve it.}
 
 \end{document}
