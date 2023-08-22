@@ -718,20 +718,58 @@ We want to find a 2-cocycle $\Bar{\alpha}_{(2)}$ on a graded Lie algebra
 \[
 \Bar{\gl}_\infty^{(2)} \subset \End(\sfH)
 \]
-that pulls back to $\alpha_{(2)}$ along an embedding $\sfH \hookrightarrow \Bar{\gl}_\infty^{(2)}$ that factors the canonical inclusion $\sfH \hookrightarrow \End(\sfH)$ sending an element $a$ to left multiplication by~$a$.
+that pulls back to $\alpha_{(2)}$ along an embedding $\sfH \hookrightarrow \Bar{\gl}_\infty^{(2)}$ that factors the canonical inclusion $\sfH \hookrightarrow \End(\sfH)$ sending an element $x$ to left multiplication by~$x$.
+This situation would be parallel to the one-dimensional construction.
 
-Here is a cheeky and inexplicit way to define $\Bar{\gl}_\infty^{(2)}$: take the smallest sub-associative algebra of $\End(\sfH)$ that contains both $\sfH$ and $\gl_\infty^{(2)}$ (which is simply the direct sum of the homs between basis elements). 
-\owen{I think this works but it's ``smaller'' than the corresponding one-dimensional $\Bar{\gl_\infty}$.}
+\subsection{Defining the Lie algebra}
 
+Here is a cheeky and inexplicit way to define a $\Bar{\gl}_\infty^{(2)}$: take the smallest sub-associative algebra of $\End(\sfH)$ that contains both $\sfH$ and $\gl_\infty^{(2)}$ (which is simply the direct sum of the homs between basis elements). 
+\owen{I think this works but it's ``smaller'' than the corresponding one-dimensional $\Bar{\gl_\infty}$.
+We could instead ask to include derivatives also, so that we contain differential operators.}
+
+As an alternative, we characterize what we mean by ``diagonals,'' as follows.
 
 We introduce the following notation for elements of $\gl_\infty^{(2)}$:
 \begin{itemize}
-\item Let $E^0_{ab, cd}$ denote the matrix sending $z_1^a z_2^b$ to $z_1^c z_2^d$.
-\item Let $E^+_{ab, cd}$ denote the matrix sending $z_1^a z_2^b$ to $z_1^{-c} z_2^{-d} \omega$.
-\item Let $E^-_{ab, cd}$ denote the matrix sending $z_1^{-a} z_2^{-b} \omega$ to $z_1^c z_2^d $.
+\item Let $E^{00}_{ab, cd}$ denote the matrix sending $z_1^a z_2^b$ to $z_1^c z_2^d$.
+\item Let $E^{11}_{ab, cd}$ denote the matrix sending $z_1^{-a} z_2^{-b} \omega$ to $z_1^{-c} z_2^{-d} \omega$.
+\item Let $E^{01}_{ab, cd}$ denote the matrix sending $z_1^a z_2^b$ to $z_1^{-c} z_2^{-d} \omega$.
+\item Let $E^{10}_{ab, cd}$ denote the matrix sending $z_1^{-a} z_2^{-b} \omega$ to $z_1^c z_2^d $.
 \end{itemize}
-Note that the superscript indicates whether the matrix has degree 0, +1, or -1, respectively.
+Note that the superscript $ij$ indicates whether the matrix the degree of the domain and codomain, respectively.
 The subscripts $a,b,c,d$ are all nonnegative integers.
+
+\begin{dfn}
+Given a matrix $M \in \End(\sfH)$, its {\em support} is the set of indices $(i, j; a, b, c, d)$ for which its coefficient $M_i$ are not zero.
+\end{dfn}
+
+For example, the support of $E^{00}_{ab, cd}$ is $(0,0,a, b,c, d)$, 
+while the support of the identity is $\{(i,i;a,b,a,b) \,: \, i \in \{0,1\}, a,b \in \NN\}$.
+
+Consider now the operators arising from multiplication.
+In the one-dimensional case, the support of such multiplication operators (or shift operators) characterizes the diagonals,
+so we examine the two-dimensional structure at play.
+\begin{itemize}
+\item Multiplying by $z_1^m z_2^n$ is a linear map sending $z_1^a z_2^b$ to $z_1^{m+a} z_2^{n+b}$ and sending $z_1^{-a} z_2^{-b} \omega$ to $z_1^{m-a} z_2^{n-b} \omega$ for $m -a \leq 0$ and $n-b \leq 0$ (otherwise, the element maps to zero).
+Its support is 
+\[
+\{(0,0;a,b,m+a,n+b) \,: \, a,b \in \NN\} \cup \{(1,1;a,b,a-m,b-n) \,: \, 0 \leq m \leq a, 0 \leq n \leq b\}.
+\]
+\item Multiplying by $z_1^{-m} z_2^{-n} \omega$ annihilates anything in degree 1 and sends $z_1^a z_2^b$ to $z_1^{a-m} z_2^{b-n}$ for $a-m \leq 0$ and $b-n \leq 0$ (otherwise, the elements maps to zero). 
+Its support is 
+\[
+\{(0,1;a,b,m-a,n-b) \,: \, 0 \leq a \leq m, 0 \leq b \leq n\}.
+\]
+\end{itemize}
+In light of this support structure, we pose the following definition.
+
+\begin{dfn}
+A matrix $M in \End(\sfH)$ has {\em finitely many diagonals} if its support is equal to the union of finitely many multiplication operators.
+\end{dfn}
+
+One could then define $\Bar{\gl}_\infty^{(2)}$ as matrices with finitely many diagonals.
+
+\subsection{Defining the cocycle}
 
 Here is a guess for $\Bar{\alpha}_{(2)}$.
 It vanishes unless there are two entries of degree 0 and one entry of degree 1.
