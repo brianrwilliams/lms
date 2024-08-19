@@ -109,36 +109,56 @@ We expect that these holomorphic examples will be particularly tractable and bea
 \brian{complex geometry, dolbeault, dg stuff.}
 
 A theory is usually described, in part, in terms of a space of fields which comprise some possibly nonlinear space like a mapping space or the space of connections. 
-In perturbative field theory, which describes the formal neighborhood of the theory at points in such spaces, the fields $\Phi$ are typically described by the smooth sections of a bundle on spacetime.
-The equations of motion which dictate the dynamics of the particular model are encoded by a partial differential equation heuristically of the form 
+In perturbative field theory, which describes the formal neighborhood of the theory at points in such spaces, the fields $\Phi$ are typically described by the smooth sections of a vector bundle on spacetime.
+The equations of motion which dictate the dynamics of the particular model are encoded by a series of partial differential equations of the form 
 \[
 \sum_{k \geq 1} D_k(\Phi,\ldots,\Phi) = 0 ,
 \]
 where $D_k$ is a $k$-ary polydifferential operator.
-As an example of a Euclidean theory, the $\phi^4$-theory on a Riemannian four-manifold $M$ is described by the equation
+As an example, the scalar $\phi^4$-theory on a Riemannian $M$ is described by the equation
 \[
 \Delta \phi + \frac{1}{3!} \phi^3 = 0 
 \]
 where $\Phi = \phi$ is simply a smooth function on $M$.
+These equations of motion are natural to the Riemannian geometry of the manifold $M$, and can be derived from the Euler--Lagrange equations of the simple action functional $\int_M \phi \Delta \phi \, \op{dvol}$.
+
+As another example, consider perturbative Chern--Simons theory whose fields are a principal $G$-bundle $P$ on a smooth three-manifold $M$ equipped with a connection.
+The equations of motion is the condition that the connection is flat 
+\beqn
+F_\nabla = 0 .
+\eeqn
+Perturbatively, near the trivial flat connection, the fields are simply $\lie{g} = \op{Lie}(G)$-valued one-forms $A \in \Omega^1(M, \lie{g})$.
+The condition that perturbed connection $\d + A$ is flat is the Maurer--Cartan equation
+\beqn
+\d A + \frac12 [A,A] = 0.
+\eeqn
+These equations of motion are topological in the sense that they only depend on the smooth manifold~$M$.
+When $\lie{g}$ is equipped with a non-degenerate, invariant, bilinear form $\kappa$ (for example, if $G$ is semi-simple there is a standard choice) then these equations of motion can be derived from the famous Chern--Simons action functional $\int_M CS(A)$ where
+\beqn\label{eqn:CS}
+CS(A) = \frac12 \kappa(A, \d A) + \frac16 \kappa(A, [A,A]) .
+\eeqn
  
 In a {\em holomorphic theory} one starts with a complex manifold $X$ as the spacetime.
-This means, in part, that the complexified tangent bundle of $X$ decomposes as a sum of vector bundles $\T_X \oplus \Bar{\T}_X$ where $\T_X$ (respectively $\Bar{T}_X$) is the holomorphic (respectively anti-holomorphic) tangent bundle.
-In local coordinates sections of $\T_X$ have the form $f^i \del / \del z_i$ whereas sections of $\Bar{\T}_X$ have the form $f^i \del / \del \zbar_i$. 
-
+%This means, in part, that the complexified tangent bundle of $X$ decomposes as a sum of vector bundles $\T_X \oplus \Bar{\T}_X$ where $\T_X$ (respectively $\Bar{T}_X$) is the holomorphic (respectively anti-holomorphic) tangent bundle.
+%In local coordinates sections of $\T_X$ have the form $f^i \del / \del z_i$ whereas sections of $\Bar{\T}_X$ have the form $f^i \del / \del \zbar_i$. 
 Globally, holomorphic theories are described like in the usual case by mapping spaces or spaces of connections.
-The key feature in a holomorphic theory is that the equations of motion dictate that fields be holomorphic.
-Perturbatively, where fields are sections of some holomorphic vector bundle $V$, we can make this precise. 
+The key feature in a holomorphic theory is that the equations of motion dictate that fields be holomorphic in an appropriate sense.
+Perturbatively, where fields are sections of some (possibly graded) holomorphic vector bundle $V$, we can make this precise. 
 Prescribing a holomorphic structure on a vector bundle $V$ is equivalent to the data of a $\dbar$-operator
 \beqn
 \dbar \colon \Omega^{0,q}(X, V) \to \Omega^{0,q+1}(X,V) 
 \eeqn
 where $\Omega^{0,q}(X,V)$ is the space of smooth sections of the vector bundle $\wedge^q\Bar{T}_X^* \otimes V$. 
 Holomorphicity of $V$ boils down to the requirement that $\dbar \circ \dbar = 0$.
-The Dolbeault complex of $V$ is the resulting complex $(\Omega^{0,\bu}(X, V), \dbar)$ where $\Omega^{0,q}(X,V)$ sits in degree $+q$.
+The Dolbeault complex of $V$ is
+\beqn
+\left(\Omega^{0,\bu}(X, V), \dbar \right) = \left(\oplus_{q \geq 0} \Omega^{0,q}(X, V)[-q], \dbar \right)
+\eeqn
+where (in the case that $V$ sits in degree zero) the space $\Omega^{0,q}(X,V)$ sits in degree $+q$.
 A standard result in complex geometry is that the Dolbeault complex is a resolution for the sheaf of holomorphic sections of the holomorphic vector bundle $V$.
-In the case that $V$ is the trivial bundle $\ul{\CC}$ the Dolbeault complex $\Omega^{0,\bu}(X)$ is a resolution for the sheaf of holomorphic functions on $X$.
+%In the case that $V$ is the trivial bundle $\ul{\CC}$ the Dolbeault complex $\Omega^{0,\bu}(X)$ is a resolution for the sheaf of holomorphic functions on $X$.
 
-The fields of a holomorphic theory are given by elements of the Dolbeault complex $\Omega^{0,\bu}(X,V)$.
+The fields of a holomorphic theory are given by elements of the Dolbeault complex $\Omega^{0,q}(X,V)$ for some $q$.
 The equations of motion in a holomorphic theory take the form
 \beqn
 \dbar \Phi + \sum_{k \geq 1} D_k(\Phi,\ldots,\Phi) = 0 ,
@@ -146,26 +166,24 @@ The equations of motion in a holomorphic theory take the form
 where $D_k$ are $k$-ary {\em holomorphic} polydifferential operators.
 This means that in local coordinates $D_k$ only depend on the holomorphic coordinates $\{z_i\}$ and involve only holomorphic derivatives $\del / \del z_i$.
 
+For a simple example, consider the following holomorphic analog of Chern--Simons theory.
+The fields are principal $G$-bundles on a three-dimensional \textit{complex} manifold $X$, and the equations of motion give the condition that the principal $G$-bundle is holomorphic.
+Perturbatively, near the trivial $G$-bundle, the fields of this holomorphic theory are $\lie{g}$-valued $(0,1)$-forms $A \in \Omega^{0,1}(X, \lie{g})$.
+The condition that $\d + A$ prescribes a holomorphic structure is again a Maurer--Cartan equation
+\beqn
+\dbar A + \frac12 [A,A] = 0 .
+\eeqn
+Like ordinary Chern--Simons theory, in order for this equation to arise from a principal of least action one needs to fix a non-degenerate, invariant, bilinear form $\kappa$ on $\lie{g}$.
+Additionally, one needs to fix a holomorphic volume form $\Omega$ on $X$; in other words, $X$ is a Calabi--Yau manifold.
+Then, the equations of motion is precisely the Euler--Lagrange equation for the action
+\beqn
+S_{hCS} (A) = \int_X \Omega \wedge CS(A) 
+\eeqn
+where $CS(A)$ is exactly as in \eqref{eqn:CS}.\footnote{Notice that due to the presence of the holomorphic volume form $\Omega$ only the $\dbar$ operator contributes to the kinetic term and so the action can be written as $\int_X \Omega \wedge \left(\frac12 \kappa( A ,\dbar A ) + \frac16 \kappa(A , [A,A]) \right)$.} 
+
 
 \subsection{Precise definitions}
 
-Let us begin with the example of holomorphic Chern--Simons theory, 
-which we have already said describes the moduli space of Maurer--Cartan elements describe deformations of the trivial holomorphic $G$-bundle. 
-When $X$ is a Calabi--Yau three-fold and $\fg$ is equipped with an invariant pairing $\<\cdot , \cdot \>$, 
-this formal moduli space has a very special property: 
-it arises from the variational problem of an action functional, namely
-\beqn
-S = \int_X \Omega \wedge {\rm CS}(A) 
-\eeqn
-where $\Omega$ is the holomorphic volume form and 
-\beqn
-{\rm CS}(A) = \frac12 \< A ,\d A \> + \frac16 \<A , [A,A]\>
-\eeqn
-is the Chern--Simons Lagrangian for the connection $(0,1)$-form $A$.
-Notice that due to the presence of the holomorphic volume form $\Omega$ on the $\dbar$ operator contributes to the kinetic term and so the action can be written as 
-\beqn
-S = \int_X \Omega \wedge \left(\frac12 \< A ,\dbar A \> + \frac16 \<A , [A,A]\>\right) .
-\eeqn
 
 We turn to a formal definition underpinning the formal moduli spaces of the holomorphic field theories that we will be considering. 
 
@@ -231,43 +249,6 @@ which is typically much cleaner and more accessible.
 (One might also hope that progress in the holomorphic setting then feeds back useful insights to physics.)
 
 
-\subsubsection{Holomorphic scalar field theories}
-
-A typical scalar field theory is the free boson which exists on any Riemannian manifold $\Sigma$.
-Its action functional is simply $\int_\Sigma \phi \triangle \phi$ where $\phi$ is a smooth function on $\Sigma$.
-When $\Sigma$ is a surface this theory can be written in such a way that makes its complex structure apparent.
-First, we complexify the field $\phi$ which we can view as a pair of fields $\gamma, \Bar{\gamma}$.
-When we do this, we can split it up into its chiral and anti-chiral `sectors'.
-By chiral (anti-chiral) we mean part involving $\gamma$ ($\Bar{\gamma}$).
-The holomorphic part is described by the following action
-\beqn
-\int_\Sigma \beta \wedge \dbar \gamma
-\eeqn
-where $\beta$ is a $(1,0)$ form on $\Sigma$ and should be thought of as a Lagrange multiplier for the field $\del \Bar{\gamma}$ which we now think about as having its own degrees of freedom (this is called the first-order formalism).
-There is also a coupling between the chiral and anti-chiral sectors, 
-for more details we refer to \cite{Kapustin,GGW}. 
-This piece of the free boson is the simplest holomorphic field theory; aptly called the $\beta-\gamma$-\textit{system}.
-It plays a role in superstring theory as the free field theory underlying bosonic ghosts corresponding to worldsheet supersymmetry~\cite{Polchinski}.
-
-There is a holomorphic field theory defined on an arbitrary complex manifold as a simple generalization of this `$\beta-\gamma$ system'.
-The input data is simply a complex manifold $X$ of arbitrary complex dimension $n$ together with a (super) holomorphic vector bundle $V$ on~$X$.
-Above we took this bundle to be trivial.
-The fields of the theory consist of pairs 
-\begin{align*}
-\gamma & \in \Gamma(X,V)\\
-\beta & \in \Omega^{n,n-1}(X,V^*) .
-\end{align*}
-The action functional is identical $\int_X \beta \wedge \dbar \gamma$.
-
-Notice that when $n = \dim_\C X > 1$ that there is a linear symmetry present in the above action given by shifting $\beta$ by a $\dbar$-exact form
-\beqn
-\beta \mapsto \beta + \dbar \eta , \quad \eta \in \Omega^{n,n-2}(X,V^*)
-\eeqn
-For this model to be well-posed at the quantum level we must include the ghosts $\eta$.
-Further, $\eta$ can be shifted by an exact form in a way that does not effect the above gauge transformation, so we must also include ghosts for ghosts, etc..
-This is one of the key differences between the ordinary $\beta-\gamma$ system and its higher dimensional version.
-Nevertheless, many techniques we have for understanding free field theories can still by applied to this model as we will explain later in this note.
-
 \subsubsection{Holomorphic gauge theories}
 
 We have already met holomorphic Chern--Simons theory, which is defined on Calabi--Yau three-folds.
@@ -289,13 +270,36 @@ Notice that by form types this action can be written as
 S(A,B) = \int_X B \wedge \left(\dbar A + \frac12 [A,A] \right) .
 \eeqn
 
+Holomorphic BF theory is easy to formulate classically, but it can admit peculiar properties at the quantum level.
+For example, in \cite{semichiral} it is shown that on $X = \C^2$ the quantization of holomorphic BF theory is almost topological.\footnote{More precisely, the divergence-free part of the stress tensor is rendered cohomologically trivial to first-order in perturbation theory.}
 
 \subsubsection{Holomorphic $\sigma$-models}
 
 If $X,Y$ are any two complex manifolds there is a theory whose fields consist, in part, of the derived moduli space of smooth maps $\RR {\rm Map}(X,Y)$ and whose equations of motion dictate that such maps be holomorphic.
-This is a nonlinear generalization of the $\beta\gamma$ system we just introduced. 
-  
-The precise space of fields, in cohomological degree zero, consist of pairs $(\gamma, \beta)$ where $\gamma \colon X \to Y$ is a smooth map and 
+
+This class of holomorphic field theories are simple higher-dimensional generalizations of the well-studied `$\beta-\gamma$ system' which appears in: superstring theory~\cite{Polchinski}, as the twist (see below)of the $\cN=(2,0)$ supersymmetric $\sigma$-model, and as the chiral part of the scalar field theory on a Riemann surface.
+
+Consider the case that $Y$ is simply $\C$ and suppose that $X$ is $n$-dimensional.
+The fields of the model are
+\begin{align*}
+\gamma & \in \Gamma(X)\\
+\beta & \in \Omega^{n,n-1}(X) .
+\end{align*}
+and the action is
+\beqn
+\int_\Sigma \beta \wedge \dbar \gamma .
+\eeqn
+There is a peculiarity of this theory when $n = \dim_\C X > 1$: in the case, there is a linear symmetry by shifting $\beta$ by a $\dbar$-exact form
+\beqn
+\beta \mapsto \beta + \dbar \eta , \quad \eta \in \Omega^{n,n-2}(X,V^*)
+\eeqn
+For this model to be well-posed at the quantum level we must include the ghosts $\eta$.
+Further, $\eta$ can be shifted by an exact form in a way that does not effect the above gauge transformation, so we must also include ghosts for ghosts, etc..
+This is one of the key differences between the ordinary $\beta-\gamma$ system and its higher dimensional version.
+Nevertheless, many techniques we have for understanding free field theories can still be applied to this model.
+
+There is the following nonlinear generalization of the $\beta\gamma$ system when $Y$ is an arbitrary complex manifold.
+The space of fields consist of pairs $(\gamma, \beta)$ where $\gamma \colon X \to Y$ is a smooth map and 
 \[
 \beta \in \Omega^{n,n-1}(X, f^* \T^*_Y) 
 \]
@@ -305,6 +309,7 @@ The action functional is the familiar one
 \int_X \beta \dbar \gamma .
 \eeqn 
 Solutions to the equations of motion describe, in part, holomorphic maps $X \to Y$, but there is also derived information contained in this model.
+A detailed formulation of this theory has been developed in \cite{BWthesis}.
 
 \subsubsection{Holomorphic ``gravity''}
 
@@ -332,7 +337,7 @@ The primary field of Kodaira spencer theory is a $(0,1)$ form on $X$ with values
 \eeqn 
 A crucial assumption of this model is that we must assume that $\mu$ preserve the holomorphic volume form $\Omega$, meaning its divergence vanishes ${\rm div}_\Omega \mu = 0$.
 The action functional is very similar to the Chern--Simons action
-\beqn
+\beqn\label{eqn:KS1}
 S(\mu) = \int_X \left(\frac12 \mu \dbar \del^{-1} \mu + \frac13 \mu^3\right) .
 \eeqn
 In the integrand we use the Calabi--Yau form to obtain a $(3,3)$-form.
@@ -345,6 +350,39 @@ Forgoing the apparent global issues, we can still apply formal variational calcu
 \eeqn
 where $[-,-]$ is the Schouten--Nijenhuis bracket (which reduces to just the natural bracket when restricted to vector fields).
 The reader can recognize this equation as the Maurer--Cartan equation controlling deformations of complex structure $\dbar\rightsquigarrow \dbar + \mu$.
+
+\subsubsection{Holomorphic scalar field theories / $\sigma$-models}
+
+A typical scalar field theory is the free boson which exists on any Riemannian manifold $\Sigma$.
+Its action functional is simply $\int_\Sigma \phi \triangle \phi$ where $\phi$ is a smooth function on $\Sigma$.
+We saved this example for last since its holomorphic analog is a bit more elusive than the previous examples.
+
+We start with complex dimension $1$.
+The usual scalar field theory can be written as $\int_{\Sigma} \phi \del \dbar \phi$, where $\Sigma$ is a Riemann surface.
+This theory is not holomorphic, but we can force it to be by demanding the constraint $\dbar \phi = 0$.
+Importantly, this constraint is \textit{not} imposed by an equation of motion.
+When we do this, we can express the action functional in terms of the $(1,0)$-form $\alpha \in \Omega^{1,0}(\Sigma)$ as
+\beqn\label{eqn:scalar1}
+\int \alpha \dbar \del^{-1} \alpha .
+\eeqn
+This is formally similar to the kinetic term in the action functional of Kodaira--Spencer theory \eqref{eqn:KS1}.
+
+There is a higher-dimensional analog of the chiral sector of the scalar field.
+Suppose that $X$ is a complex manifold of \textit{odd} dimension $2n+1$.
+The fields are certain $(n+1,n)$-forms $\alpha \in \Omega^{n+1,n}(X)$ which satisfy the constraint
+\beqn
+\del \alpha = 0.
+\eeqn
+Note that when $n=0$, so $X = \Sigma$ is simply a Riemann surface, this constraint is automatic.
+The action functional is the same \eqref{eqn:scalar1}.
+When $n=1$ this is identical to the kinetic part of the Kodaira--Spencer action.\footnote{Indeed, when $X$ is a Calabi--Yau three-fold there is an isomorphism $\Omega^{2,1}(X) \simeq \Omega^{0,1}(X, \T_X)$.}
+Generally, this theory is the holomorphic part of a higher-form scalar theory, with action
+\beqn
+\int_X \|C\|^2 \op{dvol} = \int_X C \d \star \d C , \quad C \in \Omega^{2n+1}(X) .
+\eeqn
+For more details we refer to \cite{GRWwzw}.
+
+
 \subsection{Local version and examples from supersymmetric field theories}
 
 %this section aimed at physicists
