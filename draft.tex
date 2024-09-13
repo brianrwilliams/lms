@@ -118,8 +118,11 @@ A community is forming, involving both mathematicians and physicists,
 to bring into sharp mathematical form some of the deep insights into gauge theory offered by physics.
 There is a lot to explore here.
 
-\subsection{Preliminary notions}
+\subsection{How to read this paper}
 
+\subsection{Acknowledgements}
+
+\section{Holomorphic field theories}
 
 \brian{complex geometry, dolbeault, dg stuff.}
 
@@ -421,7 +424,7 @@ where $C \in \Omega^{2n+1}(X)$.
 For more details we refer to~\cite{GRWwzw}.
 
 
-\subsection{The local definition, and examples from supersymmetric field theories}
+\subsection{From supersymmetric field theories to holomorphic field theories}
 
 
 %this section aimed at physicists
@@ -1252,49 +1255,54 @@ the observables of a topological field theory on $\RR^d$ are a little $d$-discs 
 \end{quote}
 There is a setting where a precise version of this statement was proven, by Elliott and Safronov, for a mathematically well-defined class of Lagrangian field theories.
 
-\owen{give a nice version of their statement, with this as a first attempt}
+\owen{Rewrite this first attempt to be more accurate.}
 
-\begin{thm}[\cite{EllSaf},\owen{precise location}]
+\begin{thm}[\cite{EllSaf}]
+\label{thm: EllSaf}
 Let $\cT$ be a classical field theory on $\RR^d$ in the sense of~\cite{CosBook},
-and let its observables be constructed following~\cite{CG2}.
-If the theory satisfies 
+and let its observables $\Obs_\cT$ be constructed following~\cite{CG2}.
+
+If the theory $\cT$ satisfies 
 \begin{enumerate}
-\item[(i)] $\cT$ is equivariant under the action of the translation group,
-\item[(ii)] the action of the translation Lie algebra is homotopically trivialized, and
+\item[(i)] it is equivariant under the action of the translation group,
+\item[(ii)] the action of the translation Lie algebra is homotopically trivialized,\footnote{View the translation algebra $\RR^d$ as spanned by the basis $\{\partial_j\}$ of constant vector fields, and let $\rho: \RR^d \to \Der(\Obs_\cT)$ denote the translation action on observables.
+By a homotopical trivialization, we mean here that there is a linear map $\eta: \RR^d \to \Der(\Obs_\cT)$ of degree $-1$ such that $[\d_{\cT}, \eta(\partial_j)] = \rho(\partial_j)$.
+In other words, $\eta$ provides a chain homotopy trivialization of the action~$\rho$.} 
+and
 \item[(iii)] the extension of observables along an inclusion of discs is a quasi-isomorphism,
 \end{enumerate}
 then the observables form a little $d$-discs algebra.
 \end{thm}
 
+This theorem applies to many well-known examples from physics:
+\begin{itemize}
+\item The topological $B$-model of maps from an oriented surface into a Calabi-Yau manifold $X$ (constructed by Li and Li \cite{LiLi} in a setting where \cite{EllSaf} applies) yields an $E_2$ algebra. It is quasi-isomorphic to the well-known Gerstenhaber algebra of polyvector fields on~$X$.
+\item The Chern-Simons gauge theory of flat $G$-bundles on an oriented 3-manifold (constructed, essentially, by Axelrod-Singer \cite{AxeSin} and Kontsevich \cite{KonECM} but articulated in this setting by Costello \cite{CosBook}) yields an $E_3$ algebra, which encodes the quantum group $U_\hbar \fg$ under a version of Koszul duality.
+\item The Rozansky-Witten theory of maps from an oriented 3-manifold into a complex manifold \cite{ChanLeungLi} yields an $E_3$ algebra \owen{on what?}
+\item The Kapustin-Witten gauge theory for oriented 4-manifolds \cite{EGW} yields an $E_4$ algebra, related to deforming functions on the coadjoint quotient stack~$\fg^*/G$.
+\end{itemize}
+It applies to other examples of topological AKSZ theories, such as BF theories and the Poisson $\sigma$-model.
+In all these examples, the underlying elliptic complex appearing in the field theory is a version of the de Rham complex,
+so that the chain homotopy $\eta$ is easily constructed by contracting a vector field with differential forms.
+
+This theorem builds an explicit bridge between topology and physics. 
+Thanks to the theorem of Elliott and Safronov, we know that most topological field theories in the physicist's sense provide $E_n$ algebras (with the examples above as evidence),
+but they can thus be analyzed using the powerful machinery of modern homotopy theory. 
+Conversely, intuition from physics about the behavior of topological field theories suggests novel constructions and examples to topology. 
+Much of the amazing resonance between operads, homological algebra, and string-theoretic physics over the last few decades can be understood from this perspective.
+(See Section~\ref{sec: reln to functorial TFT} for the relation with the Atiyah-Segal approach to TFT.)
+
+Let us comment on some aspects of the theorem and its proof.
 The notion from \cite{CosBook} articulates Lagrangian field theories whose linearized equations of motion are elliptic in nature;
 it uses (and mathematically articulates) the Batalin-Vilkovisky formalism,
 which is inherently homological.
 In particular, there is an underlying graded vector space of ``fields,''
 and the observables are a dg commutative algebra given a symmetric algebra on the linear dual to the fields and equipped with a differential $d_\cT$ that is determined by the Lagrangian density of the theory.
-Item (ii) above then means that each vector field $\partial_i$ acts by a degree 0 cochain map $D_i$ on the observables and there is a degree one cochain homotopy $\eta_i$ on the observables such that $[d_\cT, \eta_i]~=~D_i$.
-
-\owen{Actually say what kind of $d$-discs algebras one gets.}
-This theorem applies to many well-known examples from physics:
-\begin{itemize}
-\item The topological $B$-model of maps from an oriented surface into a Calabi-Yau manifold $X$ (constructed by Li and Li \cite{LiLi} in a setting where \cite{EllSaf} applies) yields an $E_2$ algebra. It is quasi-isomorphic to the well-known Gerstenhaber algebra of polyvector fields on~$X$.
-\item Chern-Simons gauge theory of flat $G$-bundles on an oriented 3-manifold (constructed, essentially, by Axelrod-Singer \cite{AxeSin} and Kontsevich \cite{KonECM} but articulated in this setting by Costello \cite{CosBook}) yields an $E_3$ algebra, which encodes the quantum group $U_\hbar \fg$ under a version of Koszul duality.
-\item Rozansky-Witten theory of maps from an oriented 3-manifold into a complex manifold \cite{ChanLeungLi} yields an $E_3$ algebra \owen{on what?}
-\item Each Kapustin-Witten gauge theory for oriented 4-manifolds \cite{EGW} yields an $E_4$ algebra, related to deforming the coadjoint quotient stack~$\fg^*/G$.
-\end{itemize}
-It applies to other examples of topological AKSZ theories, such as BF theories.
-In all these examples, the underlying elliptic complex is a version of the de Rham complex.
+Item (ii) above then means that each vector field $\partial_j$ acts by a degree 0 cochain map $D_j$ on the observables and there is a degree one cochain homotopy $\eta$ on the observables such that $[d_\cT, \eta(\partial_j)]~=~D_j$.
 
 For physicists, we note that the proof uses a version of Witten descent.
 Indeed, descent can be used to produce interesting operations in these disc algebras,
 so that many familiar constructions from the physical approach to TFTs fit cleanly and easily into this framework.
-
-\owen{Stuff about formality? functorial field theories?}
-
-This theorem builds an explicit bridge between topology and physics. 
-Thanks to the theorem of Elliott and Safronov, we know that most topological field theories in the physicist's sense provide $E_n$ algebras,
-but they can thus be analyzed using the powerful machinery of modern homotopy theory. 
-Conversely, intuition from physics about the behavior of topological field theories suggests novel constructions and examples to topology. 
-Much of the amazing resonance between operads, homological algebra, and string-theoretic physics over the last few decades can be understood from this perspective.
 
 \subsection{Generalizing algebras for holomorphic field theories}
 
@@ -2194,6 +2202,7 @@ This theorem is also a key connection between field theories and higher algebras
 %\end{thm}
 
 \subsubsection{Relating to the Atiyah-Segal approach to TFTs}
+\label{sec: reln to functorial TFT}
 
 Atiyah \cite{AtiTFT} offered a mathematical definition for topological field theories that uses symmetric monoidal functors out of bordism categories.
 His approach was inspired by Segal's definition of a conformal field theory \cite{SegCFT},
@@ -2217,7 +2226,7 @@ determines a fully extended framed $d$-dimensional field theory with values in a
 In combination with the theorem of Elliott and Safronov, we can connect action functionals --- the physicist's usual description of a field theory --- to Atiyah-Segal functorial field theories.
 
 \begin{cor}
-For any Lagrangian field theory satisfying the hypotheses of Theorem~\ref{}, 
+For any Lagrangian field theory satisfying the hypotheses of Theorem~\ref{thm: EllSaf}, 
 there is a fully extended framed $d$-dimensional field theory 
 given by $\int_{(-)} \cA^q$ where $\cA^q$ denotes the $E_d$ algebra of quantum observables.
 \end{cor}
@@ -2239,7 +2248,7 @@ Daniel Bruegmann's thesis, and how the web of 2d CFT stuff should fit together.}
 
 \owen{revisit this theme, and discuss the "modes" algebra}
 
-\section{Constructing examples \& renormalization}
+\section{Renormalization \& anomalies: constructing examples}
 
 \owen{We discussed having the following:
 \begin{itemize}
