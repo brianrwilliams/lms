@@ -67,24 +67,23 @@ in which --- to simplify --- only the underlying smooth topology of the manifold
 There are, however, theories that depend on a complex structure on the manifold,
 and as one might hope, these are particularly beautiful, 
 just as complex variables is a particularly beautiful wing of analysis.
-In essence, such {\em holomorphic} field theories have variational partial differential equations (i.e., ``equations of motion'') that are holomorphic:
-the PDE only involves derivatives in the holomorphic coordinates (i.e., the $\partial/\partial z_j$) and has holomorphic coefficients.
+In essence, such {\em holomorphic} field theories have variational partial differential equations (i.e., ``equations of motion'') that are holomorphic.
 These theories admit independent motivations from mathematics and physics,
 which we sketch before giving more careful definitions.
 
 The mathematical motivation is simple:
 for most classical holomorphic field theories, the solutions to the equations of motion form a moduli space of natural interest to complex geometers,
-and it is natural to hope that its quantization is equally interesting.
+and one might hope that the quantization of this moduli space is equally interesting.
 A well-known example is holomorphic Chern-Simons theory,
 which lives on a Calabi-Yau 3-fold~$X$ and involves the moduli space $\RR\Bun_G(X)$ of holomorphic principal $G$-bundles on~$X$.
 (We add the prefix $\RR$ because it is best to use the {\em derived} moduli space.
 We do not assume the reader is versed in derived geometry and will offer motivations, glosses, and references throughout the survey.)
+
 As a more mundane example, let $\RR\Hol(X,Y)$ denote the derived moduli space of holomorphic maps from some complex manifold $X$ to another complex manifold $Y$.
 (For $Y = V$ a vector space, a ``derived'' enhancement is familiar as the higher dimensional cohomology $H^*(X, \cO) \otimes V$.)
-In derived geoemtry one can take a ``shifted cotangent bundle'' $T^*[-1] \RR\Hol(X,V)$,
+In derived geometry one can take a ``shifted cotangent bundle'' $T^*[-1] \RR\Hol(X,V)$,
 and this derived moduli space encodes solutions to
-a theory known as the $\beta\gamma$ system with target $V$.
-(The name is silly: it's due to the original notation people used.)
+a field theory known as the $\beta\gamma$ system with target~$V$.\footnote{The name is silly: it's due to the original notation people used.}
 Every question one asks about the classical physics of the $\beta\gamma$ theory translates into a question about this moduli space.
 Other classes of examples are afforded by holomorphic variants of the AKSZ $\sigma$-models (such as the Poisson $\sigma$-model that appears in Kontsevich's construction of deformatino quantization); 
 the relevant moduli space being the derived mapping space between complex manifolds. 
@@ -94,25 +93,31 @@ which (loosely speaking) are theories on $\RR^n$ whose symmetries include not on
 %The relevant extension is often labeled by $\cN=1, 2,$ and so on, 
 %with larger $\cN$ denoting a bigger supergroup. 
 Thanks to the enhanced symmetry, such theories can often be understood in greater detail than non-supersymmetric theories.
-The relevance to the models we study is that supersymmetric theories admit ``twists'' (in essence, deformations) that are holomorphic field theories, 
+The relevance to this survey is that supersymmetric theories admit ``twists'' (in essence, deformations) that are holomorphic field theories, 
 even when they do not admit twists to TFTs \cite{CosHol}. 
 (The famed A- and B-models of mirror symmetry are TFTs produced by twisting supersymmetric thories.)
-As an example, four-dimensional minimally supersymmetric Yang-Mills theory admits no topological twist, but does admit a twist to holomorphic field theory whose moduli space is described, in part, by the moduli space of holomorphic $G$-bundles~$\RR \Bun_G(X)$. 
-It is natural to wonder how the myriad tools and computations deployed on the supersymmetric theory carry over to this twist and conversely whether information can flow back from a holomorphically twisted theory to the untwisted one, 
+As an example, four-dimensional minimally supersymmetric Yang-Mills theory admits no topological twist, 
+but it does admit a twist to holomorphic field theory whose moduli space is described, in part, by the moduli space of holomorphic $G$-bundles~$\RR \Bun_G(X)$. 
+
+It is natural to wonder how the myriad tools and computations deployed on a supersymmetric theory carry over to this twist 
+and, conversely, whether information can flow back from a holomorphically twisted theory to the original supersymmetric theory, 
 much as TFTs have enriched the understanding of supersymmetric theories.
 In short, a holomorphic twist contains the ``holomorphic sector'' of the untwisted theory just as a topological twist contains its ``topological sector.''
-It may be helpful to know that the role of derived geometry on the mathematical side is mirrored by the use of the BRST/BV formalism on the physics side;
+To aid translation between mathematics and physics, 
+it may be helpful to know that the role of derived geometry on the mathematical side is mirrored by the use of the BRST/BV formalism on the physics side;
 they are closely related and serve similar purposes.
 
-As a final motivational remark, we note in one complex dimension (i.e., working on Riemann surfaces), holomorphic field theories appear as chiral conformal field theories (CFTs) on two-dimensional manifolds --- whose manifestations in mathematics include vertex algebras, affine Lie algebras, and loop groups --- and have had a strong impact in mathematics.
-It is natural to explore higher-dimensional analogs.
-So far, most mathematical effort in this direction has focused on classical aspects of gauge theory,
+As a final motivational remark, we note in one complex dimension (i.e., working on Riemann surfaces), 
+holomorphic field theories appear as chiral conformal field theories (CFTs) on Riemann surfaces. 
+The study of CFTs--- whose manifestations in mathematics include vertex algebras, affine Lie algebras, and loop groups --- have had a strong impact in mathematics,
+so it is natural to explore higher-dimensional analogs.
+So far, most mathematical effort in this direction has focused on (essentially) classical aspects of gauge theory,
 but the quantum aspects are profoundly interesting.
 We expect that these holomorphic examples will be particularly tractable and beautiful but also useful in offering insights even for non-holomorphic theories.
 
 The overarching goal of this paper is to introduce the reader to this emerging domain where physics and mathematics meet,
 with an emphasis upon how key objects from physics, notably supersymmetric theories and conformal field theories, 
-interface with complex geometry in general and with mathematical methods of rather recent vintage,
+interface with complex geometry and especially with mathematical methods of rather recent vintage,
 notably derived geometry and higher algebras.
 A community is forming, involving both mathematicians and physicists,
 to bring into sharp mathematical form some of the deep insights into gauge theory offered by physics.
@@ -120,9 +125,45 @@ There is a lot to explore here.
 
 \subsection{How to read this paper}
 
+Section~\ref{sec: HFT} is devoted to describing holomorphic field theories, primarily by offering a bounty of examples, including holomorphic analogs of gauge and gravity theories.
+We outline as well how to obtain holomorphic field theories from supersymmetric field theories,
+a rich source of examples to explore.
+
+The next three sections are, in a sense, the core of the survey,
+as they describe increasingly general types of higher algebras and how these capture the observables of holomorphic field theories.
+Section~\ref{sec: algebra} revisits the relationship between quantum mechanics and associative algebras,
+chiral conformal field theory and vertex algebras,
+and holomorphic field theories and higher-dimensional generalizations of vertex algebras.
+Section~\ref{sec: config} offers a useful framework for studying these higher vertex algebras,
+using operads,
+and it develops powerful analogies to the little $n$-disks operad $E_n$ that plays an important role in contemporary topology.
+Section~\ref{sec: fact alg} introduces factorization algebras,
+providing a local-to-global principle to describe the observables on complex manifolds beyond affine spaces.
+In particular, by pushing forward factorization algebras,
+one can relate field theories of different dimension,
+i.e., a version of the physicist's ``compactification.''
+
+A reader could read this core section independently of the rest of the paper,
+as it focuses on algebra and geometry and requires no substantial knowledge of field theory {\it per se}.
+
+Section~\ref{sec: renorm} describes recent work that allows one to produce examples:
+there is now a convenient framework for renormalization of holomorphic field theories on $\CC^n$,
+and so the field theories of Section~\ref{sec: HFT} generate higher algebras of the form described in Sections~\ref{sec: algebra},~\ref{sec: config}, and~\ref{sec: fact alg}.
+The reader could skip to this section directly from Section~\ref{sec: HFT}.
+
+We conclude the paper by describing the kind of fascinating mathematical questions
+that arise by taking physical conjectures (e.g., dualities of supersymmetric theories) and twisting them into conjectures about holomorphic field theories. 
+Section~\ref{sec: seiberg} explores the holomorphic cousin of Seiberg duality,
+which suggests a remarkable correspondence between a gauge theory with group $SL(N)$ and a gauge theory with group $SL(M)$, where $M \neq N$.
+It is a kind of enhancement of Weyl's invariant theory and has close connections with topics like homological projective duality.
+
+
 \subsection{Acknowledgements}
 
+\owen{To thank: Kevin Costello, Si Li, Davide Gaiotto, Ed Segal, Chris Elliott, Pavel Safronov, Kapranov, Hennion, Matt Szczesny, Richard Eager, Ingmar Saberi, Johannes Walcher, Jie Zhou, Minghao Wang, Nik Rozenblyum}
+
 \section{Holomorphic field theories}
+\label{sec: HFT}
 
 \brian{complex geometry, dolbeault, dg stuff.}
 
@@ -209,7 +250,7 @@ where $CS(A)$ is exactly as in \eqref{eqn:CS}.\footnote{Notice that due to the p
 
 We turn to a formal definition underpinning the formal moduli spaces of the holomorphic field theories that we will be considering. 
 
-\begin{dfn}
+\begin{dfn}t 
 A {\em holomorphic dg Lie algebra} on a complex manifold $X$ is
 \begin{itemize}
 \item a graded holomorphic vector bundle $V$ on $X$ whose sheaf of holomorphic functions is $\cV^{hol}$, and
@@ -560,6 +601,7 @@ they have shown how important invariants (notably the ``supersymmetric index") o
 
 
 \section{Algebra and holomorphic field theories}
+\label{sec: algebra}
 
 In this section we describe  associative algebras and their ``homotopical'' generalizations, like $A_\infty$ algebras, related to holomorphic field theories,
 following the relationship of associative algebras to quantum mechanics and of vertex algebras to chiral conformal field theory.
@@ -1039,6 +1081,7 @@ but a richer story is possible once we have a higher version of vertex algebras.
 We will return to this topic once we have the rich language of factorization algebras.
 
 \section{Algebraic structures parametrized by configuration spaces}
+\label{sec: config}
 
 Associative algebras arise in quantum mechanics, we have argued, because the spacetime of a mechanical system is a line (``time'').
 If we organize the observables (or operators) by when they happen in time,
@@ -1625,7 +1668,7 @@ In Section~\ref{???} we will examine another relationship --- generalizing the c
 
 
 \section{Factorization algebras and holomorphic field theories}
-\label{prefactorization_algebras}
+\label{sec: fact alg}
 
 \owen{Some of what's below is borrowed and scarcely modified from the books, so we probably should do more revision so it's not plagiarism!}
 
@@ -2249,6 +2292,7 @@ Daniel Bruegmann's thesis, and how the web of 2d CFT stuff should fit together.}
 \owen{revisit this theme, and discuss the "modes" algebra}
 
 \section{Renormalization \& anomalies: constructing examples}
+\label{sec: renorm}
 
 \owen{We discussed having the following:
 \begin{itemize}
