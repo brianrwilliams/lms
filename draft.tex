@@ -169,85 +169,172 @@ It is a kind of enhancement of Weyl's invariant theory and has close connections
 
 We begin by sketching what a classical field theory is, somewhat impressionistically, and then offer some concrete examples.
 
-A physical field theory is usually described in terms of a space of fields that forms some possibly nonlinear space, like a mapping space $\Map(M,X)$ or the space of connections ${\rm Conn}_G(M)$ on a manifold. 
-There is a manifold, called spacetime in physics, where the fields are some kind of functions out of it;
-in the examples just mentioned, it is denoted $M$.
-In perturbative field theory, which describes the formal neighborhood of the theory at a point in such spaces, 
-a field $\Phi$ is typically described by a smooth section of a vector bundle on spacetime.
-The equations of motion that dictate the dynamics of the particular model are encoded by a series of partial differential equations of the form 
-\[
-\sum_{k \geq 1} D_k(\Phi,\ldots,\Phi) = 0 ,
-\]
-where $D_k$ is a $k$-ary polydifferential operator.
-As an example, the scalar $\phi^4$-theory on a Riemannian $M$ is described by the equation
-\[
-\Delta \phi + \frac{1}{3!} \phi^3 = 0 
-\]
-where $\Phi = \phi$ is simply a smooth function on $M$.
-These equations of motion are natural to the Riemannian geometry of the manifold $M$, 
-and they can be derived from the Euler--Lagrange equations of the  action functional $\int_M \phi \Delta \phi \, \op{dvol}$.
+In physics, a classical field theory is usually described in terms of a few pieces of data:
+\begin{itemize}
+\item a manifold $M$ that plays the role of ``spacetime,''
+\item a space of fields, such as sections of some fiber bundle $F \to M$ or connections on a principal bundle on $M$, and
+\item a system of PDE for the fields, known as the equations of motion.
+\end{itemize}
+These equations of motion are variational: 
+they are the Euler-Lagrange equations of an action functional on the space a fields.
+An action functional is written as an integral over $M$ of some polydifferential operator on the fields that takes values in densities of~$M$.
+A few examples will illuminate this sketch.
 
-As another example, consider perturbative Chern--Simons theory whose fields are a principal $G$-bundle $P$ on a smooth three-manifold $M$ equipped with a connection.
-The equations of motion is the condition that the connection is flat 
+\begin{eg}[Massless scalar field theory]
+Let $M$ be a smooth manifold and equip it with a Riemannian metric~$g$.
+Let $\Delta_g$ denote the associated Laplace-Beltrami operator, 
+and let $\d{\rm vol}_g$ denote the associated volume form.
+Let the space of fields be the smooth functions $C^\infty(M)$.
+A smooth function $\phi$ is called, in physics, a {\em scalar} field.
+The action functional
+\[
+S(\phi) = \int_M \phi \Delta_g \phi \, \d{\rm vol}_g
+\]
+corresponds to the equation of motion $\Delta_g \phi = 0$. 
+Thus this scalar field theory has the moduli space of {\em harmonic functions} as its space of solutions.
+\end{eg}
+
+The preceding example exhibits how a moduli space of central interest in differential geometry --- the harmonic functions --- appears naturally as a basic example in physics (the ``free massless scalar field'').
+More complicated moduli spaces show up too.
+
+\begin{eg}[$\phi^4$ theory]
+As a small variant of the example just given,
+consider the action functional
+\[
+S(\phi) = \int_M \phi \Delta_g \phi + \frac{1}{4!} \phi^4\, \d{\rm vol}_g.
+\]
+Its equation of motion is the nonlinear PDE 
+\[
+\Delta_g \phi + \frac{1}{3!} \phi^3 = 0.
+\] 
+Thus this scalar field theory has a more complicated, nonlinear moduli space of solutions.
+\end{eg}
+
+We now describe an example of a theory whose space of solutions is a moduli space of interest in geometric topology.
+
+\begin{eg}[Chern-Simons theory]
+Pick a compact Lie group $G$ and equip it with an invariant metric,
+which induces a $G$-invariant inner product $\kappa$ on its Lie algebra~$\fg$.
+(The standard choice is the Killing form.)
+Take an oriented smooth 3-manifold $M$, 
+and consider the space of connections on the trivial principal $G$-bundle on $M$.
+This space of fields is isomorphic to $\Omega^1(M, \fg)$, the $\fg$-valued one-forms, 
+by viewing $\d + A$ as a connection where $A \in \Omega^1(M, \fg)$.
+The equation of motion is the zero-curvature equation
+\[
+F_A = 0,
+\]
+which can be expressed equivalently as the Maurer-Cartan equation
+\[
+\d A + \frac{1}{2} [A,A] = 0.
+\]
+These equations arise as the Euler-Lagrange equation for the action functional
 \beqn
-F_\nabla = 0 .
+\label{eqn:CS}
+CS(A) = \frac12 \kappa(A, \d A) + \frac16 \kappa(A, [A,A]),
 \eeqn
-Perturbatively, near the trivial flat connection, the fields are simply $\lie{g} = \op{Lie}(G)$-valued one-forms $A \in \Omega^1(M, \lie{g})$.
-The condition that perturbed connection $\d + A$ is flat is the Maurer--Cartan equation
-\beqn
-\d A + \frac12 [A,A] = 0.
-\eeqn
-These equations of motion are topological in the sense that they only depend on the smooth manifold~$M$.
-When $\lie{g}$ is equipped with a non-degenerate, invariant, bilinear form $\kappa$ (for example, if $G$ is semi-simple there is a standard choice) then these equations of motion can be derived from the famous Chern--Simons action functional $\int_M CS(A)$ where
-\beqn\label{eqn:CS}
-CS(A) = \frac12 \kappa(A, \d A) + \frac16 \kappa(A, [A,A]) .
-\eeqn
+the integral of a Chern-Simons form.
+Hence this theory is known as {\em Chern-Simons theory}.\footnote{Note that $M$ needs to be an oriented 3-manifold for this action functional to make sense.
+The equation of motion exists for a principal bundle on any manifold of any dimension,
+but it is only variational for oriented 3-manifolds.}
+These equations do not depend on a metric on $M$ or any other geometric structure,
+and hence define a ``topological'' field theory in the sense that they are independent of geometry.
+This theory is interesting because the moduli space of solutions consists of the flat $G$-bundles on $M$,
+a topic of deep interest in geometry and topology.
+For physicists, it is interesting because it does not involve geometry, 
+by contrast to earlier examples of field theories,
+and yet exhibits rich phenomena (notably applications to the quantum Hall effect and 3-dimensional gravity).
+\end{eg}
+
+\begin{rmk}
+In the Chern-Simons example, there is an important aspect we did not yet acknowledge:
+we need to identify different solutions related by gauge transformations.
+In other words, the correct moduli space is the quotient stack
+\[
+\left[ \{ A \,:\, F_A = 0\}/\Map(M,G) \right].
+\]
+The usual mode of description of a field theory, by specifying fields and an action functional (or equations of motion), 
+must be supplemented by specifying whether to quotient by some group of symmetries of the space of solutions.
+More generally, a field theory ought to present some kind of derived moduli stack.
+\end{rmk}
+
+We are now in a good position to offer an example of a {\em holomorphic field theory}:
+the holomorphic analog of Chern-Simons theory.
  
-In a {\em holomorphic theory} one starts with a complex manifold $X$ as the spacetime.
-%This means, in part, that the complexified tangent bundle of $X$ decomposes as a sum of vector bundles $\T_X \oplus \Bar{\T}_X$ where $\T_X$ (respectively $\Bar{T}_X$) is the holomorphic (respectively anti-holomorphic) tangent bundle.
-%In local coordinates sections of $\T_X$ have the form $f^i \del / \del z_i$ whereas sections of $\Bar{\T}_X$ have the form $f^i \del / \del \zbar_i$. 
-Globally, holomorphic theories are described like in the usual case by mapping spaces or spaces of connections.
-The key feature in a holomorphic theory is that the equations of motion dictate that fields be holomorphic in an appropriate sense.
-Perturbatively, where fields are sections of some (possibly graded) holomorphic vector bundle $V$, we can make this precise. 
-Prescribing a holomorphic structure on a vector bundle $V$ is equivalent to the data of a $\dbar$-operator
-\beqn
-\dbar \colon \Omega^{0,q}(X, V) \to \Omega^{0,q+1}(X,V) 
-\eeqn
-where $\Omega^{0,q}(X,V)$ is the space of smooth sections of the vector bundle $\wedge^q\Bar{T}_X^* \otimes V$. 
-Holomorphicity of $V$ boils down to the requirement that $\dbar \circ \dbar = 0$.
-The Dolbeault complex of $V$ is
-\beqn
-\left(\Omega^{0,\bu}(X, V), \dbar \right) = \left(\oplus_{q \geq 0} \Omega^{0,q}(X, V)[-q], \dbar \right)
-\eeqn
-where (in the case that $V$ sits in degree zero) the space $\Omega^{0,q}(X,V)$ sits in degree $+q$.
-A standard result in complex geometry is that the Dolbeault complex is a resolution for the sheaf of holomorphic sections of the holomorphic vector bundle $V$.
-%In the case that $V$ is the trivial bundle $\ul{\CC}$ the Dolbeault complex $\Omega^{0,\bu}(X)$ is a resolution for the sheaf of holomorphic functions on $X$.
+%In a {\em holomorphic theory} one starts with a complex manifold $X$ as the spacetime.
+%%This means, in part, that the complexified tangent bundle of $X$ decomposes as a sum of vector bundles $\T_X \oplus \Bar{\T}_X$ where $\T_X$ (respectively $\Bar{T}_X$) is the holomorphic (respectively anti-holomorphic) tangent bundle.
+%%In local coordinates sections of $\T_X$ have the form $f^i \del / \del z_i$ whereas sections of $\Bar{\T}_X$ have the form $f^i \del / \del \zbar_i$. 
+%Globally, holomorphic theories are described like in the usual case by mapping spaces or spaces of connections.
+%The key feature in a holomorphic theory is that the equations of motion dictate that fields be holomorphic in an appropriate sense.
+%Perturbatively, where fields are sections of some (possibly graded) holomorphic vector bundle $V$, we can make this precise. 
+%Prescribing a holomorphic structure on a vector bundle $V$ is equivalent to the data of a $\dbar$-operator
+%\beqn
+%\dbar \colon \Omega^{0,q}(X, V) \to \Omega^{0,q+1}(X,V) 
+%\eeqn
+%where $\Omega^{0,q}(X,V)$ is the space of smooth sections of the vector bundle $\wedge^q\Bar{T}_X^* \otimes V$. 
+%Holomorphicity of $V$ boils down to the requirement that $\dbar \circ \dbar = 0$.
+%The Dolbeault complex of $V$ is
+%\beqn
+%\left(\Omega^{0,\bu}(X, V), \dbar \right) = \left(\oplus_{q \geq 0} \Omega^{0,q}(X, V)[-q], \dbar \right)
+%\eeqn
+%where (in the case that $V$ sits in degree zero) the space $\Omega^{0,q}(X,V)$ sits in degree $+q$.
+%A standard result in complex geometry is that the Dolbeault complex is a resolution for the sheaf of holomorphic sections of the holomorphic vector bundle $V$.
+%%In the case that $V$ is the trivial bundle $\ul{\CC}$ the Dolbeault complex $\Omega^{0,\bu}(X)$ is a resolution for the sheaf of holomorphic functions on $X$.
+%
+%The fields of a holomorphic theory are given by elements of the Dolbeault complex $\Omega^{0,q}(X,V)$ for some $q$.
+%The equations of motion in a holomorphic theory take the form
+%\beqn
+%\dbar \Phi + \sum_{k \geq 1} D_k(\Phi,\ldots,\Phi) = 0 ,
+%\eeqn
+%where $D_k$ are $k$-ary {\em holomorphic} polydifferential operators.
+%This means that in local coordinates $D_k$ only depend on the holomorphic coordinates $\{z_i\}$ and involve only holomorphic derivatives $\del / \del z_i$.
 
-The fields of a holomorphic theory are given by elements of the Dolbeault complex $\Omega^{0,q}(X,V)$ for some $q$.
-The equations of motion in a holomorphic theory take the form
+\begin{eg}[Holomorphic Chern-Simons theory]
+\owen{This feels rather convoluted. Can we make it simpler?}
+Pick a {\em complex} Lie group $G$, 
+and equip its Lie algebra $\fg$ with a complex-linear, $G$-invariant nondegenerate symmetric bilinear form~$\kappa$.
+Let $M$ be a three-dimensional \textit{complex} manifold
+equipped with a holomorphic volume form $\Omega \in \Omega^{3,0}(M)$; 
+in other words, $M$ is a Calabi--Yau manifold.
+(This condition is analogous to being an oriented 3-manifold.)
+Given a smooth principal $G$-bundle $P \to M$,
+there is a moduli space of holomorphic structures on~$P$.
+Suppose there exists at least one holomorphic structure $\cP \to M$,
+which has an associated Dolbeault operator (or $\dbar$-connection) $\dbar_{\cP}$.
+Any other holomorphic bundle structure determines a Dolbeault operator,
+but our reference point $\dbar_{\cP}$ provides an isomorphism
+\[
+{\rm Conn}^\dbar_G(P) \cong \Omega^{0,1}(M, {\rm ad}(P)),
+\]
+i.e., we express another $\dbar$-connection as $\dbar_{\cP} + A$ where $A$ is a $(0,1)$-form valued in the adjoint bundle.
+The equation of motion is again a Maurer--Cartan equation
 \beqn
-\dbar \Phi + \sum_{k \geq 1} D_k(\Phi,\ldots,\Phi) = 0 ,
+\dbar_{\cP} A + \frac12 [A,A] = 0 ,
 \eeqn
-where $D_k$ are $k$-ary {\em holomorphic} polydifferential operators.
-This means that in local coordinates $D_k$ only depend on the holomorphic coordinates $\{z_i\}$ and involve only holomorphic derivatives $\del / \del z_i$.
-
-For a simple example, consider the following holomorphic analog of Chern--Simons theory.
-The fields are principal $G$-bundles on a three-dimensional \textit{complex} manifold $X$, and the equations of motion give the condition that the principal $G$-bundle is holomorphic.
-Perturbatively, near the trivial $G$-bundle, the fields of this holomorphic theory are $\lie{g}$-valued $(0,1)$-forms $A \in \Omega^{0,1}(X, \lie{g})$.
-The condition that $\d + A$ prescribes a holomorphic structure is again a Maurer--Cartan equation
-\beqn
-\dbar A + \frac12 [A,A] = 0 .
-\eeqn
-Like ordinary Chern--Simons theory, in order for this equation to arise from a principal of least action one needs to fix a non-degenerate, invariant, bilinear form $\kappa$ on $\lie{g}$.
-Additionally, one needs to fix a holomorphic volume form $\Omega$ on $X$; in other words, $X$ is a Calabi--Yau manifold.
-Then, the equations of motion is precisely the Euler--Lagrange equation for the action
+or equivalently the $(0,2)$-term of the curvature vanishes.
+This PDE is the Euler--Lagrange equation for the action
 \beqn
 S_{hCS} (A) = \int_X \Omega \wedge CS(A) 
 \eeqn
-where $CS(A)$ is exactly as in \eqref{eqn:CS}.\footnote{Notice that due to the presence of the holomorphic volume form $\Omega$ only the $\dbar$ operator contributes to the kinetic term and so the action can be written as $\int_X \Omega \wedge \left(\frac12 \kappa( A ,\dbar A ) + \frac16 \kappa(A , [A,A]) \right)$.} 
+where $CS(A)$ is exactly as in~\eqref{eqn:CS}.\footnote{Notice that due to the presence of the holomorphic volume form $\Omega$, only the $\dbar A$ component of $\d A$ contributes to the integrand of the action functional, because $\Omega \wedge \partial A$ vanishes.} 
+As in the case of Chern-Simons theory, one must quotient by the appropriate group of gauge transformations to obtain the correct moduli space, 
+which is here the moduli stack of holomorphic principal $G$-bundles whose underlying smooth structure is given by $P \to M$.
+\end{eg}
 
+For a systematic introduction to classical field theory in a style amenable to a complex geometer,
+we suggest \cite{FreedDeligne},
+although there are many other sources, such as \cite{}.
+For a detailed development of field theory in dialogue with derived geometry,
+see \cite{Steffens},
+and for a motivational discussion, likely more accessible to physicists, see \cite{AlfonsoYoung?}.
+In Section~\ref{sec: pert dfn} we offer a sharp definition well-suited to perturbative field theory 
+(i.e., studying formal deformations of a fixed solution to the equations of motion),
+which we will use to produce examples of higher algebras.
 
 \subsection{Examples}
+
+In this section we describe several examples of holomorphic field theories,
+close to the style we used for holomorphic Chern-Simons theory.
 
 In traditional physics there are a few basic types of field theories, 
 and they can be assembled into combinations,
@@ -269,6 +356,8 @@ To give the readers --- possibly a mixed audience of mathematicians and physicis
 we describe them in several ways: 
 in terms of PDE and action functionals but also as moduli spaces.
 We do not offer a thorough justification of the dictionary, for which see \owen{cite who?}
+
+\owen{Somewhere cite Donaldson and Thomas.}
 
 For an example that mixes several types and that is a holomorphic analog of quantum chromodynamics (QCD), the theory that governs the strong force and quarks,
 see Section~\ref{sec: seiberg}.
@@ -430,7 +519,7 @@ where $C \in \Omega^{2n+1}(X)$.
 For more details we refer to~\cite{GRWwzw}.
 
 \subsection{Perturbative field theories via derived deformations}
-
+\label{sec: pert dfn}
 
 We turn to a formal definition underpinning the formal moduli spaces of the holomorphic field theories that we will be considering. 
 
