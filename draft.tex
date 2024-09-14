@@ -143,7 +143,7 @@ In particular, by pushing forward factorization algebras,
 one can relate field theories of different dimension,
 i.e., a version of the physicist's ``compactification.''
 
-A reader could read this core section independently of the rest of the paper,
+A reader could read this core portion independently of the rest of the paper,
 as it focuses on algebra and geometry and requires no substantial knowledge of field theory {\it per se}.
 
 Section~\ref{sec: renorm} describes recent work that allows one to produce examples:
@@ -165,7 +165,9 @@ It is a kind of enhancement of Weyl's invariant theory and has close connections
 \section{Holomorphic field theories}
 \label{sec: HFT}
 
-\brian{complex geometry, dolbeault, dg stuff.}
+\owen{I rearranged this section somewhat. Our discussion of examples did not involve any BRST/BV stuff, so I put it right after the impressionistic opening. The "definitions" section seemed to be purely perturbative and to use notions from derived geometry, so I put it next. It should be fleshed out a little (e.g., a mention of the "fundamental theorem of deformaiton theory" and maybe show how to write one of the examples in that language).}
+
+We begin by sketching what a classical field theory is, somewhat impressionistically, and then offer some concrete examples.
 
 A physical field theory is usually described in terms of a space of fields that forms some possibly nonlinear space, like a mapping space $\Map(M,X)$ or the space of connections ${\rm Conn}_G(M)$ on a manifold. 
 There is a manifold, called spacetime in physics, where the fields are some kind of functions out of it;
@@ -244,43 +246,6 @@ S_{hCS} (A) = \int_X \Omega \wedge CS(A)
 \eeqn
 where $CS(A)$ is exactly as in \eqref{eqn:CS}.\footnote{Notice that due to the presence of the holomorphic volume form $\Omega$ only the $\dbar$ operator contributes to the kinetic term and so the action can be written as $\int_X \Omega \wedge \left(\frac12 \kappa( A ,\dbar A ) + \frac16 \kappa(A , [A,A]) \right)$.} 
 
-
-\subsection{Definitions}
-
-
-We turn to a formal definition underpinning the formal moduli spaces of the holomorphic field theories that we will be considering. 
-
-\begin{dfn}t 
-A {\em holomorphic dg Lie algebra} on a complex manifold $X$ is
-\begin{itemize}
-\item a graded holomorphic vector bundle $V$ on $X$ whose sheaf of holomorphic functions is $\cV^{hol}$, and
-\item a holomorphic differential operator $Q^{hol} \colon \cV^{hol} \to \cV^{hol}$ of cohomological degree one and a holomorphic bidifferential operator $[\cdot,\cdot] \colon \cV^{hol} \times \cV^{hol} \to \cV^{hol}$. 
-\end{itemize}
-This data is required to endow $(\cV^{hol}, Q^{hol}, [\cdot,\cdot])$ with the structure of a dg Lie algebra.
-\end{dfn}
-
-Any holomorphic vector bundle has an associated Dolbeault complex $\Omega^{0,\bu}(X,V)$. 
-If $V$ is a holomorphic dg Lie algebra, 
-then $\Omega^{0,\bu}(X, V)$ is a dg Lie algebra. 
-The differential is of the form $\dbar + Q^{hol}$ and the bracket is given by extending the bracket on $\cV^{hol}$ with the wedge product of differential forms. 
-Notice that this dg Lie algebra has the appealing feature that it is the $C^\infty$-sections of a smooth vector bundle on $X$.
-
-Formal moduli spaces arise from the space of Maurer--Cartan elements of a dg Lie algebra.
-In our case, this dg Lie algebra will always be of the form $\Omega^{0,\bu}(X, V)$.
-For example, the Maurer--Cartan elements of the dg Lie algebra $\Omega^{0,\bu}(X, \fg)$ recovers formal deformations of the trivial holomorphic $G$-bundle.  
-This arises from the holomorphic Lie algebra on $X$ whose underlying vector bundle is trivial with fiber $\fg$. 
-
-As another example, consider the holomorphic tangent bundle $V = \T_X$. 
-The Lie bracket of vector fields endows this with the structure of a holomorphic Lie algebra (with zero differential). 
-A Maurer--Cartan element in $\Omega^{0,\bu}(X, \T_X)$ is an element $\mu \in \Omega^{0,1}(X, \T_X)$ satisfying the equation
-\[
-\dbar \mu + \frac12 [\mu,\mu] = 0 .
-\]
-This recovers the classical picture describing formal deformations of complex structures on~$X$.
-
-
-%this section aimed at mathematicians
-%emphasize connection with (derived) complex geometry
 
 \subsection{Examples}
 
@@ -463,6 +428,44 @@ Generally, this theory is the holomorphic part of a higher-form scalar theory, w
 \eeqn
 where $C \in \Omega^{2n+1}(X)$.
 For more details we refer to~\cite{GRWwzw}.
+
+\subsection{Perturbative field theories via derived deformations}
+
+
+We turn to a formal definition underpinning the formal moduli spaces of the holomorphic field theories that we will be considering. 
+
+\begin{dfn}t 
+A {\em holomorphic dg Lie algebra} on a complex manifold $X$ is
+\begin{itemize}
+\item a graded holomorphic vector bundle $V$ on $X$ whose sheaf of holomorphic functions is $\cV^{hol}$, and
+\item a holomorphic differential operator $Q^{hol} \colon \cV^{hol} \to \cV^{hol}$ of cohomological degree one and a holomorphic bidifferential operator $[\cdot,\cdot] \colon \cV^{hol} \times \cV^{hol} \to \cV^{hol}$. 
+\end{itemize}
+This data is required to endow $(\cV^{hol}, Q^{hol}, [\cdot,\cdot])$ with the structure of a dg Lie algebra.
+\end{dfn}
+
+Any holomorphic vector bundle has an associated Dolbeault complex $\Omega^{0,\bu}(X,V)$. 
+If $V$ is a holomorphic dg Lie algebra, 
+then $\Omega^{0,\bu}(X, V)$ is a dg Lie algebra. 
+The differential is of the form $\dbar + Q^{hol}$ and the bracket is given by extending the bracket on $\cV^{hol}$ with the wedge product of differential forms. 
+Notice that this dg Lie algebra has the appealing feature that it is the $C^\infty$-sections of a smooth vector bundle on $X$.
+
+Formal moduli spaces arise from the space of Maurer--Cartan elements of a dg Lie algebra.
+In our case, this dg Lie algebra will always be of the form $\Omega^{0,\bu}(X, V)$.
+For example, the Maurer--Cartan elements of the dg Lie algebra $\Omega^{0,\bu}(X, \fg)$ recovers formal deformations of the trivial holomorphic $G$-bundle.  
+This arises from the holomorphic Lie algebra on $X$ whose underlying vector bundle is trivial with fiber $\fg$. 
+
+As another example, consider the holomorphic tangent bundle $V = \T_X$. 
+The Lie bracket of vector fields endows this with the structure of a holomorphic Lie algebra (with zero differential). 
+A Maurer--Cartan element in $\Omega^{0,\bu}(X, \T_X)$ is an element $\mu \in \Omega^{0,1}(X, \T_X)$ satisfying the equation
+\[
+\dbar \mu + \frac12 [\mu,\mu] = 0 .
+\]
+This recovers the classical picture describing formal deformations of complex structures on~$X$.
+
+
+%this section aimed at mathematicians
+%emphasize connection with (derived) complex geometry
+
 
 
 \subsection{From supersymmetric field theories to holomorphic field theories}
