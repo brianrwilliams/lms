@@ -52,11 +52,9 @@
 
 \tableofcontents
 
-\owen{mention some history (e.g., Manin! Donaldson-Thomas, Nekrasov) and some recent work (CPTVV, Pridham, etc) but then explain our focus: higher analogs of VOAs and finding mathematical analogs of physics}
+\owen{mention some history (e.g., Manin, Donaldson-Thomas, Nekrasov) and some recent work (CPTVV, Pridham, Kapranov, etc) but then explain our focus: higher analogs of VOAs and finding mathematical analogs of physics}
 
 \owen{Notation to explain: dg = differential graded, PDE = partial differential equations}
-
-\brian{we need to make sure to cite nekrasov}
 
 
 \section{What is a holomorphic field theory? Why study them?}
@@ -115,13 +113,29 @@ So far, most mathematical effort in this direction has focused on (essentially) 
 but the quantum aspects are profoundly interesting.
 We expect that these holomorphic examples will be particularly tractable and beautiful but also useful in offering insights even for non-holomorphic theories.
 
-The overarching goal of this paper is to introduce the reader to this emerging domain where physics and mathematics meet,
-with an emphasis upon how key objects from physics, notably supersymmetric theories and conformal field theories, 
-interface with complex geometry and especially with mathematical methods of rather recent vintage,
-notably derived geometry and higher algebras.
-A community is forming, involving both mathematicians and physicists,
-to bring into sharp mathematical form some of the deep insights into gauge theory offered by physics.
-There is a lot to explore here.
+\subsection{The aims of this survey}
+
+Over the last few decades there has been a vigorous dialogue between complex geometry and theoretical physics,
+around topics like mirror symmetry, enumerative algebraic geometry, moduli of Calabi-Yau manifolds, the geometric Langlands program, and integrable systems, among others.
+Our focus will be narrow:
+it is about higher dimensional versions of the relationship between geometry and algebraic structures like Lie algebras, Poisson algebras, and vertex algebras.
+We will emphasize analogies to TFTs (such as the Gerstenhaber algebras appearing in mirror symmetry) and CFTs (such as the affine Lie algebras relating to moduli of $G$-bundles on Riemann surfaces),
+but our primary interest is on complex manifolds above dimension one.
+Experience suggests that higher dimensions require higher algebra,
+i.e., algebraic methods that involve cochain complexes.
+Thus differential graded (dg) algebras and categories,
+as well as fellow travelers like derived geometry, appear.
+
+A community has formed, involving both mathematicians and physicists, to explore and exploit these relationships,
+and it continues to grow as there is a lot to explore here.
+Examples of efforts in this direction include \cite{PTVV}, \cite{FHK}, \cite{Keviny things}, \cite{GaiottoEtAl}, \cite{Paquette}, \cite{Vicedo}, \cite{BeemBZEtAl}, 
+where our own background and interests (and unfortunately, our ignorance) have shaped this list.
+
+We will not discuss important directions like mirror symmetry, the geometric Langlands program, the BPS/CFT correspondence, Donaldson-Thomas theory, or other, more global and geometric, areas,
+although we expect there are rich connections with the topics we do discuss.
+Not including these topics is primarily because our core theme already swelled to more pages than we expected, 
+because a concise discussion of any of those topics does not yet seem possible with respect to our theme,
+and because of our lack of background in these areas.
 
 \subsection{How to read this paper}
 
@@ -321,12 +335,13 @@ As in the case of Chern-Simons theory, one must quotient by the appropriate grou
 which is here the moduli stack of holomorphic principal $G$-bundles whose underlying smooth structure is given by $P \to M$.
 \end{eg}
 
-For a systematic introduction to classical field theory in a style amenable to a complex geometer,
-we suggest \cite{FreedDeligne},
-although there are many other sources, such as \cite{}.
-For a detailed development of field theory in dialogue with derived geometry,
-see \cite{Steffens},
-and for a motivational discussion, likely more accessible to physicists, see \cite{AlfonsoYoung?}.
+For a systematic introduction to classical field theory, 
+in a style amenable to a complex geometer,
+we suggest \cite{FreedDeligne}.
+There are many other sources, such as \cite{}, because classical field theory is an old and deep subject.
+Recently there is an effort to revisit field theory with insights from derived geometry.
+See \cite{AlfonsoYoung?} for motivation and overview, 
+but for a detailed development, see \cite{Steffens}.
 In Section~\ref{sec: pert dfn} we offer a sharp definition well-suited to perturbative field theory 
 (i.e., studying formal deformations of a fixed solution to the equations of motion),
 which we will use to produce examples of higher algebras.
@@ -518,12 +533,12 @@ Generally, this theory is the holomorphic part of a higher-form scalar theory, w
 where $C \in \Omega^{2n+1}(X)$.
 For more details we refer to~\cite{GRWwzw}.
 
-\subsection{Perturbative field theories via derived deformations}
+\subsection{Perturbative field theory as derived deformation theory}
 \label{sec: pert dfn}
 
 We turn to a formal definition underpinning the formal moduli spaces of the holomorphic field theories that we will be considering. 
 
-\begin{dfn}t 
+\begin{dfn} 
 A {\em holomorphic dg Lie algebra} on a complex manifold $X$ is
 \begin{itemize}
 \item a graded holomorphic vector bundle $V$ on $X$ whose sheaf of holomorphic functions is $\cV^{hol}$, and
