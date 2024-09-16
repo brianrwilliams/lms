@@ -34,6 +34,8 @@
 \def\Spec{\text{Spec}}
 \def\C{{\mathbb{C}}}
 
+\DeclareMathOperator{\Schw}{Schw}
+
 \renewcommand{\op}{\operatorname}
 \def\lie#1{\ensuremath{\mathfrak{#1}}}
 
@@ -2461,6 +2463,53 @@ In work of Budzik, Gaiotto, Kulp, Wu, Yu, a strategy for proving UV finiteness f
 The key idea is to combine the heat kernel analysis with the sort of compactifications that are used in the theory of configuration spaces.
 Following this work, Minghao Wang has extended this analysis to show that holomorphic field theories on $\C^n$ admit a regulation scheme which is UV finite to \textit{all} orders in perturbation theory \cite{Wang}.
 In other words, both topological and holomorphic field theories are completely free of the divergences present in typical quantum field theories!
+
+\owen{Laying out some of this stuff in an attempt to state Minghao's theorem}
+
+We will allow graphs with finitely many vertices and edges, 
+but also leaves (also known as hair or half-edges).\footnote{That is, a vertex may have, in addition to edges connecting it to other vertices, some incident edges that do not connect to another vertex. 
+These will label inputs to an operation associated to the graph.}
+We allow multiple edges between vertices, as well as loops.
+
+For a graph $\gamma$, let $E(\gamma)$ denote the number of edges,
+$V(\gamma)$ denote the number of vertices,
+and $L(gamma)$ denote the number of leaves.
+
+\begin{dfn}
+For a graph $\gamma$, there is a space $\RR_+^{E(\gamma)}$ parametrizing the moduli space of lengths (all positive) given to the edges.
+This positive orthant has a the partial compactification $\Schw(\gamma)$, known as the {\em Schwinger space} of $\gamma$, 
+where \owen{define!} 
+\end{dfn}
+
+\begin{dfn}
+For a perturbative holomorphic field on $\CC^d$ with space of fields 
+\[
+\cV = \Gamma(\CC^d, \Omega^{0,\bullet}(V)),
+\] 
+as defined in Section~\ref{}, 
+there is a family of distributions
+\[
+w_{\gamma, t}: \cV_c^{L(\gamma)} \to \CC
+\]
+parametrized by $t \in \RR_+^{E(\gamma)}$,
+known as the {\em regularized weight of $\gamma$}.
+\end{dfn}
+
+This family of distributions is constructed as an integral over $\CC^{v(\gamma) d}$,
+where each edge $e$ is labeled by a smooth function $P_{t(e)}$ depending on the length of the edge and where each vertex is labeled by a distribution arising from an interaction term of the theory.
+For general theories, one cannot smoothly continue the regularized weight from the positive length values to zero lengths.
+The putative integrals become divergent.
+
+For holomorphic field theories, however, something remarkable happens.
+
+\begin{thm}[Wang, \owen{precise citations}]
+For every graph~$\gamma$,
+this family has a natural smooth extension to the Schwinger space~$\Schw(\gamma)$.
+\end{thm}
+
+In other words, divergences do not appear.
+
+\owen{It would be good to explain why and indicate what is the appropriate "value" to use.}
 
 The discussion so far in this section was about the analytic issues which are present when trying to make the path integral precise.
 For interesting quantum field theories, like gauge theories, there is another issue which could prevent the theory from being well-posed; these are called anomalies.
