@@ -349,7 +349,8 @@ which we will use to produce examples of higher algebras.
 \subsection{Examples}
 
 In this section we describe several examples of holomorphic field theories,
-close to the style we used for holomorphic Chern-Simons theory.
+in the style we used for holomorphic Chern-Simons theory.
+Our aim here is to give a sense of how take physical ideas and find holomorphic analogs.
 
 In traditional physics there are a few basic types of field theories, 
 and they can be assembled into combinations,
@@ -536,16 +537,37 @@ For more details we refer to~\cite{GRWwzw}.
 \subsection{Perturbative field theory as derived deformation theory}
 \label{sec: pert dfn}
 
-We turn to a formal definition underpinning the formal moduli spaces of the holomorphic field theories that we will be considering. 
+We now turn to giving a mathematical definition that incorporates insights from derived geometry.
+We will stick with studying perturbative field theory: 
+we fix a solution $\phi_0$ to the equations of motion and study formal deformations of it.
+In other words, we want to study the formal derived geometry of the moduli of solutions to the equations of motion.
+
+Here we can exploit the heuristic principle that every derived deformation problem (in characteristic zero) is described by a dg Lie algebra.\footnote{Or, sometimes more conveniently, by an $L_\infty$ algebra.}
+That is, if $\cM$ is a derived stack and $p: \Spec(\CC) \to \cM$ is a point, 
+then the formal neighborhood $\cM^\wedge_p$ of $p$ is modeled by the Maurer-Cartan locus of some dg Lie algebra $\fg_p$.\footnote{More technically, the shifted tangent complex $\TT_p \cM[-1]$ comes equipped with a homotopy-coherent Lie algebra structure, 
+and this determines a functor from small (i.e., artinian local) nonnegatively-graded dg algebras to the $\infty$-category of spaces.}
+This idea goes back, at least, to Deligne, Drinfeld, and Schlessinger-Stasheff, 
+but Hinich, Lurie, and Pridham have given a precise articulation of the {\em fundamental theorem of derived deformation theory}:
+there is an equivalence of $\infty$-categories between formal moduli spaces and dg Lie algebras.
+
+Applying this perspective to classical field theory was prominently and successfully advocated by Kontsevich, 
+and it is an essential component of the formalism developed by Costello.
+We mimic this approach here.
 
 \begin{dfn} 
-A {\em holomorphic dg Lie algebra} on a complex manifold $X$ is
+A {\em holomorphic local Lie algebra} on a complex manifold $X$ is
 \begin{itemize}
 \item a graded holomorphic vector bundle $V$ on $X$ whose sheaf of holomorphic functions is $\cV^{hol}$, and
 \item a holomorphic differential operator $Q^{hol} \colon \cV^{hol} \to \cV^{hol}$ of cohomological degree one and a holomorphic bidifferential operator $[\cdot,\cdot] \colon \cV^{hol} \times \cV^{hol} \to \cV^{hol}$. 
 \end{itemize}
-This data is required to endow $(\cV^{hol}, Q^{hol}, [\cdot,\cdot])$ with the structure of a dg Lie algebra.
+This data is required to endow $(\cV^{hol}, Q^{hol}, [\cdot,\cdot])$ with the structure of a sheaf of dg Lie algebras.
 \end{dfn}
+
+We view such a sheaf $\cL$ of dg Lie algebras as describing a sheaf of formal moduli spaces.
+To each open $U$, we study the formal moduli space associated to $\cL(U)$ and interpret it as ``deformations of a solution $\phi_0|_U$ to the equations of motion on~$U$.''
+
+We now rephrase this data in the style of complex differential geometry and then further into more physical terminology.
+\owen{Keep going!}
 
 Any holomorphic vector bundle has an associated Dolbeault complex $\Omega^{0,\bu}(X,V)$. 
 If $V$ is a holomorphic dg Lie algebra, 
