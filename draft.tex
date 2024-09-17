@@ -58,9 +58,6 @@
 
 \owen{Notation to explain: dg = differential graded, PDE = partial differential equations}
 
-\brian{Comparison}
-
-
 \section{What is a holomorphic field theory? Why study them?}
 
 The most important field theories in physics involve a metric on a manifold (whether Riemannian or Lorentzian), and hence geometry has long had a clear role in physics.
@@ -87,7 +84,7 @@ In derived geometry one can take a ``shifted cotangent bundle'' $T^*[-1] \RR\Hol
 and this derived moduli space encodes solutions to
 a field theory known as the $\beta\gamma$ system with target~$V$.\footnote{The name is silly: it's due to the original notation people used.}
 Every question one asks about the classical physics of the $\beta\gamma$ theory translates into a question about this moduli space.
-Other classes of examples are afforded by holomorphic variants of the AKSZ $\sigma$-models (such as the Poisson $\sigma$-model that appears in Kontsevich's construction of deformatino quantization); 
+Other classes of examples are afforded by holomorphic variants of the AKSZ $\sigma$-models (such as the Poisson $\sigma$-model that appears in Kontsevich's construction of deformation quantization); 
 the relevant moduli space being the derived mapping space between complex manifolds. 
 
 A physical motivation comes from supersymmetric field theories, 
@@ -756,7 +753,7 @@ so that the pairing is a cochain map, and
 \]
 so that the pairing is invariant for the bracket.
 \end{itemize}
-\owen{We must check the signs. Am I missing something.}
+\owen{We must check the signs. And am I missing anything?}
 \end{dfn}
 
 Given a local cyclic structure, there is an action functional
@@ -767,6 +764,13 @@ whose equation of motion is the Maurer-Cartan equation
 \[
 \dbar f + Q^{hol}f + \frac{1}{2} [f,f] = 0.
 \]
+Thus a holomorphic local Lie algebra with a local cyclic structure models a perturbative holomorphic field theory.
+
+The reader might notice that such Maurer-Cartan equations only ever involve quadratic and linear terms in the field.
+To incorporate cubic and higher terms in the equations of motion,
+one should define holomorphic local $L_\infty$ algebras and local cyclic structures,
+which are a modest and straightforward generalization, if one knows what $L_\infty$ algebra means.
+Such definitions can be found in~\cite{CG2}.
 
 \owen{What else to say?}
 
