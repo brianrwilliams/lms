@@ -39,8 +39,8 @@
 \renewcommand{\op}{\operatorname}
 \def\lie#1{\ensuremath{\mathfrak{#1}}}
 
-\def\brian#1{{\textcolor{blue!65!red}{BW: {#1}}}}
-\def\owen#1{{\textcolor{violet!65!black}{OG: {#1}}}}
+\def\brian#1{{\textcolor{blue!75!red}{BW: {#1}}}}
+\def\owen#1{{\textcolor{violet!50!black}{OG: {#1}}}}
 
 %\usepackage[upint]{stix}
 
@@ -57,6 +57,8 @@
 \owen{mention some history (e.g., Manin, Donaldson-Thomas, Nekrasov) and some recent work (CPTVV, Pridham, Kapranov, etc) but then explain our focus: higher analogs of VOAs and finding mathematical analogs of physics}
 
 \owen{Notation to explain: dg = differential graded, PDE = partial differential equations}
+
+\brian{Comparison}
 
 
 \section{What is a holomorphic field theory? Why study them?}
@@ -896,26 +898,6 @@ showing that it is highly manageable, with no counterterms to 1-loop; and
 \end{itemize}
 These apply to all holomorphic theories on $\CC^n$,
 but the techniques typically extend to more general complex manifolds.
-
-This foundational work was motivated in large part by our joint effort to generalize to complex $n$-folds results about chiral conformal theories on Riemann surfaces.
-A first fruit of our work \cite{GWcurr} is an examination of higher-dimensional {\em current algebras},
-which are factorization algebras that generalize the Kac-Moody vertex algebras that play a crucial role in contemporary representation theory.
-We show, for instance, that these current algebras arise as the quantization of symmetries of holomorphic field theories, 
-much as the affine Lie algebras are symmetries of CFTs on Riemann surfaces.
-In addition, we show that encoded in our factorization algebras are the higher Kac-Moody Lie algebras $\widehat{\g}_{d,\theta}$ of Faonte-Hennion-Kapranov~\cite{FHK}. 
-It is striking to find this rigid skeleton of algebra under the meat of our analysis,
-as our work is strongly differential-geometric in flavor.
-Moreover, as their work provides a direct connection with the derived algebraic geometry of $\RR Bun_G(X)$,
-there emerges a beautiful generalization of the fertile interactions between algebraic geometry, representation theory, and physics that have grown around bundles on Riemann surfaces.
-(The prospect looms that in higher dimensions,
-one might find a correspondence between conformal blocks and nonabelian theta functions.)
-
-A second fruit is a collaboration of Williams with the physicist Ingmar Saberi \cite{SabWil1,SabWil2}.
-They have carefully worked out the holomorphic twists of several supersymmetric theories
-and given a novel approach, via factorization algebras, to the results of Beem et al \cite{Beem}.
-Particularly important for this proposal,
-they have shown how important invariants (notably the ``supersymmetric index") of the untwisted, supersymmetric theory can be computed simply in the holomorphic twist.
-
 
 
 \section{Algebra and holomorphic field theories}
@@ -2424,6 +2406,32 @@ Daniel Bruegmann's thesis, and how the web of 2d CFT stuff should fit together.}
 \item Describe a version of Minghao's results (and those of Gaiotto {\it et al}) that emphasizes no divergences for individual graphs and the consequences for anomalies (e.g., relevant wheels for 1-loop and higher loop generalization via Laman graphs)
 \item Explain what this means in terms of Theorem 3.9 (existence of polydiscs algebras)
 \end{itemize}}
+
+\owen{Old copy that might be recycled into final version}
+
+So far we have not discussed the issue of quantization and renormalization for holomorphic field theories.
+In the topological setting, renormalization is very well-controlled.
+The well-combed configuration space method pioneered by \cite{} has allowed for a rigorous construction of the path integral for many topological field theories. 
+
+
+In other words, by a judicious choice of gauge-fixing, 
+we find that the one-loop Feynman diagrams have no UV divergences.
+Moreover, no higher loop diagrams appear (for combinatorial reasons),
+and the action functional satisfies the quantum master equation.
+See Section~\ref{sec: susytwist revisited} for some further discussion.
+
+Although holomorphic field theories had already appeared in practice,
+my collaborator Brian Williams was the first to lay a systematic, mathematical foundations (cf. his thesis \cite{BWthesis} and its offshoot \cite{BWhol}).
+He did the following:
+\begin{itemize}
+\item established key analytic results about holomorphic renormalization, 
+showing that it is highly manageable, with no counterterms to 1-loop; and
+\item characterized the one-loop anomalies  (i.e., obstructions to BV quantization).
+\end{itemize}
+These apply to all holomorphic theories on $\CC^n$,
+but the techniques typically extend to more general complex manifolds.
+
+\brian{Brian's stuff below}
 
 The idea of renormalization is a necessary ingredient in producing examples of typical (Riemannian or Lorentzian) quantum field theories.
 One can apply the same sort of techniques to produce holomorphic quantum field theories, and the higher algebraic structures associated to them.
