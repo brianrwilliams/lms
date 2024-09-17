@@ -312,6 +312,7 @@ the holomorphic analog of Chern-Simons theory.
 %This means that in local coordinates $D_k$ only depend on the holomorphic coordinates $\{z_i\}$ and involve only holomorphic derivatives $\del / \del z_i$.
 
 \begin{eg}[Holomorphic Chern-Simons theory]
+\label{eg: holCS}
 \owen{This feels rather convoluted. Can we make it simpler?}
 Pick a {\em complex} Lie group $G$, 
 and equip its Lie algebra $\fg$ with a complex-linear, $G$-invariant nondegenerate symmetric bilinear form~$\kappa$.
@@ -671,13 +672,20 @@ Here we can exploit the heuristic principle that every derived deformation probl
 That is, if $\cM$ is a derived stack and $p: \Spec(\CC) \to \cM$ is a point, 
 then the formal neighborhood $\cM^\wedge_p$ of $p$ is modeled by the Maurer-Cartan locus of some dg Lie algebra $\fg_p$.\footnote{More technically, the shifted tangent complex $\TT_p \cM[-1]$ comes equipped with a homotopy-coherent Lie algebra structure, 
 and this determines a functor from small (i.e., artinian local) nonnegatively-graded dg algebras to the $\infty$-category of spaces.}
-This idea goes back, at least, to Deligne, Drinfeld, and Schlessinger-Stasheff, 
+This idea goes back to Deligne, Drinfeld, and Schlessinger-Stasheff, and perhaps farther, 
 but Hinich, Lurie, and Pridham have given a precise articulation of the {\em fundamental theorem of derived deformation theory}:
 there is an equivalence of $\infty$-categories between formal moduli spaces and dg Lie algebras.
 
 Applying this perspective to classical field theory was prominently and successfully advocated by Kontsevich, 
 and it is an essential component of the formalism developed by Costello.
-We mimic this approach here.
+The idea is that if want to study the perturbation theory around some solution~$\phi_0$ on the whole spacetime manifold~$X$,
+then on each open set $U$ in~$X$,
+there is a formal moduli space describing deformations of the restriction~$\phi_0|_U$.
+In other words, there is a sheaf on $M$ with values in formal moduli spaces,
+and this sheaf describes the perturbative field theory.
+
+By the fundamental theorem, we can describe this sheaf of formal moduli spaces by supplying a sheaf of dg Lie algebras, which can often be quite convenient.
+We follow this approach here.
 
 \begin{dfn} 
 A {\em holomorphic local Lie algebra} on a complex manifold $X$ is
@@ -688,30 +696,86 @@ A {\em holomorphic local Lie algebra} on a complex manifold $X$ is
 This data is required to endow $(\cV^{hol}, Q^{hol}, [\cdot,\cdot])$ with the structure of a sheaf of dg Lie algebras.
 \end{dfn}
 
-We view such a sheaf $\cL$ of dg Lie algebras as describing a sheaf of formal moduli spaces.
-To each open $U$, we study the formal moduli space associated to $\cL(U)$ and interpret it as ``deformations of a solution $\phi_0|_U$ to the equations of motion on~$U$.''
+Here is a quick example, as motivation.
+Let $X$ be a Calabi-Yau 3-fold equipped with a holomorphic principal $G$-bundle $P \to X$.
+There is an associated adjoint bundle $\fg_P \to X$, and hence a coherent sheaf $\cG_P$ of holomorphic sections of the adjoint bundle.
+Note that $\cG_P$ is a holomorphic local Lie algebra, using the fiberwise Lie bracket,
+and it describes the formal neighborhood of $P$ inside the space $\Bun_G(X)$.
+In other words, it encodes the perturbative part of holomorphic Chern-Simons theory of Example~\ref{eg: holCS}.
 
 We now rephrase this data in the style of complex differential geometry and then further into more physical terminology.
-\owen{Keep going!}
 
 Any holomorphic vector bundle has an associated Dolbeault complex $\Omega^{0,\bu}(X,V)$. 
-If $V$ is a holomorphic dg Lie algebra, 
+If $V$ is a holomorphic local Lie algebra, 
 then $\Omega^{0,\bu}(X, V)$ is a dg Lie algebra. 
-The differential is of the form $\dbar + Q^{hol}$ and the bracket is given by extending the bracket on $\cV^{hol}$ with the wedge product of differential forms. 
-Notice that this dg Lie algebra has the appealing feature that it is the $C^\infty$-sections of a smooth vector bundle on $X$.
+The differential is $\dbar + Q^{hol}$, 
+and the bracket is given by extending the bracket on $\cV^{hol}$ with the wedge product of differential forms. 
+Notice that this dg Lie algebra has the appealing feature that it is the $C^\infty$-sections of a smooth vector bundle on~$X$.
 
-Formal moduli spaces arise from the space of Maurer--Cartan elements of a dg Lie algebra.
-In our case, this dg Lie algebra will always be of the form $\Omega^{0,\bu}(X, V)$.
-For example, the Maurer--Cartan elements of the dg Lie algebra $\Omega^{0,\bu}(X, \fg)$ recovers formal deformations of the trivial holomorphic $G$-bundle.  
-This arises from the holomorphic Lie algebra on $X$ whose underlying vector bundle is trivial with fiber $\fg$. 
-
-As another example, consider the holomorphic tangent bundle $V = \T_X$. 
-The Lie bracket of vector fields endows this with the structure of a holomorphic Lie algebra (with zero differential). 
-A Maurer--Cartan element in $\Omega^{0,\bu}(X, \T_X)$ is an element $\mu \in \Omega^{0,1}(X, \T_X)$ satisfying the equation
+In the case of our running example, we obtain the dg Lie algebra
 \[
-\dbar \mu + \frac12 [\mu,\mu] = 0 .
+\Omega^{0,\bu}(X,\fg_P)
 \]
-This recovers the classical picture describing formal deformations of complex structures on~$X$.
+from the adjoint bundle of the holomorphic principal $G$-bundle on our Calabi-Yau 3-fold~$X$.
+A Maurer-Cartan element in this dg Lie algebra is a $(0,1)$-form $A$ such that
+\[
+\dbar_P A + \frac{1}{2}[A,A] = 0,
+\]
+meaning that $\dbar_P + [A,-]$ defines another $\dbar$-connection, and hence holomorphic structure, on the smooth bundle $P \to~X$.
+
+The take-away message is that the Dolbeault complex of a holomorphic Lie algebra leads to a PDE, by taking the Maurer-Cartan equation,
+and this PDE should be seen as the equation of motion.
+
+In this example the PDE arises from the variations of the action functional
+\[
+\int_X \Omega \wedge \left( \frac{1}{2}\langle A, \dbar A\rangle + \frac{1}{3!}\langle A, [A,A]\rangle \right).
+\]
+The PDE does not involve the choice of a holomorphic volume form $\Omega$ or a pairing on the Lie algebra $\fg$, 
+but the action functional did.
+
+In general, for a holomorphic local Lie algebra to arise from a field theory,
+it is necessary to provide more data so as to be able to write down an action functional.
+
+\begin{dfn}
+A {\em local cyclic structure} on a holomorphic local Lie algebra is a degree $-3$ map
+\[
+\langle -,-\rangle: V \otimes V \to K_X
+\]
+of holomorphic vector bundles\footnote{Here $\otimes$ denotes the Whitney tensor product of vector bundles on $X$.} such that 
+\begin{itemize}
+\item if $f, g$ are holomorphic sections of $V$, then 
+\[
+\langle Q^{hol}f, g \rangle + (-1)^{|f|} \langle f, Q^{hol} g \rangle = 0
+\]
+so that the pairing is a cochain map, and
+\item if $f, g, h$ are holomorphic sections of $V$, then 
+\[
+\langle f, [g,h] \rangle = (-1)^{|f|} \langle h,  \rangle
+\]
+so that the pairing is invariant for the bracket.
+\end{itemize}
+\owen{We must check the signs. Am I missing something.}
+\end{dfn}
+
+Given a local cyclic structure, there is an action functional
+\[
+\int_X \frac{1}{2} \langle f, \dbar f + Q^{hol} f \rangle + \frac{1}{3!} \langle f, [f,f] \rangle 
+\]
+whose equation of motion is the Maurer-Cartan equation
+\[
+\dbar f + Q^{hol}f + \frac{1}{2} [f,f] = 0.
+\]
+
+\owen{What else to say?}
+
+%
+%As another example, consider the holomorphic tangent bundle $V = \T_X$. 
+%The Lie bracket of vector fields endows this with the structure of a holomorphic Lie algebra (with zero differential). 
+%A Maurer--Cartan element in $\Omega^{0,\bu}(X, \T_X)$ is an element $\mu \in \Omega^{0,1}(X, \T_X)$ satisfying the equation
+%\[
+%\dbar \mu + \frac12 [\mu,\mu] = 0 .
+%\]
+%This recovers the classical picture describing formal deformations of complex structures on~$X$.
 
 
 %this section aimed at mathematicians
