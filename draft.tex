@@ -444,7 +444,7 @@ This example admits a natural generalization to an arbitrary complex manifold.
 The input data is a complex manifold $X$ of arbitrary complex dimension $n$, 
 together with a holomorphic vector bundle $V$ on~$X$.
 (Above we took this bundle to be trivial.)
-The fields of the theory consist of a pair $(\gamma,\beta)$ where 
+Each field of the theory consists of a pair $(\gamma,\beta)$ where 
 \[
 \gamma \in \Gamma(X,V) \quad\text{and}\quad \beta \in \Omega^{n,n-1}(X,V^*) .
 \]
@@ -456,16 +456,92 @@ and the equations of motion are
 \[
 \dbar \gamma = 0 = \dbar \beta.
 \]
-We again suggest to identify solutions to the equation $\dbar \beta = 0$ that differ by a $\dbar$-exact form.
+Solutions consist of a holomorphic function $\gamma$ and a holomorphic $(n,n-1)$-form.
+We again suggest to identify solutions to the second equation $\dbar \beta = 0$ that differ by a $\dbar$-exact form.
 
-We will not examine fermions here,
-but note that it is straightforward to consider super-holomorphic vector bundles,
+\subsubsection{Holomorphic fermions}
+
+It is straightforward to modify the example above to allow super-holomorphic vector bundles,
 i.e., holomorphic $\ZZ/2$-graded vector bundles.
-In this way, one can develop analogs of fermions.
+
+For example, given a holomorphic vector bundle $V$ on a complex $n$-fold~$X$,
+let $\Pi V$ denote the parity-reversed vector bundle,
+i.e., we now give $V$ an odd grading.
+There is a $bc$ system that is the fermionic analog of the $\beta\gamma$ system.
+The fields of the theory consist of a pair $(c,b)$ where 
+\[
+c \in \Gamma(X,\Pi V) \quad\text{and}\quad b \in \Omega^{n,n-1}(X,\Pi V^*) .
+\]
+Thus, $b$ and $c$ are fermionic fields.
+The action functional is 
+\[
+\int_X b \wedge \dbar c,
+\]
+and the equations of motion are
+\[
+\dbar c = 0 = \dbar c.
+\]
+We again suggest to identify solutions to the equation $\dbar c = 0$ that differ by a $\dbar$-exact form.
+
+There is a special class of fermionic theories that is quite interesting.
+Let $X$ be a complex $n$-fold where
+\begin{itemize}
+\item $n = 2k+1$ is odd and
+\item there is a line bundle $L \to X$ such that $L^{\otimes 2} \cong K_X$,
+i.e., $L$ is a square root of the canonical bundle.
+\end{itemize}
+A field is a section
+\[
+\psi \in \Omega^{0,k}(X,\Pi L),
+\]
+the action functional is
+\[ 
+\int_X \psi \wedge \dbar \psi,
+\]
+and the equation of motion is
+\[
+\dbar \psi = 0.
+\]
+We suggest to identify solutions that differ by $\dbar$-exact terms.
+
+From the point of view of derived geometry, the cochain complex
+\[
+\Omega^{0,\bullet}(X, \Pi L)[k]
+\]
+presents a derived stack that should be viewed as the moduli of solutions for this theory.
+
+\owen{What do you think of this example?}
 
 \subsubsection{Holomorphic $\sigma$-models}
 
-\owen{Quickly explain the nonlinear analog of the $\beta\gamma$ system.}
+A $\sigma$-model is a field theory whose space of fields contains a mapping space $\Map(M,N)$.
+When $N = \RR$, this mapping space simply becomes functions and so the $\sigma$-model reduces to a scalar field theory.
+
+There is a natural generalization of the $\beta\gamma$ system to a $\sigma$ model.
+Let $M$ be a complex $d$-manifold and let $N$ be a complex $n$-manifold.
+The fields are a pair $(\gamma, \beta)$ where
+\[
+\gamma \in \Map(M,N) \quad\text{and}\quad \beta \in \Omega^{n,n-1}(M,\gamma^* T^*_N) .
+\]
+Note that $\dbar \gamma$ lives in $\Omega^{0,1}(M, \gamma^* T_N)$, 
+a section of the pullback of the tangent bundle of the target.
+The action functional is 
+\[
+\int_X \beta \wedge \dbar \gamma,
+\]
+where we use the canonical evaluation pairing between the pullback of the tangent and cotangent bundles of the target.
+The equations of motion are
+\[
+\dbar \gamma = 0 = \dbar \beta,
+\]
+so that solutions consist of a holomorphic map $\gamma: M \to N$ and a holomorphic section $\beta$ of the pullback tangent bundle.
+As usual, we suggest to identify solutions to the equation $\dbar \beta = 0$ that differ by a $\dbar$-exact form.
+
+From derived geometry point of view, the moduli space of solutions for this $\beta\gamma$-system is the shifted cotangent bundle\owen{supervise notation!}
+\[
+T^*[-1] \Map_\dbar(M,N) 
+\]
+a rather natural space to study in complex geometry.
 
 \subsubsection{Holomorphic gauge theories}
 
