@@ -119,8 +119,9 @@ We expect that these holomorphic examples will be particularly tractable and bea
 
 Over the last few decades there has been a vigorous dialogue between complex geometry and theoretical physics,
 around topics like mirror symmetry, enumerative algebraic geometry, moduli of Calabi-Yau manifolds, the geometric Langlands program, and integrable systems, among others.
-Our focus will be narrow:
-it is about higher dimensional versions of the relationship between geometry and algebraic structures like Lie algebras, Poisson algebras, and vertex algebras.
+Covering all these topics would be difficult.
+Our survey's focus will be narrow:
+it is upon higher dimensional versions of the relationship between geometry and algebraic structures like Lie algebras, Poisson algebras, and vertex algebras.
 We will emphasize analogies to TFTs (such as the Gerstenhaber algebras appearing in mirror symmetry) and CFTs (such as the affine Lie algebras relating to moduli of $G$-bundles on Riemann surfaces),
 but our primary interest is on complex manifolds above dimension one.
 Experience suggests that higher dimensions require higher algebra,
@@ -133,11 +134,15 @@ and it continues to grow as there is a lot to explore here.
 Examples of efforts in this direction include \cite{PTVV}, \cite{FHK}, \cite{Keviny things}, \cite{GaiottoEtAl}, \cite{Paquette}, \cite{Vicedo}, \cite{BeemBZEtAl}, 
 where our own background and interests (and unfortunately, our ignorance) have shaped this list.
 
-We will not discuss important directions like mirror symmetry, the geometric Langlands program, the BPS/CFT correspondence, Donaldson-Thomas theory, or other, more global and geometric, areas,
+The material below focuses on connections with this work,
+and the examples from physics have a perturbative flavor.
+We will not discuss important directions like mirror symmetry, the geometric Langlands program, the BPS/CFT correspondence, Donaldson-Thomas theory, or other areas that are more global or more directly geometric,
 although we expect there are rich connections with the topics we do discuss.
 Not including these topics is primarily because our core theme already swelled to more pages than we expected, 
 because a concise discussion of any of those topics does not yet seem possible with respect to our theme,
 and because of our lack of background in these areas.
+We hope the ideas surveyed here do connect profitably to these topics.
+\owen{Is that an overly negative paragraph?}
 
 \subsection{How to read this paper}
 
@@ -197,6 +202,7 @@ An action functional is written as an integral over $M$ of some polydifferential
 A few examples will illuminate this sketch.
 
 \begin{eg}[Massless scalar field theory]
+\label{eg: massless scalar}
 Let $M$ be a smooth manifold and equip it with a Riemannian metric~$g$.
 Let $\Delta_g$ denote the associated Laplace-Beltrami operator, 
 and let $\d{\rm vol}_g$ denote the associated volume form.
@@ -357,68 +363,109 @@ Our aim here is to give a sense of how take physical ideas and find holomorphic 
 In traditional physics there are a few basic types of field theories, 
 and they can be assembled into combinations,
 of which the Standard Model offers a nice example.
-The basic types are\footnote{For the experts, we remark that we focus above on the core field content, and ignore (just for the moment!) issues like gauge transformations and the associated ghost fields.}
+The basic types are\footnote{For the experts, we remark that we focus above on the field content that motivates or characterizes, and mostly ignore (just for the moment!) issues like gauge transformations and the associated ghost fields.}
 \begin{itemize}
 \item {\em Scalar} field theories where the fields are maps from $M$ to a vector space $V$, or natural generalizations like taking sections of a vector bundle $V \to M$. The Higgs boson appears as part of a scalar field theory.
 \item {\em Fermionic} field theories where the fields are maps from $M$ to an {\em odd} vector space (in the sense of supermathematics), typically a section of a spinor bundle. Such theories are often used to describe matter, such as electron fields.
-\item $\sigma$-{\em models} where the fields are maps from $M$ into a manifold~$X$. (One can view these as generalizations of scalar field theories.)
+\item $\sigma$-{\em models} where the fields are maps from $M$ into a manifold~$X$. (One can view these as nonlinear generalizations of scalar field theories.)
 \item {\em Gauge} field theories where the fields are connections on a principal $G$-bundle over $M$, with $G$ a Lie group. The Yang--Mills theories for the electroweak and strong forces are examples.
 \item {\em Gravity} theories where the fields are metrics on $M$, or something that similarly controls the geometry of $M$. Einstein's theory is a paradigmatic example.
 \end{itemize}
 The Standard Model involves the first three types,
-and the different fields interact in intricate ways.\footnote{For instance, the scalar and fermionic fields are sections for associated bundles of the principal bundle appearing in the gauge theory.}
+and the different fields interact in intricate ways.\footnote{For instance, the scalar and fermionic fields are sections of associated bundles to the principal bundle appearing in the gauge theory.}
 
 There are holomorphic versions of all these basic types, 
-and we now spell out some simple examples.
+and we now spell out some simple examples.\footnote{See \cite{Donaldson Thomas} for a pioneering and illuminating discussion of how to find such analogs.}
 To give the readers --- possibly a mixed audience of mathematicians and physicists --- some feel for the examples, 
 we describe them in several ways: 
 in terms of PDE and action functionals but also as moduli spaces.
-We do not offer a thorough justification of the dictionary, for which see \owen{cite who?}
-
-\owen{Somewhere cite Donaldson and Thomas.}
+We do not offer a thorough justification of the dictionary, for which see \cite{CosSUSY} for a wonderful and motivating exposition,
+and see \cite{AlfonsoYoung} and \cite{Steffens} for recent work on this topic.
 
 For an example that mixes several types and that is a holomorphic analog of quantum chromodynamics (QCD), the theory that governs the strong force and quarks,
 see Section~\ref{sec: seiberg}.
-One motivation for us to explore holomorphic field theories is that one can translate physical insights and conjectures (such as Seiberg duality) into surprising predictions in the holomorphic setting,
-which is typically much cleaner and more accessible.
+
+A motivation for us to explore holomorphic field theories is that physical insights and conjectures, such as Seiberg duality, translate into surprising predictions in the holomorphic setting,
+which is typically more accessible for mathematics.
 (One might also hope that progress in the holomorphic setting then feeds back useful insights to physics.)
 
 \subsubsection{Holomorphic scalar field theories}
 
-A typical scalar field theory is the free boson which exists on any Riemannian manifold $\Sigma$.
-Its action functional is simply $\int_\Sigma \phi \triangle \phi$ where $\phi$ is a smooth function on $\Sigma$.
-When $\Sigma$ is a surface this theory can be written in such a way that makes its complex structure apparent.
-First, we complexify the field $\phi$ which we can view as a pair of fields $\gamma, \Bar{\gamma}$.
-When we do this, we can split it up into its chiral and anti-chiral `sectors'.
-By chiral (anti-chiral) we mean part involving $\gamma$ ($\Bar{\gamma}$).
-The holomorphic part is described by the following action
-\beqn
-\int_\Sigma \beta \wedge \dbar \gamma
-\eeqn
-where $\beta$ is a $(1,0)$ form on $\Sigma$ and should be thought of as a Lagrange multiplier for the field $\del \Bar{\gamma}$ which we now think about as having its own degrees of freedom (this is called the first-order formalism).
-There is also a coupling between the chiral and anti-chiral sectors, 
-for more details we refer to \cite{Kapustin,GGW}. 
-This piece of the free boson is the simplest holomorphic field theory; aptly called the $\beta\gamma$-\textit{system}.
-It plays a role in superstring theory as the free field theory underlying bosonic ghosts corresponding to worldsheet supersymmetry~\cite{Polchinski}.
+The standard example of a scalar field theory is the free massless exists on any Riemannian manifold,
+which we met in Example~\ref{eg: massless scalar}.
+Here the field $\phi$ a smooth function on a manifold $M$,
+its action functional is $\int_M \phi \Delta \phi$, where $\Delta$ is the Laplace-Beltrami operator, 
+and its equation of motion is $\Delta \phi = 0$.
+The moduli space of solutions is then the space of harmonic functions on~$M$
 
-There is a holomorphic field theory defined on an arbitrary complex manifold as a simple generalization of this `$\beta\gamma$ system'.
-The input data is simply a complex manifold $X$ of arbitrary complex dimension $n$ together with a (super) holomorphic vector bundle $V$ on~$X$.
-Above we took this bundle to be trivial.
-The fields of the theory consist of pairs 
-\begin{align*}
-\gamma & \in \Gamma(X,V)\\
-\beta & \in \Omega^{n,n-1}(X,V^*) .
-\end{align*}
-The action functional is identical $\int_X \beta \wedge \dbar \gamma$.
+When $M$ is two-dimensional and oriented,
+we can view $M$ as equipped with a complex structure.
+Every complex-valued harmonic function then decomposes as a sum of a holomorphic and anti-holomorphic function. 
+That is, if we complexify the scalar field $\phi$, 
+we can view it as a pair of fields $\gamma$ and $\Bar{\gamma}$,
+where the equation of motion of $\gamma$ is $\dbar \gamma = 0$ and the equation of motion is $\partial \Bar{\gamma} = 0$.
+These components are sometimes called the chiral and anti-chiral ``sectors.'' 
 
-Notice that when $n = \dim_\C X > 1$ that there is a linear symmetry present in the above action given by shifting $\beta$ by a $\dbar$-exact form
+Notice that we have shifted from a second-order differential operator $\Delta$ to first-order differential operators $\dbar$ and~$\partial$.
+Reworking a theory to express its equations of motion using first-order operators is sometimes called the first-order formalism.
+
+The holomorphic component can be seen as arising from the following action functional,
 \beqn
-\beta \mapsto \beta + \dbar \eta , \quad \eta \in \Omega^{n,n-2}(X,V^*)
+\int \beta \wedge \dbar \gamma
 \eeqn
-For this model to be well-posed at the quantum level we must include the ghosts $\eta$.
-Further, $\eta$ can be shifted by an exact form in a way that does not effect the above gauge transformation, so we must also include ghosts for ghosts, etc..
-This is one of the key differences between the ordinary $\beta\gamma$ system and its higher dimensional version.
-Nevertheless, many techniques we have for understanding free field theories can still by applied to this model as we will explain later in this note.
+where $\beta$ is a $(1,0)$-form on $M$ and should be viewed as a Lagrange multiplier for the field $\del \Bar{\gamma}$,
+\owen{I don't understand this use of the term Lagrange multiplier. Let's discuss!}
+which we now think about as having its own degrees of freedom. 
+Note that this action functional also imposes the equation of motion $\dbar \beta = 0$,
+so that $\beta$ should be a holomorphic $1$-form.
+
+This piece of the free boson is the simplest holomorphic field theory; it is often called the $\beta\gamma$-\textit{system}.
+It plays a role in superstring theory as the free field theory underlying bosonic ghosts corresponding to worldsheet supersymmetry~\cite{Polchinski}.\owen{More precise location?}
+
+It should seem reasonable to view two solutions $\beta_1$ and $\beta_2$ as equivalent if they differ by a $\dbar$-exact term.
+If one imposes this equivalence relation (a kind of ``gauge symmetry''),
+then one is on the path towards setting up the theory in the Batalin-Vilkovisky formalism.
+
+Derived geometry is the mathematical version of BV formalism.
+From this point of view, the moduli space of solutions for this $\beta\gamma$-system is the shifted cotangent bundle\owen{supervise notation!}
+\[
+T^*[-1] \Map_\dbar(M,\CC) = \RR\Gamma(M,\cO) \times \RR\Gamma(M,\cT^{*{1,0}}),
+\]
+a rather natural space to study in complex geometry.
+
+\begin{rmk}
+We motivated the $\beta\gamma$ system as encoding a piece of the free boson.
+There is likewise a complex-conjugate $\Bar{\beta}\Bar{\gamma}$ system as encoding the antichiral sector of the free boson.
+To recover the full boson, one must couple the chiral and anti-chiral sectors.
+See \cite{Kapustin,GGW} \owen{Where?} for more details. 
+\end{rmk}
+
+This example admits a natural generalization to an arbitrary complex manifold.
+The input data is a complex manifold $X$ of arbitrary complex dimension $n$, 
+together with a holomorphic vector bundle $V$ on~$X$.
+(Above we took this bundle to be trivial.)
+The fields of the theory consist of a pair $(\gamma,\beta)$ where 
+\[
+\gamma \in \Gamma(X,V) \quad\text{and}\quad \beta \in \Omega^{n,n-1}(X,V^*) .
+\]
+The action functional is 
+\[
+\int_X \beta \wedge \dbar \gamma
+\]
+and the equations of motion are
+\[
+\dbar \gamma = 0 = \dbar \beta.
+\]
+We again suggest to identify solutions to the equation $\dbar \beta = 0$ that differ by a $\dbar$-exact form.
+
+We will not examine fermions here,
+but note that it is straightforward to consider super-holomorphic vector bundles,
+i.e., holomorphic $\ZZ/2$-graded vector bundles.
+In this way, one can develop analogs of fermions.
+
+\subsubsection{Holomorphic $\sigma$-models}
+
+\owen{Quickly explain the nonlinear analog of the $\beta\gamma$ system.}
 
 \subsubsection{Holomorphic gauge theories}
 
@@ -498,7 +545,7 @@ where $[-,-]$ is the Schouten--Nijenhuis bracket
 (which reduces to just the Lie bracket when restricted to vector fields).
 The reader might recognize this equation as the Maurer--Cartan equation controlling deformations of complex structure $\dbar\rightsquigarrow \dbar + \mu$.
 
-\subsubsection{Holomorphic scalar field theories}
+\subsubsection{Holomorphic field theories as chiral sectors}
 
 A typical scalar field theory is the free boson which exists on any Riemannian manifold $\Sigma$.
 Its action functional is simply $\int_\Sigma \phi \triangle \phi$ where $\phi$ is a smooth function on $\Sigma$.
@@ -1192,7 +1239,7 @@ In our setting the usual bracket (the 2-bracket) of $\fg^\bullet_d$ is unchanged
 
 The algebras $\Hat{\fg}^\bullet_{d, \theta}$ are not just introduced on a whim.
 In \cite{FHK} they are shown to appear naturally in various contexts,
-notably in studying the derived moduli of $G$-bundles on a complex varieties of dimension~$d$.
+notably in studying the derived moduli space of $G$-bundles on a complex varieties of dimension~$d$.
 
 With the higher dimensional Weyl and Kac--Moody algebras in place, a natural question to ask is whether there are higher dimensional versions of the free field realization as in \eqref{eqn:freefield1}. 
 If $V$ is a representation of a Lie algebra $\fg$,
@@ -1204,7 +1251,7 @@ just as $\fg((z))$ acts on $\cO(V((z)))$.
 One can ask if this action lifts to a quantum symmetry.
 The obstruction, see \cite{GWkm}, is one of the cocycles we discussed above:
 \[
-x_0 \otimes f_0, \ldots, x_{d} \otimes f_{d} \mapsto \Tr_V( x_0 \cdots x_{d}) \Res(f_0 \partial f_1 \cdots \partial f_{d}).
+(x_0 \otimes f_0, \ldots, x_{d} \otimes f_{d}) \mapsto \Tr_V( x_0 \cdots x_{d}) \,\Res(f_0 \, \partial f_1 \wedge \cdots \wedge \partial f_{d}).
 \]
 That is, the invariant degree $(d+1)$ polynomial on $\fg$ that determines the $L_\infty$ extension of the sphere algebra $\fg_d^\bu$ is given by ${\rm Tr}_V (x_0 \cdots x_{d})$.
 In this sense, the higher Kac-Moody algebras admit a higher free field realization,
@@ -1917,9 +1964,13 @@ These maps let us multiply elements from disjoint regions to get an element in a
 %We say that $\cF$ is a \emph{unital} prefactorization algebra if $\cF(\emptyset)$ is a unital commutative algebra. In this case, $\cF(U)$ is a pointed cochain complex by the image of the unit $1 \in \cF(\emptyset)$ under the structure map $\cF(\emptyset) \to \cF(U)$. In practice, for our examples, $\cF(\emptyset)$ is $\CC$, $\RR$, $\CC[[\hbar]]$, or $\RR[[\hbar]]$. 
 
 \begin{eg}\label{ex:associativealgebra}
-Every associative algebra $A$ defines a prefactorization algebra $\cF_A$ on $\RR$, as follows. To each open interval $(a,b)$, we set $\cF_A( (a,b) ) = A$. To any open set $U = \coprod_j I_j$, where each $I_j$ is an open interval, we set $\cF(U) = \bigotimes_j A$. The structure maps simply arise from the multiplication map for $A$. Figure ~\ref{fig:assasfact} displays the structure of $\cF_A$. Notice the resemblance to the notion of an $E_1$ or $A_\infty$ algebra. 
-%(One takes an infinite tensor products of unital algebras, as follows. Given an infinite set $I$, consider the poset of finite subsets of $I$, ordered by inclusion. For each finite subset $J \subset I$, we can take the tensor product $A^J = \bigotimes_{j \in J} A$. For $J \hookrightarrow J'$, we define a map $A^J \to A^{J'}$ by tensoring with the identity $1 \in A$ for every $j \in J' \backslash J$. Then $A^I$ is the colimit over this poset.) 
-~\hfill$\Diamond$
+Every associative algebra $A$ defines a prefactorization algebra $\cF_A$ on $\RR$, as follows. 
+To each open interval $(a,b)$, we set $\cF_A( (a,b) ) = A$. 
+To any open set $U = \coprod_j I_j$, 
+where each $I_j$ is an open interval, we set $\cF(U) = \bigotimes_j A$. 
+The structure maps simply arise from the multiplication map for $A$. 
+Figure ~\ref{fig:assasfact} displays the structure of $\cF_A$. 
+Notice the resemblance to the notion of an $E_1$ or $A_\infty$ algebra.~\hfill$\Diamond$
 \end{eg}
 
 %\begin{figure}
@@ -1993,156 +2044,14 @@ For a discussion, see Chapter 3 of~\cite{CG1};
 related ideas are developed in~\cite{AF, LurieHA, Ginot}.
 
 \begin{rmk}
-The reader fond of higher abstract nonsense will note that we could have factorization algebras take values in other target categories (better, $\infty$-categories),
+The reader fond of higher abstract nonsense will note that we could have factorization algebras take values in other target categories (or even better, $\infty$-categories),
 not just vector spaces or cochain complexes.
-For instance, one might assign an $\infty$-category to each open set.
+For instance, one might categorify the values: 
+$\cF$ might assign an $\infty$-category $\cF(U)$ to each open set~$U$.
 This generalization is fruitful.
-In the Beilinson-Drinfeld style, it leads to chiral categories, which play an increasingly central role in the geometric Langlands program.
+In the Beilinson-Drinfeld style, it leads to chiral categories, which play a key role in the geometric Langlands program.
 In the style advocated above, it would likewise be useful for capturing notions like defects or extended operators from quantum field theory.
 \end{rmk}
-
-%\subsection{Prefactorization algebras as algebras over an operad}
-%\label{sec:disj}
-%
-%The language of colored operads offers a convenient way to formalize the notion of prefactorization algebra.
-%A colored operad is a generalization of the idea of a category, where one allows many-to-one maps, and so the term ``multicategory'' is sometimes used. 
-%See \owen{add citations}
-%
-%\begin{dfn}
-%Let $\Disj_M$ denote the following colored operad associated to~$M$: 
-%\begin{itemize}
-%\item The colors (or objects) consist of all open subsets of $M$. 
-%\item For every (possibly empty) finite collection of open sets $\{U_\alpha\}_{\alpha \in A}$ and open set $V$, there is a set of maps $\Disj_M( \{U_\alpha\}_{\alpha \in A} \mcol V)$. If the $U_\alpha$ are pairwise disjoint and all are contained in $V$, then the set of maps is a single point. Otherwise, the set of maps is empty.
-%\item The composition of maps is defined in the obvious way. 
-%\end{itemize}
-%\end{dfn}
-%
-%\begin{dfn}
-%Let $\mc{C}$ be a colored operad. 
-%A \emph{prefactorization algebra}  on $M$ taking values in $\mc{C}$ is a map of colored operads from $\Disj_M$ to~$\mc{C}$. 
-%\end{dfn}
-%
-%In other words, a prefactorization algebra \emph{is} an algebra over the colored operad $\Disj_M$.
-%Since symmetric monoidal categories are special kinds of multicategories, this definition makes sense for symmetric monoidal categories. 
-%
-%\begin{rmk} 
-%If $\mc{C}$ is a symmetric monoidal category under coproduct, then a precosheaf on $M$ with values in $\mc{C}$ defines a prefactorization algebra valued in $\mc{C}$. 
-%Hence, our definition broadens the idea of ``inclusion of open sets leads to inclusion of sections'' by allowing more general monoidal structures to ``combine'' the sections on disjoint open sets.
-%~\hfill$\Diamond$ 
-%\end{rmk}
-%
-%Note that if $\cF$ is any prefactorization algebra, then $\cF(\emptyset)$ is a commutative algebra object of $\mc{C}$. 
-%
-%\begin{dfn}
-%We say a prefactorization algebra $\cF$ is \emph{unital} if the commutative algebra $\cF(\emptyset)$ is unital. 
-%\end{dfn}
-%
-%\subsection{Encoding ordinary algebras and modules using prefactorization algebras on $\RR$}
-%\label{AssAsFact}
-%
-%We explained above how an associative algebra provides a prefactorization algebra on the real line. There are, however, prefactorization algebras on $\RR$ that do {\em not} come from associative algebras. Here we will characterize those that do arise from associative algebras.
-% 
-%\begin{dfn}
-%Let $\cF$ be a prefactorization algebra on $\RR$ taking values in the category of vector spaces (without any grading).   
-%We say $\cF$ is \emph{locally constant} if the map $\cF(U) \to \cF(V)$ is an isomorphism for any  inclusion of open intervals $U \subset V$. 
-%\end{dfn}
-%
-%It is an illuminating exercise to check that this property ensures a prefactorization algebra encodes an associative algebra.
-%
-%\begin{lem}\label{locally_constant_is_associative}
-%Let $\cF$ be a locally constant, unital prefactorization algebra on $\RR$ taking values in vector spaces. 
-%Let $A = \cF(\RR)$. Then $A$ has a natural structure of an associative algebra.  
-%\end{lem}
-%
-%One can got further, however, and also capture modules, essentially by marking the line with points.
-%For simplicity, we will continue to work with ordinary vector spaces with the tensor product as symmetric monoidal structure.
-%
-%Let $A$ and $B$ be associative algebras and $M$ an $A-B$-bimodule, i.e., $M$ is a left $A$-module and a right $B$-module and these structures are compatible in that $(am)b = a(mb)$ for all $a \in A$, $b \in B$, and $m \in M$. 
-%We now construct a prefactorization algebra $\cF_M$ on $\RR$ that encodes this bimodule structure. 
-%
-%Pick a point $p \in \RR$. On the half-line $\{x \in \RR \mid x < p\}$, $\cF_M$ is given by $\cF_A$: to an interval $I = (t_0,t_1)$ with $t_1 <p$, $\cF_M(I) = A$, and the structure map for inclusion of finitely many disjoint intervals into a bigger interval is determined by multiplication in $A$. Likewise, on the half-line $\{x \in \RR \mid p < x\}$, $\cF_M$ is given by $\cF_B$. Intervals containing $p$ are determined, though, by $M$. When we consider an interval $I = (t_0,t_1)$ such that $t_0 < p < t_1$, we set $\cF_M(I)  = M$. The structure maps are also determined by the bimodule structure. For example, given 
-%\[
-%s_0 < s_1 < t_0 < p < t_1 < u_0 < u_1,
-%\]
-%we have
-%\begin{align*}
-%\cF_M((s_0,s_1) \sqcup (t_0, t_1) \sqcup (u_0 , u_1)) 
-%&= \cF_M((s_0,s_1)) \ot \cF_M((t_0, t_1)) \ot \cF_M((u_0 , u_1)) \\
-%&= A \ot M \ot B
-%\end{align*}
-%and the inclusion of these three intervals into $(s_0,u_1)$ is the map
-%\[
-%\begin{array}{ccc}
-%\cF_M((s_0,s_1)) \ot \cF_M((t_0, t_1)) \ot \cF_M((u_0 , u_1)) & \to & \cF_M((s_0,u_1)) \\
-%a \ot m \ot b & \mapsto & amb
-%\end{array}.
-%\]
-%The definition of a bimodule ensures that we have a prefactorization algebra. See Figure ~\ref{fig:bimodasfact}.
-%
-%%\begin{figure}
-%%\begin{center}
-%% \begin{minipage}{3cm}
-%% \begin{tikzpicture}[scale=0.75]
-%% \begin{scope}[line cap=round,ultra thick]
-%% \draw (-2.5,0) -- (-1.5,0); 
-%% \draw (-1,0) -- (0.5,0); 
-%% \draw[fill=black] (0,0) circle (0.07);
-%% \draw (1.5,0) -- (2.5,0); 
-%% \draw[->,semithick] (0,-0.5) -- (0,-1.5);
-%% \draw (-2.75,-2) -- (0.75,-2); 
-%% \draw[fill=black] (0,-2) circle (0.07);
-%% \draw (1.25,-2) -- (2.75,-2);  
-%% \draw[->,semithick] (0,-2.5) -- (0,-3.5);
-%% \draw (-3,-4) -- (3,-4);
-%% \draw[fill=black] (0,-4) circle (0.07); 
-%% \end{scope}
-%% \end{tikzpicture}
-%% \end{minipage}
-%%\hspace{2cm} $\rightsquigarrow$ \hspace{0.5cm}
-%% \begin{minipage}{8cm}
-%% \begin{tikzcd}[cramped,column sep=tiny]
-%%a \otimes m \otimes b \arrow[mapsto]{d} & \in & A \otimes M \otimes B \arrow{d} \\
-%%am \otimes b \arrow[mapsto]{d} & \in & M \otimes B \arrow{d} \\
-%%amb  & \in &M 
-%%\end{tikzcd}
-%%\end{minipage}
-%%\end{center}
-%%\caption{The prefactorization algebra $\cF_M$ for the $A-B$-bimodule $M$}
-%%\label{fig:bimodasfact}
-%%\end{figure}
-%
-%\begin{figure}
-%\begin{center}
-% \begin{tikzpicture}
-% \begin{scope}[line cap=round,ultra thick]
-% \draw (-2.5,1) -- (-1.5,1); 
-% \draw (-1,1) -- (0.5,1); 
-% \draw[fill=black] (0,1) circle (0.07);
-% \draw (1.5,1) -- (2.5,1); 
-% \draw[->,semithick] (0,0.75) -- (0,0.25);
-% \draw (-2.75,-0.1) -- (0.75,-0.1); 
-% \draw[fill=black] (0,-0.1) circle (0.07);
-% \draw (1.25,-0.1) -- (2.75,-0.1);  
-% \draw[->,semithick] (0,-0.35) -- (0,-0.85);
-% \draw (-3,-1.2) -- (3,-1.2);
-% \draw[fill=black] (0,-1.2) circle (0.07); 
-% \end{scope}
-%
-%\node at (4,0){$\rightsquigarrow$};
-%
-%\node at (7,0) {
-%\begin{tikzcd}[cramped,column sep=tiny]
-%a \otimes m \otimes b \arrow[mapsto]{d} & \in & A \otimes M \otimes B \arrow{d} \\
-%am \otimes b \arrow[mapsto]{d} & \in & M \otimes B \arrow{d} \\
-%amb  & \in &M 
-%\end{tikzcd}
-%};
-%
-%\end{tikzpicture}
-%\end{center}
-%\caption{The prefactorization algebra $\cF_M$ for the $A-B$-bimodule $M$}
-%\label{fig:bimodasfact}
-%\end{figure}
 
 \subsection{Meet factorization algebras}
 
@@ -2154,24 +2063,12 @@ To give a precise description, we introduce a Grothendieck topology due to Micha
 Let $U$ be an open set. A collection of open sets $\mathfrak{U} = \{ U_i \mid i \in I\}$ is a {\em Weiss cover} of $U$ if for any finite collection of points $\{x_1,\ldots,x_k\}$ in $U$, there is an open set $U_i \in \mathfrak{U}$ such that $\{x_1,\ldots,x_k\} \subset U_i$.
 \end{dfn}
 
-The Weiss covers define a Grothendieck topology on $\Open(M)$, the poset category of open subsets of a space $M$. We call it the {\em Weiss topology} of~$M$. 
+The Weiss covers define a Grothendieck topology on $\Open(M)$, the poset category of open subsets of a space $M$. 
+We call it the {\em Weiss topology} of~$M$. 
 Note that Weiss covers are required to ``know'' about every configuration of finitely many points,
 and so they often contain many opens.
 For a smooth $n$-manifold $M$, a useful Weiss cover is the collection of open sets in $M$ diffeomorphic to a disjoint union of finitely many copies of the open $n$-disc.
 (If one has a metric on the manifold, one can work with unions of ``small'' discs.)
-
-
-%\begin{rmk}
-%A Weiss cover is certainly a cover in the usual sense, but a Weiss cover typically contains an enormous number of opens. It is a kind of ``exponentiation" of the usual notion of cover, because a Weiss cover is well-suited to studying all configuration spaces of finitely many points in $U$. For instance, given a Weiss cover $\mathfrak{U}$ of $U$, the collection 
-%\[
-%\{ U_i^n \mid i \in I\}
-%\]
-%provides a cover in the usual sense of $U^n \subset M^n$ for every positive integer~$n$.\hfill$\Diamond$ 
-%\end{rmk}
-%
-%\begin{eg}\label{WeissAsExponential}
-%For a smooth $n$-manifold $M$, there are several simple ways to construct a Weiss cover for $M$. One construction is simply to take the collection of open sets in $M$ diffeomorphic to a disjoint union of finitely many copies of the open $n$-disc. Alternatively, the collection of opens $\{ M \setminus q \mcol q \in M\}$ is a Weiss cover of $M$. One can also produce a Weiss cover of a manifold with countably many elements. Fix a Riemannian metric on $M$. Pick a collection of points $\{q_n\in M \mcol n \in \NN\}$ such that the union of the unit ``discs'' $D_1(q_n) = \{ q \in M \mcol \d(q_n,q) < 1\}$ covers $M$. (Such an open may not be homeomorphic to a disc if the injectivity radius of $q_n$ is less than 1.)  Consider the collection of all ``discs'' $\fD = \{ D_{1/m}(q_n) \mcol m \in \NN, n \in \NN\}$.  The collection of all finite, pairwise disjoint union of elements of $\fD$ is a countable Weiss cover.~\hfill $\Diamond$ 
-%\end{eg}
 
 Now that we have a notion of cover, we can formulate the local-to-global property for factorization algebras.
 
@@ -2204,59 +2101,7 @@ for any Weiss cover of~$S^1$.
 This theorem tells us that factorization homology can be seen as a generalization of Hochschild homology,
 where one simultaneously generalizes the circle to an arbitrary closed manifold and an algebra to a factorization algebra.
 
-%Many examples of factorization algebras satisfy an additional and desirable property,
-%which motivates the name ``factorization algebra.''
-%
-%\begin{dfn}
-%A factorization algebra $\cF$ is \emph{multiplicative} if for every pair $U,V$ of disjoint open subsets of $M$, the structure map
-%$$
-%\cF(U) \otimes \cF(V) \to \cF(U \sqcup V) 
-%$$
-%is a quasi-isomorphism.
-%\end{dfn}
-
 \subsection{How factorization algebras appear in QFT}
-
-%Associative algebras are familiar to every mathematician, but as we have just seen, they reflect and encode one-dimensional geometry.
-%It is then natural to ask about higher-dimensional versions of algebra.
-%Topologists developed such a systematic generalization, often called $E_n$ algebras or algebras over the little $n$-discs operad,
-%which we now describe and relate to prefactorization algebras on~$\RR^n$.
-%In relation to the subject of this paper, we mention that $E_n$ algebras arise naturally from $n$-dimensional topological field theories;
-%we will soon introduce a holomorphic analog of $E_n$ algebras relevant to holomorphic field theories,
-%modeled on the discussion here.
-%
-%Fix a dimension $n$. 
-%Let $D^n(x,r)$ denote the open disc of radius $r$ centered at $x \in \RR^n$,
-%and let $D^n$ denote the unit disc~$D^n(0,1)$.
-%
-%\begin{dfn}
-%Let $E_n$ denote the colored operad with a single color $D^n$ and a topological space $E_n(k)$ of maps from $k$ copies of $D^n$ to itself given by configurations of $k$ disjoint discs:
-%\[
-%E_n(k) = \left\{ \begin{matrix}(x_1, \ldots, x_k) \in (D^n(0,1))^k,\\ (r_1, \ldots, r_k) \in (0,1)^k\end{matrix} \,\bigg|\, \text{\begin{tabular}{c}the discs $D^n(x_i,r_i)$ are pairwise disjoint\\ but each contained in the unit disc $D^n$\end{tabular}}\right\}.
-%\]
-%\end{dfn}
-%
-%When $n = 1$, the operad encodes the idea of associative multiplication:
-%we get pictures much like those we drew earlier with intervals, 
-%except that now we can slide and stretch the intervals because we have a space of operations.
-%More accurately, $E_1$ is a model for associative algebras up to homotopy; 
-%it is closely related to the $A_\infty$ operad. \owen{Let me check how people compare these.}
-%
-%For arbitrary $n$, this definition encodes concretely the idea of $n$ directions of multiplication.
-%If one fixes a direction, such as a coordinate axis, and works with discs lined up in this direction,
-%one sees an $E_1$ structure.
-%
-%\owen{Add picture? We drew 2d pictures earlier.}
-%
-%An algebra over this operad is called an {\em $E_n$-algebra}.
-%A classic example from topology is given by taking the $n$-fold based loop space
-%\[
-%\Omega^n_x(X) = \{ \gamma: \overline{D^n} \to X \mcol \gamma(\partial \overline{D^n}) = x\}
-%\]
-%of a based space $(X,x)$ (i.e., a topological space with a distinguished point) and $\overline{D^n}$ denotes the closed unit $n$-disc.
-%Maps that send the boundary of a disc to the base point can be extended naturally to bigger discs: just send the rest of the big disc to the basepoint.
-%\owen{Should I spell out the structure of the algebra?}
-%Examples include \owen{What to mention?}
 
 Factorization algebras on $\RR^n$ and $E_n$ algebras should be closely related,
 as can be seen by drawing pictures of the configurations of discs that control operations.
@@ -2407,7 +2252,9 @@ given by $\int_{(-)} \cA^q$ where $\cA^q$ denotes the $E_d$ algebra of quantum o
 
 More generally, given a map of Lie groups $G \to O(d)$ and a compatible $G$-action on the theory, 
 a homotopical trivialization of this action on the quantum theory equips $\cA^q$ with the structure of a $G$-framed $E_d$ algebra and, by Lurie's work, a $G$-framed fully extended $d$-dimensional TFT.
-It is interesting to ask how these kinds of functorial field theories intertwine with the better-known examples.
+It is interesting to ask how these kinds of functorial field theories intertwine with the better-known constructions,
+such as the Reshetikhin-Turaev theories, 
+where the target category is not ${\rm Alg}_d$ but some other higher-categorical extensions of~$\Vect$.
 
 In this survey we use factorization algebras to capture the rich algebraic structure of holomorphic field theories,
 but these connections with functorial TFTs raise the question of producing functorial holomorphic field theories.
