@@ -615,9 +615,11 @@ For a perturbative gravity theory,
 one studies deformations of some metric structure on a manifold.
 There is a holomorphic avatar of this situation: deformations of complex structure. 
 The first appearance of such a theory was motivated by topological string theory and involves complex structures on Calabi--Yau threefolds~\cite{BCOV}.
-Because of its relationship to complex structures, the theory is referred to as \textit{Kodaira--Spencer theory}.
+It is known \textit{Kodaira--Spencer gravity} or the Kodaira-Spencer field theory,
+due to its relationship with deformation of complex structures.\footnote{Kodaira and Spencer's work was an important initial clue in the relationship between deformation theory and dg Lie algebras.}
 It has been pursued mathematically by Costello and Li \cite{CLbcov1,CLbcov2,LiThesis} as an approach to the quantum higher genus $B$-model.
-In these works, Costello and Li also provide a generalization of the theory that makes sense in any complex dimension; here we focus just on the most familiar three-dimensional version.
+In these works, Costello and Li also provide a generalization of the theory that makes sense in any complex dimension; 
+here we focus just on the most familiar three-dimensional version.
 %The fields consist of pairs $(\mu, \eta)$ where
 %\begin{align*}
 %\mu & \in \Omega^{0,1}(X, \T_X) \\
@@ -631,27 +633,41 @@ In these works, Costello and Li also provide a generalization of the theory that
 
 %In complex dimension $3$ there is a related theory, called Kodaira--Spencer theory, which only consists of the field $\mu$ describing the complex structure in the above example.
 Let $X$ be a complex threefold equipped with a Calabi--Yau structure; we denote by $\Omega \in \Omega^{3,hol}(X)$ the holomorphic volume form.
-The primary field of Kodaira spencer theory is a $(0,1)$ form on $X$ with values in the holomorphic tangent bundle $\T_X$
+The primary field of Kodaira-Spencer theory is 
 \beqn
-\mu \in \Omega^{0,1}(X,\T_X) .
+\mu \in \Omega^{0,1}(X,\T_X),
 \eeqn 
-A crucial assumption of this model is that we must assume that $\mu$ preserve the holomorphic volume form $\Omega$, meaning its divergence vanishes ${\rm div}_\Omega \mu = 0$.
-The action functional is very similar to the Chern--Simons action
-\beqn\label{eqn:KS1}
-S(\mu) = \int_X \left(\frac12 \mu\, \dbar \del^{-1} \mu + \frac13 \mu \wedge \mu \wedge \mu \right) .
+a $(0,1)$-form  on $X$ with values in the holomorphic tangent bundle~$\T_X$.
+In contrast to examples above, a constraint is imposed on these sections:
+we assume that $\mu$ preserve the holomorphic volume form $\Omega$, meaning 
+\[
+{\rm div}_\Omega(\mu) = 0,
+\]
+i.e., its divergence vanishes.
+In short, the fields are divergence-free vector fields.
+The equation of motion is 
+\beqn
+\dbar \mu + \frac12 [\mu,\mu]_{SN} = 0 ,
 \eeqn
+where $[-,-]_{SN}$ denotes here the Schouten--Nijenhuis bracket 
+(which, on vector fields, is simply the Lie bracket, and is the natural multilinear extension to polyvector fields).
+The reader might recognize this equation as the Maurer--Cartan equation controlling deformations of complex structure $\dbar\rightsquigarrow \dbar + \mu$.
+Formulating the action functional to obtain this equation of motion is a little involved.
+
+The action functional is similar to the Chern--Simons action:
+\beqn\label{eqn:KS1}
+S(\mu) = \int_X \left( \frac12 \mu\, \dbar \del^{-1} \mu + \frac13 \mu \wedge \mu \wedge \mu \right) .
+\eeqn
+\owen{Honestly I don't understand this formula. We need to unpack it more slowly in terms of explicit complex geometry.}
+To make sense of this, 
+note that $\Omega \in \Omega^{3,0}(X)$ and $\mu^3 \in \Omega^{0,3}(X, \cT^{\otimes 3})$.
 In the integrand we use the Calabi--Yau form to obtain a $(3,3)$-form.
 The integrand is not defined globally as it involves the distributional operator $\del^{-1}$.
 Locally it is well-defined as any divergence-free vector field on affine space can be written as the divergence of a bivector field.
 Nevertheless, this model can be carefully put into the rigorous framework of the Batalin--Vilkovisky formalism \cite{CLbcov1}.
 Setting aside the apparent global issues, 
-we apply formal variational calculus to this action to obtain the equation of motion
-\beqn
-\dbar \mu + \frac12 [\mu,\mu] = 0 ,
-\eeqn
-where $[-,-]$ is the Schouten--Nijenhuis bracket 
-(which reduces to just the Lie bracket when restricted to vector fields).
-The reader might recognize this equation as the Maurer--Cartan equation controlling deformations of complex structure $\dbar\rightsquigarrow \dbar + \mu$.
+we apply formal variational calculus to this action to obtain the equation of motion.
+
 
 \subsubsection{Holomorphic field theories as chiral sectors}
 
