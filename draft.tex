@@ -196,8 +196,10 @@ In physics, a classical field theory is usually described in terms of a few piec
 \item a system of PDE for the fields, known as the equations of motion.
 \end{itemize}
 These equations of motion are variational: 
-they are the Euler-Lagrange equations of an action functional on the space a fields.
-An action functional is written as an integral over $M$ of some polydifferential operator on the fields that takes values in densities of~$M$.
+they are the Euler-Lagrange equations of an action functional on the space of fields,
+so that solutions to these PDE are the critical points, in a sense, of some function.
+In practice an action functional is a formal expression, 
+written as an integral over $M$ of some polydifferential operator on the fields that takes values in densities of~$M$.
 A few examples will illuminate this sketch.
 
 \begin{eg}[Massless scalar field theory]
@@ -546,34 +548,66 @@ a rather natural space to study in complex geometry.
 \subsubsection{Holomorphic gauge theories}
 
 We have already met holomorphic Chern--Simons theory, which is defined on Calabi--Yau three-folds.
-There is a related holomorphic gauge theory that is defined in arbitrary complex dimensions and does not require the data of a Calabi--Yau structure. 
-Fix a complex Lie group $G$ and an invariant symmetric bilinear form $\langle-,-\rangle$ on its Lie algebra.
+There is a another class of holomorphic gauge theories 
+defined on any complex manifold, with no restriction on dimension 
+and without the need for a Calabi--Yau structure. 
 
-If $n$ is the complex dimension of $X$, 
-the fields consist of pairs $(A,B)$ where $A$ denotes a $\dbar$-connection on a holomorphic principal $G$-bundle $P \to X$ and
+Let $X$ be a complex manifold of complex dimension~$n$.
+Fix a complex Lie group $G$ and an invariant symmetric bilinear form $\langle-,-\rangle$ on its Lie algebra~$\fg$.
+Fix a holomorphic principal $G$-bundle $P \to X$.
+The fields consist of pairs $(A,B)$ where 
+\[
+A \in \Omega^{0,1}(X, \fg_P)
+\] 
+where $\fg_P$ is the adjoint bundle of $P$ and
 \beqn
 B \in \Omega^{n,n-2}(X, \fg_P^*) ,
 \eeqn
-where $\fg_P$ is the adjoint bundle of $P$. 
+where $\fg_P^*$ is the coadjoint bundle of $P$. 
 The action functional is 
 \beqn
 S(A,B) = \int_X \langle B \wedge F_A \rangle
 \eeqn
 where $F_A$ is the curvature of the connection $A$.
-From this formula, one might see that the model is a holomorphic analog of topological $BF$ theory. 
-Notice that locally on $X$ and
-writing the connection at $\dbar + [A,-]$, this action can be written as
-\beqn
-S(A,B) = \int_X \langle B \wedge \left(\dbar A + \frac12 [A,A]  \right) \rangle.
-\eeqn
 The equations of motion are
 \[
 F_A^{0,2} = \dbar A + \frac12 [A,A] = 0 \text{ and } \dbar B + [A,B] = 0.
 \]
-In other words, a solution is a $\dbar$-connection on $P\to X$ and a holomorphic $(n,n-2)$-form-valued section of the coadjoint bundle.
+A solution to the first equation provides is a $\dbar$-connection 
+\[
+\dbar_A = \dbar_P + [A,-]
+\]
+on the underlying smooth bundle $P\to X$, 
+\owen{Am I doing that right? I believe a choice of holomorphic structure on $P$ automatically determines a Dolbeault operator, or $\dbar$-connection.}
+and a solution to the second equation is a holomorphic $(n,n-2)$-form-valued section of the coadjoint bundle associated to~$\dbar_A$.
+This theory is often called {\em holomorphic BF theory}, due to the integrand of the action functional.
 
-Holomorphic BF theory is easy to formulate classically, but it can admit peculiar properties at the quantum level.
-For example, in \cite{semichiral} it is shown that on $X = \C^2$ the quantization of holomorphic BF theory is a almost topological field theory.\footnote{More precisely, the divergence-free part of the stress tensor is rendered cohomologically trivial to first-order in perturbation theory. \owen{Add specific location in text.}}
+\begin{rmk}
+Notice that this action functional resembles the $\beta\gamma$ system, 
+with $A$ playing the role of $\gamma$ and $B$ playing the role of $\beta$.
+A physicist might also recognize this action functional as a holomorphic analog of topological $BF$ theory. 
+\end{rmk}
+
+It is natural to view two connections as equivalent if they are related by a gauge transformation
+and to identify $B$-solutions that are related by a $\dbar_A$-exact term.
+From the point of view of derived geometry,
+we thus see holomorphic BF theory as describing the moduli space
+\[
+T^*[-1] \Bun_G(X),
+\]
+if we run over all principal bundles.
+
+\begin{rmk}
+Holomorphic BF theory exhibits some interesting properties at the quantum level,
+at least perturbatively.
+For example, in \cite{semichiral} it is shown that on $X = \C^2$ 
+the perturbative quantization of holomorphic BF theory is almost a topological field theory. 
+More precisely, to first-order in perturbation theory, 
+the stress tensor has a divergence-free component that is cohomologically trivial. 
+In other words, the quantum theory appears to be ``invariant'' under divergence-free vector fields,
+although not all vector fields (as in the case of a TFT).
+\owen{Add specific location in text.}
+\end{rmk}
 
 \subsubsection{Holomorphic ``gravity''}
 
@@ -583,9 +617,11 @@ For a perturbative gravity theory,
 one studies deformations of some metric structure on a manifold.
 There is a holomorphic avatar of this situation: deformations of complex structure. 
 The first appearance of such a theory was motivated by topological string theory and involves complex structures on Calabi--Yau threefolds~\cite{BCOV}.
-Because of its relationship to complex structures, the theory is referred to as \textit{Kodaira--Spencer theory}.
+It is known \textit{Kodaira--Spencer gravity} or the Kodaira-Spencer field theory,
+due to its relationship with deformation of complex structures.\footnote{Kodaira and Spencer's work was an important initial clue in the relationship between deformation theory and dg Lie algebras.}
 It has been pursued mathematically by Costello and Li \cite{CLbcov1,CLbcov2,LiThesis} as an approach to the quantum higher genus $B$-model.
-In these works, Costello and Li also provide a generalization of the theory that makes sense in any complex dimension; here we focus just on the most familiar three-dimensional version.
+In these works, Costello and Li also provide a generalization of the theory that makes sense in any complex dimension; 
+here we focus just on the most familiar three-dimensional version.
 %The fields consist of pairs $(\mu, \eta)$ where
 %\begin{align*}
 %\mu & \in \Omega^{0,1}(X, \T_X) \\
@@ -599,29 +635,46 @@ In these works, Costello and Li also provide a generalization of the theory that
 
 %In complex dimension $3$ there is a related theory, called Kodaira--Spencer theory, which only consists of the field $\mu$ describing the complex structure in the above example.
 Let $X$ be a complex threefold equipped with a Calabi--Yau structure; we denote by $\Omega \in \Omega^{3,hol}(X)$ the holomorphic volume form.
-The primary field of Kodaira spencer theory is a $(0,1)$ form on $X$ with values in the holomorphic tangent bundle $\T_X$
+The primary field of Kodaira-Spencer theory is 
 \beqn
-\mu \in \Omega^{0,1}(X,\T_X) .
+\mu \in \Omega^{0,1}(X,\T_X),
 \eeqn 
-A crucial assumption of this model is that we must assume that $\mu$ preserve the holomorphic volume form $\Omega$, meaning its divergence vanishes ${\rm div}_\Omega \mu = 0$.
-The action functional is very similar to the Chern--Simons action
-\beqn\label{eqn:KS1}
-S(\mu) = \int_X \left(\frac12 \mu\, \dbar \del^{-1} \mu + \frac13 \mu \wedge \mu \wedge \mu \right) .
+a $(0,1)$-form  on $X$ with values in the holomorphic tangent bundle~$\T_X$.
+In contrast to examples above, a constraint is imposed on these sections:
+we assume that $\mu$ preserve the holomorphic volume form $\Omega$, meaning 
+\[
+{\rm div}_\Omega(\mu) = 0,
+\]
+i.e., its divergence vanishes.
+In short, the fields are divergence-free vector fields.
+The equation of motion is 
+\beqn
+\dbar \mu + \frac12 [\mu,\mu]_{SN} = 0 ,
 \eeqn
+where $[-,-]_{SN}$ denotes here the Schouten--Nijenhuis bracket 
+(which, on vector fields, is simply the Lie bracket, and is the natural multilinear extension to polyvector fields).
+The reader might recognize this equation as the Maurer--Cartan equation controlling deformations of complex structure $\dbar\rightsquigarrow \dbar + \mu$.
+Formulating the action functional to obtain this equation of motion is a little involved.
+
+The action functional is similar to the Chern--Simons action:
+\beqn\label{eqn:KS1}
+S(\mu) = \int_X \left( \frac12 \mu\, \dbar \del^{-1} \mu + \frac13 \mu \wedge \mu \wedge \mu \right) .
+\eeqn
+\owen{Honestly I don't understand this formula. We need to unpack it more slowly in terms of explicit complex geometry.}
+To make sense of this, 
+note that $\Omega \in \Omega^{3,0}(X)$ and $\mu^3 \in \Omega^{0,3}(X, \cT^{\otimes 3})$.
 In the integrand we use the Calabi--Yau form to obtain a $(3,3)$-form.
 The integrand is not defined globally as it involves the distributional operator $\del^{-1}$.
 Locally it is well-defined as any divergence-free vector field on affine space can be written as the divergence of a bivector field.
 Nevertheless, this model can be carefully put into the rigorous framework of the Batalin--Vilkovisky formalism \cite{CLbcov1}.
 Setting aside the apparent global issues, 
-we apply formal variational calculus to this action to obtain the equation of motion
-\beqn
-\dbar \mu + \frac12 [\mu,\mu] = 0 ,
-\eeqn
-where $[-,-]$ is the Schouten--Nijenhuis bracket 
-(which reduces to just the Lie bracket when restricted to vector fields).
-The reader might recognize this equation as the Maurer--Cartan equation controlling deformations of complex structure $\dbar\rightsquigarrow \dbar + \mu$.
+we apply formal variational calculus to this action to obtain the equation of motion.
+
 
 \subsubsection{Holomorphic field theories as chiral sectors}
+
+\owen{I'm a little lost about the motivation for this section, 
+given the earlier scalar field section. This C theory looks interest so maybe we can figure out a natural place to put it?}
 
 A typical scalar field theory is the free boson which exists on any Riemannian manifold $\Sigma$.
 Its action functional is simply $\int_\Sigma \phi \triangle \phi$ where $\phi$ is a smooth function on $\Sigma$.
