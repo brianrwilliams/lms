@@ -546,34 +546,66 @@ a rather natural space to study in complex geometry.
 \subsubsection{Holomorphic gauge theories}
 
 We have already met holomorphic Chern--Simons theory, which is defined on Calabi--Yau three-folds.
-There is a related holomorphic gauge theory that is defined in arbitrary complex dimensions and does not require the data of a Calabi--Yau structure. 
-Fix a complex Lie group $G$ and an invariant symmetric bilinear form $\langle-,-\rangle$ on its Lie algebra.
+There is a another class of holomorphic gauge theories 
+defined on any complex manifold, with no restriction on dimension 
+and without the need for a Calabi--Yau structure. 
 
-If $n$ is the complex dimension of $X$, 
-the fields consist of pairs $(A,B)$ where $A$ denotes a $\dbar$-connection on a holomorphic principal $G$-bundle $P \to X$ and
+Let $X$ be a complex manifold of complex dimension~$n$.
+Fix a complex Lie group $G$ and an invariant symmetric bilinear form $\langle-,-\rangle$ on its Lie algebra~$\fg$.
+Fix a holomorphic principal $G$-bundle $P \to X$.
+The fields consist of pairs $(A,B)$ where 
+\[
+A \in \Omega^{0,1}(X, \fg_P)
+\] 
+where $\fg_P$ is the adjoint bundle of $P$ and
 \beqn
 B \in \Omega^{n,n-2}(X, \fg_P^*) ,
 \eeqn
-where $\fg_P$ is the adjoint bundle of $P$. 
+where $\fg_P^*$ is the coadjoint bundle of $P$. 
 The action functional is 
 \beqn
 S(A,B) = \int_X \langle B \wedge F_A \rangle
 \eeqn
 where $F_A$ is the curvature of the connection $A$.
-From this formula, one might see that the model is a holomorphic analog of topological $BF$ theory. 
-Notice that locally on $X$ and
-writing the connection at $\dbar + [A,-]$, this action can be written as
-\beqn
-S(A,B) = \int_X \langle B \wedge \left(\dbar A + \frac12 [A,A]  \right) \rangle.
-\eeqn
 The equations of motion are
 \[
 F_A^{0,2} = \dbar A + \frac12 [A,A] = 0 \text{ and } \dbar B + [A,B] = 0.
 \]
-In other words, a solution is a $\dbar$-connection on $P\to X$ and a holomorphic $(n,n-2)$-form-valued section of the coadjoint bundle.
+A solution to the first equation provides is a $\dbar$-connection 
+\[
+\dbar_A = \dbar_P + [A,-]
+\]
+on the underlying smooth bundle $P\to X$, 
+\owen{Am I doing that right? I believe a choice of holomorphic structure on $P$ automatically determines a Dolbeault operator, or $\dbar$-connection.}
+and a solution to the second equation is a holomorphic $(n,n-2)$-form-valued section of the coadjoint bundle associated to~$\dbar_A$.
+This theory is often called {\em holomorphic BF theory}, due to the integrand of the action functional.
 
-Holomorphic BF theory is easy to formulate classically, but it can admit peculiar properties at the quantum level.
-For example, in \cite{semichiral} it is shown that on $X = \C^2$ the quantization of holomorphic BF theory is a almost topological field theory.\footnote{More precisely, the divergence-free part of the stress tensor is rendered cohomologically trivial to first-order in perturbation theory. \owen{Add specific location in text.}}
+\begin{rmk}
+Notice that this action functional resembles the $\beta\gamma$ system, 
+with $A$ playing the role of $\gamma$ and $B$ playing the role of $\beta$.
+A physicist might also recognize this action functional as a holomorphic analog of topological $BF$ theory. 
+\end{rmk}
+
+It is natural to view two connections as equivalent if they are related by a gauge transformation
+and to identify $B$-solutions that are related by a $\dbar_A$-exact term.
+From the point of view of derived geometry,
+we thus see holomorphic BF theory as describing the moduli space
+\[
+T^*[-1] \Bun_G(X),
+\]
+if we run over all principal bundles.
+
+\begin{rmk}
+Holomorphic BF theory exhibits some interesting properties at the quantum level,
+at least perturbatively.
+For example, in \cite{semichiral} it is shown that on $X = \C^2$ 
+the perturbative quantization of holomorphic BF theory is almost a topological field theory. 
+More precisely, to first-order in perturbation theory, 
+the stress tensor has a divergence-free component that is cohomologically trivial. 
+In other words, the quantum theory appears to be ``invariant'' under divergence-free vector fields,
+although not all vector fields (as in the case of a TFT).
+\owen{Add specific location in text.}
+\end{rmk}
 
 \subsubsection{Holomorphic ``gravity''}
 
