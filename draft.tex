@@ -609,6 +609,10 @@ although not all vector fields (as in the case of a TFT).
 \owen{Add specific location in text.}
 \end{rmk}
 
+It is possible to formulate holomorphic versions of higher abelian gauge theories,
+associated to moduli spaces of holomorphic $k$-gerbes with connection.
+\owen{Should we elaborate or just stop with a reference?}
+
 \subsubsection{Holomorphic ``gravity''}
 
 Any theory of gravity involves, in part, metric structure on a given manifold,
@@ -849,15 +853,49 @@ Such definitions can be found in~\cite{CG2}.
 %twists of SUSY theories
 %Owen has some nice thoughts about globalization as it related to SUSY/THF.
 
-There is the following local characterization of a holomorphic field theory, 
-which allows us to connect directly to supersymmetric field theories. 
-Suppose that our spacetime is $\CC^n = \RR^{2n}$ and assume that the theory we are considering is translation invariant, 
-meaning that there is an action by the $2n$-dimensional Lie algebra spanned by the vector fields $\{\del / \del {z_i}, \del / \del {\zbar_i}\}$ for $i=1,\ldots,n$. 
-Such a theory is {\em holomorphic} if the anti-holomorphic vector fields $\del / \del {\zbar_i}$ act trivially. 
-In the derived world this condition is encoded by the data of chain homotopy trivializations for such vector fields. 
+This section offers a bridge from theories of physical interest to holomorphic field theories,
+and hence may be of particular interest to physicists.
 
-Any even dimensional supersymmetric field theory produces a holomorphic field theory through a process called {\em twisting},
-so we have a wealth of examples to study that are intimately connected to theories of genuine interest in physics.\footnote{Strictly speaking, twisting requires the existence of of more than two chiral supercharges.Thus, two-dimensional theories with $\cN = (n,m)$ supersymmetry, and $n,m \leq 1$, do not admit holomorphic twists.}
+\subsubsection{Holomorphicity as a symmetry property}
+
+When physicists describe a classical field theory,
+they typically work with the ``spacetime'' manifold $M = \RR^n$,
+which is genuinely a spacetime when equipped with the Minkowski (pseudo)metric and is a space (with no time) when equipped with the Euclidean metric.\footnote{A theory on Minkowski spacetime is called {\it Lorentzian} and on Euclidean space is called {\it Euclidean},
+although people also use those terms for theories on nonlinear manifolds with Lorentzian pseudometrics or Riemannian metrics, respectively.}
+There is, in either case, a group of isometries (the Poincar\'e group or Euclidean group, respectively),
+and it is useful to work with theories that are equivariant for this group.
+That means the fields are sections of equivariant bundles,
+and the equations of motion must be equivariant as well.
+In fact, this ``covariance'' is typically viewed as a condition required of a good theory.
+
+It is possible to identify holomorphic theories on $\RR^{2n}$ in terms of this covariance.
+In fact, it suffices to focus on how the subgroup of translations acts, as follows.
+
+Equip $\RR^{2n}$ with a complex structure.
+Then the complexified Lie algebra of translations decomposes into holomorphic and anti-holomorphic derivatives:
+\[
+\CC \otimes_{\RR} \RR^{2n} 
+= \CC\left\{\frac{\partial}{\partial z_1}, \ldots, \frac{\partial}{\partial z_n}\right\} 
+\oplus \CC\left\{\frac{\partial}{\partial \zbar_1}, \ldots, \frac{\partial}{\partial \zbar_1}\right\}.
+\]
+We would like to say a translation-equivariant theory is {\em holomorphic} if the anti-holomorphic vector fields $\del / \del {\zbar_i}$ act trivially.
+More carefully, we can say there is Lie algebra map from real translations to vector fields on on the space of solutions to the equations of motion (i.e., to derivations on the algebra of observables),
+and when complexified, every anti-holomorphic translation $\partial/\partial \zbar_j$ acts by zero.
+In the derived world this condition is encoded by the data of chain homotopy trivialization of the action by the anti-holomorphic translations. 
+
+Note that for the notion introduced in Section~\ref{sec: pert dfn},
+it is straightforward to provide such a homotopical trivialization: 
+the fields are encoded by a Dolbeault complex on $\CC^n$, 
+translations act by the Lie derivative $L_{\partial/\partial x_j}$,
+and so we trivialize the action $L_{\partial/\partial \zbar_j}$ by using the contraction $\iota_{\partial/\partial \zbar_j}$,
+thanks to Cartan's formula.
+
+We now turn to using this point of view in the setting of supersymmetric theories
+
+\subsubsection{Supersymmetry and twisting}
+
+The goal of this section is to show that any even dimensional supersymmetric field theory produces a holomorphic field theory through a process called {\em twisting}.
+This process provides us with a wealth of examples that are intimately connected to theories of genuine interest in physics.\footnote{Strictly speaking, twisting requires the existence of of more than two chiral supercharges.Thus, two-dimensional theories with $\cN = (n,m)$ supersymmetry, and $n,m \leq 1$, do not admit holomorphic twists.}
 As we will explain later, many interesting phenomena for supersymmetric theories have analogs in holomorphic field theory.
  
 By definition, a supersymmetric field theory on $\RR^d$ is a theory that is acted upon by a super Poincar\'{e} algebra. 
