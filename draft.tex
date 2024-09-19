@@ -546,6 +546,7 @@ T^*[-1] \Map_\dbar(M,N)
 a rather natural space to study in complex geometry.
 
 \subsubsection{Holomorphic gauge theories}
+\label{sec: hol BF dfn}
 
 We have already met holomorphic Chern--Simons theory, which is defined on Calabi--Yau three-folds.
 There is a another class of holomorphic gauge theories 
@@ -886,11 +887,11 @@ In the derived world this condition is encoded by the data of chain homotopy tri
 Note that for the notion introduced in Section~\ref{sec: pert dfn},
 it is straightforward to provide such a homotopical trivialization: 
 the fields are encoded by a Dolbeault complex on $\CC^n$, 
-translations act by the Lie derivative $L_{\partial/\partial x_j}$,
+a real translation $\partial/\partial x_j$ acts by the Lie derivative $L_{\partial/\partial x_j}$,
 and so we trivialize the action $L_{\partial/\partial \zbar_j}$ by using the contraction $\iota_{\partial/\partial \zbar_j}$,
 thanks to Cartan's formula.
 
-We now turn to using this point of view in the setting of supersymmetric theories
+We now turn to using this point of view in the setting of supersymmetric theories.
 
 \subsubsection{Supersymmetry and twisting}
 
@@ -900,7 +901,7 @@ As we will explain later, many interesting phenomena for supersymmetric theories
  
 By definition, a supersymmetric field theory on $\RR^d$ is a theory that is acted upon by a super Poincar\'{e} algebra. 
 We focus on Euclidean field theories and work in Riemannian signature,
-hence for us the ``super Poincar\'{e} algebra'' is a super Lie algebra of the form
+so for us the ``super Poincar\'{e} algebra'' is a super Lie algebra of the form
 $\mathfrak{so}(d) \ltimes \ft$
 where $\ft$ is the super Lie algebra of {\em supertranslations} whose even part $\ft^0 = \RR^d$ is the Lie algebra of ordinary translations and whose odd part $\ft^1$ is a sum of spin representations. 
 While the Lie algebra $\RR^d$ of ordinary translations is abelian, the Lie algebra $\ft$ carries a nontrivial (super) Lie bracket,
@@ -913,10 +914,16 @@ by the formula $[\cQ, \cQ'] = \Gamma(\cQ, \cQ')$.
 
 By a {\em supercharge}, one means an odd supertranslation $\cQ \in \ft$, and
 a {\em twist} is a (nonzero) supercharge $\cQ$ such that $[\cQ,\cQ] = \cQ^2 = 0$. 
-The classification of twisting supercharges is a completely algebraic question,
-and we refer to~\autocite{ESsusy} for a complete classification for supersymmetry algebras in dimensions from $1$ to~$10$. 
+The classification of twisting supercharges is a completely algebraic question:
+see~\autocite{ESsusy} for a complete classification in dimensions from $1$ to~$10$.
 
-If a Lagrangian field theory $\cT$ has $\ft$ as a symmetry, 
+In even dimensions $d = 2n$, basic properties of the supersymmetry algebra guarantee that there exists a twist that provides a complex structure to $\RR^{2n}$.\footnote{This claim fails in exactly one example, namely for $\cN=(1,0)$ supersymmetry in two dimensions, as the dimension and amount of supersymmetry are too small.}
+Indeed, so long as a twisted supercharge $\cQ$ is nonzero, 
+one finds that the image of the map $[\cQ,-] = \Gamma(\cQ,-)$ from \eqref{e:Gamma} is at least $n$-dimensional.
+A {\em minimal} or {\em holomorphic} supercharge is one for which the dimension is exactly~$n$,
+and we declare the image of $\cQ$ as spanned by the anti-holomorphic vector fields~$\{\del / \del \zbar_i\}$. 
+
+If a classical field theory $\cT$ has $\ft$ as a symmetry, 
 then a choice of twist $\cQ$ determines a deformation of the theory that we call a {\em twisted supersymmetric theory} $\cT^\cQ$.
 If $S$ denotes the action functional of $\cT$, then the action functional $S^\cQ$ of $\cT^\cQ$ has the form
 \[
@@ -924,50 +931,42 @@ S^\cQ(\varphi) = S(\varphi) + \int_{\RR^d} \varphi  \left(\cQ \cdot \varphi \rig
 \]
 where the deformation arises from how $\cQ$ acts on the theory 
 (the $\cdots$ leaves room for terms non-linear in $\cQ$).
-For extensive details on how the twisted theory is defined we refer to~\autocite{CostelloHolomorphic, ESW}. 
+For a systematic discussion of how the twisted theory is defined, 
+we refer to~\autocite{CostelloHolomorphic, ESW}. 
 
 Building upon the physical literature, Elliott, Safronov, and the second author have given a complete characterization of the all twisted supersymmetric Yang--Mills theories in dimensions $2 \leq d \leq 10$ \autocite{ESW}. 
-These twisted theories are analogs of BF theory and Chern--Simons theory, so long as one includes purely topological and purely holomorphic theories.
-In even dimensions $d = 2n$, basic properties of the supersymmetry algebra guarantee that there exists a twist rendering the theory holomorphic.\footnote{This fails in one example where the dimension and amount of supersymmetry is too small, namely for $\cN=(1,0)$ supersymmetry in two dimensions.}
-Indeed, so long as a twisted supercharge is nonzero $\cQ \ne 0$ one see that the image of the map $[\cQ,-] = \Gamma(\cQ,-)$ from \eqref{e:Gamma} is at least $n$-dimensional.
-A {\em minimal} or {\em holomorphic} supercharge is one for which the dimension is exactly $n$, 
-and we declare the the image of $\cQ$ is spanned by the anti-holomorphic vector fields $\{\del / \del \zbar_i\}$.
-Thus there exist homotopies $\{\eta_i\}$ such that 
+These twisted theories are BF theorires or Chern--Simons theories, possibly along with other fields in associated bundle; 
+depending on the twist, that might mean a purely topological or purely holomorphic BF or Chern-Simons theory.
+In even dimensions $d = 2n$, a minimal twist renders the theory holomorphic.
+$\cQ$ itself determines the homotopies $\{\eta_i\}$ such that 
 \beqn
 [\cQ,\eta_i] = \frac{\del}{\del \zbar_i} ,
 \eeqn 
 recovering the characterization of holomorphic field theories mentioned at the beginning of the subsection. 
 
-%For our purposes here, a crucial property of a twist $Q$ is the dimension $k_Q$ of its image ${\rm Im} \; \Gamma(Q, \cdot) \subset \RR^d$,
-%which we call the number of {\em invariant} directions of~$Q$.
-%By the non-degeneracy of the pairing $\Gamma$, it follows that $k_Q \geq \frac{d}{2}$.
-%If the number of invariant directions is maximal with $k_Q = d$, then the twisted theory $\cT^Q$ is purely topological. 
-%If the number of invariant directions is minimal with $k_Q = \frac{d}{2}$, then the twisted theory $\cT^Q$ is purely holomorphic. 
+As a representative example of twisting, 
+consider four-dimensional space $\RR^4$ with $\cN=1$ supersymmetry.
+The odd part of the supersymmetry algebra $\ft^1$ is four-dimensional, 
+and every nonzero twist is minimal and gives us a copy of $\CC^2$.\footnote{And in a natural sense, they are all equivalent.}
+That is, with this amount of supersymmetry, there does {\it not} exist a topological twist.
+consider the fundamental example of pure four-dimensional supersymmetric Yang--Mills theory with $\cN=1$ supersymmetry. 
+Its holomorphic twist is equivalent to holomorphic BF theory on~$\CC^2$ described in Section~\ref{sec: hol BF dfn}.
 
-As a representative example of how twisting behaves, 
-consider pure four-dimensional supersymmetric Yang--Mills theory with $\cN=1$ supersymmetry.
-The odd part of the supersymmetry algebra $\ft^1$ is four-dimensional and there exists a unique holomorphic twist $\cQ$ (up to equivalence).
-In this dimension, with this amount of supersymmetry, there does not exist a topological twist.
-The holomorphic twist of the theory with respect to $\cQ$ is equivalent to holomorphic BF theory on $\CC^2$.
-
-This ends our discussion of twisting supersymmetric gauge theories.
 There are many other appearances of holomorphic field theories in the context of supersymmetry.
-Here is a (very) non-exhaustive list.
-
+Here is a (very) non-exhaustive list:
 \begin{itemize}
-\item Target space field theories of topological string theories give rich classes of holomorphic field theories. 
-For instance, the closed string field theory of the topological B-model on a Calabi--Yau threefold is Kodaira--Spencer theory, first proposed in \cite{BCOV}. 
-This theory is defined on any Calabi--Yau manifold. 
+\item Topological string theories yield rich classes of holomorphic field theories, as target space field theories. 
+For instance, the topological B-model on a Calabi--Yau threefold $X$ leads to Kodaira--Spencer theory on $X$, as proposed in \cite{BCOV} using the framework of closed string field theory. 
 The perspective of Kodaira--Spencer theory as a holomorphic field theory has been explored with great success by Kevin Costello and Si Li \cite{CL1, CL2, CL3}.
 \item
-It is possible to make sense of Kodaira--Spencer theory in other dimensions.
+It is possible to make sense of Kodaira--Spencer theory outside of three dimensions.
 In \cite{CLsugra}, Costello and Li have argued for conjectural descriptions of twists of supergravity and superstring theories in terms of this more general version of Kodaira--Spencer theory.
-\item The `pure spinor' method of Cederwall and Berkovits \cite{Cederwall, Berkovits} starts with a field or string theory defined on the (sometimes singular) nilpotence variety of the super Poincar\'e algebra and uses the action of supersymmetry to produce ordinary (non-twisted) supersymmetric field theories. 
-Often, the theory you start with on the nilpotence variety is holomorphic \cite{ESW,SWpure}. 
+\item The pure spinor formalism of Berkovits and Cederwall  \cite{Cederwall, Berkovits} starts with a field theory or string theory defined on the (sometimes singular) nilpotence variety of the super Poincar\'e algebra and then uses the action of supersymmetry to produce ordinary (non-twisted) supersymmetric field theories. 
+Often, the theory on the nilpotence variety is holomorphic \cite{ESW,SWpure}. 
 \item Similar in spirit to the pure spinor formalism is a systematic relationship between holomorphic field theories on (super) twistor space and ordinary (Riemannian) field theories.
 For instance, holomorphic BF theory on (super) twistor space associated to $\RR^4$ is equivalent to a self-dual limit of (super) Yang--Mills theory \cite{Penrose, Kevins work..., other twistor literature}.
 \end{itemize}
-
+We recommend \og{is there some other place to point?}
 
 \section{Algebra and holomorphic field theories}
 \label{sec: algebra}
