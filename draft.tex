@@ -2487,6 +2487,7 @@ In other words, by a judicious choice of gauge-fixing,
 we find that the one-loop Feynman diagrams have no UV divergences.
 Moreover, no higher loop diagrams appear (for combinatorial reasons),
 and the action functional satisfies the quantum master equation.
+\brian{this comment does not apply in general, only for cotangent theories.}
 See Section~\ref{sec: susytwist revisited} for some further discussion.
 
 Although holomorphic field theories had already appeared in practice,
@@ -2508,12 +2509,12 @@ A key feature of holomorphic theories is the absence of (possibly scheme-depende
 
 Counterterms are perturbative quantum effects that typically must be introduced to the action functional in order to circumvent ultra-violet (UV, high energy) divergences which arise when studying the path integral.
 From Feynman, we know that the path integral can be formally expressed in terms of graphs. 
-More precisely, given a graph $\Gamma$ (whose exact shape depends on the theory), there is a prescription for assigning to it a functional $W_\Gamma$ on the fields (a distribution) which we can understand as term in the quantum action; typically in the form of an integral over $|V(\Gamma)|$ copies of spacetime where $V(\Gamma)$ is the vertex set of the graph.
+More precisely, given a graph $\gamma$ (whose exact shape depends on the theory), there is a prescription for assigning to it a functional $W_\gamma$ on the fields (a distribution) which we can understand as term in the quantum action; typically in the form of an integral over $|V(\gamma)|$ copies of spacetime where $V(\gamma)$ is the vertex set of the graph.
 Unfortunately, this prescription is not always well-posed, as there are infinities which can arise due to presence of overlapping supports of certain distributions.
 Counterterms can be constructed by carefully understanding the nature of these divergences through some regularization scheme.
 
 For topological quantum field theories, it is known from the work of Axelrod, Singer, Kontsevich, Cattaneo, and others \cite{???} that such Feynman graphs return finite answers and hence there is no need to introduce such complications.
-The method used to prove this interprets such Feynman graph integrals as integrals over configuration space and then showing that the weights $W_\Gamma$ can be extended to some compactification.
+The method used to prove this interprets such Feynman graph integrals as integrals over configuration space and then showing that the weights $W_\gamma$ can be extended to some compactification.
 A different regularization scheme based on the heat equation was used by Costello \cite{CosRenormPaper} to arrive at the same result for topological quantum field theories.
 
 The configuration space method traditionally used to study topological theories does not admit an immediate generalization to holomorphic theories.
@@ -2525,55 +2526,47 @@ In \cite{LiVertex} it is shown by a very clever analysis that holomorphic field 
 There has a been a buzz of recent activity contributing to the advancement in the renormalization of holomorphic field theories.
 In work of Budzik, Gaiotto, Kulp, Wu, Yu, a strategy for proving UV finiteness for certain graphs (called Laman graphs) at arbitrary genus in a holomorphic quantum field theory was developed \cite{BGKWY}.
 The key idea is to combine the heat kernel analysis with the sort of compactifications that are used in the theory of configuration spaces.
-Following this work, Minghao Wang has extended this analysis to show that holomorphic field theories on $\C^n$ admit a regulation scheme which is UV finite to \textit{all} orders in perturbation theory \cite{Wang}.
-In other words, both topological and holomorphic field theories are completely free of the divergences present in typical quantum field theories!
 
-\owen{Laying out some of this stuff in an attempt to state Minghao's theorem}
+Recently, Minghao Wang has extended this analysis to show that holomorphic field theories on $\C^n$ admit a regulation scheme which is UV finite to \textit{all} orders in perturbation theory \cite{Wang}.
+In other words, both topological and holomorphic field theories are completely free of the divergences present in typical quantum field theories!
+We briefly recall the approach to this regulation scheme.
 
 We will allow graphs with finitely many vertices and edges, 
 but also leaves (also known as hair or half-edges).\footnote{That is, a vertex may have, in addition to edges connecting it to other vertices, some incident edges that do not connect to another vertex. 
 These will label inputs to an operation associated to the graph.}
-We allow multiple edges between vertices, as well as loops.
+We allow multiple edges between vertices, as well as loops, the precise form of which are determined by the interactions of the theory.
 
 For a graph $\gamma$, let $E(\gamma)$ denote the number of edges,
 $V(\gamma)$ denote the number of vertices,
-and $L(gamma)$ denote the number of leaves.
+and $L(\gamma)$ denote the number of leaves.
+The scheme begins with the familiar Wilsonian approach to renormalization which involves introducing an IR `cut-off' length scale $L > 0$.
+The \textit{Schwinger space} associated to a graph $\gamma$ and a length $L$ is the non-compact manifold with corners $(0,L]^{E(\gamma)}$, which we will denote $\op{Schw}(\gamma)$ below.
+The desired Feynman graph weight $W_\gamma$ of a graph $\gamma$ is obtained as the integral over  Scwhinger space. 
 
 \begin{dfn}
-For a graph $\gamma$, there is a space $\RR_+^{E(\gamma)}$ parametrizing the moduli space of lengths (all positive) given to the edges.
-This positive orthant has a the partial compactification $\Schw(\gamma)$, known as the {\em Schwinger space} of $\gamma$, 
-where \owen{define!} 
-\end{dfn}
-
-\begin{dfn}
-For a perturbative holomorphic field on $\CC^d$ with space of fields 
+For a perturbative field theory with space of fields $\cE$, there is a distribution valued in forms on Schwinger space
 \[
-\cV = \Gamma(\CC^d, \Omega^{0,\bullet}(V)),
-\] 
-as defined in Section~\ref{}, 
-there is a family of distributions
-\[
-w_{\gamma, t}: \cV_c^{L(\gamma)} \to \CC
+w_{\gamma} \colon \cE^{L(\gamma)}_c \to \Omega^\bu \left( \op{Schw}(\gamma) \right)
 \]
-parametrized by $t \in \RR_+^{E(\gamma)}$,
-known as the {\em regularized weight of $\gamma$}.
+which we call the {\em regularized weight of $\gamma$}.
 \end{dfn}
 
+The possibly ill-defined weight $W_\gamma$ is obtained by integration of $w_\gamma$ over Schwinger space.
 This family of distributions is constructed as an integral over $\CC^{v(\gamma) d}$,
 where each edge $e$ is labeled by a smooth function $P_{t(e)}$ depending on the length of the edge and where each vertex is labeled by a distribution arising from an interaction term of the theory.
 For general theories, one cannot smoothly continue the regularized weight from the positive length values to zero lengths.
-The putative integrals become divergent.
+The putative integrals become divergent, which is reflected by the non-compactness of Schwinger space from this perspective.
 
-For holomorphic field theories, however, something remarkable happens.
+For holomorphic field theories (and generally topological-holomorphic theories, see \cite{WWthf}) however, something remarkable happens.
 
 \begin{thm}[Wang, \owen{precise citations}]
-For every graph~$\gamma$,
-this family $w_{\gamma,t}$ has a natural smooth extension to the Schwinger space~$\Schw(\gamma)$.
-That is, there is a smooth map
+Let $\cE$ be the space of fields underlying a holomorphic field theory on $\C^n$.
+For every graph~$\gamma$, $w_{\gamma}$ has a natural smooth extension $\til {w_\gamma}$ to a compactification $\til{\op{Schw}(\gamma)}$ of Schwinger space.
+In particular, the weight
 \[
-w_{\gamma}: \Schw(\gamma) \to \Hom_{cts}(\cV_c^{L(\gamma)},\CC)
+W_\gamma \colon \cE^{L(\gamma)}_c \xto{\til{w_\gamma}}\Omega^\bu \left( \til{\op{Schw}(\gamma)} \right) \xto{\int} \C
 \]
-where $w_{\gamma,t}$ is a continuous linear functional on $\cV_c^{L(\gamma)}$ for every point $t \in \Schw(\gamma)$.it 
+is a continuous linear functional on $\cE_c^{L(\gamma)}$.
 \end{thm}
 
 In other words, divergences do not appear.
