@@ -384,8 +384,8 @@ in terms of PDE and action functionals but also as moduli spaces.
 We do not offer a thorough justification of the dictionary, for which see \cite{CosSUSY} for a wonderful and motivating exposition,
 and see \cite{AlfonsoYoung} and \cite{Steffens} for recent work on this topic.
 
-For an example that mixes several types and that is a holomorphic analog of quantum chromodynamics (QCD), the theory that governs the strong force and quarks,
-see Section~\ref{sec: seiberg}.
+For an example that mixes several types, see Section~\ref{sec: seiberg}
+where we discuss a holomorphic analog of quantum chromodynamics (QCD), the theory that governs the strong force and quarks.
 
 A motivation for us to explore holomorphic field theories is that physical insights and conjectures, such as Seiberg duality, translate into surprising predictions in the holomorphic setting,
 which is typically more accessible for mathematics.
@@ -966,7 +966,7 @@ Often, the theory on the nilpotence variety is holomorphic \cite{ESW,SWpure}.
 \item Similar in spirit to the pure spinor formalism is a systematic relationship between holomorphic field theories on (super) twistor space and ordinary (Riemannian) field theories.
 For instance, holomorphic BF theory on (super) twistor space associated to $\RR^4$ is equivalent to a self-dual limit of (super) Yang--Mills theory \cite{Penrose, Kevins work..., other twistor literature}.
 \end{itemize}
-We recommend \owen{is there some other place to point?}
+We recommend \owen{is there some other place to point?} for more discussion.
 
 \section{Algebra and holomorphic field theories}
 \label{sec: algebra}
@@ -2462,18 +2462,57 @@ Daniel Bruegmann's thesis, and how the web of 2d CFT stuff should fit together.}
 \section{Renormalization \& anomalies: constructing examples}
 \label{sec: renorm}
 
+\owen{We discussed having the following:
+\begin{itemize}
+\item Quick overview for topological field theories (=analytic content is de Rham complex): 
+\begin{itemize}
+\item Axelrod-Singer-Kontsevich method via compactified configuration spaces (Fulton-MacPherson) guarantees no divergences for individual graphs and organizes/clarifies analysis of anomalies
+\item Explain what this means in terms of Theorem 3.6 (Elliott-Safronov) and Corollary 4.6 (about existence of functorial field theories)
+\item Mention the connection with formality of the $E_d$ operads and related outgrowths in topology 
+\end{itemize} 
+\item Overview the history of the holomorphic case, with citations
+\item Describe a version of Minghao's results (and those of Gaiotto {\it et al}) that emphasizes no divergences for individual graphs and the consequences for anomalies (e.g., relevant wheels for 1-loop and higher loop generalization via Laman graphs)
+\item Explain what this means in terms of Theorem 3.9 (existence of polydiscs algebras)
+\end{itemize}}
+
+\owen{Old copy that might be recycled into final version}
+
+So far we have not discussed the issue of quantization and renormalization for holomorphic field theories.
+In the topological setting, renormalization is very well-controlled.
+The well-combed configuration space method pioneered by \cite{} has allowed for a rigorous construction of the path integral for many topological field theories. 
+
+
+In other words, by a judicious choice of gauge-fixing, 
+we find that the one-loop Feynman diagrams have no UV divergences.
+Moreover, no higher loop diagrams appear (for combinatorial reasons),
+and the action functional satisfies the quantum master equation.
+See Section~\ref{sec: susytwist revisited} for some further discussion.
+
+Although holomorphic field theories had already appeared in practice,
+my collaborator Brian Williams was the first to lay a systematic, mathematical foundations (cf. his thesis \cite{BWthesis} and its offshoot \cite{BWhol}).
+He did the following:
+\begin{itemize}
+\item established key analytic results about holomorphic renormalization, 
+showing that it is highly manageable, with no counterterms to 1-loop; and
+\item characterized the one-loop anomalies  (i.e., obstructions to BV quantization).
+\end{itemize}
+These apply to all holomorphic theories on $\CC^n$,
+but the techniques typically extend to more general complex manifolds.
+
+\brian{Brian's stuff below}
+
 The idea of renormalization is a necessary ingredient in producing examples of typical (Riemannian or Lorentzian) quantum field theories.
 One can apply the same sort of techniques to produce holomorphic quantum field theories, and the higher algebraic structures associated to them.
 A key feature of holomorphic theories is the absence of (possibly scheme-dependent) counterterms which can make typical quantum field theories difficult to access.
 
 Counterterms are perturbative quantum effects that typically must be introduced to the action functional in order to circumvent ultra-violet (UV, high energy) divergences which arise when studying the path integral.
 From Feynman, we know that the path integral can be formally expressed in terms of graphs. 
-More precisely, given a graph $\gamma$ (whose exact shape depends on the theory), there is a prescription for assigning to it a functional $W_\gamma$ on the fields (a distribution) which we can understand as term in the quantum action; typically in the form of an integral over $|V(\gamma)|$ copies of spacetime where $V(\gamma)$ is the vertex set of the graph.
+More precisely, given a graph $\Gamma$ (whose exact shape depends on the theory), there is a prescription for assigning to it a functional $W_\Gamma$ on the fields (a distribution) which we can understand as term in the quantum action; typically in the form of an integral over $|V(\Gamma)|$ copies of spacetime where $V(\Gamma)$ is the vertex set of the graph.
 Unfortunately, this prescription is not always well-posed, as there are infinities which can arise due to presence of overlapping supports of certain distributions.
 Counterterms can be constructed by carefully understanding the nature of these divergences through some regularization scheme.
 
 For topological quantum field theories, it is known from the work of Axelrod, Singer, Kontsevich, Cattaneo, and others \cite{???} that such Feynman graphs return finite answers and hence there is no need to introduce such complications.
-The method used to prove this interprets such Feynman graph integrals as integrals over configuration space and then showing that the weights $W_\gamma$ can be extended to some compactification.
+The method used to prove this interprets such Feynman graph integrals as integrals over configuration space and then showing that the weights $W_\Gamma$ can be extended to some compactification.
 A different regularization scheme based on the heat equation was used by Costello \cite{CosRenormPaper} to arrive at the same result for topological quantum field theories.
 
 The configuration space method traditionally used to study topological theories does not admit an immediate generalization to holomorphic theories.
@@ -2483,49 +2522,57 @@ The heat kernel analysis of the perturbative renormalization for holomorphic qua
 Later, in \cite{Whol} we have shown more broadly that holomorphic field theories in any dimension (on flat space) are UV finite to first-order in perturbation theory.
 In \cite{LiVertex} it is shown by a very clever analysis that holomorphic field theories in complex dimension one (chiral conformal field theories) are finite to all orders in perturbation theory; this was later extended to arbitrary Riemann surfaces in \cite{Jie and Si}.
 There has a been a buzz of recent activity contributing to the advancement in the renormalization of holomorphic field theories.
-In work of Budzik, Gaiotto, Kulp, Wu, Yu, a strategy for proving UV finiteness for certain graphs (called Laman graphs) at arbitrary genus in a holomorphic quantum field theory was developed \cite{BGKWY}.
+In work of Budzik, Gaiotto, Kulp, Wu, Yu, a strategy for proving UV finiteness for certain graphs (called Laman graphs) at arbitrary genus in a holomorphic quantum field theory is developed \cite{BGKWY}.
 The key idea is to combine the heat kernel analysis with the sort of compactifications that are used in the theory of configuration spaces.
-
-Recently, Minghao Wang has extended this analysis to show that holomorphic field theories on $\C^n$ admit a regulation scheme which is UV finite to \textit{all} orders in perturbation theory \cite{Wang}.
+Following this work, Minghao Wang has extended this analysis to show that holomorphic field theories on $\C^n$ admit a regulation scheme which is UV finite to \textit{all} orders in perturbation theory \cite{Wang}.
 In other words, both topological and holomorphic field theories are completely free of the divergences present in typical quantum field theories!
-We briefly recall the approach to this regulation scheme.
+
+\owen{Laying out some of this stuff in an attempt to state Minghao's theorem}
 
 We will allow graphs with finitely many vertices and edges, 
 but also leaves (also known as hair or half-edges).\footnote{That is, a vertex may have, in addition to edges connecting it to other vertices, some incident edges that do not connect to another vertex. 
 These will label inputs to an operation associated to the graph.}
-We allow multiple edges between vertices, as well as loops, the precise form of which are determined by the interactions of the theory.
+We allow multiple edges between vertices, as well as loops.
 
 For a graph $\gamma$, let $E(\gamma)$ denote the number of edges,
 $V(\gamma)$ denote the number of vertices,
-and $L(\gamma)$ denote the number of leaves.
-The scheme begins with the familiar Wilsonian approach to renormalization which involves introducing an IR `cut-off' length scale $L > 0$.
-The \textit{Schwinger space} associated to a graph $\gamma$ and a length $L$ is the non-compact manifold with corners $(0,L]^{E(\gamma)}$, which we will denote $\op{Schw}(\gamma)$ below.
-The desired Feynman graph weight $W_\gamma$ of a graph $\gamma$ is obtained as the integral over  Scwhinger space. 
+and $L(gamma)$ denote the number of leaves.
 
 \begin{dfn}
-For a perturbative field theory with space of fields $\cE$, there is a distribution valued in forms on Schwinger space
-\[
-w_{\gamma} \colon \cE^{L(\gamma)}_c \to \Omega^\bu \left( \op{Schw}(\gamma) \right)
-\]
-which we call the {\em regularized weight of $\gamma$}.
+For a graph $\gamma$, there is a space $\RR_+^{E(\gamma)}$ parametrizing the moduli space of lengths (all positive) given to the edges.
+This positive orthant has a the partial compactification $\Schw(\gamma)$, known as the {\em Schwinger space} of $\gamma$, 
+where \owen{define!} 
 \end{dfn}
 
-The possibly ill-defined weight $W_\gamma$ is obtained by integration of $w_\gamma$ over Schwinger space.
+\begin{dfn}
+For a perturbative holomorphic field on $\CC^d$ with space of fields 
+\[
+\cV = \Gamma(\CC^d, \Omega^{0,\bullet}(V)),
+\] 
+as defined in Section~\ref{}, 
+there is a family of distributions
+\[
+w_{\gamma, t}: \cV_c^{L(\gamma)} \to \CC
+\]
+parametrized by $t \in \RR_+^{E(\gamma)}$,
+known as the {\em regularized weight of $\gamma$}.
+\end{dfn}
+
 This family of distributions is constructed as an integral over $\CC^{v(\gamma) d}$,
 where each edge $e$ is labeled by a smooth function $P_{t(e)}$ depending on the length of the edge and where each vertex is labeled by a distribution arising from an interaction term of the theory.
 For general theories, one cannot smoothly continue the regularized weight from the positive length values to zero lengths.
-The putative integrals become divergent, which is reflected by the non-compactness of Schwinger space from this perspective.
+The putative integrals become divergent.
 
-For holomorphic field theories (and generally topological-holomorphic theories, see \cite{WWthf}) however, something remarkable happens.
+For holomorphic field theories, however, something remarkable happens.
 
 \begin{thm}[Wang, \owen{precise citations}]
-Let $\cE$ be the space of fields underlying a holomorphic field theory on $\C^n$.
-For every graph~$\gamma$, $w_{\gamma}$ has a natural smooth extension $\til {w_\gamma}$ to a compactification $\til{\op{Schw}(\gamma)}$ of Schwinger space.
-In particular, the weight
+For every graph~$\gamma$,
+this family $w_{\gamma,t}$ has a natural smooth extension to the Schwinger space~$\Schw(\gamma)$.
+That is, there is a smooth map
 \[
-W_\gamma \colon \cE^{L(\gamma)}_c \xto{\til{w_\gamma}}\Omega^\bu \left( \til{\op{Schw}(\gamma)} \right) \xto{\int} \C
+w_{\gamma}: \Schw(\gamma) \to \Hom_{cts}(\cV_c^{L(\gamma)},\CC)
 \]
-is a continuous linear functional on $\cE_c^{L(\gamma)}$.
+where $w_{\gamma,t}$ is a continuous linear functional on $\cV_c^{L(\gamma)}$ for every point $t \in \Schw(\gamma)$.it 
 \end{thm}
 
 In other words, divergences do not appear.
@@ -2575,7 +2622,7 @@ We also explain how this duality, when compactified along Riemann surfaces,
 should produce equivalences between different kinds of 2-dimensional B-model theories;
 these reductions are related to work of Hori and Hori--Tong \owen{citations} and its mathematical development by Ed Segal, \owen{list others}.
 
-\subsection{Holomorphic QCD}
+\subsection{Holomorphic chromodynamics and steps towards holomorphic QCD}
 
 A 4-dimensional $\cN=1$ supersymmetric Yang--Mills theory depends on a choice of compact Lie group $G$, with Lie algebra $\fg$, 
 and it lives on  the spacetime $M=\RR^4$.
