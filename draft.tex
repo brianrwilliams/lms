@@ -711,21 +711,16 @@ The equation of motion is
 where $[-,-]_{SN}$ denotes here the Schouten--Nijenhuis bracket 
 (which, on vector fields, is simply the Lie bracket, and is the natural multilinear extension to polyvector fields).
 The reader might recognize this equation as the Maurer--Cartan equation controlling deformations of complex structure $\dbar\rightsquigarrow \dbar + \mu$.
-Formulating the action functional to obtain this equation of motion is a little involved.
+Formulating the action functional to obtain this equation of motion is a little involved, 
+and we refer to \cite{CLbcov1} for a systematic discussion.
 
-The action functional is similar to the Chern--Simons action:
-\beqn\label{eqn:KS1}
-S(\mu) = \int_X \left( \frac12 \mu\, \dbar \del^{-1} \mu + \frac13 \mu \wedge \mu \wedge \mu \right) .
-\eeqn
-\owen{Honestly I don't understand this formula. We need to unpack it more slowly in terms of explicit complex geometry.}
-To make sense of this, 
-note that $\Omega \in \Omega^{3,0}(X)$ and $\mu^3 \in \Omega^{0,3}(X, \cT^{\otimes 3})$.
-In the integrand we use the Calabi--Yau form to obtain a $(3,3)$-form.
-The integrand is not defined globally as it involves the distributional operator $\del^{-1}$.
-Locally it is well-defined as any divergence-free vector field on affine space can be written as the divergence of a bivector field.
-Nevertheless, this model can be carefully put into the rigorous framework of the Batalin--Vilkovisky formalism \cite{CLbcov1}.
-Setting aside the apparent global issues, 
-we apply formal variational calculus to this action to obtain the equation of motion.
+\begin{rmk}
+The kinetic term has the form
+\[
+\int_X \frac12 \mu\, \dbar \del^{-1} \mu
+\]
+and hence resembles the chiral sector of the scalar, which we just discussed.
+\end{rmk}
 
 \subsection{Perturbative field theory as derived deformation theory}
 \label{sec: pert dfn}
