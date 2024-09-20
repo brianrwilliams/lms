@@ -50,7 +50,7 @@
 
 \maketitle
 
-\epigraph{\itshape The mathematical language of classical physics is based upon real numbers \dots The mathematical language of quantum physics is based upon complex numbers, and it would be natural to expect that the complex analytic and the algebraic geometry should replace the differential geometry of the classical period.}{Yuri Manin from the introduction of {\it Frobenius Manifolds, Quantum Cohomology, and Moduli Spaces}}
+\epigraph{The mathematical language of classical physics is based upon real numbers \dots. The mathematical language of quantum physics is based upon complex numbers, and it would be natural to expect that the complex analytic and the algebraic geometry should replace the differential geometry of the classical period.}{Yuri Manin from the introduction of {\it Frobenius Manifolds, Quantum Cohomology, and Moduli Spaces}}
 
 \tableofcontents
 
@@ -328,7 +328,7 @@ which has an associated Dolbeault operator (or $\dbar$-connection) $\dbar_{\cP}$
 Any other holomorphic bundle structure determines a Dolbeault operator,
 but our reference point $\dbar_{\cP}$ provides an isomorphism
 \[
-{\rm Conn}^\dbar_G(P) \cong \Omega^{0,1}(M, {\rm ad}(P)),
+{\rm Conn}^\dbar_G(P) \cong \Omega^{0,1}(M, \fg_P),
 \]
 i.e., we express another $\dbar$-connection as $\dbar_{\cP} + A$ where $A$ is a $(0,1)$-form valued in the adjoint bundle.
 The equation of motion is again a Maurer--Cartan equation
@@ -338,7 +338,7 @@ The equation of motion is again a Maurer--Cartan equation
 or equivalently the $(0,2)$-term of the curvature vanishes.
 This PDE is the Euler--Lagrange equation for the action
 \beqn
-S_{hCS} (A) = \int_X \Omega \wedge CS(A) 
+S_{hCS} (A) = \int_M \Omega \wedge CS(A) 
 \eeqn
 where $CS(A)$ is exactly as in~\eqref{eqn:CS}.\footnote{Notice that due to the presence of the holomorphic volume form $\Omega$, only the $\dbar A$ component of $\d A$ contributes to the integrand of the action functional, because $\Omega \wedge \partial A$ vanishes.} 
 As in the case of Chern-Simons theory, one must quotient by the appropriate group of gauge transformations to obtain the correct moduli space, 
@@ -614,6 +614,58 @@ It is possible to formulate holomorphic versions of higher abelian gauge theorie
 associated to moduli spaces of holomorphic $k$-gerbes with connection.
 \owen{Should we elaborate or just stop with a reference?}
 
+\subsubsection{Interlude on holomorphic field theories as chiral sectors}
+
+Every holomorphic theory we have introduced so far has a ``kinetic term'' (the quadratic term in the action functional) that only involves $\dbar$.
+Thus the linearized equations of motion always have the form $\dbar \phi = 0$,
+so that they manifestly relate to holomorphic functions (or sections).
+There are, however, holomorphic theories with a different flavor.
+
+\begin{comment}
+A typical scalar field theory is the free boson which exists on any Riemannian manifold $\Sigma$.
+Its action functional is simply $\int_\Sigma \phi \triangle \phi$ where $\phi$ is a smooth function on $\Sigma$.
+We saved this example for last since its holomorphic analog is a bit more elusive than the previous examples.
+\end{comment}
+
+We start with complex dimension~$1$.
+The usual scalar field theory can be written as 
+\[
+\int_{\Sigma} \phi \wedge \del \dbar \phi, 
+\]
+where $\Sigma$ is a Riemann surface.
+Using integration by parts, one can use instead the action functional
+\[
+\int_{\Sigma} \partial \phi \wedge \dbar \phi.
+\]
+This theory is not holomorphic, but we can force it to be holomorphic by demanding that $\dbar \phi = 0$.
+Importantly, this constraint is \textit{not} an equation of motion.
+When we impose this constraint, we can rewrite the action functional in terms of the $(1,0)$-form $\alpha \in \Omega^{1,0}(\Sigma)$ as
+\beqn\label{eqn:scalar1}
+\int_\Sigma \alpha \wedge \dbar (\del^{-1} \alpha) ,
+\eeqn
+where $\alpha$ plays the role of $\partial \phi$.
+In this theory the kinetic term is the whole action,
+and it has a rather different flavor from the examples we have seen so far.\footnote{This action functional is a precursor to the ``holomorphic gravity'' theory we meet next, 
+known as Kodaira--Spencer theory.}
+One might call this the {\em chiral sector} of the free scalar theory,
+as it consists of the complex-valued scalar fields satisfying a ``chiral'' constraint.
+
+There is a higher-dimensional analog of the chiral sector of the scalar field.
+Let $X$ be a complex manifold of dimension $2n+1$, i.e., odd.
+The fields are the $(n+1,n)$-forms $\alpha \in \Omega^{n+1,n}(X)$ that satisfy the constraint
+\beqn
+\del \alpha = 0.
+\eeqn
+(When $n=0$ and $X$ is simply a Riemann surface, 
+this constraint is automatic.)
+The action functional is the same as~\eqref{eqn:scalar1}.
+Generally, this theory is the holomorphic part of a higher-form scalar theory, with action
+\beqn
+\int_X \|C\|^2 \op{dvol} = \int_X \d C \wedge \star \d C , 
+\eeqn
+where $C \in \Omega^{2n+1}(X)$.
+For more details we refer to~\cite{GRWwzw}.
+
 \subsubsection{Holomorphic ``gravity''}
 
 Any theory of gravity involves, in part, metric structure on a given manifold,
@@ -674,48 +726,6 @@ Locally it is well-defined as any divergence-free vector field on affine space c
 Nevertheless, this model can be carefully put into the rigorous framework of the Batalin--Vilkovisky formalism \cite{CLbcov1}.
 Setting aside the apparent global issues, 
 we apply formal variational calculus to this action to obtain the equation of motion.
-
-
-\subsubsection{Holomorphic field theories as chiral sectors}
-
-\owen{I'm a little lost about the motivation for this section, 
-given the earlier scalar field section. This C theory looks interest so maybe we can figure out a natural place to put it?}
-
-A typical scalar field theory is the free boson which exists on any Riemannian manifold $\Sigma$.
-Its action functional is simply $\int_\Sigma \phi \triangle \phi$ where $\phi$ is a smooth function on $\Sigma$.
-We saved this example for last since its holomorphic analog is a bit more elusive than the previous examples.
-
-We start with complex dimension~$1$.
-The usual scalar field theory can be written as 
-\[
-\int_{\Sigma} \phi \wedge \del \dbar \phi, 
-\]
-where $\Sigma$ is a Riemann surface.
-This theory is not holomorphic, but we can force it to be by demanding the constraint $\dbar \phi = 0$.
-Importantly, this constraint is \textit{not} imposed by an equation of motion.
-When we impose this constract, we can rewrite the action functional in terms of the $(1,0)$-form $\alpha \in \Omega^{1,0}(\Sigma)$ as
-\beqn\label{eqn:scalar1}
-\int_\Sigma \alpha \wedge \dbar \del^{-1} \alpha ,
-\eeqn
-where $\alpha$ plays the role of $\partial \phi$.
-\owen{Am I interpreting that correctly?} 
-This is formally similar to the kinetic term in the action functional of Kodaira--Spencer theory \eqref{eqn:KS1}.
-
-There is a higher-dimensional analog of the chiral sector of the scalar field.
-Suppose that $X$ is a complex manifold of \textit{odd} dimension $2n+1$.
-The fields are the $(n+1,n)$-forms $\alpha \in \Omega^{n+1,n}(X)$ that satisfy the constraint
-\beqn
-\del \alpha = 0.
-\eeqn
-Note that when $n=0$, so $X$ is simply a Riemann surface~$\Sigma$, this constraint is automatic.
-The action functional is the same as~\eqref{eqn:scalar1}.
-When $n=1$ this functional is identical to the kinetic part of the Kodaira--Spencer action.\footnote{Indeed, when $X$ is a Calabi--Yau three-fold there is an isomorphism $\Omega^{2,1}(X) \cong \Omega^{0,1}(X, \T_X)$.}
-Generally, this theory is the holomorphic part of a higher-form scalar theory, with action
-\beqn
-\int_X \|C\|^2 \op{dvol} = \int_X C \wedge \d \star \d C , 
-\eeqn
-where $C \in \Omega^{2n+1}(X)$.
-For more details we refer to~\cite{GRWwzw}.
 
 \subsection{Perturbative field theory as derived deformation theory}
 \label{sec: pert dfn}
@@ -980,6 +990,8 @@ Throughout this section, we will be a bit cavalier with certain subtleties (e.g.
 emphasizing concepts and motivations over mathematical precision.
 We will be a bit long-winded in the first two subsections, to provide motivations,
 so that in the final subsection, we can rapidly sketch these higher Kac-Moody and Weyl algebras.
+
+\owen{In this section, or maybe the next, we should mention the recent papers by physicists (notably Gaiotto) about higher bracket structures, and we should indicate how to connect with our approach here.}
 
 \subsection{Algebras in mechanics}
 
@@ -2530,6 +2542,8 @@ Recently, Minghao Wang has extended this analysis to show that holomorphic field
 In other words, both topological and holomorphic field theories are completely free of the divergences present in typical quantum field theories!
 We briefly recall the approach to this regulation scheme.
 
+\subsection{No divergences}
+
 We will allow graphs with finitely many vertices and edges, 
 but also leaves (also known as hair or half-edges).\footnote{That is, a vertex may have, in addition to edges connecting it to other vertices, some incident edges that do not connect to another vertex. 
 These will label inputs to an operation associated to the graph.}
@@ -2571,6 +2585,8 @@ is a continuous linear functional on $\cE_c^{L(\gamma)}$.
 In other words, divergences do not appear.
 
 \owen{It would be good to explain why and indicate what is the appropriate "value" to use.}
+
+\subsection{Anomalies that obstruct quantization}
 
 The discussion so far in this section was about the analytic issues which are present when trying to make the path integral precise.
 For interesting quantum field theories, like gauge theories, there is another issue which could prevent the theory from being well-posed; these are called anomalies.
