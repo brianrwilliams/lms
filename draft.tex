@@ -82,7 +82,7 @@ As a more mundane example, let $\RR\Hol(X,Y)$ denote the derived moduli space of
 (For $Y = V$ a vector space, a ``derived'' enhancement is familiar as the higher dimensional cohomology $H^*(X, \cO) \otimes V$.)
 In derived geometry one can take a ``shifted cotangent bundle'' $T^*[-1] \RR\Hol(X,V)$,
 and this derived moduli space encodes solutions to
-a field theory known as the $\beta\gamma$ system with target~$V$.\footnote{The name is silly: it's due to the original notation people used.}
+a field theory known as the $\beta\gamma$ system with target~$V$.\footnote{The name is silly: it is due to the original notation people used.}
 Every question one asks about the classical physics of the $\beta\gamma$ theory translates into a question about this moduli space.
 Other classes of examples are afforded by holomorphic variants of the AKSZ $\sigma$-models (such as the Poisson $\sigma$-model that appears in Kontsevich's construction of deformation quantization); 
 the relevant moduli space being the derived mapping space between complex manifolds. 
@@ -393,36 +393,28 @@ which is typically more accessible for mathematics.
 
 \subsubsection{Holomorphic scalar field theories}
 
-The standard example of a scalar field theory is the free massless exists on any Riemannian manifold,
-which we met in Example~\ref{eg: massless scalar}.
-Here the field $\phi$ a smooth function on a manifold $M$,
-its action functional is $\int_M \phi \Delta \phi$, where $\Delta$ is the Laplace-Beltrami operator, 
-and its equation of motion is $\Delta \phi = 0$.
-The moduli space of solutions is then the space of harmonic functions on~$M$
+We met the standard example of a scalar field theory in Example~\ref{eg: massless scalar},
+where the field $\phi$ a smooth real-valued function on a manifold $M$
+and the equation of motion is $\Delta \phi = 0$,
+so that the moduli space of solutions is the space of harmonic functions on~$M$.
 
-When $M$ is two-dimensional and oriented,
-we can view $M$ as equipped with a complex structure.
-Every complex-valued harmonic function then decomposes as a sum of a holomorphic and anti-holomorphic function. 
-That is, if we complexify the scalar field $\phi$, 
-we can view it as a pair of fields $\gamma$ and $\Bar{\gamma}$,
-where the equation of motion of $\gamma$ is $\dbar \gamma = 0$ and the equation of motion is $\partial \Bar{\gamma} = 0$.
-These components are sometimes called the chiral and anti-chiral ``sectors.'' 
+A natural analogue is to have the field be a complex-valued function $\gamma$ on a complex manifold $M$ with an equation of motion $\dbar \gamma = 0$,
+so that the moduli space of solutions is the space of holomorphic functions on~$M$.
 
-Notice that we have shifted from a second-order differential operator $\Delta$ to first-order differential operators $\dbar$ and~$\partial$.
+Notice that we are shifting from a second-order differential operator $\Delta$ to first-order differential operators $\dbar$.
 Reworking a theory to express its equations of motion using first-order operators is sometimes called the first-order formalism.
 
-The holomorphic component can be seen as arising from the following action functional,
+We will start with $M$ being a Riemann surface for simplicity.
+Consider the action functional
 \beqn
+\label{eqn: 1d betagamma}
 \int \beta \wedge \dbar \gamma
 \eeqn
-where $\beta$ is a $(1,0)$-form on $M$ and should be viewed as a Lagrange multiplier for the field $\del \Bar{\gamma}$,
-\owen{I don't understand this use of the term Lagrange multiplier. Let's discuss!}
+where $\beta$ is a $(1,0)$-form on $M$.\footnote{It can be viewed as a Lagrange multiplier for the field $\del \Bar{\gamma}$, 
 which we now think about as having its own degrees of freedom. 
+\owen{I don't understand this use of the term Lagrange multiplier. Let's discuss!}}
 Note that this action functional also imposes the equation of motion $\dbar \beta = 0$,
 so that $\beta$ should be a holomorphic $1$-form.
-
-This piece of the free boson is the simplest holomorphic field theory; it is often called the $\beta\gamma$-\textit{system}.
-It plays a role in superstring theory as the free field theory underlying bosonic ghosts corresponding to worldsheet supersymmetry~\cite{Polchinski}.\owen{More precise location?}
 
 It should seem reasonable to view two solutions $\beta_1$ and $\beta_2$ as equivalent if they differ by a $\dbar$-exact term.
 If one imposes this equivalence relation (a kind of ``gauge symmetry''),
@@ -436,10 +428,20 @@ T^*[-1] \Map_\dbar(M,\CC) = \RR\Gamma(M,\cO) \times \RR\Gamma(M,\cT^{*{1,0}}),
 a rather natural space to study in complex geometry.
 
 \begin{rmk}
-We motivated the $\beta\gamma$ system as encoding a piece of the free boson.
-There is likewise a complex-conjugate $\Bar{\beta}\Bar{\gamma}$ system as encoding the antichiral sector of the free boson.
+It is possible to directly relate the usual massless scalar field theory to this $\beta\gamma$-system as follows.
+
+When $M$ is two-dimensional, oriented and Riemannian,
+we can view $M$ as equipped with a complex structure.
+Every complex-valued harmonic function then decomposes as a sum of a holomorphic and anti-holomorphic function. 
+That is, if we complexify the scalar field $\phi$, 
+we can view it as a pair of fields $\gamma$ and $\Bar{\gamma}$,
+where the equation of motion of $\gamma$ is $\dbar \gamma = 0$ and the equation of motion is $\partial \Bar{\gamma} = 0$.
+These components are sometimes called the chiral and anti-chiral ``sectors.'' 
+
+The $\beta\gamma$-system also plays a role in superstring theory as the free field theory underlying bosonic ghosts corresponding to worldsheet supersymmetry~\cite{Polchinski}.\owen{More precise location?}
+There is likewise a complex-conjugate $\Bar{\beta}\Bar{\gamma}$-system encoding the antichiral sector of the free boson.
 To recover the full boson, one must couple the chiral and anti-chiral sectors.
-See \cite{Kapustin,GGW} \owen{Where?} for more details. 
+See \cite{Kapustin,GGW} \owen{Where?} for more details.~\hfill$\Diamond$
 \end{rmk}
 
 This example admits a natural generalization to an arbitrary complex manifold.
@@ -463,7 +465,7 @@ We again suggest to identify solutions to the second equation $\dbar \beta = 0$ 
 
 \subsubsection{Holomorphic fermions}
 
-It is straightforward to modify the example above to allow super-holomorphic vector bundles,
+It is straightforward to modify the example above to allow holomorphic {\it super} vector bundles,
 i.e., holomorphic $\ZZ/2$-graded vector bundles.
 
 For example, given a holomorphic vector bundle $V$ on a complex $n$-fold~$X$,
@@ -488,13 +490,13 @@ We again suggest to identify solutions to the equation $\dbar c = 0$ that differ
 There is a special class of fermionic theories that is quite interesting.
 Let $X$ be a complex $n$-fold where
 \begin{itemize}
-\item $n = 2k+1$ is odd and
+\item $n \equiv 1 \mod 4$ (i.e., $n=4k+1$ for some $k$) and
 \item there is a line bundle $L \to X$ such that $L^{\otimes 2} \cong K_X$,
 i.e., $L$ is a square root of the canonical bundle.
 \end{itemize}
 A field is a section
 \[
-\psi \in \Omega^{0,k}(X,\Pi L),
+\psi \in \Omega^{0,2k}(X,\Pi L),
 \]
 the action functional is
 \[ 
@@ -508,11 +510,11 @@ We suggest to identify solutions that differ by $\dbar$-exact terms.
 
 From the point of view of derived geometry, the cochain complex
 \[
-\Omega^{0,\bullet}(X, \Pi L)[k]
+\Omega^{0,\bullet}(X, \Pi L)[2k]
 \]
-presents a derived stack that should be viewed as the moduli of solutions for this theory.
+presents a derived super stack that should be viewed as the moduli of solutions for this theory.
 
-\owen{What do you think of this example?}
+\owen{I think I got the dimension condition correct. Can you double-check?}
 
 \subsubsection{Holomorphic $\sigma$-models}
 
@@ -708,8 +710,7 @@ The equation of motion is
 \beqn
 \dbar \mu + \frac12 [\mu,\mu]_{SN} = 0 ,
 \eeqn
-where $[-,-]_{SN}$ denotes here the Schouten--Nijenhuis bracket 
-(which, on vector fields, is simply the Lie bracket, and is the natural multilinear extension to polyvector fields).
+where $[-,-]_{SN}$ denotes here the Schouten--Nijenhuis bracket.\footnote{On vector fields, $[-,-]_{SN}$ is simply the Lie bracket, and it is the natural multilinear extension to polyvector fields.}
 The reader might recognize this equation as the Maurer--Cartan equation controlling deformations of complex structure $\dbar\rightsquigarrow \dbar + \mu$.
 Formulating the action functional to obtain this equation of motion is a little involved, 
 and we refer to \cite{CLbcov1} for a systematic discussion.
@@ -719,7 +720,7 @@ The kinetic term has the form
 \[
 \int_X \frac12 \mu\, \dbar \del^{-1} \mu
 \]
-and hence resembles the chiral sector of the scalar, which we just discussed.
+and hence resembles the chiral sector of the scalar, which we just discussed in the preceding example.
 \end{rmk}
 
 \subsection{Perturbative field theory as derived deformation theory}
@@ -1073,7 +1074,7 @@ Roughly, the idea is that associated to any finite-dimensional symplectic space 
 %\owen{Add pictures!}
 
 Let $X$ be an algebraic variety defined over $\CC$, equipped with a symplectic form $\omega_X$.
-Then we posit for the relevant phase space, the ``symplectic space'' $LX$---the formal loop space of~$X$.
+Then we posit for the relevant phase space, the ``symplectic space'' $LX$---the formal loop space of $X$.
 This is the space of maps $\Hat{D}^\times \to X$ from the formal punctured disk to $X$.
 %
 %Let $V$ be a finite-dimensional complex vector space, equipped with a symplectic pairing $\omega$ that is complex-valued.
@@ -1174,7 +1175,7 @@ just as the simplest Weyl algebra is isomorphic to $\cO(V)$ as a vector space,
 but the product structure is modified by quantization.
 We expect, by analogy with the simplest case, that any quantization of a bigger algebra (e.g., for observables of the holomorphic loop space) contains this quantization as its algebraic skeleton.
 
-The subspace of ``contractible formal loops'' $V[[z]]$ inside $V((z))$ produces a module for $\cO(V((z)))$ given by $\cO(V[[z]])$. 
+The subspace of ``contractible formal loops" $V[[z]]$ inside $V((z))$ produces a module for $\cO(V((z)))$ given by $\cO(V[[z]])$. 
 (This module is in fact a quotient algebra.)
 One can quantize this module to a module ${\rm Vac}[V]$ for $W[V]$,
 where as a vector space, it is still $\cO(V[[z]])$.
@@ -1195,19 +1196,6 @@ this map determines a $w$-dependent action of $\cO(V[[t]])$ on $\cO(V[[z]])$.
 One can, in essence, quantize this map, by trying to extend the formulas of the $W[V]$-action,
 and this leads to the map~$Y$.
 If one axiomatizes the behavior of $Y$, one is led to the notion of a vertex algebra.
-
-We were driven, so far, by an example which started from the same data as in the non-holomorphic---the data of a symplectic vector space $V$.
-For another very natural example, one can consider a vector space $U$ which is equipped with a \textit{symmetric} pairing $\<-,-\>_U$.
-Then, the loop space $L(U^*)$ is equipped with a bivector
-\beqn
-(f,g) \mapsto \underset{z=0}{\text{Res}} \, \<f, \del g\>_U .
-\eeqn
-Notice that this bivector does \textit{not} correspond to a symplectic form, but nevertheless we can contemplate the deformation quantization of the $\infty$-dimensional Poisson space $L(U^*)$---or, more invariantly, the space of one-forms on the formal disk with values in $U^*$.
-The quantization of this Poisson algebra is the algebra with linear generators $f,g \in U((z))$ satisfying the relation
-\beqn
-[f,g] = \<f, \del g\>_U .
-\eeqn
-In the case $U=\C$, this is the associative algebra underlying the free chiral boson CFT.
 
 Let us briefly comment on how symmetries extend to the holomorphic setting.
 In other words, we wish to explain how the affine Lie algebras $\widehat{\fg}$ and free field realizations arise in analogy with our discussion of quantum moment maps.
@@ -1295,7 +1283,6 @@ In general, we find mechanics into the symplectic vector space $LV$, where the s
 
 The story we have just told admits a natural extension to higher complex dimensions,
 but it requires a first step in the direction of derived geometry.
-The main idea is that we want to replace the algebra of Laurent series of a single variable with an appropriate algebra involving more than one variable.
 
 Let $V$ denote a complex vector space (no longer required to be symplectic).
 The naive idea is to replace the algebraic loop space $\Map(\CC^\times,  V)$, or its formal version $\Map(\Hat{D}^\times, V)$, with a higher-dimensional analog $\Map(\CC^d -\{0\}, V)$.
@@ -2483,7 +2470,46 @@ Daniel Bruegmann's thesis, and how the web of 2d CFT stuff should fit together.}
 \section{Renormalization \& anomalies: constructing examples}
 \label{sec: renorm}
 
-Renormalization is a key ingredient in Riemannian or Lorentzian quantum field theories.
+\owen{We discussed having the following:
+\begin{itemize}
+\item Quick overview for topological field theories (=analytic content is de Rham complex): 
+\begin{itemize}
+\item Axelrod-Singer-Kontsevich method via compactified configuration spaces (Fulton-MacPherson) guarantees no divergences for individual graphs and organizes/clarifies analysis of anomalies
+\item Explain what this means in terms of Theorem 3.6 (Elliott-Safronov) and Corollary 4.6 (about existence of functorial field theories)
+\item Mention the connection with formality of the $E_d$ operads and related outgrowths in topology 
+\end{itemize} 
+\item Overview the history of the holomorphic case, with citations
+\item Describe a version of Minghao's results (and those of Gaiotto {\it et al}) that emphasizes no divergences for individual graphs and the consequences for anomalies (e.g., relevant wheels for 1-loop and higher loop generalization via Laman graphs)
+\item Explain what this means in terms of Theorem 3.9 (existence of polydiscs algebras)
+\end{itemize}}
+
+\owen{Old copy that might be recycled into final version}
+
+So far we have not discussed the issue of quantization and renormalization for holomorphic field theories.
+In the topological setting, renormalization is very well-controlled.
+The well-combed configuration space method pioneered by \cite{} has allowed for a rigorous construction of the path integral for many topological field theories. 
+
+
+In other words, by a judicious choice of gauge-fixing, 
+we find that the one-loop Feynman diagrams have no UV divergences.
+Moreover, no higher loop diagrams appear (for combinatorial reasons),
+and the action functional satisfies the quantum master equation.
+See Section~\ref{sec: susytwist revisited} for some further discussion.
+
+Although holomorphic field theories had already appeared in practice,
+my collaborator Brian Williams was the first to lay a systematic, mathematical foundations (cf. his thesis \cite{BWthesis} and its offshoot \cite{BWhol}).
+He did the following:
+\begin{itemize}
+\item established key analytic results about holomorphic renormalization, 
+showing that it is highly manageable, with no counterterms to 1-loop; and
+\item characterized the one-loop anomalies  (i.e., obstructions to BV quantization).
+\end{itemize}
+These apply to all holomorphic theories on $\CC^n$,
+but the techniques typically extend to more general complex manifolds.
+
+\brian{Brian's stuff below}
+
+The idea of renormalization is a necessary ingredient in producing examples of typical (Riemannian or Lorentzian) quantum field theories.
 One can apply the same sort of techniques to produce holomorphic quantum field theories, and the higher algebraic structures associated to them.
 A key feature of holomorphic theories is the absence of (possibly scheme-dependent) counterterms which can make typical quantum field theories difficult to access.
 
@@ -2499,8 +2525,6 @@ A different regularization scheme based on the heat equation was used by Costell
 
 The configuration space method traditionally used to study topological theories does not admit an immediate generalization to holomorphic theories.
 Nevertheless, it is known that the renormalization for holomorphic field theories is equally well-behaved.
-
-\subsection{Heat kernel renormalization for holomorphic field theories}
 
 The heat kernel analysis of the perturbative renormalization for holomorphic quantum field theories was initiated by Costello and Li in their study of the $B$-model topological string field theory \cite{??}.
 Later, in \cite{Whol} we have shown more broadly that holomorphic field theories in any dimension (on flat space) are UV finite to first-order in perturbation theory.
