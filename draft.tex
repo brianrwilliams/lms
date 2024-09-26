@@ -42,6 +42,41 @@
 \def\brian#1{{\textcolor{blue!75!red}{BW: {#1}}}}
 \def\owen#1{{\textcolor{violet!50!black}{OG: {#1}}}}
 
+%%% TIKZ STUFF
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{trees}
+\usetikzlibrary{matrix,arrows}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc,through}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{pgffor}
+
+%%Feynman diagrams
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\tikzset{
+	% >=stealth', %%  Uncomment for more conventional arrows
+    vector/.style={decorate, decoration={snake}, draw},
+	provector/.style={decorate, decoration={snake,amplitude=2.5pt}, draw},
+	antivector/.style={decorate, decoration={snake,amplitude=-2.5pt}, draw},
+    fermion/.style={draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{>}}}},
+    fermionbar/.style={draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{<}}}},
+    fermionnoarrow/.style={draw=black},
+    gluon/.style={decorate, draw=black,
+        decoration={coil,amplitude=4pt, segment length=5pt}},
+    scalar/.style={dashed,draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{>}}}},
+    scalarbar/.style={dashed,draw=black, postaction={decorate},
+        dwecoration={markings,mark=at position .55 with {\arrow[draw=black]{<}}}},
+    scalarnoarrow/.style={dashed,draw=black},
+    electron/.style={draw=black, postaction={decorate}/,
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{>}}}},
+	bigvector/.style={decorate, decoration={snake,amplitude=4pt}, draw},
+}
+
 %\usepackage[upint]{stix}
 
 \begin{document}
@@ -314,13 +349,12 @@ the holomorphic analog of Chern-Simons theory.
 
 \begin{eg}[Holomorphic Chern-Simons theory]
 \label{eg: holCS}
-\owen{This feels rather convoluted. Can we make it simpler?}
 Pick a {\em complex} Lie group $G$, 
 and equip its Lie algebra $\fg$ with a complex-linear, $G$-invariant nondegenerate symmetric bilinear form~$\kappa$.
 Let $M$ be a three-dimensional \textit{complex} manifold
 equipped with a holomorphic volume form $\Omega \in \Omega^{3,0}(M)$; 
 in other words, $M$ is a Calabi--Yau manifold.
-(This condition is analogous to being an oriented 3-manifold.)
+(This condition is analogous to being an \textit{oriented} 3-manifold.)
 Given a smooth principal $G$-bundle $P \to M$,
 there is a moduli space of holomorphic structures on~$P$.
 Suppose there exists at least one holomorphic structure $\cP \to M$,
@@ -487,26 +521,22 @@ and the equations of motion are
 \]
 We again suggest to identify solutions to the equation $\dbar c = 0$ that differ by a $\dbar$-exact form.
 
-There is a special class of fermionic theories that is quite interesting.
-Let $X$ be a complex $n$-fold where
+There is another class of fermionic theories that is quite interesting as they are more fundamental than the previous example.
+Let $X$ be a complex $n$-fold and $L \to X$ a line bundle on $X$ such that
 \begin{itemize}
 \item $n \equiv 1 \mod 4$ (i.e., $n=4k+1$ for some $k$) and
-\item there is a line bundle $L \to X$ such that $L^{\otimes 2} \cong K_X$,
-i.e., $L$ is a square root of the canonical bundle.
+\item $L$ is a square root of the canonical bundle $L^{\otimes 2} \cong K_X$.
 \end{itemize}
 A field is a section
 \[
 \psi \in \Omega^{0,2k}(X,\Pi L),
 \]
-the action functional is
+and the action functional is
 \[ 
-\int_X \psi \wedge \dbar \psi,
+\int_X \psi \wedge \dbar \psi .
 \]
-and the equation of motion is
-\[
-\dbar \psi = 0.
-\]
-We suggest to identify solutions that differ by $\dbar$-exact terms.
+The equation of motion for this system is simply $\dbar \psi = 0$.
+To study the quantization of this system, it is necessary to identify solutions that differ by $\dbar$-exact terms (and identifying identifications that differ by $\dbar$-exact terms, etc.).
 
 From the point of view of derived geometry, the cochain complex
 \[
@@ -514,14 +544,12 @@ From the point of view of derived geometry, the cochain complex
 \]
 presents a derived super stack that should be viewed as the moduli of solutions for this theory.
 
-\owen{I think I got the dimension condition correct. Can you double-check?}
-
 \subsubsection{Holomorphic $\sigma$-models}
 
 A $\sigma$-model is a field theory whose space of fields contains a mapping space $\Map(M,N)$.
 When $N = \RR$, this mapping space simply becomes functions and so the $\sigma$-model reduces to a scalar field theory.
 
-There is a natural generalization of the $\beta\gamma$ system to a $\sigma$ model.
+There is a natural generalization of the $\beta\gamma$ system to a $\sigma$-model.
 Let $M$ be a complex $d$-manifold and let $N$ be a complex $n$-manifold.
 The fields are a pair $(\gamma, \beta)$ where
 \[
@@ -573,22 +601,22 @@ S(A,B) = \int_X \langle B \wedge F_A \rangle
 \eeqn
 where $F_A$ is the curvature of the connection $A$.
 The equations of motion are
+\begin{align*}
+F_A^{0,2} = \dbar A + \frac12 [A,A] & = 0 \\
+ \dbar B + [A,B] & = 0.
+\end{align*}
+A solution to the first equation provides a new $\dbar$-connection 
 \[
-F_A^{0,2} = \dbar A + \frac12 [A,A] = 0 \text{ and } \dbar B + [A,B] = 0.
+\dbar_A = \dbar_P + [A,-] 
 \]
-A solution to the first equation provides is a $\dbar$-connection 
-\[
-\dbar_A = \dbar_P + [A,-]
-\]
-on the underlying smooth bundle $P\to X$, 
-\owen{Am I doing that right? I believe a choice of holomorphic structure on $P$ automatically determines a Dolbeault operator, or $\dbar$-connection.}
-and a solution to the second equation is a holomorphic $(n,n-2)$-form-valued section of the coadjoint bundle associated to~$\dbar_A$.
+on $P$.
+A solution to the second equation is a $\dbar_A$-flat $(n,n-2)$-form-valued section of the coadjoint bundle.
 This theory is often called {\em holomorphic BF theory}, due to the integrand of the action functional.
 
 \begin{rmk}
 Notice that this action functional resembles the $\beta\gamma$ system, 
 with $A$ playing the role of $\gamma$ and $B$ playing the role of $\beta$.
-A physicist might also recognize this action functional as a holomorphic analog of topological $BF$ theory. 
+One also recognizes this action functional as a holomorphic analog of topological $BF$ theory. 
 \end{rmk}
 
 It is natural to view two connections as equivalent if they are related by a gauge transformation
@@ -603,13 +631,12 @@ if we run over all principal bundles.
 \begin{rmk}
 Holomorphic BF theory exhibits some interesting properties at the quantum level,
 at least perturbatively.
-For example, in \cite{semichiral} it is shown that on $X = \C^2$ 
+For example, in \cite[\S3.2]{semichiral} it is shown that on $X = \C^2$ 
 the perturbative quantization of holomorphic BF theory is almost a topological field theory. 
 More precisely, to first-order in perturbation theory, 
-the stress tensor has a divergence-free component that is cohomologically trivial. 
-In other words, the quantum theory appears to be ``invariant'' under divergence-free vector fields,
+the divergence-free component of the stress tensor is rendered cohomologically trivial at one-loop in perturbation theory.
+In other words, the quantum theory appears to be totally ``invariant'' under divergence-free vector fields,
 although not all vector fields (as in the case of a TFT).
-\owen{Add specific location in text.}
 \end{rmk}
 
 It is possible to formulate holomorphic versions of higher abelian gauge theories,
@@ -660,13 +687,16 @@ The fields are the $(n+1,n)$-forms $\alpha \in \Omega^{n+1,n}(X)$ that satisfy t
 \eeqn
 (When $n=0$ and $X$ is simply a Riemann surface, 
 this constraint is automatic.)
-The action functional is the same as~\eqref{eqn:scalar1}.
+The action functional is $\int_X \alpha \dbar(\del^{-1} \alpha)$, the same as~\eqref{eqn:scalar1}.
 Generally, this theory is the holomorphic part of a higher-form scalar theory, with action
 \beqn
 \int_X \|C\|^2 \op{dvol} = \int_X \d C \wedge \star \d C , 
 \eeqn
 where $C \in \Omega^{2n+1}(X)$.
 For more details we refer to~\cite{GRWwzw}.
+
+The reader may (and should) be concerned with the apparent `non-local' form of the action functional in \eqref{eqn:scalar1}.
+This can be made rigorous by cohomologically resolving the condition that $\alpha$ be $\del$-closed, rather than strictly imposing the constraint \cite{CLbcov1}.
 
 \subsubsection{Holomorphic ``gravity''}
 
@@ -693,20 +723,20 @@ here we focus just on the most familiar three-dimensional version.
 %where $[\mu, \mu] \in \Omega^{0,2} (X, \T_X)$ stands for the Lie bracket of holomorphic vector fields extended to the Dolbeault valued sections of $\T_X$ in the natural way.
 
 %In complex dimension $3$ there is a related theory, called Kodaira--Spencer theory, which only consists of the field $\mu$ describing the complex structure in the above example.
-Let $X$ be a complex threefold equipped with a Calabi--Yau structure; we denote by $\Omega \in \Omega^{3,hol}(X)$ the holomorphic volume form.
+Let $X$ be a complex threefold equipped with a Calabi--Yau structure; we denote by $\Omega$ the holomorphic volume form.
 The primary field of Kodaira-Spencer theory is 
 \beqn
 \mu \in \Omega^{0,1}(X,\T_X),
 \eeqn 
 a $(0,1)$-form  on $X$ with values in the holomorphic tangent bundle~$\T_X$.
-In contrast to examples above, a constraint is imposed on these sections:
+A constraint is imposed on these sections:
 we assume that $\mu$ preserve the holomorphic volume form $\Omega$, meaning 
 \[
 {\rm div}_\Omega(\mu) = 0,
 \]
 i.e., its divergence vanishes.
 In short, the fields are divergence-free vector fields.
-The equation of motion is 
+The classical equation of motion is 
 \beqn
 \dbar \mu + \frac12 [\mu,\mu]_{SN} = 0 ,
 \eeqn
@@ -716,9 +746,9 @@ Formulating the action functional to obtain this equation of motion is a little 
 and we refer to \cite{CLbcov1} for a systematic discussion.
 
 \begin{rmk}
-The kinetic term has the form
+The kinetic term of this theory has the form
 \[
-\int_X \frac12 \mu\, \dbar \del^{-1} \mu
+\int_X \Omega \wedge \left[\Omega \vee \left(\frac12 \mu\, \dbar \del^{-1} \mu\right) \right]
 \]
 and hence resembles the chiral sector of the scalar, which we just discussed in the preceding example.
 \end{rmk}
@@ -794,7 +824,7 @@ In this example the PDE arises from the variations of the action functional
 \int_X \Omega \wedge \left( \frac{1}{2}\langle A, \dbar A\rangle + \frac{1}{3!}\langle A, [A,A]\rangle \right).
 \]
 The PDE does not involve the choice of a holomorphic volume form $\Omega$ or a pairing on the Lie algebra $\fg$, 
-but the action functional did.
+but the action functional does.
 
 In general, for a holomorphic local Lie algebra to arise from a field theory,
 it is necessary to provide more data so as to be able to write down an action functional.
@@ -802,7 +832,7 @@ it is necessary to provide more data so as to be able to write down an action fu
 \begin{dfn}
 A {\em local cyclic structure} on a holomorphic local Lie algebra is a degree $-3$ map
 \[
-\langle -,-\rangle: V \otimes V \to K_X
+\langle -,-\rangle \colon V \otimes V \to K_X
 \]
 of holomorphic vector bundles\footnote{Here $\otimes$ denotes the Whitney tensor product of vector bundles on $X$.} such that 
 \begin{itemize}
@@ -813,11 +843,10 @@ of holomorphic vector bundles\footnote{Here $\otimes$ denotes the Whitney tensor
 so that the pairing is a cochain map, and
 \item if $f, g, h$ are holomorphic sections of $V$, then 
 \[
-\langle f, [g,h] \rangle = (-1)^{|f|} \langle h,  \rangle
+\langle f, [g,h] \rangle = (-1)^{|f|} \langle [g,f],h \rangle
 \]
 so that the pairing is invariant for the bracket.
 \end{itemize}
-\owen{We must check the signs. And am I missing anything?}
 \end{dfn}
 
 Given a local cyclic structure, there is an action functional
@@ -835,8 +864,6 @@ To incorporate cubic and higher terms in the equations of motion,
 one should define holomorphic local $L_\infty$ algebras and local cyclic structures,
 which are a modest and straightforward generalization, if one knows what $L_\infty$ algebra means.
 Such definitions can be found in~\cite{CG2}.
-
-\owen{What else to say?}
 
 %
 %As another example, consider the holomorphic tangent bundle $V = \T_X$. 
@@ -970,7 +997,7 @@ In \cite{CLsugra}, Costello and Li have argued for conjectural descriptions of t
 \item The pure spinor formalism of Berkovits and Cederwall  \cite{Cederwall, Berkovits} starts with a field theory or string theory defined on the (sometimes singular) nilpotence variety of the super Poincar\'e algebra and then uses the action of supersymmetry to produce ordinary (non-twisted) supersymmetric field theories. 
 Often, the theory on the nilpotence variety is holomorphic \cite{ESW,SWpure}. 
 \item Similar in spirit to the pure spinor formalism is a systematic relationship between holomorphic field theories on (super) twistor space and ordinary (Riemannian) field theories.
-For instance, holomorphic BF theory on (super) twistor space associated to $\RR^4$ is equivalent to a self-dual limit of (super) Yang--Mills theory \cite{Penrose, Kevins work..., other twistor literature}.
+For instance, the Penrose corresponds relates holomorphic BF theory on (super) twistor space associated to $\RR^4$ to the self-dual limit of (super) Yang--Mills theory \cite{Penrose, Kevins work..., other twistor literature}.
 \end{itemize}
 We recommend \owen{is there some other place to point?} for more discussion.
 
@@ -2579,6 +2606,7 @@ is a continuous linear functional on $\cE_c^{L(\gamma)}$.
 In other words, divergences do not appear.
 
 \owen{It would be good to explain why and indicate what is the appropriate "value" to use.}
+\brian{What?}
 
 \subsection{Anomalies that obstruct quantization}
 
@@ -2591,6 +2619,70 @@ For holomorphic theories, however, anomalies are present.\footnote{Anomalies in 
 Since renormalization is so well-behaved, however, such anomalies are amenable to explicit characterization.
 For example, at one-loop in perturbation theory, an explicit formula for such anomalies for holomorphic theories on $\C^d$ is given in \cite{Whol}.
 It involves a sum over Feynman weights $W_\Gamma$ where $\Gamma$ is a polygon with $(d+1)$-vertices.
+
+As an example, consider holomorphic BF theory on $\C^2$, for some Lie algebra $\lie{g}$, coupled to the $\beta\gamma$ system on $\C^2$ valued in a representation $V$ of $\lie{g}$.
+There are two diagrams which contribute to the gauge anomaly, all of which come from various ways of labeling the vertices and edges of the wheel diagram with three vertices, see figure \ref{??}:
+\begin{itemize}
+\item The pure gauge anomaly.
+This part of the anomaly is proportional to the representation theoretic factor $\op{Tr}_{ad}(X^3)$, $X \in \lie{g}$.
+This vanishes when $\lie{g}$ is simple, for example, when $\lie{g} = \lie{sl}(n)$).
+\item This anomaly involves edges (propagators) labeled by the $\beta\gamma$ fields.
+This part of the anomaly is proportional to the representation theoretic factor $\op{Tr}_V(X^3)$, $X \in \lie{g}$.
+\end{itemize}
+These anomalies in complex two-dimensional holomorphic gauge theory are holomorphic avatars of the Adler--Bell--Jackiw, or chiral, anomaly in ordinary gauge theory \cite{??}.
+In the case that $\lie{g}$ is simple (so that the first diagram does not contribute to the anomaly) we see an easy method to produce a non-anomalous holomorphic QFT: take $V$ to be a symplectic representation of the gauge Lie algebra $V = Q \oplus Q^*$, where $Q$ is any $\lie{g}$-representation.
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+	\begin{scope}
+%\pgfmathsetmacro{\ex}{0 }
+%\pgfmathsetmacro{\ey}{1}
+
+%\draw (\ex,\ey) ++(45:.8) arc (45:-45:.8);
+
+		\coordinate (O) at (0,0);
+		\node[draw] (ci) at (O) [circle through=(right:1)] {};
+		%\draw[fill=black] (0,0) circle (1cm);
+		%\draw[fill=white] (0,0) circle (0.99cm);
+		%\draw[line width=0.35mm,red] ++(145:0.995) arc (145:215:0.995);
+		%\node[red] at (180:0.7) {$K_\epsilon$};
+		\draw[fermion](45:2) -- (45:1);
+		\draw[fermion](180:2) -- (180:1);
+		\draw[fermion](315:2) -- (315:1);
+		\node at (45:2.2) {$A$};
+		\node at (180:2.2) {$A$};
+		\node at (315:2.2) {$A$};
+		\node at (130:1.4) {$P_{BF}$};
+		\node at (270:1.4) {$P_{BF}$};
+		\node at (0:1.4) {$P_{BF}$};
+	    	\clip (0,0) circle (1cm);
+		\end{scope}
+		
+		
+		\begin{scope}[shift={(6,0)}]
+				\coordinate (O) at (0,0);
+		\node[draw] (ci) at (O) [circle through=(right:1)] {};
+		%\draw[fill=black] (0,0) circle (1cm);
+		%\draw[fill=white] (0,0) circle (0.99cm);
+		%\draw[line width=0.35mm,red] ++(145:0.995) arc (145:215:0.995);
+		%\node[red] at (180:0.7) {$K_\epsilon$};
+		\draw[fermion](45:2) -- (45:1);
+		\draw[fermion](180:2) -- (180:1);
+		\draw[fermion](315:2) -- (315:1);
+		\node at (45:2.2) {$A$};
+		\node at (180:2.2) {$A$};
+		\node at (315:2.2) {$A$};
+		\node at (130:1.4) {$P_{\beta\gamma}$};
+		\node at (270:1.4) {$P_{\beta\gamma}$};
+		\node at (0:1.4) {$P_{\beta\gamma}$};
+	    	\clip (0,0) circle (1cm);
+ \end{scope}
+\end{tikzpicture}
+\caption{Diagrams which contribute to the anomaly in holomorphic gauge theory on $\C^2$}
+\label{fig:localization}
+\end{center}
+\end{figure}
 
 \section{Vista: Seiberg duality and its consequences}
 \label{sec: seiberg}
