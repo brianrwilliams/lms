@@ -1267,7 +1267,7 @@ This relationship --- and its extension to a map between the vertex algebras ass
 
 \subsection{Reduction vs. chiralization}
 
-In physics, the relationship between the Weyl algebra on generators $p,q$ and its loopy version $W[V]$ is through a process called `dimensional reduction'.
+In physics, the relationship between the Weyl algebra on generators $p, q$ and its loopy version $W[V]$ is by a process called {\it dimensional reduction}.
 The key idea is that to any quantum mechanical system there is an algebra of operators---the loopy version of the Weyl algebra arises from a quantum mechanical system on the infinite-dimensional space of loops in the symplectic vector space $V$. 
 We will unpack this statement in the language of fields and Lagrangians.
 
@@ -1286,7 +1286,7 @@ L_{2d}(\phi) = \omega(\phi, \dbar \phi) \d z ,
 \]
 where $\dbar \colon C^\infty(\CC^\times)\otimes V \to \Omega^{0,1}(\CC^\times) \otimes V$ is the Dolbeault differential.
 
-We can extract from $L_{2d}$ a Lagrangian on a one-dimensional space by the process of `compactification'. 
+We can extract from $L_{2d}$ a Lagrangian on a one-dimensional space by the process of {\it compactification}. 
 It is natural to take as this one-dimensional space the radial direction in $\CC^\times$.
 Then, compactification involves integrating out the remaining circle direction.
 Concretely, any smooth function on $\CC^\times$ can be decomposed in polar coordinates as
@@ -1299,7 +1299,7 @@ We interpret $\sum_{k \in \ZZ} \phi_k(r)$ as smooth map from $\RR$ to the formal
 
 At the level of Lagrangians we can integrate $L_{2d}(\phi)$ over $S^1$ to obtain the following infinite sum of one-dimensional Lagrangians
 \beqn
-L_{1d}(\phi_k, k \in \ZZ) = \sum_{k\in \ZZ} \phi_{-k} \d \phi_{k} + k \phi_k \phi_{-k} \d t .
+L_{1d}\left( \ldots, \phi_{-1}, \phi_0 , \phi_1, \ldots \right) = \sum_{k\in \ZZ} \phi_{-k} \,\d \phi_{k} + k\, \phi_k \, \phi_{-k} \, \d t .
 \eeqn 
 Notice that the $k=0$ summand is just the Lagrangian of ordinary mechanics into $V$ with zero Hamiltonian. 
 In general, we find mechanics into the symplectic vector space $LV$, where the symplectic structure uses the residue pairing in addition to the symplectic form on $V$, with a nontrivial Hamiltonian that encodes the $U(1)$-symmetry arising from rotating $LV$ in the natural way.
@@ -1859,7 +1859,11 @@ there is a cochain map
 \alpha(r_1, \ldots, r_n| R): A(r_1) \otimes \cdots \otimes A(r_n) \to A(R) \otimes \Omega^{0,\bu}(\PDisc_d(r_1, \ldots, r_n| R)) .
 \]
 To invest the map $\alpha$ with more meaning, 
-pick a real, closed submanifold $T \subset \PDisc_d(r_1, \ldots, r_n| R)$, along which one can integrate $(0,k)$-forms.
+pick a real, closed submanifold 
+\[
+T \subset \PDisc_d(r_1, \ldots, r_n| R)
+\]
+along which one can integrate $(0,k)$-forms.
 For instance, for any inputs $a_i \in A(r_i)$, we get an element in $A(R)$~by
 \[
 \int_T \alpha(a_1 \otimes \cdots \otimes a_n),
@@ -2763,7 +2767,7 @@ Hereon we totalize all gradings to $\ZZ/2$.}
 
 The holomorphic twist of a theory with both vector and matter multiplets then corresponds to the  derived mapping space
 \[
-{\rm Map}(X , \left( \fg_\CC^*\times {\rm Crit}^d(W) \right)/ G_\CC), 
+{\rm Map}(X , [( \fg_\CC^*\times {\rm Crit}^d(W))/ G_\CC]), 
 \]
 where the target is a derived quotient stack whose first factor arises from the BF theory and whose second factor arises from the matter multiplet.
 
@@ -2866,7 +2870,8 @@ We will postpone saying anything precise till we have some terminology in place.
 
 There will be two holomorphic theories on $\CC^2$. 
 We call one side {\em electric} and the other {\em magnetic}.
-These turn out to be the twists of the original electric and magnetic supersymmetric theories of the famous Seiberg duality, which justifies our terminology.
+These turn out to be the twists of the original electric and magnetic supersymmetric theories of the famous Seiberg duality, 
+which motivates our terminology.
 
 \begin{dfn}
 Fix a positive integer $F$, for flavor, and fix integers $N$ and $\check{N}$ such that $F = N + \check{N}$ and $F \geq N, \check{N} \geq 2$.
@@ -2908,7 +2913,7 @@ Seiberg duality states how certain ``electric'' and ``magnetic'' versions of SQC
 The electric and magnetic holomorphic QCDs are precisely the holomorphic twists of those that appear in Seiberg duality,
 and so Richard Eager suggested that Seiberg duality should survive after taking the holomorphic twist.
 
-\begin{conj}[\cite{Eager}]
+\begin{conj*}[\cite{Eager}]
 Let $F = N + \check{N}$ and $F \geq N, \check{N} \geq 2$.
 Construct a quantization of the theories $\cT_{\sfE}(F,N)$ and $\cT_{\sfM}(F,\check{N})$.
 There is an equivalence of 2-dimensional holomorphic factorization algebras
@@ -2916,7 +2921,7 @@ There is an equivalence of 2-dimensional holomorphic factorization algebras
 \Obs_{\sfE} \simeq \Obs_{\sfM}  
 \]
 where these are the observables of the electric and magnetic theories, respectively.
-\end{conj}
+\end{conj*}
 
 \owen{Do we want $F > N+1$? The physicists break things into several cases. In particular, I think the moduli is unchanged under quantization only if $F$ is big enough relative to $N$ and $\check{N}$.}
 \brian{I expect we want a similar condition, but I was never able to understand how that appears at the level of factorization algebras.}
