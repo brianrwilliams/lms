@@ -1512,11 +1512,11 @@ We will return to this topic once we have the rich language of factorization alg
 \section{Algebraic structures parametrized by configuration spaces}
 \label{sec: config}
 
-Associative algebras arise in quantum mechanics, we have argued, because the spacetime of a mechanical system is a line (``time'').
+Associative algebras arise in quantum mechanics, we have argued, because the spacetime of a mechanical system is a line (``time'').\footnote{In the context of holomorphic field theory on $\C^n$, we have treated the radial direction as the ``time''.}
 If we organize the observables (or operators) by when they happen in time,
 it corresponds to writing them left-to-right as products in an algebra.
 A natural question to ask then is what kind of higher algebraic structure captures how observables behave for theories in higher dimensions?
-The shortest answer is ``factorization algebras,'' and we will describe and explore this notion in Section~\ref{sec fact alg},
+The shortest answer is ``factorization algebras,'' and we will describe and explore this notion in \S~\ref{sec fact alg},
 but there are nice answers for two special classes of theories that we will develop now:
 \begin{itemize}
 \item For a topological field theory on $\RR^d$ (which we'll define in a moment),
@@ -1541,6 +1541,12 @@ we'll extract an $E_d$-algebra.
 This construction generalizes the relationship between the Kac-Moody vertex algebra of a Lie algebra $\fg$ at level $k$ and the central extension of the loop algebra~$L\fg$.
 We expect this correspondence to bear rich fruit.
 \owen{that metaphor's a bit fruity}
+
+There is an explicit model for an algebra over the cohomology of the $E_d$-operad called a $P_d$-algebra.
+Essentially, these are graded commutative algebras with a Poisson bracket of cohomological degree $-d+1$.
+In \cite{CostelloScheimbauer} a parallel model for the cohomology of the holomorphic $\PDisc_d$ colored operad was proposed; though the exact axioms were not written down.
+In recent work, similar models to the one given in \cite{CostelloScheimbauer} have appeared using so-called (multivariable) `$\lambda$-brackets' \cite{BGKWY,GKW}. This work uses such an algebraic structure to give a beautiful proposal for computing Feynman diagrams in holomorphic (and mixed holomorphic-topological) field theories (see the next section for more on renormalization within the context of holomorphic QFT).
+Such models are similar in spirit to Lie conformal algebras which use the notion of single-variable $\lambda$-bracket to encode the `singular part' of the data of a vertex algebra.
 
 \subsection{Generalizing associative algebras for topological field theories}
 
@@ -1839,8 +1845,6 @@ For instance, there is a composition
 \circ_i: \Omega^{0,\bu}(\PDisc_d(r_1, \ldots, s_1, \ldots, s_m, r_{i+1}, \ldots, r_n| R)) \to \\
 \Omega^{0,\bu}(\PDisc_d(r_1, \ldots, r_n| R)) \otimes \Omega^{0,\bu}(\PDisc_d(s_1, \ldots, s_m| S))
 \end{multline}
-\owen{I don't know how to eliminate the two numbers}
-\brian{I like using multline instead of align}
 when $r_i = S$, and in that case, the composition $\mu \circ_i \nu$ is given by embedding an output polydisc into an input polydisc of the same radius.
 (Composition is not defined if the radii do not match.)
 
@@ -2540,7 +2544,42 @@ In the case that $\cF$ is a holomorphic factorization algebra on a Riemann surfa
 
 In this way, when $X$ is a general complex manifold and $\cF$ is a holomorphic factorization algebra, then $\int_X \cF$ is a natural higher-dimensional generalization of the notion of conformal blocks of $\cF$.
 
-\brian{Hopf surfaces}
+For complex manifolds, and holomorphic factorization algebras on them, we consider an explicit example that generalizes a well-known concept in complex dimension one.
+First, consider a \textit{real} one-dimensional \textit{topological} factorization algebra $\cA$.
+If we identify $\cA$ with the associative algebra that it determines, then the factorization homology $\int_{S^1} \cA$ along the circle agrees with the Hochschild cohomology of the associative algebra $\cA$.
+In other words, it is the home for all of the `traces' which the algebra $\cA$ admits.
+It is well-known that the elliptic curve, or genus one, conformal blocks of a vertex algebra $\mathbb{V}$ is the natural `home' for the characters of the vertex algebra.
+The most basic character of a conformal vertex algebra is the $q$-character defined in terms of a trace:
+\beqn
+\op{char}_{\mathbb{V}} (q) = \op{Tr}_{\mathbb{V}} (q^{L_0-c/24}) ,
+\eeqn
+where $L_0$ denotes the action of the vector field $z \del_z$.
+The shift by the central charge guarantees that for $\mathbb{V}$ conformal that this expression has nice modularity properties.
+From the point of view of factorization algebras, we can understand this trace in terms of Hochschild homology of the \textit{modes} algebra associated to $\mathbb{V}$ as introduced in \S\ref{??}.
+Indeed, suppose we know that $\mathbb{V}$ corresponds to a holomorphic factorization algebra $\cF_{\mathbb{V}}$ on $\C$.
+Then, if $r \colon \C^\times \to \RR_{>0}$ is the radial projection, we have discussed how to extract the modes algebra from the one-dimensional factorization algebra $r_* \cF_{\mathbb{F}}$.
+If we further put this on the circle, we find Hochschild homology.
+Thus, for every modulus $q$ one has
+\beqn
+\int_{E_q} \cF_{\mathbb{V}} = \int_{S^1} r_* \cF_{\mathbb{V}} = \op{Hoch}(r_* \cF_{\mathbb{V}}) .
+\eeqn
+For more on this perspective see \cite{GuiLi}.
+From this point of view we hope it is clear how the factorization homology along an elliptic curve encodes characters in the sense of vertex algebras.
+
+In higher dimensions we can build a similar picture.
+The simplest so-called \textit{Hopf manifolds} are complex manifolds of the form
+\beqn
+H_{\mathbf{q}} = \left(\C^d - \{0\}\right) \slash \left((z_1,\ldots,z_d) \sim (q_1 z_1,\ldots,q_d z_d) \right)
+\eeqn
+where $\mathbf{q} = (q_1,\ldots,q_d)$ are complex numbers satisfying $0 < |q_i| < 1$.
+For generic $\mathbf{q}$ such a complex manifold is diffeomorphic to $S^{2d-1} \times S^1$.
+The factorization homology of a holomorphic factorization algebra $\cF$ along a Hopf surface of this kind can be identified with the Hochschild homology of the associative algebra of $S^{2n-1}$-modes:
+\beqn
+\int_{H_{\mathbf{q}}} \cF \simeq \op{Hoch}(r_* \cF)
+\eeqn
+where, again, $r\colon \C^d - \{0\} \to \RR_{>0}$ is the radius.
+Thus, we see that the factorization homology $\int_{H_{\mathbf{q}}} \cF$ naturally encodes traces of the $S^{2n-1}$-mode algebra associated to $\cF$.
+In \cite{SWchar}, we have shown how an important invariant called the \textit{supersymmetric index} (or supersymmetric partition function) of a supersymmetric theory along a sphere $S^{2n-1}$ be cast into this framework at the level the holomorphic twist.
 
 \section{Renormalization \& anomalies: constructing examples}
 \label{sec: renorm}
