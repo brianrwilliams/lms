@@ -2295,12 +2295,12 @@ For a discussion, see Chapter 3 of~\cite{CG1};
 related ideas are developed in~\cite{AF, LurieHA, Ginot}.
 
 \begin{rmk}
-The reader fond of higher abstract nonsense will note that we could have factorization algebras take values in other target categories (or even better, $\infty$-categories),
+The reader fond of higher abstract nonsense will note that we could have prefactorization algebras take values in other target categories (or even better, $\infty$-categories),
 not just vector spaces or cochain complexes.
 For instance, one might categorify the values: 
 $\cF$ might assign an $\infty$-category $\cF(U)$ to each open set~$U$.
 This generalization is fruitful.
-In the Beilinson-Drinfeld style, it leads to chiral categories, which play a key role in the geometric Langlands program.
+In the Beilinson-Drinfeld style, it leads to chiral categories, which play an important role in the geometric Langlands program.
 In the style advocated above, it would likewise be useful for capturing notions like defects or extended operators from quantum field theory.
 \end{rmk}
 
@@ -2378,7 +2378,7 @@ The slogan is
 the observables of a field theory living on a manifold $M$ form a factorization algebra on~$M$. 
 \end{quote}
 To physicists, this claim should not be so surprising:
-the Weiss cosheaf condition offers a precise version of the idea that a quantum field theory can be fully encoded by all its $n$-point functions.
+the Weiss cosheaf condition offers a precise version of the idea that a quantum field theory can be fully encoded by all its $n$-point functions.\footnote{This idea is not seen as accurate when one takes into account some nonperturbative aspects of QFT, notably generalized global symmetries and higher-dimensional defects. We note that it is possible to enlarge the Weiss topology to accommodate those aspects.}
 
 To make a mathematical statement, one needs to be precise about what a field theory is.
 Here, we will mean the definitions articulated in \cite{CosBook,CG1, CG2}, which encompass the Euclidean versions of many field theories studied in physics and mathematics.
@@ -2562,9 +2562,15 @@ but the techniques typically extend to more general complex manifolds.
 
 \brian{Brian's stuff below}
 
-The idea of renormalization is a necessary ingredient in producing examples of typical (Riemannian or Lorentzian) quantum field theories.
-One can apply the same sort of techniques to produce holomorphic quantum field theories, and the higher algebraic structures associated to them.
-A key feature of holomorphic theories is the absence of (possibly scheme-dependent) counterterms which can make typical quantum field theories difficult to access.
+In practice, quantum field theories are typically constructed using regularization and renormalization,
+by starting with a classical field theory specified by an action functional and then finding a way to extract sensible answers from the divergences that first appear out of the integrals associated to Feynman diagrams.
+One can apply similar techniques to produce holomorphic quantum field theories, and the higher algebraic structures associated to them.
+A key feature of holomorphic theories is the absence of counterterms (possibly scheme-dependent), 
+which can make typical quantum field theories challenging to work with.
+In this section we describe the current state of the art for renormalization and anomalies of holomorphic field theories,
+after reviewing some background and the similarly pleasant results for topological field theories.
+
+\subsection{Recollections}
 
 Counterterms are perturbative quantum effects that typically must be introduced to the action functional in order to circumvent ultra-violet (UV, high energy) divergences which arise when studying the path integral.
 From Feynman, we know that the path integral can be formally expressed in terms of graphs. 
@@ -2737,9 +2743,6 @@ In our opinion this direction could be quite fruitful and we welcome others to j
 We begin this section by describing the holomorphic twist of $\cN=1$ supersymmetric Yang--Mills theory,
 and then we offer a holomorphic version of Seiberg duality, 
 initially conjectured by Richard Eager.
-We will point out an enrichment of this conjecture that accounts for a large symmetry enhancement that both sides of the theory enjoy after performing the holomorphic twist.
-We explain our first efforts in this direction and how it offers evidence for the conjecture;
-we then refine Eager's version.
 We also explain how this duality, when compactified along Riemann surfaces,
 should produce equivalences between different kinds of 2-dimensional B-model theories;
 these reductions are related to work of Hori and Hori--Tong \owen{citations} and its mathematical development by Ed Segal, \owen{list others}.
