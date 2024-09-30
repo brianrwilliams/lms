@@ -2489,9 +2489,24 @@ but these connections with functorial TFTs raise the question of producing funct
 Daniel Bruegmann's thesis, and how the web of 2d CFT stuff should fit together.}
 
 
-\subsection{Toric (KK) reduction vs. chiralization}
+\subsection{Compactification and conformal blocks}
 
-\owen{revisit this theme, and discuss the "modes" algebra}
+In this subsection we discuss some global aspects of holomorphic factorization algebras.
+
+A map $f \colon X \to Y$ induces a pushforward between categories of factorization algebras.
+If $\cF$ is a factorization algebra on $X$, then the pushforward $f_* \cF$ is the factorization algebra on $Y$ which assigns to an open set $U \subset Y$ the value $\cF(f^{-1}(U))$.
+Suppose we are in the situation where $\cF$ is the factorization algebra of observables of some quantum field theory on $X$.
+In the case that $f$ is a smooth map with compact fibers, then $f_* \cF$ is the factorization algebra of observables for the \textit{compactification} of the quantum field theory along $f$.
+In the case $f \colon Z \times Y \to Y$ is the projection, one says that $f_* \cF$ is the compactification of $\cF$ along $Z$.
+
+Another special case of this is when $f$ is the map $X \to \star$.
+Then $f_* \cF = \int_X \cF$ is the global sections of the factorization algebra $\cF$ along $X$.
+In the case that $\cF$ is a locally constant factorization algebra this agrees with the factorization homology of $\cF$ along $X$.
+In the case that $\cF$ is a holomorphic factorization algebra on a Riemann surface $\Sigma$, the object $\int_\Sigma \cF$ is closely related to the chiral homology (or conformal blocks) of the chiral (or vertex) algebra associated to $\cF$ along $\Sigma$.
+
+In this way, when $X$ is a general complex manifold and $\cF$ is a holomorphic factorization algebra, then $\int_X \cF$ is a natural higher-dimensional generalization of the notion of conformal blocks of $\cF$.
+
+\brian{Hopf surfaces}
 
 \section{Renormalization \& anomalies: constructing examples}
 \label{sec: renorm}
