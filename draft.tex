@@ -217,10 +217,10 @@ It is a kind of enhancement of Weyl's invariant theory and has close connections
 
 \owen{To thank: Kevin Costello, Si Li, Davide Gaiotto, Ed Segal, Chris Elliott, Pavel Safronov, Kapranov, Hennion, Matt Szczesny, Richard Eager, Ingmar Saberi, Johannes Walcher, Jie Zhou, Minghao Wang, Nik Rozenblyum, Natalie Paquette, Nik Garner}
 
+\owen{Add my thoughts about Manin}
+
 \section{Holomorphic field theories}
 \label{sec: HFT}
-
-\owen{I rearranged this section somewhat. Our discussion of examples did not involve any BRST/BV stuff, so I put it right after the impressionistic opening. The "definitions" section seemed to be purely perturbative and to use notions from derived geometry, so I put it next. It should be fleshed out a little (e.g., a mention of the "fundamental theorem of deformaiton theory" and maybe show how to write one of the examples in that language).}
 
 We begin by sketching what a classical field theory is, somewhat impressionistically, and then offer some concrete examples.
 
@@ -1092,11 +1092,13 @@ Let $L \subset M$ be a Lagrangian submanifold.
 Then, functions $C^\infty(L)$ on $L$ are naturally a module for $C^\infty(M)$.
 The Fock module $F(L)$ associated to $L$ is defined to be the quotient of 
 
+\owen{We should acknowledge the state perspective but it's not clear to me how much we should describe, in light of our development below.}
+
 \subsection{A loopy version}
 
 What could provide the {\em holomorphic} analog of the story above?
 Let us indicate one possible answer before we motivate it from the point of view of holomorphic field theory.
-Roughly, the idea is that associated to any finite-dimensional symplectic space is another, infinite-dimensional, symplectic space of `loops' into the original symplectic space.
+Roughly, the idea is that associated to any finite-dimensional symplectic space is another, infinite-dimensional, symplectic space of ``loops'' into the original symplectic space.
 
 %\owen{Add pictures!}
 
@@ -1267,42 +1269,61 @@ This relationship --- and its extension to a map between the vertex algebras ass
 
 \subsection{Reduction vs. chiralization}
 
-In physics, the relationship between the Weyl algebra on generators $p, q$ and its loopy version $W[V]$ is by a process called {\it dimensional reduction}.
-The key idea is that to any quantum mechanical system there is an algebra of operators---the loopy version of the Weyl algebra arises from a quantum mechanical system on the infinite-dimensional space of loops in the symplectic vector space $V$. 
-We will unpack this statement in the language of fields and Lagrangians.
+{\it Dimensional reduction}, an idea from physics, offers a view on how the Weyl algebra on generators $p, q$ relates to its loopy version.
+As we already discussed, mechanics (the Weyl algebra of $V$) has to do with a one-dimensional system, i.e., time-line, 
+while its loopy version ($W[V]$) has to do with a two-dimensional system, such as the punctured plane~$\CC^\times$.
+There is a familiar identification (e.g., polar coordinates)
+\[
+\CC^\times \cong \RR \times S^1
+\]
+and so
+\[
+\Map(\CC^\times,V) \cong \Map(\RR, \Map(S^1,V)) = \Map(\RR, LV).
+\]
+Dimensional reduction here means studying the two-dimensional physics as a one-dimensional system with a more complicated target, namely the loop space.\footnote{One can play this game whenever the spacetime manifold is product $X \times Y$ or a fiber bundle.
+Sometimes the term {\it compactification} is used instead, with reduction reserved for fixing the fiberwise fields to be constant.}
+There is, in this case, a kind of dual process that we call {\it chiralization},
+that turns a one-dimensional physical system (mechanics) into a holomorphic field theory.
+We will now describe this relationship in the language of fields and Lagrangians.
 
 The ordinary Weyl algebra on a symplectic vector space $V$ arises from the quantization of ordinary mechanics on the symplectic vector space $V$.
-We can also include a Hamiltonian $H \in \cO(V)$ that acts on the Weyl algebra by the commutator $[H,-]$.
-If we understand the fields of this system as smooth maps $\phi = \phi(t)$ valued in $V$, then the Lagrangian description of this system is 
+A Hamiltonian $H \in \cO(V)$ acts as a derivation of the Weyl algebra by the commutator $[H,-]$.
+The fields of this system are smooth maps $\phi = \phi(t)$ valued in $V$, 
+and the action functional is 
 \[
-L_{1d} (\phi) = \omega(\phi , \d \phi) + H(\phi) \d t ,
+S_{1d} (\phi) = \int \omega(\phi , \d \phi) + H(\phi) \d t ,
 \]
 where $\d \colon C^\infty(\RR) \otimes V \to \Omega^1(\RR) \otimes V$ is the de Rham differential. 
 
-The chiral version of this setup is to look at fields $\phi = \phi(z,\zbar)$ valued in $V$ where $(z,\zbar) \in \CC^\times$.
+The chiralization of this setup goes as follows.
+Let a field $\phi = \phi(z,\zbar)$ be a smooth function valued in $V$, 
+where $(z,\zbar)$ are (anti)holomorphic coordinates on the manifold $\CC^\times$.
 The action functional is 
 \[
-L_{2d}(\phi) = \omega(\phi, \dbar \phi) \d z ,
+S_{2d}(\phi) = \int \omega(\phi, \dbar \phi) \d z ,
 \]
 where $\dbar \colon C^\infty(\CC^\times)\otimes V \to \Omega^{0,1}(\CC^\times) \otimes V$ is the Dolbeault differential.
 
-We can extract from $L_{2d}$ a Lagrangian on a one-dimensional space by the process of {\it compactification}. 
-It is natural to take as this one-dimensional space the radial direction in $\CC^\times$.
-Then, compactification involves integrating out the remaining circle direction.
+{\it Reduction} goes from this holomorphic field theory to a mechanical system. 
+Take as this one-dimensional space the radial direction in $\CC^\times$.
 Concretely, any smooth function on $\CC^\times$ can be decomposed in polar coordinates as
 \[
 \phi(r,\theta) = \sum_{k \in \ZZ} \phi_k(r) e^{2 \pi i k \theta} ,
 \]
 where $\phi_k(r)$ is a smooth function depending only on the radius $r \in \RR_+$.
-Alternatively, by taking the logarithm we can view $\phi_k(t)$ as a function of the `time' parameter $t = \log r \in \RR$. 
+Alternatively, by taking the logarithm we can view $\phi_k(t)$ as a function of the ``time'' parameter $t = \log r \in \RR$. 
 We interpret $\sum_{k \in \ZZ} \phi_k(r)$ as smooth map from $\RR$ to the formal loop space $LV$. 
 
-At the level of Lagrangians we can integrate $L_{2d}(\phi)$ over $S^1$ to obtain the following infinite sum of one-dimensional Lagrangians
+At the level of action functionals, 
+we can integrate $S_{2d}(\phi)$ over the angular coordinate to obtain the following formal sum of one-dimensional action functionals
 \beqn
-L_{1d}\left( \ldots, \phi_{-1}, \phi_0 , \phi_1, \ldots \right) = \sum_{k\in \ZZ} \phi_{-k} \,\d \phi_{k} + k\, \phi_k \, \phi_{-k} \, \d t .
+S_{1d}\left( \ldots, \phi_{-1}, \phi_0 , \phi_1, \ldots \right) = \sum_{k\in \ZZ} \int  \phi_{-k} \,\d \phi_{k} + k\, \phi_k \, \phi_{-k} \, \d t .
 \eeqn 
+\owen{The $H$ got dropped. Should we reintroduct it?}
 Notice that the $k=0$ summand is just the Lagrangian of ordinary mechanics into $V$ with zero Hamiltonian. 
 In general, we find mechanics into the symplectic vector space $LV$, where the symplectic structure uses the residue pairing in addition to the symplectic form on $V$, with a nontrivial Hamiltonian that encodes the $U(1)$-symmetry arising from rotating $LV$ in the natural way.
+
+\owen{A person might object that this isn't so well-defined analytically. Should we emphasize that it is rather formal, a kind of heuristic?}
 
 \subsection{Algebras in higher dimensions }
 \label{s:alghigh}
@@ -1692,7 +1713,9 @@ Likewise the composition $C_\bu(\circ_i)$ is then a cochain map.)
 An {\em algebra over the little $d$-discs operad} (or little $d$-discs algebra or $E_d$-algebra) is a cochain complex $A$ that is an algebra over the dg operad~$C_\bu(\Disc_d)$.
 \end{dfn}
 
-\owen{Perhaps mention classic examples like $n$-fold loop spaces or Hochschild cohomology?}
+Examples appear very naturally from topology: for any space $X$ with a basepoint $x$, take the singular chains $C_\bu(\Omega^d X)$ of the $d$-fold based loop space $\Omega^d_x X$.
+A much more subtle source of examples was conjectured by Deligne and subsequently proven in many ways \cite{}: 
+for any associative algebra $A$, the Hochschild cochain complex ${\rm Hoch}^\bu(A,A)$ can be equipped naturally with an $E_2$-algebra structure.
 
 We can state now encapsulate our expectations from above:
 \begin{quote}
