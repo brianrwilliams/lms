@@ -3,6 +3,12 @@
 \usepackage{macros, setspace}
 \usepackage{epigraph}
 
+\usepackage[
+backend=biber,
+style=alphabetic,
+]{biblatex}
+\addbibresource{survey.bib}
+
 \spacing{1.1}
 
 \usepackage{parskip}
@@ -2496,6 +2502,7 @@ determines a fully extended framed $d$-dimensional field theory with values in a
 In combination with the theorem of Elliott and Safronov, we can connect action functionals --- the physicist's usual description of a field theory --- to Atiyah-Segal functorial field theories.
 
 \begin{cor}
+\label{cor: EllSaf}
 For any Lagrangian field theory satisfying the hypotheses of Theorem~\ref{thm: EllSaf}, 
 there is a fully extended framed $d$-dimensional field theory 
 given by $\int_{(-)} \cA^q$ where $\cA^q$ denotes the $E_d$ algebra of quantum observables.
@@ -2525,74 +2532,73 @@ Daniel Bruegmann's thesis, and how the web of 2d CFT stuff should fit together.}
 
 \owen{We discussed having the following:
 \begin{itemize}
-\item Quick overview for topological field theories (=analytic content is de Rham complex): 
-\begin{itemize}
-\item Axelrod-Singer-Kontsevich method via compactified configuration spaces (Fulton-MacPherson) guarantees no divergences for individual graphs and organizes/clarifies analysis of anomalies
-\item Explain what this means in terms of Theorem 3.6 (Elliott-Safronov) and Corollary 4.6 (about existence of functorial field theories)
-\item Mention the connection with formality of the $E_d$ operads and related outgrowths in topology 
-\end{itemize} 
-\item Overview the history of the holomorphic case, with citations
-\item Describe a version of Minghao's results (and those of Gaiotto {\it et al}) that emphasizes no divergences for individual graphs and the consequences for anomalies (e.g., relevant wheels for 1-loop and higher loop generalization via Laman graphs)
 \item Explain what this means in terms of Theorem 3.9 (existence of polydiscs algebras)
 \end{itemize}}
 
-\owen{Old copy that might be recycled into final version}
-
-So far we have not discussed the issue of quantization and renormalization for holomorphic field theories.
-In the topological setting, renormalization is very well-controlled.
-The well-combed configuration space method pioneered by \cite{} has allowed for a rigorous construction of the path integral for many topological field theories. 
-
-
-In other words, by a judicious choice of gauge-fixing, 
-we find that the one-loop Feynman diagrams have no UV divergences.
-Moreover, no higher loop diagrams appear (for combinatorial reasons),
-and the action functional satisfies the quantum master equation.
-See Section~\ref{sec: susytwist revisited} for some further discussion.
-
-Although holomorphic field theories had already appeared in practice,
-my collaborator Brian Williams was the first to lay a systematic, mathematical foundations (cf. his thesis \cite{BWthesis} and its offshoot \cite{BWhol}).
-He did the following:
-\begin{itemize}
-\item established key analytic results about holomorphic renormalization, 
-showing that it is highly manageable, with no counterterms to 1-loop; and
-\item characterized the one-loop anomalies  (i.e., obstructions to BV quantization).
-\end{itemize}
-These apply to all holomorphic theories on $\CC^n$,
-but the techniques typically extend to more general complex manifolds.
-
-\brian{Brian's stuff below}
-
 In practice, quantum field theories are typically constructed using regularization and renormalization,
-by starting with a classical field theory specified by an action functional and then finding a way to extract sensible answers from the divergences that first appear out of the integrals associated to Feynman diagrams.
+by starting with an action functional that defines a classical field theory and then finding a way to extract sensible answers from the yoga of Feynman diagrams (which naively produce divergent integrals).
 One can apply similar techniques to produce holomorphic quantum field theories, and the higher algebraic structures associated to them.
 A key feature of holomorphic theories is the absence of counterterms (possibly scheme-dependent), 
 which can make typical quantum field theories challenging to work with.
 In this section we describe the current state of the art for renormalization and anomalies of holomorphic field theories,
 after reviewing some background and the similarly pleasant results for topological field theories.
 
-\subsection{Recollections}
+\subsection{Overview and context}
 
-Counterterms are perturbative quantum effects that typically must be introduced to the action functional in order to circumvent ultra-violet (UV, high energy) divergences which arise when studying the path integral.
-From Feynman, we know that the path integral can be formally expressed in terms of graphs. 
-More precisely, given a graph $\Gamma$ (whose exact shape depends on the theory), there is a prescription for assigning to it a functional $W_\Gamma$ on the fields (a distribution) which we can understand as term in the quantum action; typically in the form of an integral over $|V(\Gamma)|$ copies of spacetime where $V(\Gamma)$ is the vertex set of the graph.
-Unfortunately, this prescription is not always well-posed, as there are infinities which can arise due to presence of overlapping supports of certain distributions.
-Counterterms can be constructed by carefully understanding the nature of these divergences through some regularization scheme.
+The dream is that a quantum field theory is specified by the path (or functional) integral,
+which is supposed to involve integrating a measure over the space of all fields.
+This path integral does not (usually) exist using conventional mathematical tools,
+so one mimics well-established asymptotic expansions for finite-dimensional oscillating integrals.
+Feynman explained how to label the terms in these expansions using graphs;
+there is an explicit algorithm that converts the action functional of the classical field theory into integrands (often distributional in nature) on the spacetime manifold $M$ and products $M^k$ of it.
+Unfortunately, these formal expressions are often ill-defined as they would involve multiplying distributions (and hence the putative integral would diverge).
+Regularization means a way of systematically working around these issues,
+often by adjusting the integrand or finding a clever way of extracting a finite answer.
+In short hand, one introduces {\it counterterms} that soak up the divergences and hence obtain useful values for the Feynman diagrams.
+Renormalization means assembling the data produced by the collection of Feynman diagrams to approximate the ``true'' path integral.
 
-For topological quantum field theories, it is known from the work of Axelrod, Singer, Kontsevich, Cattaneo, and others \cite{???} that such Feynman graphs return finite answers and hence there is no need to introduce such complications.
-The method used to prove this interprets such Feynman graph integrals as integrals over configuration space and then showing that the weights $W_\Gamma$ can be extended to some compactification.
-A different regularization scheme based on the heat equation was used by Costello \cite{CosRenormPaper} to arrive at the same result for topological quantum field theories.
+To offer some notation, a graph $\gamma$ (whose exact shape depends on the theory) is expected to define a functional $W_\Gamma$ on the space of fields (i.e., a distribution).
+It is described, formally, by an an integral over the product manifold $M^{|V(\gamma)|}$,  
+where $V(\Gamma)$ is the vertex set of the graph.
+Unfortunately, this integrand, and the distribution it purports to encode, is often not integrable.
 
-The configuration space method traditionally used to study topological theories does not admit an immediate generalization to holomorphic theories.
-Nevertheless, it is known that the renormalization for holomorphic field theories is equally well-behaved.
+These methods are essential --- and often quite convoluted --- for the theories that describe physical phenomena, 
+such as quantum electrodynamics,
+where Feynman first introduced his diagrammatics.
+For topological quantum field theories, like Chern-Simons theory,
+life is quite a bit simpler: Axelrod-Singer and Kontsevich developed a a very simple regularization method that removes all divergences.
+For these theories, the putative divergences always arise from distributional issues along the diagonals of the product space $M^k$.
+On the Fulton-MacPherson compactification of the configuration space of $k$ points in $M$ (i.e., takes the real blow-up along the diagonals),
+the integrand admits a {\em smooth} extension and the integrals become well-defined.\owen{Citations!}
 
-The heat kernel analysis of the perturbative renormalization for holomorphic quantum field theories was initiated by Costello and Li in their study of the $B$-model topological string field theory \cite{??}.
-Later, in \cite{Whol} we have shown more broadly that holomorphic field theories in any dimension (on flat space) are UV finite to first-order in perturbation theory.
-In \cite{LiVertex} it is shown by a very clever analysis that holomorphic field theories in complex dimension one (chiral conformal field theories) are finite to all orders in perturbation theory; this was later extended to arbitrary Riemann surfaces in \cite{Jie and Si}.
-There has a been a buzz of recent activity contributing to the advancement in the renormalization of holomorphic field theories.
+These results guarantee the existence of factorization algebras for topological field theories like Chern-Simons theory or the Poisson $\sigma$-model or the topological B-model by the main result (Theorem~\ref{main}) of \cite{CG2}.
+Thus these theories produce $E_d$ algebras by Theorem~\ref{thm: EllSaf} and Atiyah-Segal-style TFTs by Corollary~\ref{cor: EllSaf}.
+
+This configuration space method traditionally used to study topological theories does not admit an immediate generalization to holomorphic theories.
+Nevertheless, the renormalization for holomorphic field theories is equally well-behaved.
+
+Costello, inspired by the methods of Axelrod-Singer and Kontsevich,
+found a framework for perturbative renormalization that works with a large class of elliptic complexes.
+When applied to Dolbeault complexes arising in Kodaira-Spencer (or BCOV) theory, 
+he and Li found some remarkable simplifications and good behavior \cite{??}.
+In \cite{LiVertex} Li showed, by very clever analysis, that holomorphic field theories in complex dimension one (i.e., chiral conformal field theories) are finite to all orders in perturbation theory; 
+this result was later extended to arbitrary Riemann surfaces in \cite{Jie and Si}.
+Following up (cf. his thesis \cite{BWthesis} and its offshoot \cite{BWhol}), Williams laid a systematic mathematical foundations:
+\begin{itemize}
+\item he established key analytic results about holomorphic renormalization, 
+showing that it is highly manageable, with no counterterms to 1-loop; and
+\item characterized the one-loop anomalies  (i.e., obstructions to BV quantization).
+\end{itemize}
+These apply to all holomorphic theories on $\CC^n$,
+but the techniques typically extend to more general complex manifolds.
+
+In the last few years,
+there has a been a buzz of recent activity on the renormalization of holomorphic field theories.
 In work of Budzik, Gaiotto, Kulp, Wu, Yu, a strategy for proving UV finiteness for certain graphs (called Laman graphs) at arbitrary genus in a holomorphic quantum field theory is developed \cite{BGKWY}.
+\owen{I think the term "UV finiteness" is too physics-y, and I don't find it very illuminating even then.}
 The key idea is to combine the heat kernel analysis with the sort of compactifications that are used in the theory of configuration spaces.
 
-Recently, Minghao Wang has extended this analysis to show that holomorphic field theories on $\C^n$ admit a regulation scheme that is UV finite to \textit{all} orders in perturbation theory \cite{Wang}.
+Recently, Minghao Wang has extended this analysis to show that holomorphic field theories on $\C^n$ admit a regularization scheme that is UV finite to \textit{all} orders in perturbation theory \cite{Wang}.
 In other words, both topological and holomorphic field theories are completely free of the divergences present in typical quantum field theories!
 We briefly recall the approach to this regulation scheme.
 
@@ -2606,16 +2612,21 @@ We allow multiple edges between vertices, as well as loops, the precise form of 
 For a graph $\gamma$, let $E(\gamma)$ denote the number of edges,
 $V(\gamma)$ denote the number of vertices,
 and $L(\gamma)$ denote the number of leaves.
-The scheme begins with the familiar Wilsonian approach to renormalization which involves introducing an IR `cut-off' length scale $L > 0$.
-The \textit{Schwinger space} associated to a graph $\gamma$ and a length $L$ is the non-compact manifold with corners $(0,L]^{E(\gamma)}$, which we will denote $\op{Schw}(\gamma)$ below.
-The desired Feynman graph weight $W_\gamma$ of a graph $\gamma$ is obtained as the integral over  Scwhinger space. 
+We fix a ``cut-off" length scale $L > 0$ that is used to remove the divergences that often come from integrating over a noncompact manifold (a so-called IR divergence), 
+which is a different kind of divergence (and much easier to resolve) than those that typically plague Feynman diagrammatics.
 
 \begin{dfn}
-For a perturbative field theory with space of fields $\cE$, there is a distribution valued in forms on Schwinger space
+The {\em Schwinger space} $\op{Schw}(\gamma)$ associated to a graph $\gamma$ and a length $L$ is the non-compact manifold with corners~$(0,L]^{E(\gamma)}$.
+\end{dfn}
+
+The desired Feynman graph weight $W_\gamma$ of a graph $\gamma$ is obtained as the integral over this Scwhinger space. 
+
+\begin{dfn}
+For a perturbative field theory with space of fields $\cE$, there is a distribution valued in differential forms on Schwinger space
 \[
 w_{\gamma} \colon \cE^{L(\gamma)}_c \to \Omega^\bu \left( \op{Schw}(\gamma) \right)
 \]
-which we call the {\em regularized weight of $\gamma$}.
+that we call the {\em regularized weight of $\gamma$}.
 \end{dfn}
 
 The possibly ill-defined weight $W_\gamma$ is obtained by integration of $w_\gamma$ over Schwinger space.
@@ -2628,33 +2639,32 @@ For holomorphic field theories (and generally topological-holomorphic theories, 
 
 \begin{thm}[Wang, \owen{precise citations}]
 Let $\cE$ be the space of fields underlying a holomorphic field theory on $\C^n$.
-For every graph~$\gamma$, $w_{\gamma}$ has a natural smooth extension $\til {w_\gamma}$ to a compactification $\til{\op{Schw}(\gamma)}$ of Schwinger space.
-In particular, the weight
+For every graph~$\gamma$, the differential form $w_{\gamma}$ has a natural smooth extension $\til {w_\gamma}$ to a compactification $\til{\op{Schw}(\gamma)}$ of Schwinger space.
+In particular, the composite
 \[
-W_\gamma \colon \cE^{L(\gamma)}_c \xto{\til{w_\gamma}}\Omega^\bu \left( \til{\op{Schw}(\gamma)} \right) \xto{\int} \C
+\cE^{L(\gamma)}_c \xto{\til{w_\gamma}}\Omega^\bu \left( \til{\op{Schw}(\gamma)} \right) \xto{\int} \C
 \]
-is a continuous linear functional on $\cE_c^{L(\gamma)}$.
+is a continuous linear functional on $\cE_c^{L(\gamma)}$ and shows the desired weight~$W_\gamma$ is well-defined.
 \end{thm}
 
 In other words, divergences do not appear.
 
-\owen{It would be good to explain why and indicate what is the appropriate "value" to use.}
-\brian{What?}
-
 \subsection{Anomalies that obstruct quantization}
 
-The discussion so far in this section was about the analytic issues which are present when trying to make the path integral precise.
-For interesting quantum field theories, like gauge theories, there is another issue which could prevent the theory from being well-posed; these are called anomalies.
-An anomaly is the measure of the failure of the quantum path integral to enjoy the same symmetries as the underlying classical field theory.
-In gauge theory, for instance, there could be an obstruction for the perturbative renormalization to be gauge invariant.
+The discussion so far concerned the analytic issues that are present when trying to make the path integral precise.
+For some quantum field theories, like gauge theories, there is another issue that could prevent the theory from being well-posed:
+these are called {\em anomalies}.
+An anomaly measures the failure of the path integral to enjoy the same symmetries as the underlying classical field theory.
+In gauge theory, for instance, the perturbative renormalization might not be gauge invariant, although the action functional is.
 In topological theories, it is known that these sort of anomalies are absent.
-For holomorphic theories, however, anomalies are present.\footnote{Anomalies in holomorphic field theory are related to, but distinct from, familiar anomalies such as `chiral anomalies' in theories of Weyl fermions.}
+\owen{I am confused by this comment. Aren't there TFTs with anomalies of some sort?}
+For holomorphic theories, however, anomalies are present.\footnote{Anomalies in holomorphic field theory are related to, but distinct from, anomalies well-known to physicists, such as ``chiral anomalies'' in theories of Weyl fermions.}
 Since renormalization is so well-behaved, however, such anomalies are amenable to explicit characterization.
 For example, at one-loop in perturbation theory, an explicit formula for such anomalies for holomorphic theories on $\C^d$ is given in \cite{Whol}.
-It involves a sum over Feynman weights $W_\Gamma$ where $\Gamma$ is a polygon with $(d+1)$-vertices.
+It involves a sum over Feynman weights $W_\Gamma$ where $\Gamma$ is a polygon with $(d+1)$~vertices.
 
 As an example, consider holomorphic BF theory on $\C^2$, for some Lie algebra $\lie{g}$, coupled to the $\beta\gamma$ system on $\C^2$ valued in a representation $V$ of $\lie{g}$.
-There are two diagrams which contribute to the gauge anomaly, all of which come from various ways of labeling the vertices and edges of the wheel diagram with three vertices, see figure \ref{??}:
+There are two diagrams which contribute to the gauge anomaly, all of which come from various ways of labeling the vertices and edges of the wheel diagram with three vertices, see figure~\ref{??}:
 \begin{itemize}
 \item The pure gauge anomaly.
 This part of the anomaly is proportional to the representation theoretic factor $\op{Tr}_{ad}(X^3)$, $X \in \lie{g}$.
@@ -2663,7 +2673,7 @@ This vanishes when $\lie{g}$ is simple, for example, when $\lie{g} = \lie{sl}(n)
 This part of the anomaly is proportional to the representation theoretic factor $\op{Tr}_V(X^3)$, $X \in \lie{g}$.
 \end{itemize}
 These anomalies in complex two-dimensional holomorphic gauge theory are holomorphic avatars of the Adler--Bell--Jackiw, or chiral, anomaly in ordinary gauge theory \cite{??}.
-In the case that $\lie{g}$ is simple (so that the first diagram does not contribute to the anomaly) we see an easy method to produce a non-anomalous holomorphic QFT: take $V$ to be a symplectic representation of the gauge Lie algebra $V = Q \oplus Q^*$, where $Q$ is any $\lie{g}$-representation.
+In the case that $\lie{g}$ is simple (so that the first diagram does not contribute to the anomaly) there is an easy way to produce a non-anomalous holomorphic QFT: take $V$ to be a symplectic representation of the gauge Lie algebra $V = Q \oplus Q^*$, where $Q$ is any $\lie{g}$-representation.
 
 \begin{figure}
 \begin{center}
@@ -3050,6 +3060,6 @@ one sees different choices of GIT quotients associated to the same stack yieldin
 and these quotients only know about certain pieces of the stack,
 an issue we have flagged in our comparison of the moduli stack and the moduli space.
 
-
+\printbibliography
 
 \end{document}
