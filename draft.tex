@@ -397,6 +397,7 @@ In Section~\ref{sec: pert dfn} we offer a sharp definition well-suited to pertur
 which we will use to produce examples of higher algebras.
 
 \subsection{Examples}
+\label{sec: ex of theories}
 
 In this section we describe several examples of holomorphic field theories,
 in the style we used for holomorphic Chern-Simons theory.
@@ -2717,17 +2718,35 @@ Since renormalization is so well-behaved, however, such anomalies are amenable t
 For example, at one-loop in perturbation theory, an explicit formula for such anomalies for holomorphic theories on $\C^d$ is given in \cite{Whol}.
 It involves a sum over Feynman weights $W_\Gamma$ where $\Gamma$ is a polygon with $(d+1)$~vertices.
 
-As an example, consider holomorphic BF theory on $\C^2$, for some Lie algebra $\lie{g}$, coupled to the $\beta\gamma$ system on $\C^2$ valued in a representation $V$ of $\lie{g}$.
-There are two diagrams which contribute to the gauge anomaly, all of which come from various ways of labeling the vertices and edges of the wheel diagram with three vertices, see figure~\ref{??}:
+As an example, consider holomorphic BF theory on $\C^2$ with Lie algebra $\lie{g}$
+and couple it to the $\beta\gamma$ system on $\C^2$ valued in a representation $(V, \rho)$ of $\lie{g}$.
+The action functional is
+\[
+S(A,B, \beta, \gamma) = \int \langle B, \dbar A\rangle + \frac{1}{2} \langle B, [A,A]\rangle + \langle \beta, \dbar \gamma\rangle + \langle \beta, \rho(A)\gamma\rangle,
+\]
+where the final term encodes the ``coupling'' ({\it cf}. the discussion of these theories in Section~\ref{sec: ex of theories}).
+The second and fourth terms are cubic functions of the fields,
+and they provide trivalent vertices to build graphs with.
+The first and third terms are quadratic, and they control what labels the edges of graphs.
+
+There are two diagrams that contribute to the gauge anomaly,
+shown in Figure~\ref{fig:localization}:
 \begin{itemize}
-\item The pure gauge anomaly.
-This part of the anomaly is proportional to the representation theoretic factor $\op{Tr}_{ad}(X^3)$, $X \in \lie{g}$.
-This vanishes when $\lie{g}$ is simple, for example, when $\lie{g} = \lie{sl}(n)$).
-\item This anomaly involves edges (propagators) labeled by the $\beta\gamma$ fields.
-This part of the anomaly is proportional to the representation theoretic factor $\op{Tr}_V(X^3)$, $X \in \lie{g}$.
+\item The pure gauge anomaly: it is proportional to the representation-theoretic factor $\op{Tr}_{ad}(X^3)$, $X \in \lie{g}$.
+This expression vanishes when $\lie{g}$ is simple, e.g., for $\lie{g} = \lie{sl}(n)$).
+\item The mixed anomaly: its edges (propagators) are labeled by the $\beta\gamma$ fields,
+and it is proportional to the representation-theoretic factor $\op{Tr}_V(X^3)$, $X \in \lie{g}$.
 \end{itemize}
-These anomalies in complex two-dimensional holomorphic gauge theory are holomorphic avatars of the Adler--Bell--Jackiw, or chiral, anomaly in ordinary gauge theory \cite{??}.
-In the case that $\lie{g}$ is simple (so that the first diagram does not contribute to the anomaly) there is an easy way to produce a non-anomalous holomorphic QFT: take $V$ to be a symplectic representation of the gauge Lie algebra $V = Q \oplus Q^*$, where $Q$ is any $\lie{g}$-representation.
+These each come from ways of labeling the vertices and edges of the wheel (or polygon) diagram with three vertices.
+We have described the representation-theoretic factor but there is also an analytic factor.
+\owen{Should we just write it?}
+
+These anomalies of a holomorphic gauge theory on $\CC^4$ are holomorphic avatars of the Adler--Bell--Jackiw, or chiral, anomaly in ordinary gauge theory on $\RR^4$ \cite{??}.
+In the case that $\lie{g}$ is simple (so that the first diagram does not contribute to the anomaly), 
+there is an easy way to produce a non-anomalous holomorphic QFT: 
+take $V$ to be a symplectic representation of the gauge Lie algebra $V = Q \oplus Q^*$, where $Q$ is any $\lie{g}$-representation.
+
+\owen{There isn't a $K$-edge on the wheel?}
 
 \begin{figure}
 \begin{center}
