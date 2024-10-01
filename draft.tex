@@ -2683,6 +2683,7 @@ In the last few years,
 there has a been a buzz of recent activity on the renormalization of holomorphic field theories.
 In work of Budzik, Gaiotto, Kulp, Wu, Yu, a strategy for proving UV finiteness for certain graphs (called Laman graphs) at arbitrary genus in a holomorphic quantum field theory is developed \cite{BGKWY}.
 \owen{I think the term "UV finiteness" is too physics-y, and I don't find it very illuminating even then.}
+\brian{I think it would be more confusing to use a different term. But you can explain how it's the issue of `overlapping supports' of distributions; that is, it's an issue about `local integrability'. In fact, in their work Axelrod and Singer already use the term ultraviolet.}
 The key idea is to combine the heat kernel analysis with the sort of compactifications that are used in the theory of configuration spaces.
 
 Recently, Minghao Wang has extended this analysis to show that holomorphic field theories on $\C^n$ admit a regularization scheme that is UV finite to \textit{all} orders in perturbation theory \cite{Wang}.
@@ -2909,20 +2910,18 @@ as polyvector fields are an odd Poisson algebra via the Schouten bracket.
 By itself (i.e., before coupling to a gauge theory) the twisted matter multiplet corresponds to the mapping space ${\rm Map}(X, {\rm Crit}^d(W))$.\footnote{Notice that AKSZ formalism equips this mapping space with a $1$-shifted symplectic structure as opposed to the desired $(-1)$-shifted symplectic structure.
 Hereon we totalize all gradings to $\ZZ/2$.}
 
-The holomorphic twist of a theory with both vector and matter multiplets then corresponds to the  derived mapping space
-\[
-{\rm Map}(X , [( \fg_\CC^*\times {\rm Crit}^d(W))/ G_\CC]), 
-\]
-where the target is a derived quotient stack whose first factor arises from the BF theory and whose second factor arises from the matter multiplet.
+The holomorphic twist of a theory with both vector and matter multiplets can be described, globally, as a derived mapping space from $X$ to the target
+\beqn
+[( \fg_\CC^*\times {\rm Crit}^d(W))/ G_\CC] .
+\eeqn
+This is a derived quotient stack whose first factor arises from the BF theory and whose second factor arises from the matter multiplet.
 
-We wish to study a holomorphic analog of supersymmetric chromodynamics.
-We will call the relevant theory {\it QCD}, following convention, even though it is classical and not yet quantum.
-We will specialize $G = SU(N)$ and so $G_\CC = SL(N)$.
-The matter fields will consist of two types: quarks and antiquarks.
-Let $\underline{N}$ denote the {\em fundamental} (or defining) representation of $SL(N)$,
-so $\underline{N} = \CC^N$ with its natural left action.
-\owen{That's kind of crappy notation. Let's discuss.}
-\brian{Does it help us much? Or are you trying to use this to disambiguate what $\CC^N$ means.}
+\textit{Supersymmetric quantum chromodynamics} (SQCD) refers to a specific sort of four-dimensional $\cN=1$ gauge theories.
+In the special, yet interesting, case that the gauge group is $G = SU(N)$ (and so $G_\CC = SL(N)$) the  matter fields consist of two types: quarks, valued in some number of copies of the fundamental (defining) representation, and antiquarks, valued in the same number of copies of the anti-fundamental (dual to the defining) representation.
+The number of fundamental representations that appear is called the number of \textit{flavors}, and will be denoted $F$.
+The number $N$ is called the number of \textit{colors}.
+The following theorem describes the holomorphic twist of SQCD (for $G = SU(N)$). 
+Henceforth, we will refer to the resulting holomorphic field theory as \textit{holomorphic QCD}.
 
 %All of the holomorphic theories we consider below will be special cases of this gauged linear mapping space with $X = \CC^2$. 
 %We slightly refine notation and associate a holomorphic theory $\cT(G, V, Z, W)$ on $\CC^2$ associated to the following data:
@@ -2935,8 +2934,8 @@ so $\underline{N} = \CC^N$ with its natural left action.
 %\item a polynomial $W \in {\rm Sym}(V \oplus \Bar{V} \oplus Z)$.
 %\end{itemize}
 
-\begin{dfn}
-A {\em holomorphic QCD theory} with $N$ {\em colors} and $F$ {\em flavors} is the holomorphic field theory on $\CC^2$ where
+\begin{thm}[\cite{ESW} \cite{SWchar}]
+The holomorphic twist of $G = SU(N)$ SQCD with $F$ flavors and super potential $W$ on $\C^2 = \RR^4$ is equivalent to the following holomorphic field theory:
 \begin{itemize}
 \item the gauge fields are those of holomorphic BF theory valued in $\sl(N)$, whose fields are
 \[
@@ -2964,37 +2963,41 @@ it is simply to remind us that these fields are the ``antiparticles''.)
 
 The action functional is
 \[
-S_{QCD} = \int B\, F^{0,2}_A + \int R \,\dbar_A Q + \int R^\dag \,\dbar_A Q^\dag,
+S_{QCD} = \int B\, F^{0,2}_A + \int R \,\dbar_A Q + \int R^\dag \,\dbar_A Q^\dag + \int\d^2 z \, W(Q) ,
 \]
 where $\dbar_A = \dbar + A$ is the covariant $\dbar$-operator.\footnote{Although this perturbative theory only depends on the Lie algebra of $G$, the group structure will be relevant when we discuss local operators and moduli of vacua.}
 %We will denote this theory by $\cT(N,F)$.
-\end{dfn}
+\end{thm}
+
+
+
+\begin{rmk}
+Notice that to write down the superpotential term, we are utilizing the holomorphic volume form~$\d^2 z$. 
+Relatedly, unless $W = 0$, this theory is only $\ZZ/2$-graded, so all fields are considered merely as even or odd.
+For instance the component of the gauge field $A^{0,1}$ is even while the component of the matter field $Q^{0,1}$ is odd. 
+When $W$ is homogenous one can lift the theory to a $\ZZ$-grading by making additional choices.
+\end{rmk}
+
 
 To formulate Seiberg duality, we will need to allow auxiliary matter fields that we call ``mesons.''
+As above, we fix $G_{\CC} = SL(N,\CC)$.
 
 \begin{dfn}
 A holomorphic QCD theory {\em with mesons}
 %, denoted $\cT(N,F, V_M, W)$, 
-is a holomorphic QCD with $N$ colors and $F$ flavors along with {\em meson fields}, which form a $\beta\gamma$ system valued in the vector space $V_M$, which we denote by
+is a holomorphic QCD with $N$ colors and $F$ flavors along with {\em meson fields}, which form a $\beta\gamma$ system valued in the vector space $V_M$, whose fields we denote by
 \[
 \mu \in \Omega^{0,\bu}(\CC^2 , V_M) \quad\text{and}\quad \nu \in \Omega^{2,\bu}(\CC^2 , V_M^*) [1] .
 \]
 The action functional is
 \[
-S_{QCDwM} = S_{QCD} + \int \nu \,\dbar \mu + \int \d^2 z \; W(Q, Q^\dag, \mu) .
+S_{QCDwM} = S_{QCD} + \int \nu \,\dbar \mu + \int \d^2 z \; \til W(Q, Q^\dag, \mu) .
 \] 
-Notice that to write down the superpotential term, we are utilizing the holomorphic volume form~$\Omega_X = \d^2 z$. 
 \end{dfn}
 
 Note that the fields $\mu$ are ``uncharged,'' i.e., $SL(N)$ acts trivially on $V_M$.
 Hence we use $\dbar$ rather than $\dbar_A$.
-The only coupling that the meson $\mu$ has to the other fields is through the superpotential~$W$. 
-
-\begin{rmk}
-This theory is only $\ZZ/2$-graded, so all fields are considered merely as even or odd.
-For instance the component of the gauge field $A^{0,1}$ is even while the component of the matter field $Q^{0,1}$ is odd. 
-Only when $W = 0$ can one lift the theory to a $\ZZ$-grading.
-\end{rmk}
+The only coupling that the meson $\mu$ has to the other fields is through the new superpotential~$\til W$. 
 
 \subsection{A first pass at Seiberg duality}
 
@@ -3024,13 +3027,14 @@ Fix a positive integer $F$, for flavor, and fix integers $N$ and $\check{N}$ suc
 The {\em electric theory} is the holomorphic QCD with $N$ colors and $F$ flavors and {\em without} mesons.
 We denote it by~$\cT_{\sfE}(F, N)$.
 We use $A, B, Q, R, Q^\dag$, and $R^\dag$ for the fields.
+For simplicity, we don't consider any superpotential.
 \item
 The {\em magnetic theory} $\cT_{\sfM}(F, \check{N})$ is the holomorphic QCD with $\check{N}$ colors and $F$ flavors, but with mesons $\check{\mu}$ that take values in $$V_{\check{M}} = \End(\CC^F) \cong \CC^{\oplus F^2}$$
 (and $\check{\nu}$ for the partner field to $\check{\mu}$).
 We use $\check{A}, \check{B}, \check{Q}, \check{R}, \check{Q}^\dag$, and $\check{R}^\dag$ for the other fields.
 The superpotential is 
 \beqn\label{eqn:checkW}
-\check{W} =  \Tr(\check{Q}^\dag \check{\mu}  \check{Q})
+\til W =  \Tr(\check{Q}^\dag \check{\mu}  \check{Q})
 \eeqn
 where we compose the linear maps before tracing over~$V_{\check{N}}$.
 \end{itemize}
@@ -3109,64 +3113,6 @@ Eager's suggestion was a natural variation on this theme but it (seems to) invol
 These ideas are extensively used in the program of twisted holography, which is growing rapidly at the moment.
 (The interested reader might track the papers that cite those we have mentioned.)
 \end{rmk}
-
-\subsection{A remark relating to homological projective duality}
-
-A standard maneuver used in physics is compactification:
-given a field theory $\cT$ in $n$ dimensions, one takes compact $n-k$-manifold $N$ and produces a field theory $\cT_N$ in $k$ dimensions by studying $\cT$ on manifolds of the form $N \times \Sigma$, where $\Sigma$ is $k$-dimensional.
-One then considers the push forward of the theory along the obvious map $N \times \Sigma \to \Sigma$, to obtain an effective theory along $\Sigma$.
-A close cousin is dimensional reduction, where one restricts to solutions of the classical field theory that are constant along $N$.
-
-We consider a holomorphic theory defined on $\C^\times \times \C^\times$ and the pushforward along the map $\rho: \CC^\times \times \CC^\times \to \RR_{>0} \times \RR_{>0}$ that sends $(z_1,z_2)$ to $(|z_1|, |z_2|)$.
-In other words, this is the $T^2$ compactification of the holomorphic theory.
-For a holomorphic factorization algebra $\cF$, one can extract from the pushforward $\rho_* \cF$ a locally constant factorization algebra on $\RR_{> 0}^2 \cong \RR^2$, hence an $E_2$-algebra.
-We now apply this result in the context of holomorphic QCD and see what Seiberg duality would imply.
-
-Let's first consider the electric side, 
-which can be seen as two-dimensional holomorphic BF theory to a complex two-dimensional $\beta\gamma$ system.
-The $T^2$ compactification of the $\beta\gamma$ system with target $\C^{NF}$ is the topological B-model theory whose target is the formal double loop space $L^2\C^{NF}$. 
-The algebra of functions of this target space is $\cO(\C^{NF}) ((z))((w))$, 
-where $z,w$ are formal loop parameters that we imagine as describing the winding of the two circles we have compactified. 
-The dimensional reduction simply picks out the constant modes along each circle, so we find a linear topological B-model with target $\C^{NF}$.
-Similarly, the dimensional reduction of holomorphic BF theory is topological BF theory (which is a stacky version of the B-model whose target is the classifying space $BGL(N)$).
-In sum, the dimensional reduction of the electric holomorphic QCD is the topological B-model whose target is the stack $\C^{NF} / GL(N)$.
-As a derived mapping space, the moduli of solutions is given by
-\beqn
-{\rm Map}\left(\RR^2, T^*[1] \C^{NF} / GL(N)\right) .
-\eeqn
-The factorization algebra of observables obtained from reduction encodes the $E_2$ algebra of (holomorphic) polyvector fields on the stack~$\C^{NF} / GL(N)$. 
-
-On the magnetic side the reduction is similar, except this time we must take into account the superpotential. 
-What results is a Landau--Ginzburg B-model whose target is the stack
-\beqn
-\C^{(F-N)F} / GL(F-N) \times \C^{F^2} .
-\eeqn
-The first factor comes from the reduction of the dual quarks coupled to the dual gauge theory, and the second factor comes from the reduction of the mesons. 
-The potential of the Landau--Ginzburg model is given by the same expression $\check{W}$ as in~\eqref{eqn:checkW}.
-
-Holomorphic Seiberg duality then predicts an equivalence of two-dimensional topological field theories,
-or at least of $E_2$-algebras.
-
-\begin{conj}
-There is an equivalence of the following $E_2$ algebras:
-\begin{itemize} 
-\item (electric) the $E_2$ algebra of polyvector fields on the stack $\C^{NF} / GL(N)$, and 
-\item (magnetic) the $E_2$ algebra that results from deforming the $E_2$ algebra of polyvector fields on the stack $\C^{(F-N)F} / GL(F-N) \times \C^{F^2}$ by the differential $\{\check{W},-\}$ where $\{-,-\}$ is the Schouten bracket.
-\end{itemize}
-\end{conj}
-
-%\begin{conj}
-%There is an equivalence between $\cT_{\sfE}(F,N)_2$ and $\cT_{\sfM}(F,N)_2$, 
-%the compactifications of the electric and magnetic holomorphic QCD theories.
-%\end{conj}
-
-This conjectured equivalence resembles Hori-Tong dualities \cite{HoriTong, Hori, others}.
-(In those papers, it is often said that Hori-Tong dualities are like Seiberg dualities!)
-We hope that insights from the study of these dualities --- such as the deep work on homological projective duality \cite{Kuznetsov, Thomas, Segal, others} ---- might apply here, and also feed back towards holomorphic Seiberg duality.
-For instance, in this mathematical work, 
-one sees different choices of GIT quotients associated to the same stack yielding equivalent derived categories (and cousins),
-and these quotients only know about certain pieces of the stack,
-an issue we have flagged in our comparison of the moduli stack and the moduli space.
 
 \printbibliography
 
