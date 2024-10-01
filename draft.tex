@@ -2541,45 +2541,69 @@ but these connections with functorial TFTs raise the question of producing funct
 
 \subsection{Compactification and conformal blocks}
 
-In this subsection we discuss some global aspects of holomorphic factorization algebras.
+Factorization algebras yield interesting information when their global sections are computed,
+much as sheaf cohomology is a rich source of invariants and information.
+We focus here on some global aspects of holomorphic factorization algebras,
+connecting with important results about vertex algebras and with the physical notion of compactification.
 
-A map $f \colon X \to Y$ induces a pushforward between categories of factorization algebras.
-If $\cF$ is a factorization algebra on $X$, then the pushforward $f_* \cF$ is the factorization algebra on $Y$ which assigns to an open set $U \subset Y$ the value $\cF(f^{-1}(U))$.
-Suppose we are in the situation where $\cF$ is the factorization algebra of observables of some quantum field theory on $X$.
-In the case that $f$ is a smooth map with compact fibers, then $f_* \cF$ is the factorization algebra of observables for the \textit{compactification} of the quantum field theory along $f$.
-In the case $f \colon Z \times Y \to Y$ is the projection, one says that $f_* \cF$ is the compactification of $\cF$ along $Z$.
+A map $f \colon X \to Y$ induces a pushforward functor between categories of factorization algebras.
+If $\cF$ is a factorization algebra on $X$, 
+then the pushforward $f_* \cF$ is the factorization algebra on $Y$ that assigns the value $\cF(f^{-1}(U))$ to an open set $U \subset Y$.
 
-Another special case of this is when $f$ is the map $X \to \star$.
+Consider a situation where $\cF$ is the factorization algebra of observables of a quantum field theory on $X$.
+In the case that $f$ is a smooth map with compact fibers, 
+then $f_* \cF$ is the factorization algebra of observables for the \textit{compactification} of the quantum field theory along $f$.
+In the case $f \colon Z \times Y \to Y$ is the projection, 
+one says that $f_* \cF$ is the compactification of $\cF$ along~$Z$.
+\owen{We also used the terminology "dimensional reduction" earlier, so we should call back or distinguish these ideas.}
+
+Another special case is the map $f: X \to \star$.
 Then $f_* \cF = \int_X \cF$ is the global sections of the factorization algebra $\cF$ along $X$.
-In the case that $\cF$ is a locally constant factorization algebra this agrees with the factorization homology of $\cF$ along $X$.
-In the case that $\cF$ is a holomorphic factorization algebra on a Riemann surface $\Sigma$, the object $\int_\Sigma \cF$ is closely related to the chiral homology (or conformal blocks) of the chiral (or vertex) algebra associated to $\cF$ along $\Sigma$.
+In the case that $\cF$ is a locally constant factorization algebra, 
+this computation agrees with the factorization homology of $\cF$ along $X$, as defined by Ayala-Francis and Lurie \cite{}.
+In the case that $\cF$ is a holomorphic factorization algebra on a Riemann surface $\Sigma$, 
+the global sections $\int_\Sigma \cF$ is closely related to the chiral homology (or conformal blocks) of the chiral (or vertex) algebra associated to $\cF$ along $\Sigma$.
+\owen{I want to assert "(It is the linear dual.)"}
 
-In this way, when $X$ is a general complex manifold and $\cF$ is a holomorphic factorization algebra, then $\int_X \cF$ is a natural higher-dimensional generalization of the notion of conformal blocks of $\cF$.
+Thus, it is natural to view global sections as a higher-dimensional generalization of the notion of conformal blocks.
+That is, when $X$ is any complex manifold and $\cF$ is a holomorphic factorization algebra on $X$, 
+then $\int_X \cF$ plays the role of conformal blocks.
+One can then ask for analogs in higher dimensions of important results involving Riemann surfaces and vertex algebras.
+We sketch here an example of how the character of a (conformal) vertex algebra relates to the conformal blocks over the moduli of elliptic curves.
 
-For complex manifolds, and holomorphic factorization algebras on them, we consider an explicit example that generalizes a well-known concept in complex dimension one.
 First, consider a \textit{real} one-dimensional \textit{topological} factorization algebra $\cA$.
-If we identify $\cA$ with the associative algebra that it determines, then the factorization homology $\int_{S^1} \cA$ along the circle agrees with the Hochschild cohomology of the associative algebra $\cA$.
-In other words, it is the home for all of the `traces' which the algebra $\cA$ admits.
-It is well-known that the elliptic curve, or genus one, conformal blocks of a vertex algebra $\mathbb{V}$ is the natural `home' for the characters of the vertex algebra.
-The most basic character of a conformal vertex algebra is the $q$-character defined in terms of a trace:
+If we identify $\cA$ with the associative algebra that it determines, 
+then the factorization homology $\int_{S^1} \cA$ along the circle agrees with the Hochschild cohomology of the associative algebra~$\cA$.
+In other words, it is the home for all of the ``traces'' defined on the algebra~$\cA$.
+
+For a vertex algebra $\mathbb{V}$, the role of the circle is played by any elliptic curve,
+and the role of Hochschild homology is played by conformal blocks on that genus one curve. 
+Thus conformal blocks over elliptic curves provides the natural home for the characters of the vertex algebra.
+The most basic example of the character of a conformal vertex algebra is its $q$-character,
+which is defined in terms of a trace:
 \beqn
 \op{char}_{\mathbb{V}} (q) = \op{Tr}_{\mathbb{V}} (q^{L_0-c/24}) ,
 \eeqn
 where $L_0$ denotes the action of the vector field $z \del_z$.
-The shift by the central charge guarantees that for $\mathbb{V}$ conformal that this expression has nice modularity properties.
+The shift by the central charge guarantees that this expression has nice modularity properties, i.e., we can view $q$ as parametrizing the moduli space of elliptic curves.
+\owen{Is that an ok turn of phrase?}
+
 From the point of view of factorization algebras, we can understand this trace in terms of Hochschild homology of the \textit{modes} algebra associated to $\mathbb{V}$ as introduced in \S\ref{??}.
-Indeed, suppose we know that $\mathbb{V}$ corresponds to a holomorphic factorization algebra $\cF_{\mathbb{V}}$ on $\C$.
+Indeed, suppose the conformal vertex algebra $\mathbb{V}$ arises from a holomorphic factorization algebra $\cF_{\mathbb{V}}$ on $\C$.
 Then, if $r \colon \C^\times \to \RR_{>0}$ is the radial projection, we have discussed how to extract the modes algebra from the one-dimensional factorization algebra $r_* \cF_{\mathbb{F}}$.
 If we further put this on the circle, we find Hochschild homology.
 Thus, for every modulus $q$ one has
 \beqn
 \int_{E_q} \cF_{\mathbb{V}} = \int_{S^1} r_* \cF_{\mathbb{V}} = \op{Hoch}(r_* \cF_{\mathbb{V}}) .
 \eeqn
+\owen{I think $\int_{E_q}$ receives a map from $\op{Hoch}(r_* \cF_{\mathbb{V}})$ but I don't see why it's an isomorphism. On the other hand, given a conformal block (i.e., linear functional on $\int_{E_q}$, we can compose it with that map to define a trace on the modes algebra,
+which ought to be the character.}
 For more on this perspective see \cite{GuiLi}.
 From this point of view, the factorization homology along an elliptic curve encodes characters in the sense of vertex algebras.
 
-In higher dimensions we can build a similar picture.
-The simplest so-called \textit{Hopf manifolds} are complex manifolds of the form
+In higher dimensions we can build a similar picture,
+replacing the moduli of elliptic curves with the moduli of {\it Hopf manifolds}.
+Recall that a Hopf manifold is a quotient of the punctured affine plane
 \beqn
 H_{\mathbf{q}} = \left(\C^d - \{0\}\right) \slash \left((z_1,\ldots,z_d) \sim (q_1 z_1,\ldots,q_d z_d) \right)
 \eeqn
@@ -2713,7 +2737,7 @@ In particular, the composite
 is a continuous linear functional on $\cE_c^{L(\gamma)}$ and shows the desired weight~$W_\gamma$ is well-defined.
 \end{thm}
 
-In other words, divergences do not appear.
+In other words, divergences do not appear when constructing the perturbative quantization of {\em any} holomorphic field theory on~$\CC^d$.
 
 \subsection{Anomalies that obstruct quantization}
 
@@ -2725,6 +2749,9 @@ In gauge theory, for instance, the perturbative renormalization might not be gau
 In topological theories, it is known that these sort of anomalies are absent.
 \owen{I am confused by this comment. Aren't there TFTs with anomalies of some sort?}
 For holomorphic theories, however, anomalies are present.\footnote{Anomalies in holomorphic field theory are related to, but distinct from, anomalies well-known to physicists, such as ``chiral anomalies'' in theories of Weyl fermions.}
+(Within the context of Costello's formalism for perturbative QFT,
+these anomalies arise as obstructions to solving a Maurer-Cartan equation known as the quantum master equation.)
+
 Since renormalization is so well-behaved, however, such anomalies are amenable to explicit characterization.
 For example, at one-loop in perturbation theory, an explicit formula for such anomalies for holomorphic theories on $\C^d$ is given in \cite{Whol}.
 It involves a sum over Feynman weights $W_\Gamma$ where $\Gamma$ is a polygon with $(d+1)$~vertices.
