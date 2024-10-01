@@ -1,14 +1,11 @@
 \documentclass[11pt]{amsart}
 
-\usepackage{macros, setspace}
+\usepackage{macros}
 \usepackage{epigraph}
 
-\usepackage[
-backend=biber,
-style=alphabetic,
-]{biblatex}
 \addbibresource{survey.bib}
 
+\usepackage{setspace}
 \spacing{1.1}
 
 \usepackage{parskip}
@@ -83,8 +80,6 @@ style=alphabetic,
 	bigvector/.style={decorate, decoration={snake,amplitude=4pt}, draw},
 }
 
-%\usepackage[upint]{stix}
-
 \begin{document}
 
 \dedicatory{In memory of Yuri Manin, with gratitude and admiration.}
@@ -100,6 +95,8 @@ style=alphabetic,
 \owen{Notation to explain: dg = differential graded, PDE = partial differential equations}
 
 \section{What is a holomorphic field theory? Why study them?}
+
+\owen{Test references:} \cite{CG1}
 
 The most important field theories in physics involve a metric on a manifold (whether Riemannian or Lorentzian), and hence geometry has long had a clear role in physics.
 In recent decades attention has expanded to include {\em topological} field theories (or TFTs), 
