@@ -1103,7 +1103,7 @@ The Fock module $F(L)$ associated to $L$ is defined to be the quotient of
 
 \owen{We should acknowledge the state perspective but it's not clear to me how much we should describe, in light of our development below.}
 
-\subsection{A loopy version}
+\subsection{A loopy version: the algebra of modes}
 
 What could provide the {\em holomorphic} analog of the story above?
 Let us indicate one possible answer before we motivate it from the point of view of holomorphic field theory.
@@ -1233,6 +1233,7 @@ this map determines a $w$-dependent action of $\cO(V[[t]])$ on $\cO(V[[z]])$.
 One can, in essence, quantize this map, by trying to extend the formulas of the $W[V]$-action,
 and this leads to the map~$Y$.
 If one axiomatizes the behavior of $Y$, one is led to the notion of a vertex algebra.
+The algebra $W[V]$ is known as the \textit{algebra of modes} associated to this vertex algebra.
 
 Let us briefly comment on how symmetries extend to the holomorphic setting.
 In other words, we wish to explain how the affine Lie algebras $\widehat{\fg}$ and free field realizations arise in analogy with our discussion of quantum moment maps.
@@ -1329,6 +1330,7 @@ we can integrate $S_{2d}(\phi)$ over the angular coordinate to obtain the follow
 S_{1d}\left( \ldots, \phi_{-1}, \phi_0 , \phi_1, \ldots \right) = \sum_{k\in \ZZ} \int  \phi_{-k} \,\d \phi_{k} + k\, \phi_k \, \phi_{-k} \, \d t .
 \eeqn 
 \owen{The $H$ got dropped. Should we reintroduct it?}
+\brian{It's still there...}
 Notice that the $k=0$ summand is just the Lagrangian of ordinary mechanics into $V$ with zero Hamiltonian. 
 In general, we find mechanics into the symplectic vector space $LV$, where the symplectic structure uses the residue pairing in addition to the symplectic form on $V$, with a nontrivial Hamiltonian that encodes the $U(1)$-symmetry arising from rotating $LV$ in the natural way.
 
@@ -1456,7 +1458,8 @@ Let $V$ be a $(d-1)$-symplectic graded vector space.
 Then, the $d$-dimensional Weyl algebra $W_d[V]$ is the enveloping algebra of the dg Lie algebra $\lie{h}_d [V]$ where we set the central term equal to the unit.
 \end{dfn}
 
-There is a close relationship of the higher dimensional Weyl algebra to the higher dimensional $\beta\gamma$ system on $\CC^d - 0$ just as the loopy Weyl algebra is related to the $\beta\gamma$ system on~$\CC^\times$. 
+There is a close relationship of the higher dimensional Weyl algebra to the higher dimensional $\beta\gamma$ system on $\CC^d - 0$ just as the loopy Weyl algebra is related to the $\beta\gamma$ system on~$\CC^\times$.
+In this sense, $W_d[V]$ is an example of a `mode algebra', where the modes are now parametrized by the cohomology of punctured $d$-dimensional affine space.
 
 The trick of turning providing a higher dimensional version of the Weyl algebra can be easily modified to obtain higher dimensional version of current, or loop, algebras. 
 This is one of the starting points of \cite{FHK} in their construction of higher dimensional Kac--Moody algebras. 
@@ -2077,10 +2080,6 @@ One can mimic the version of Witten descent for the topological case to produce 
 
 \subsection{Operator product expansion and holomorphic Poisson algebras}
 
-\owen{discuss OPE, explain the shifted Poisson structure, and mention $\lambda$-brackets}
-
-\subsubsection{From topological to holomorphic}
-
 We remark on a simple consequence of this toolkit that may nonetheless be useful:
 one can view a topological field theory on $\RR^{2d}$ as a special kind of holomorphic field theory on~$\CC^{d}$.
 This situation has been exploited to good effect in the $d=1$ case,
@@ -2117,7 +2116,11 @@ The observables of a topological field theory on $\RR^{2d}$ determine an algebra
 \end{cor}
 
 In Section~\ref{???} we will examine another relationship --- generalizing the compactification/chiralization on $\CC$ --- that yields an $E_d$ algebra from a $\PDisc_d$-algebra.
+\brian{This is probably a trivializable PDisc algebra by degree reasons?}
 
+\brian{Maybe a better thing to say after this theorem is a `recognition' result.
+That is, given a holomorphic PDisc$_{d}$ algebra, when is it equivalent to a algebra over $E_{2d}$ (in the essential image of the functor you wrote)?
+Among possibly smaller things, this should require that the $\del_{\zbar}$'s are homotoped.}
 
 \section{Factorization algebras and holomorphic field theories}
 \label{sec: fact alg}
@@ -2588,21 +2591,26 @@ which is defined in terms of a trace:
 \op{char}_{\mathbb{V}} (q) = \op{Tr}_{\mathbb{V}} (q^{L_0-c/24}) ,
 \eeqn
 where $L_0$ denotes the action of the vector field $z \del_z$.
-The shift by the central charge guarantees that this expression has nice modularity properties, i.e., we can view $q$ as parametrizing the moduli space of elliptic curves.
-\owen{Is that an ok turn of phrase?}
+The shift by the central charge guarantees that this expression has nice modularity properties, i.e., we can view $q$ as parametrizing the moduli of elliptic curves.
 
-From the point of view of factorization algebras, we can understand this trace in terms of Hochschild homology of the \textit{modes} algebra associated to $\mathbb{V}$ as introduced in \S\ref{??}.
-Indeed, suppose the conformal vertex algebra $\mathbb{V}$ arises from a holomorphic factorization algebra $\cF_{\mathbb{V}}$ on $\C$.
-Then, if $r \colon \C^\times \to \RR_{>0}$ is the radial projection, we have discussed how to extract the modes algebra from the one-dimensional factorization algebra $r_* \cF_{\mathbb{F}}$.
+From the point of view of factorization algebras, we can understand this trace in terms of Hochschild homology of the algebra of modes associated to $\mathbb{V}$.
+Indeed, suppose the conformal vertex algebra $\mathbb{V}$ arises from a holomorphic $S^1$-equivariant factorization algebra $\cF_{\mathbb{V}}$ on $\C$.
+If $r \colon \C^\times \to \RR_{>0}$ is the radial projection there is a procedure for extracting the associative algebra of modes from the one-dimensional factorization algebra $r_* \cF_{\mathbb{V}}$.
+Indeed, while $r_* \cF_{\mathbb{V}}$ may not be a locally constant factorization algebra, it always contains a dense subfactorization algebra which is locally constant.\footnote{To extract it, one assumes that $\cF$ is $S^1$-equivariant.
+For each interval $I \subset \RR_{>0}$ one then looks at the subspace of $\cF(\pi^{-1}(I))$ consisting of the eigenspaces for this $S^1$ action.
+The assignment of an interval $I$ to this subspace is a locally constant factorization algebra.}
+With slight abuse of notation, we will still denote $r_* \cF_{\mathbb{F}}$ the locally constant factorization algebra obtained from this compactification.
+
 If we further put this on the circle, we find Hochschild homology.
-Thus, for every modulus $q$ one has
+Thus, for each modulus~$q$ functoriality of factorization homology gives rise to a map
 \beqn
-\int_{E_q} \cF_{\mathbb{V}} = \int_{S^1} r_* \cF_{\mathbb{V}} = \op{Hoch}(r_* \cF_{\mathbb{V}}) .
+\int_{S^1_{\sigma}} r_* \cF_{\mathbb{V}} = \op{Hoch}(r_* \cF_{\mathbb{V}}, \sigma) \to \int_{E_q} \cF_{\mathbb{V}} .
 \eeqn
-\owen{I think $\int_{E_q}$ receives a map from $\op{Hoch}(r_* \cF_{\mathbb{V}})$ but I don't see why it's an isomorphism. On the other hand, given a conformal block (i.e., linear functional on $\int_{E_q}$, we can compose it with that map to define a trace on the modes algebra,
-which ought to be the character.}
-For more on this perspective see \cite{GuiLi}.
+Here, $\sigma$ is an automorphism defined in terms of the given $S^1$-action on $\cF_{\mathbb{V}}$, and what appears on the left-hand side is the $\sigma$-twisted Hochschild homology.
+For free theories, this map is a quasi-isomorphism.
+On the other hand, given a conformal block (i.e., linear functional on $\int_{E_q} \cF_{\mathbb{V}}$) we can compose it with that map to define a trace on the modes algebra.
 From this point of view, the factorization homology along an elliptic curve encodes characters in the sense of vertex algebras.
+For more on this perspective see \cite{GuiLi}, where they carefully develop the notion of a trace for chiral/vertex algebras.
 
 In higher dimensions we can build a similar picture,
 replacing the moduli of elliptic curves with the moduli of {\it Hopf manifolds}.
@@ -2614,9 +2622,9 @@ where $\mathbf{q} = (q_1,\ldots,q_d)$ are complex numbers satisfying $0 < |q_i| 
 For generic $\mathbf{q}$ such a complex manifold is diffeomorphic to $S^{2d-1} \times S^1$.
 The factorization homology of a holomorphic factorization algebra $\cF$ along a Hopf surface of this kind can be identified with the Hochschild homology of the associative algebra of $S^{2n-1}$-modes:
 \beqn
-\int_{H_{\mathbf{q}}} \cF \simeq \op{Hoch}(r_* \cF)
+\op{Hoch}(r_* \cF , \sigma) \to \int_{H_{\mathbf{q}}} \cF 
 \eeqn
-where, again, $r\colon \C^d - \{0\} \to \RR_{>0}$ is the radius.
+where, again, $r\colon \C^d - \{0\} \to \RR_{>0}$ is the radius and $\sigma$ is an automorphism of $\cF$ induced from the $S^1$-equivariant structure of $\cF$.
 Thus, we see that the factorization homology $\int_{H_{\mathbf{q}}} \cF$ naturally encodes traces of the $S^{2n-1}$-mode algebra associated to $\cF$.
 In \cite{SWchar}, it is shown how an important invariant called the \textit{supersymmetric index} (or supersymmetric partition function) of a supersymmetric theory along a sphere $S^{2n-1}$ be cast into this framework at the level the holomorphic twist.
 
