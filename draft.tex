@@ -93,7 +93,6 @@
 
 \section{What is a holomorphic field theory? Why study them?}
 
-\owen{Test references:} \cite{CG1}
 
 The most important field theories in physics involve a metric on a manifold (whether Riemannian or Lorentzian), and hence geometry has long had a clear role in physics.
 In recent decades attention has expanded to include {\em topological} field theories (or TFTs), 
@@ -128,7 +127,7 @@ which (loosely speaking) are theories on $\RR^n$ whose symmetries include not on
 %with larger $\cN$ denoting a bigger supergroup. 
 Thanks to the enhanced symmetry, such theories can often be understood in greater detail than non-supersymmetric theories.
 The relevance to this survey is that supersymmetric theories admit ``twists'' (in essence, deformations) that are holomorphic field theories, 
-even when they do not admit twists to TFTs \cite{CosHol}. 
+even when they do not admit twists to TFTs \cite{CosSUSY}. 
 (The famed A- and B-models of mirror symmetry are TFTs produced by twisting supersymmetric thories.)
 As an example, four-dimensional minimally supersymmetric Yang-Mills theory admits no topological twist, 
 but it does admit a twist to holomorphic field theory whose moduli space is described, in part, by the moduli space of holomorphic $G$-bundles~$\RR \Bun_G(X)$. 
@@ -165,7 +164,7 @@ as well as fellow travelers like derived geometry, appear.
 
 A community has formed, involving both mathematicians and physicists, to explore and exploit these relationships,
 and it continues to grow as there is a lot to explore here.
-Examples of efforts in this direction include \cite{PTVV}, \cite{FHK}, \cite{Keviny things}, \cite{GaiottoEtAl}, \cite{Paquette}, \cite{Vicedo}, \cite{BBBDN}, 
+Examples of efforts in this direction include \cite{PTVV}, \cite{FHK}, \cite{Keviny things}, \cite{GaiottoEtAl}, \cite{Paquette}, and \cite{BBBDN}, 
 where our own background and interests (and unfortunately, our ignorance) have shaped this list.
 
 The material below focuses on connections with this work,
@@ -220,12 +219,32 @@ Section~\ref{sec: seiberg} explores the holomorphic cousin of Seiberg duality,
 which suggests a remarkable correspondence between a gauge theory with group $SL(N)$ and a gauge theory with group $SL(M)$, where $M \neq N$.
 It is a kind of enhancement of Weyl's invariant theory and has close connections with topics like homological projective duality.
 
+\subsection{About Manin and his influence}
+
+Yuri Manin was a pioneer into this intellectual region where field theory, complex geometry, and homotopical algebra meet,
+and his work --- beyond the beautiful results --- also gestured at rich possibilities for novel and powerful forms of geometry and physics and algebra,
+summoning these possibilities towards their current unfolding today into derived geometry and operadic structures in a broad sense.
+We quote \cite{ManFrob} in our epigraph, which synthesizes stacks and operads and Frobenius structures into a beautiful and coherent view on mirror symmetry.
+His \cite{ManGauge} is rich with deep reformulations of supersymmetric field theory that connect it to complex geometry,
+and it is a source of many inspirations;
+we are also quite fond of \cite{BeiMan, ManNewDim} from roughly the same era.
+Anyone interested in mathematics and physics and, especially, their relationship will delight in~\cite{ManMP}.
+
+Beyond his writing, however, we have also benefited throughout our careers from the attitudes and atmosphere that his persona modeled and spread among mathematicians:
+a generosity with ideas but also poetry and literature, an exquisite care and sensitivity to organizing and explaining mathematics (and much else),
+and a kindness in conversation, where he brought his whole attention to you.
+While a graduate student at Northwestern, 
+OG had the unbelievable luck to overlap with Manin and thus to take several courses and have many conversations with him, 
+getting to witness the personification of the Platonic idea of mathematician as intellectual.
+We both spent extensive time, for example, at the Max Planck Institute for Mathematics,
+which is suffused with his spirit.
+We wish we had the chance to discuss the ideas from this survey with Manin;
+we offer it as a small gift in gratitude for all he shared with us.
+
 
 \subsection{Acknowledgements}
 
 \owen{To thank: Kevin Costello, Si Li, Davide Gaiotto, Ed Segal, Chris Elliott, Pavel Safronov, Kapranov, Hennion, Matt Szczesny, Richard Eager, Ingmar Saberi, Johannes Walcher, Jie Zhou, Minghao Wang, Nik Rozenblyum, Natalie Paquette, Nik Garner}
-
-\owen{Add my thoughts about Manin}
 
 \section{Holomorphic field theories}
 \label{sec: HFT}
@@ -389,11 +408,11 @@ which is here the moduli stack of holomorphic principal $G$-bundles whose underl
 
 For a systematic introduction to classical field theory, 
 in a style amenable to a complex geometer,
-we suggest \cite{FreedDeligne}.
+we suggest \cite{DeligneFreed}.
 There are many other sources, such as \cite{}, because classical field theory is an old and deep subject.
 Recently there is an effort to revisit field theory with insights from derived geometry.
-See \cite{AlfonsoYoung?} for motivation and overview, 
-but for a detailed development, see \cite{Steffens}.
+See \cite{AlfonsiYoung} for motivation and overview, 
+but for a detailed development, see \cite{Steffens23, Steffens24}.
 In Section~\ref{sec: pert dfn} we offer a sharp definition well-suited to perturbative field theory 
 (i.e., studying formal deformations of a fixed solution to the equations of motion),
 which we will use to produce examples of higher algebras.
@@ -420,12 +439,12 @@ The Standard Model involves the first three types,
 and the different fields interact in intricate ways.\footnote{For instance, the scalar and fermionic fields are sections of associated bundles to the principal bundle appearing in the gauge theory.}
 
 There are holomorphic versions of all these basic types, 
-and we now spell out some simple examples.\footnote{See \cite{Donaldson Thomas} for a pioneering and illuminating discussion of how to find such analogs. Nekrasov and collaborators also \owen{Say something and cite 1990s stuff.}}
+and we now spell out some simple examples.\footnote{See \cite{DonThom} for a pioneering and illuminating discussion of how to find such analogs. See Nekrasov's thesis \cite{NekThesis} for a master physicist's view on holomorphic field theories, before he  reconfigured our understanding of much of gauge theory. \owen{What do you think of this?}}
 To give the readers --- possibly a mixed audience of mathematicians and physicists --- some feel for the examples, 
 we describe them in several ways: 
 in terms of PDE and action functionals but also as moduli spaces.
 We do not offer a thorough justification of the dictionary, for which see \cite{CosSUSY} for a wonderful and motivating exposition,
-and see \cite{AlfonsoYoung} and \cite{Steffens} for recent work on this topic.
+and see \cite{AlfonsiYoung} and \cite{Steffens23} for recent work on this topic.
 
 For an example that mixes several types, see Section~\ref{sec: seiberg}
 where we discuss a holomorphic analog of quantum chromodynamics (QCD), the theory that governs the strong force and quarks.
@@ -640,7 +659,7 @@ if we run over all principal bundles.
 \begin{rmk}
 Holomorphic BF theory exhibits some interesting properties at the quantum level,
 at least perturbatively.
-For example, in \cite[\S3.2]{semichiral} it is shown that on $X = \C^2$ 
+For example, in \cite[\S3.2]{BGKWWY} it is shown that on $X = \C^2$ 
 the perturbative quantization of holomorphic BF theory is almost a topological field theory. 
 More precisely, to first-order in perturbation theory, 
 the divergence-free component of the stress tensor is rendered cohomologically trivial at one-loop in perturbation theory.
