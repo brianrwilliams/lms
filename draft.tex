@@ -723,8 +723,8 @@ Generally, this theory is the holomorphic part of a higher-form scalar theory, w
 where $C \in \Omega^{2n+1}(X)$.
 For more details we refer to~\cite{GRW_WZW}.
 
-The reader may (and should) be concerned with the apparent `non-local' form of the action functional in \eqref{eqn:scalar1}.
-This can be made rigorous by cohomologically resolving the condition that $\alpha$ be $\del$-closed, rather than strictly imposing the constraint \cite{CLbcov1}.
+The reader may (and should) be concerned with the apparent ``non-local'' form of the action functional in \eqref{eqn:scalar1}.
+This can be made rigorous by cohomologically resolving the condition that $\alpha$ be $\del$-closed, rather than strictly imposing the constraint~\cite{CLbcov}.
 
 \subsubsection{Holomorphic ``gravity''}
 
@@ -736,7 +736,7 @@ There is a holomorphic avatar of this situation: deformations of complex structu
 The first appearance of such a theory was motivated by topological string theory and involves complex structures on Calabi--Yau threefolds~\cite{BCOV}.
 It is known \textit{Kodaira--Spencer gravity} or the Kodaira-Spencer field theory,
 due to its relationship with deformation of complex structures.\footnote{Kodaira and Spencer's work was an important initial clue in the relationship between deformation theory and dg Lie algebras.}
-It has been pursued mathematically by Costello and Li \cite{CLbcov1,CLbcov2,LiThesis} as an approach to the quantum higher genus $B$-model.
+It has been pursued mathematically by Costello and Li as an approach to the quantum higher genus $B$-model, starting with \cite{CLbcov} and continuing in a series of papers.
 In these works, Costello and Li also provide a generalization of the theory that makes sense in any complex dimension; 
 here we focus just on the most familiar three-dimensional version.
 %The fields consist of pairs $(\mu, \eta)$ where
@@ -976,7 +976,7 @@ by the formula $[\cQ, \cQ'] = \Gamma(\cQ, \cQ')$.
 By a {\em supercharge}, one means an odd supertranslation $\cQ \in \ft$, and
 a {\em twist} is a (nonzero) supercharge $\cQ$ such that $[\cQ,\cQ] = \cQ^2 = 0$. 
 The classification of twisting supercharges is a completely algebraic question:
-see~\autocite{ESsusy} for a complete classification in dimensions from $1$ to~$10$.
+see~\autocite{EllSaf} for a complete classification in dimensions from $1$ to~$10$.
 
 In even dimensions $d = 2n$, basic properties of the supersymmetry algebra guarantee that there exists a twist that provides a complex structure to $\RR^{2n}$.\footnote{This claim fails in exactly one example, namely for $\cN=(1,0)$ supersymmetry in two dimensions, as the dimension and amount of supersymmetry are too small.}
 Indeed, so long as a twisted supercharge $\cQ$ is nonzero, 
@@ -993,7 +993,7 @@ S^\cQ(\varphi) = S(\varphi) + \int_{\RR^d} \varphi  \left(\cQ \cdot \varphi \rig
 where the deformation arises from how $\cQ$ acts on the theory 
 (the $\cdots$ leaves room for terms non-linear in $\cQ$).
 For a systematic discussion of how the twisted theory is defined, 
-we refer to~\autocite{CostelloHolomorphic, ESW}. 
+we refer to~\autocite{CosSUSY, ESW}. 
 
 Building upon the physical literature, Elliott, Safronov, and the second author have given a complete characterization of the all twisted supersymmetric Yang--Mills theories in dimensions $2 \leq d \leq 10$ \autocite{ESW}. 
 These twisted theories are BF theorires or Chern--Simons theories, possibly along with other fields in associated bundle; 
@@ -1791,10 +1791,11 @@ then the observables form a little $d$-discs algebra.
 
 This theorem applies to many well-known examples from physics:
 \begin{itemize}
-\item The topological $B$-model of maps from an oriented surface into a Calabi-Yau manifold $X$ (constructed by Li and Li \cite{LiLi} in a setting where \cite{EllSaf} applies) yields an $E_2$ algebra. It is quasi-isomorphic to the well-known Gerstenhaber algebra of polyvector fields on~$X$.
-\item The Chern-Simons gauge theory of flat $G$-bundles on an oriented 3-manifold (constructed, essentially, by Axelrod-Singer \cite{AxeSin} and Kontsevich \cite{KonECM} but articulated in this setting by Costello \cite{CosBook}) yields an $E_3$ algebra, which encodes the quantum group $U_\hbar \fg$ under a version of Koszul duality.
-\item The Rozansky-Witten theory of maps from an oriented 3-manifold into a complex manifold \cite{ChanLeungLi} yields an $E_3$ algebra \owen{on what?}
-\item The Kapustin-Witten gauge theory for oriented 4-manifolds \cite{EGW} yields an $E_4$ algebra, related to deforming functions on the coadjoint quotient stack~$\fg^*/G$.
+\item The topological $B$-model of maps from an oriented surface into a Calabi-Yau manifold $X$ yields an $E_2$ algebra. It is quasi-isomorphic to the well-known Gerstenhaber algebra of polyvector fields on~$X$. (The quantization was constructed by Li and Li \cite{LiLi} in a setting where \cite{EllSaf} applies.)
+\item The Chern-Simons gauge theory of flat $G$-bundles on an oriented 3-manifold yields an $E_3$ algebra, which encodes the quantum group $U_\hbar \fg$ under a version of Koszul duality. 
+(The quantization was constructed, essentially, by Axelrod-Singer \cite{AxeSing1,AxeSing2} and Kontsevich \cite{KonECM} but articulated in this setting by Costello~\cite{CosBook}.) 
+\item The Rozansky-Witten theory of maps from an oriented 3-manifold into a complex manifold yields an $E_3$ algebra. (The quantization was constructed by Chan, Leung, and Li~\cite{ChanLeungLi}.)
+\item The Kapustin-Witten gauge theory for oriented 4-manifolds yields an $E_4$ algebra, related to deforming functions on the coadjoint quotient stack~$\fg^*/G$, (The quantization was constructed in~\cite{EGW}.)
 \end{itemize}
 It applies to other examples of topological AKSZ theories, such as BF theories and the Poisson $\sigma$-model.
 In all these examples, the underlying elliptic complex appearing in the field theory is a version of the de Rham complex,
@@ -2410,7 +2411,7 @@ A factorization algebra $\cF$ on an $n$-manifold $M$ is \emph{locally constant} 
 \end{dfn}
 
 For $M = \RR$, we have already discussed how locally constant factorization algebras relate to associative algebras, starting with Example~\ref{ex:associativealgebra}.
-Lurie has shown the following vast extension of this example. (See section 5.4.5 of \cite{LurieHA}, particularly Theorem 5.4.5.9.)
+Lurie has shown the following vast extension of this example. (See section 5.4.5 of \cite{LurieHA}, particularly Theorem~5.4.5.9.)
 
 \begin{thm}\label{thm:locisen}
 There is an equivalence of $(\infty,1)$-categories between $E_n$ algebras and locally constant factorization algebras on~$\RR^n$.  
@@ -2440,7 +2441,7 @@ The observables of a classical field theory on $M$ form a factorization algebra 
 This theorem provides an elegant interpretation of BV quantization as a kind of deformation quantization. 
 In the setting of mechanics (or one-dimensional field theory, since a particle has a worldline), deformation quantization explains the transition from classical to quantum as deforming the observables from a Poisson algebra to an associative algebra. 
 This theorem allows one to interpret quantization of field theories---on manifolds of arbitrary dimension---as a deformation quantization from a 1-shifted Poisson factorization algebra to a plain factorization algebra. 
-In fact, in \cite{GLL,Si Kai and Zhengping} it is shown how BV quantization for one-dimensional quantum field theories connects with the ordinary theory of deformation quantization. 
+In fact, in \cite{GLL,GLX} it is shown how BV quantization for one-dimensional quantum field theories connects with the ordinary theory of deformation quantization. 
 
 This theorem is also a key connection between field theories and higher algebras.
 \owen{I feel like I should say a little more, but not a lot more. I've commented out some old versions of this.}
@@ -2585,7 +2586,7 @@ one says that $f_* \cF$ is the compactification of $\cF$ along~$Z$.
 Another special case is the map $f: X \to \star$.
 Then $f_* \cF = \int_X \cF$ is the global sections of the factorization algebra $\cF$ along $X$.
 In the case that $\cF$ is a locally constant factorization algebra, 
-this computation agrees with the factorization homology of $\cF$ along $X$, as defined by Ayala-Francis and Lurie \cite{}.
+this computation agrees with the factorization homology of $\cF$ along $X$, as defined by Ayala-Francis and Lurie.
 In the case that $\cF$ is a holomorphic factorization algebra on a Riemann surface $\Sigma$, 
 the global sections $\int_\Sigma \cF$ is closely related to the chiral homology (or conformal blocks) of the chiral (or vertex) algebra associated to $\cF$ along $\Sigma$.
 \owen{I want to assert "(It is the linear dual.)"}
@@ -2703,7 +2704,7 @@ When applied to Dolbeault complexes arising in Kodaira-Spencer (or BCOV) theory,
 he and Li found some remarkable simplifications and good behavior \cite{CLbcov}.
 In \cite{LiVertex} Li showed, by clever analysis, that holomorphic field theories in complex dimension one (i.e., chiral conformal field theories) are finite to all orders in perturbation theory; 
 this result was later extended to arbitrary Riemann surfaces in \cite{LiZhou}.
-Following up (cf. his thesis \cite{BWthesis} and its offshoot \cite{Wrenorm}), Williams laid a systematic mathematical foundations:
+Following up (cf. his thesis \cite{Wthesis} and its offshoot \cite{Wrenorm}), Williams laid a systematic mathematical foundations:
 \begin{itemize}
 \item he established key analytic results about holomorphic renormalization, 
 showing that it is highly manageable, with no counterterms to 1-loop; and
@@ -2757,7 +2758,7 @@ where each edge $e$ is labeled by a smooth function $P_{t(e)}$ depending on the 
 For general theories, one cannot smoothly continue the regularized weight from the positive length values to zero lengths.
 The putative integrals become divergent, which is reflected by the non-compactness of Schwinger space from this perspective.
 
-For holomorphic field theories (and generally topological-holomorphic theories, see \cite{WWthf}) however, something remarkable happens.
+For holomorphic field theories, however, something remarkable happens.
 
 \begin{thm}[Wang, \owen{precise citations}]
 Let $\cE$ be the space of fields underlying a holomorphic field theory on $\C^n$.
@@ -2770,6 +2771,7 @@ is a continuous linear functional on $\cE_c^{L(\gamma)}$ and shows the desired w
 \end{thm}
 
 In other words, divergences do not appear when constructing the perturbative quantization of {\em any} holomorphic field theory on~$\CC^d$.
+(Similar results hold for topological-holomorphic theories~\cite{WWthf}.)
 
 \subsection{Anomalies that obstruct quantization}
 
@@ -2785,7 +2787,7 @@ For holomorphic theories, however, anomalies are present.\footnote{Anomalies in 
 these anomalies arise as obstructions to solving a Maurer-Cartan equation known as the quantum master equation.)
 
 Since renormalization is so well-behaved, however, such anomalies are amenable to explicit characterization.
-For example, at one-loop in perturbation theory, an explicit formula for such anomalies for holomorphic theories on $\C^d$ is given in \cite{Whol}.
+For example, at one-loop in perturbation theory, an explicit formula for such anomalies for holomorphic theories on $\C^d$ is given in \cite{Wrenorm}.
 It involves a sum over Feynman weights $W_\Gamma$ where $\Gamma$ is a polygon with $(d+1)$~vertices.
 
 As an example, consider holomorphic BF theory on $\C^2$ with Lie algebra $\lie{g}$
