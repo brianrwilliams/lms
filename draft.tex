@@ -2560,10 +2560,10 @@ where the target category is not ${\rm Alg}_d$ but some other higher-categorical
 In this survey we use factorization algebras to capture the rich algebraic structure of holomorphic field theories,
 but these connections with functorial TFTs raise the question of producing functorial holomorphic field theories.
 
-\subsection{Examples of holomorphic factorization algebras}
-
-\owen{Not sure what to put here, honestly. Maybe it should be removed.}
-
+%\subsection{Examples of holomorphic factorization algebras}
+%
+%\owen{Not sure what to put here, honestly. Maybe it should be removed.}
+%
 
 \subsection{Compactification and conformal blocks}
 
@@ -2581,15 +2581,15 @@ In the case that $f$ is a smooth map with compact fibers,
 then $f_* \cF$ is the factorization algebra of observables for the \textit{compactification} of the quantum field theory along $f$.
 In the case $f \colon Z \times Y \to Y$ is the projection, 
 one says that $f_* \cF$ is the compactification of $\cF$ along~$Z$.
-\owen{We also used the terminology "dimensional reduction" earlier, so we should call back or distinguish these ideas.}
+This is akin to the famous Kaluza--Klein compactification in physics and should not be confused with the notion of ``dimensional reduction'', which only includes some of the Kaluza--Klein fields.
 
 Another special case is the map $f: X \to \star$.
 Then $f_* \cF = \int_X \cF$ is the global sections of the factorization algebra $\cF$ along $X$.
 In the case that $\cF$ is a locally constant factorization algebra, 
 this computation agrees with the factorization homology of $\cF$ along $X$, as defined by Ayala-Francis and Lurie.
 In the case that $\cF$ is a holomorphic factorization algebra on a Riemann surface $\Sigma$, 
-the global sections $\int_\Sigma \cF$ is closely related to the chiral homology (or conformal blocks) of the chiral (or vertex) algebra associated to $\cF$ along $\Sigma$.
-\owen{I want to assert "(It is the linear dual.)"}
+the global sections $\int_\Sigma \cF$ is related to a familiar invariant within the theory of vertex/chiral algebras called the ``space of conformal blocks'' \cite[\S 8]{FBZ}.
+Precisely, the zeroth homology of $\int_\Sigma \cF$ is linearly dual to the space of (ordinary, non-derived) conformal blocks.
 
 Thus, it is natural to view global sections as a higher-dimensional generalization of the notion of conformal blocks.
 That is, when $X$ is any complex manifold and $\cF$ is a holomorphic factorization algebra on $X$, 
@@ -2779,7 +2779,8 @@ The discussion so far concerned the analytic issues that are present when trying
 For some quantum field theories, like gauge theories, there is another issue that could prevent the theory from being well-posed:
 these are called {\em anomalies}.
 An anomaly measures the failure of the path integral to enjoy the same symmetries as the underlying classical field theory.
-In gauge theory, for instance, the perturbative renormalization might not be gauge invariant, although the action functional is.
+In gauge theory, for instance, the perturbative renormalization might not be gauge invariant, although the classical action functional is.
+Specifically, the gauge variation of a particular Feynman graph integral may be nonzero---this leads to an anomaly in the quantum theory.
 In topological theories, it is known that these sort of anomalies are absent.
 \owen{I am confused by this comment. Aren't there TFTs with anomalies of some sort?}
 For holomorphic theories, however, anomalies are present.\footnote{Anomalies in holomorphic field theory are related to, but distinct from, anomalies well-known to physicists, such as ``chiral anomalies'' in theories of Weyl fermions.}
@@ -2801,24 +2802,33 @@ The second and fourth terms are cubic functions of the fields,
 and they provide trivalent vertices to build graphs with.
 The first and third terms are quadratic, and they control what labels the edges of graphs.
 
-There are two diagrams that contribute to the gauge anomaly,
-shown in Figure~\ref{fig:localization}.
-\owen{There isn't a $K$-edge on the wheel?}
-These define functions on the space of fields:
+The gauge variation of the two diagrams which contribute to the gauge anomaly are shown in Figure~\ref{fig:localization}.
+The difference between these two diagrams is how we label the internal edges: in the first diagram they are labeled by $A-B$ fields and in the second they are labeled by $\beta-\gamma$ fields.
+An anomaly can be represented by a (local) functional on the space of fields.
+In each diagram at hand, this local functional depends only on the holomorphic gauge field~$A$ is of the form
+\beqn
+c \int \op{Tr}_M (A \del A \del A)
+\eeqn
+where $c$ is some nonzero constant and $M$ is some representation of $\lie{g}$ (the value of $c$ is the same for both diagrams, in this example).
+Specifically:
 \begin{itemize}
-\item The pure gauge anomaly: it is proportional to the representation-theoretic factor $\op{Tr}_{ad}(X^3)$ for  $X \in \lie{g}$, which is an invariant function of~$\fg$.
-This expression vanishes when $\lie{g}$ is simple, e.g., for $\lie{g} = \lie{sl}(n)$.
-\item The mixed anomaly: its edges (propagators) are labeled by the $\beta\gamma$ fields,
-and it is proportional to the representation-theoretic factor $\op{Tr}_V(X^3)$ for $X \in \lie{g}$.
+\item In the first diagram the representation $M$ is the adjoint representation. 
+So, this expression vanishes when $\lie{g}$ is simple, e.g., for $\lie{g} = \lie{sl}(n)$.
+\item In the second diagram the representation is $M = V$ (the representation which labels the $\beta-\gamma$ system).
 \end{itemize}
-These each come from ways of labeling the vertices and edges of the wheel (or polygon) diagram with three vertices.
-We have described the representation-theoretic factor but there is also an analytic factor.
-\owen{Should we just write out the formulas? What we write is kind of hard to parse, as it is shorthand. I can imagine a person asking "proportional ... how?"}
+Thus, the total anomaly is $c \int \left(\op{Tr}_M (A \del A \del A) + \op{Tr}_V(A \del A \del A)\right)$.
 
-These anomalies of a holomorphic gauge theory on $\CC^4$ are holomorphic avatars of the Adler--Bell--Jackiw, or chiral, anomaly in ordinary gauge theory on $\RR^4$ \cite{??}.
+These anomalies of a holomorphic gauge theory on $\CC^2$ are holomorphic avatars of the Adler--Bell--Jackiw, or chiral, anomaly in ordinary gauge theory on $\RR^4$ \cite{??}.
 In the case that $\lie{g}$ is simple (so that the first diagram does not contribute to the anomaly), 
 there is an easy way to produce a non-anomalous holomorphic QFT: 
 take $V$ to be a symplectic representation of the gauge Lie algebra $V = Q \oplus Q^*$, where $Q$ is any $\lie{g}$-representation.
+
+\owen{Owen's comments that I've tried to address:
+\begin{itemize}
+\item There isn't a $K$-edge on the wheel?
+\item Should we just write out the formulas? What we write is kind of hard to parse, as it is shorthand. I can imagine a person asking "proportional ... how?".
+\end{itemize}
+}
 
 \begin{figure}
 \begin{center}
@@ -2867,7 +2877,7 @@ take $V$ to be a symplectic representation of the gauge Lie algebra $V = Q \oplu
 	    	\clip (0,0) circle (1cm);
  \end{scope}
 \end{tikzpicture}
-\caption{Diagrams that contribute to the anomaly in holomorphic gauge theory on~$\C^2$}
+\caption{Diagrams whose gauge variation contribute to the anomaly in holomorphic gauge theory on~$\C^2$}
 \label{fig:localization}
 \end{center}
 \end{figure}
@@ -2970,7 +2980,7 @@ Henceforth, we will refer to the resulting holomorphic field theory as \textit{h
 %\item a polynomial $W \in {\rm Sym}(V \oplus \Bar{V} \oplus Z)$.
 %\end{itemize}
 
-\begin{thm}[\cite{ESW} \cite{SWchar}]
+\begin{thm}[\cite{ESW,SWchar}]
 The holomorphic twist of $G = SU(N)$ SQCD with $F$ flavors and super potential $W$ on $\C^2 = \RR^4$ is equivalent to the following holomorphic field theory:
 \begin{itemize}
 \item the gauge fields are those of holomorphic BF theory valued in $\sl(N)$, whose fields are
