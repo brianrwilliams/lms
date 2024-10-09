@@ -11,6 +11,7 @@
 \usepackage{parskip}
 \setlength{\parindent}{18pt}
 \setlength{\parindent}{0cm}
+\setcounter{tocdepth}{1}
 
 
 \author{Owen Gwilliam and Brian R. Williams}
@@ -43,7 +44,7 @@
 \def\lie#1{\ensuremath{\mathfrak{#1}}}
 
 \def\brian#1{{\textcolor{blue!75!red}{BW: {#1}}}}
-\def\owen#1{{\textcolor{violet!50!black}{OG: {#1}}}}
+\def\owen#1{{\textcolor{red!50!black}{OG: {#1}}}}
 
 %%% TIKZ STUFF
 \usepackage{tikz,tikz-cd}
@@ -89,6 +90,7 @@
 \epigraph{The mathematical language of classical physics is based upon real numbers \dots. The mathematical language of quantum physics is based upon complex numbers, and it would be natural to expect that the complex analytic and the algebraic geometry should replace the differential geometry of the classical period.}{Yuri Manin from the introduction of {\it Frobenius Manifolds, Quantum Cohomology, and Moduli Spaces}}
 
 \tableofcontents
+
 
 
 \section{What is a holomorphic field theory? Why study them?}
@@ -164,8 +166,9 @@ as well as fellow travelers like derived geometry, appear.
 
 A community has formed, involving both mathematicians and physicists, to explore and exploit these relationships,
 and it continues to grow as there is a lot to explore here.
-Examples of efforts in this direction include \cite{PTVV}, \cite{FHK}, \cite{Keviny things}, \cite{GaiottoEtAl}, \cite{Paquette}, and \cite{BBBDN}, 
+Examples of efforts in this direction include \cite{PTVV}, \cite{FHK,HenKap}, \cite{CosWG2,CosYangian,CosTwistor}, \cite{CLbcov, LiVertex}, \cite{CGholography,BGKWY}, \cite{CostelloPaquette}, and \cite{BBBDN}, 
 where our own background and interests (and unfortunately, our ignorance) have shaped this list.
+\brian{Maybe add more...}
 
 The material below focuses on connections with this work,
 and the examples from physics have a perturbative flavor.
@@ -175,7 +178,7 @@ Not including these topics is primarily because our core theme already swelled t
 because a concise discussion of any of those topics does not yet seem possible with respect to our theme,
 and because of our lack of background in these areas.
 We hope the ideas surveyed here do connect profitably to these topics.
-\owen{Is that an overly negative paragraph?}
+
 
 As complementary perspectives to that offered here, we recommend
 \begin{itemize}
@@ -409,7 +412,6 @@ which is here the moduli stack of holomorphic principal $G$-bundles whose underl
 For a systematic introduction to classical field theory, 
 in a style amenable to a complex geometer,
 we suggest \cite{DeligneFreed}.
-There are many other sources, such as \cite{}, because classical field theory is an old and deep subject.
 Recently there is an effort to revisit field theory with insights from derived geometry.
 See \cite{AlfonsiYoung} for motivation and overview, 
 but for a detailed development, see \cite{Steffens23, Steffens24}.
@@ -417,7 +419,7 @@ In Section~\ref{sec: pert dfn} we offer a sharp definition well-suited to pertur
 (i.e., studying formal deformations of a fixed solution to the equations of motion),
 which we will use to produce examples of higher algebras.
 
-\subsection{Examples}
+\subsection{More examples}
 \label{sec: ex of theories}
 
 In this section we describe several examples of holomorphic field theories,
@@ -439,7 +441,7 @@ The Standard Model involves the first three types,
 and the different fields interact in intricate ways.\footnote{For instance, the scalar and fermionic fields are sections of associated bundles to the principal bundle appearing in the gauge theory.}
 
 There are holomorphic versions of all these basic types, 
-and we now spell out some simple examples.\footnote{See \cite{DonThom} for a pioneering and illuminating discussion of how to find such analogs. See Nekrasov's thesis \cite{NekThesis} for a master physicist's view on holomorphic field theories, before he  reconfigured our understanding of much of gauge theory. \owen{What do you think of this?}}
+and we now spell out some simple examples.\footnote{See \cite{DonThom} for a pioneering and illuminating discussion of how to find such analogs. See Nekrasov's thesis \cite{NekThesis} for a master physicist's view on holomorphic field theories, before he  reconfigured our understanding of much of gauge theory.}
 To give the readers --- possibly a mixed audience of mathematicians and physicists --- some feel for the examples, 
 we describe them in several ways: 
 in terms of PDE and action functionals but also as moduli spaces.
@@ -472,9 +474,9 @@ Consider the action functional
 \label{eqn: 1d betagamma}
 \int \beta \wedge \dbar \gamma
 \eeqn
-where $\beta$ is a $(1,0)$-form on $M$.\footnote{It can be viewed as a Lagrange multiplier for the field $\del \Bar{\gamma}$, 
-which we now think about as having its own degrees of freedom. 
-\owen{I don't understand this use of the term Lagrange multiplier. Let's discuss!}}
+where $\beta$ is a $(1,0)$-form on $M$.%\footnote{It can be viewed as a Lagrange multiplier for the field $\del \Bar{\gamma}$, 
+%which we now think about as having its own degrees of freedom. 
+%\owen{I don't understand this use of the term Lagrange multiplier. Let's discuss!}}
 Note that this action functional also imposes the equation of motion $\dbar \beta = 0$,
 so that $\beta$ should be a holomorphic $1$-form.
 
@@ -483,11 +485,11 @@ If one imposes this equivalence relation (a kind of ``gauge symmetry''),
 then one is on the path towards setting up the theory in the Batalin-Vilkovisky formalism.
 
 Derived geometry is the mathematical version of BV formalism.
-From this point of view, the moduli space of solutions for this $\beta\gamma$-system is the shifted cotangent bundle\owen{supervise notation!}
+From this point of view, the moduli space of solutions for this $\beta\gamma$-system is the shifted cotangent bundle
 \[
-T^*[-1] \Map_\dbar(M,\CC) = \RR\Gamma(M,\cO) \times \RR\Gamma(M,\cT^{*{1,0}}),
+T^*[-1] \Map_\dbar(M,\CC) = \RR\Gamma(M,\cO) \times \RR\Gamma(M,\Omega^1_{hol}),
 \]
-a rather natural space to study in complex geometry.
+where $\Omega^1_{hol}$ is the sheaf of holomorphic one-forms.
 
 \begin{rmk}
 It is possible to directly relate the usual massless scalar field theory to this $\beta\gamma$-system as follows.
@@ -500,10 +502,10 @@ we can view it as a pair of fields $\gamma$ and $\Bar{\gamma}$,
 where the equation of motion of $\gamma$ is $\dbar \gamma = 0$ and the equation of motion is $\partial \Bar{\gamma} = 0$.
 These components are sometimes called the chiral and anti-chiral ``sectors.'' 
 
-The $\beta\gamma$-system also plays a role in superstring theory as the free field theory underlying bosonic ghosts corresponding to worldsheet supersymmetry~\cite{Polchinski}.\owen{More precise location?}
+The $\beta\gamma$-system also plays a role in superstring theory as the free field theory underlying bosonic ghosts corresponding to worldsheet supersymmetry~\cite[Chapter 3]{Polchinski}.
 There is likewise a complex-conjugate $\Bar{\beta}\Bar{\gamma}$-system encoding the antichiral sector of the free boson.
 To recover the full boson, one must couple the chiral and anti-chiral sectors.
-See \cite{Kapustin,GGW} \owen{Where?} for more details.~\hfill$\Diamond$
+See \cite{Kapustin:2005pt,GGW} for more details.~\hfill$\Diamond$
 \end{rmk}
 
 This example admits a natural generalization to an arbitrary complex manifold.
@@ -597,11 +599,12 @@ The equations of motion are
 so that solutions consist of a holomorphic map $\gamma: M \to N$ and a holomorphic section $\beta$ of the pullback tangent bundle.
 As usual, we suggest to identify solutions to the equation $\dbar \beta = 0$ that differ by a $\dbar$-exact form.
 
-From derived geometry point of view, the moduli space of solutions for this $\beta\gamma$-system is the shifted cotangent bundle\owen{supervise notation!}
+From derived geometry point of view, the moduli space of solutions for this $\beta\gamma$-system is the shifted cotangent bundle
 \[
-T^*[-1] \Map_\dbar(M,N) 
+T^*[-1] \Map_\dbar(M,N) ,
 \]
-a rather natural space to study in complex geometry.
+where $\Map_\dbar(M,N)$ is the derived stack of holomorphic maps $M \to N$.
+This is a natural space to study in complex geometry.
 
 \subsubsection{Holomorphic gauge theories}
 \label{sec: hol BF dfn}
@@ -668,8 +671,7 @@ although not all vector fields (as in the case of a TFT).
 \end{rmk}
 
 It is possible to formulate holomorphic versions of higher abelian gauge theories,
-associated to moduli spaces of holomorphic $k$-gerbes with connection.
-\owen{Should we elaborate or just stop with a reference?}
+associated to moduli spaces of holomorphic $k$-gerbes with connection, see \cite{SWtensor,BWfive}.
 
 \subsubsection{Interlude on holomorphic field theories as chiral sectors}
 
@@ -771,7 +773,7 @@ The classical equation of motion is
 where $[-,-]_{SN}$ denotes here the Schouten--Nijenhuis bracket.\footnote{On vector fields, $[-,-]_{SN}$ is simply the Lie bracket, and it is the natural multilinear extension to polyvector fields.}
 The reader might recognize this equation as the Maurer--Cartan equation controlling deformations of complex structure $\dbar\rightsquigarrow \dbar + \mu$.
 Formulating the action functional to obtain this equation of motion is a little involved, 
-and we refer to \cite{CLbcov1} for a systematic discussion.
+and we refer to \cite{CLbcov} for a systematic discussion.
 
 \begin{rmk}
 The kinetic term of this theory has the form
@@ -917,6 +919,15 @@ Such definitions can be found in~\cite{CG2}.
 
 This section offers a bridge from theories of physical interest to holomorphic field theories,
 and hence may be of particular interest to physicists.
+In his work on Donaldson invariants of four-manifolds, Witten introduced the idea of a topological twist of a supersymmetric field theory \cite{WittenTwist}.
+The topological twist of a supersymmetric field theory (when it exists) can be attacked mathematically using the path integral.
+A key feature, however, of topological field theories is that they are amenable to a functorial paradigm.
+This firmly establishes their meaning and importance within pure mathematics.
+Slightly after Witten's work, the first shadows of what would later be called \textit{holomorphic twists} of supersymmetric field theories appeared, see \cite{Johansen:1994aw,Johansen:1994ud,NekThesis,Losev:1996up,Losev:1995cr,Johansen:2003hw,Eager:2018oww}. 
+Originally, this work did not garner the same attention as the parallel works on topological twists; especially in mathematics.
+Much later, Costello introduced the precise notion of a holomorphic twist, and focused on examples in dimensions two and four \cite{CosSUSY}.
+The characterization of all holomorphic, topological, and mixed holomorphic-topological theories of Yang--Mills type in dimensions $2 \leq d \leq 10$ appears in \cite{ESW}.
+Holomorphic twists of more exotic quantum field theories, such as theories of supergravity and higher form gauge fields, have recently been studied in \cite{CLsugra,SWtensor,SWpure,Raghavendran:2021qbh,Eager:2021ufo,Garner:2023wrc}.
 
 \subsubsection{Holomorphicity as a symmetry property}
 
@@ -1020,14 +1031,17 @@ Here is a (very) non-exhaustive list:
 For instance, the topological B-model on a Calabi--Yau threefold $X$ leads to Kodaira--Spencer theory on $X$, as proposed in \cite{BCOV} using the framework of closed string field theory. 
 The perspective of Kodaira--Spencer theory as a holomorphic field theory has been explored with great success by Kevin Costello and Si Li \cite{CLbcov, CLtypeI}.
 \item
-It is possible to make sense of Kodaira--Spencer theory outside of three dimensions.
+It is possible to make sense of Kodaira--Spencer theory outside of three complex dimensions.
 In \cite{CLsugra}, Costello and Li have argued for conjectural descriptions of twists of supergravity and superstring theories in terms of this more general version of Kodaira--Spencer theory.
-\item The pure spinor formalism of Berkovits and Cederwall  \cite{Cederwall, Berkovits} starts with a field theory or string theory defined on the (sometimes singular) nilpotence variety of the super Poincar\'e algebra and then uses the action of supersymmetry to produce ordinary (non-twisted) supersymmetric field theories. 
+Holomorphic field theory has also appeared in applications to (twisted) holography through the lens of Koszul duality, see \cite{CLsugra, CGholography, CostelloPaquette}.
+\item The pure spinor formalism of Berkovits and Cederwall  \cite{Cederwall:2001dx, Berkovits:2005bt}, see also \cite{Eager:2018dsx,perspectives}, starts with a field theory or string theory defined on the (sometimes singular) nilpotence variety of the super Poincar\'e algebra and then uses the action of supersymmetry to produce ordinary (non-twisted) supersymmetric field theories. 
 Often, the theory on the nilpotence variety is holomorphic \cite{ESW,SWpure}. 
 \item Similar in spirit to the pure spinor formalism is a systematic relationship between holomorphic field theories on (super) twistor space and ordinary (Riemannian) field theories.
-For instance, the Penrose corresponds relates holomorphic BF theory on (super) twistor space associated to $\RR^4$ to the self-dual limit of (super) Yang--Mills theory \cite{Penrose, Kevins work..., other twistor literature}.
+Such work can be viewed as extending (and enhancing) the original Penrose correspondence which relates holomorphic BF theory on (super) twistor space associated to $\RR^4$ to the self-dual limit of (super) Yang--Mills theory \cite{Penrose:1969ae, Penrose}---see \cite{adamo2018lecturestwistortheory} for a modern review.
+See \cite{Mason, Mason_2009, CostelloTwistor,Bittleston_2023,garner2024scatteringtwistoriallinedefects} for recent work on the twistor correspondence in QFT.
 \end{itemize}
-We recommend \owen{is there some other place to point?} for more discussion.
+
+We recommend \cite{bah2024panoramaphysicalmathematicsc} for more discussion and references.
 
 \section{Algebra and holomorphic field theories}
 \label{sec: algebra}
@@ -1041,8 +1055,6 @@ Throughout this section, we will be a bit cavalier with certain subtleties (e.g.
 emphasizing concepts and motivations over mathematical precision.
 We will be a bit long-winded in the first two subsections, to provide motivations,
 so that in the final subsection, we can rapidly sketch these higher Kac-Moody and Weyl algebras.
-
-\owen{In this section, or maybe the next, we should mention the recent papers by physicists (notably Gaiotto) about higher bracket structures, and we should indicate how to connect with our approach here.}
 
 \subsection{Algebras in mechanics}
 
@@ -1069,9 +1081,9 @@ which controls the deformation to the Weyl algebra: following Dirac, we promote 
 These two features motivate the deformation quantization problem: 
 given a symplectic (or Poisson) manifold,
 describe deformations of its commutative algebra of functions to an associative algebra with the requirement that, to first order,  the commutator recovers the Poisson bracket.
-Thanks to Kontsevich \cite{KonDQ}, there is a beautiful answer to this question, which has spawned a mountain of fascinating mathematics (see, e.g., \owen{what?} as a starting place).
+Thanks to Kontsevich \cite{KonDQ}, there is a beautiful answer to this question, which has spawned a mountain of fascinating mathematics.
 
-Our view on field theory is motivated by this perspective on quantum theory (we discuss it further in Section~\owen{ref the general overview}), 
+Our view on field theory is motivated by this perspective on quantum theory (we discuss it further in Section~\ref{s:factinqft}), 
 and it might help the reader to bear in mind a variant of this question:
 given a classical holomorphic field theory, what are the natural deformations of its algebra of functions?
 Many of the results we discuss later can be seen as generalizations of phenomena associated with deformation quantization.
@@ -1113,14 +1125,14 @@ We will set fermions aside for the remainder of this section,
 but the discussion below extends easily to them and fermions appear naturally in the study of holomorphic field theories.
 \end{rmk}
 
-\brian{something about states}
-So far we've recalled how quantization looks like for algebras.
-There is also a quantization for modules.
-Let $L \subset M$ be a Lagrangian submanifold.
-Then, functions $C^\infty(L)$ on $L$ are naturally a module for $C^\infty(M)$.
-The Fock module $F(L)$ associated to $L$ is defined to be the quotient of 
-
-\owen{We should acknowledge the state perspective but it's not clear to me how much we should describe, in light of our development below.}
+%\brian{something about states}
+%So far we've recalled how quantization looks like for algebras.
+%There is also a quantization for modules.
+%Let $L \subset M$ be a Lagrangian submanifold.
+%Then, functions $C^\infty(L)$ on $L$ are naturally a module for $C^\infty(M)$.
+%The Fock module $F(L)$ associated to $L$ is defined to be the quotient of 
+%
+%\owen{We should acknowledge the state perspective but it's not clear to me how much we should describe, in light of our development below.}
 
 \subsection{A loopy version: the algebra of modes}
 
@@ -1310,7 +1322,7 @@ and so
 \Map(\CC^\times,V) \cong \Map(\RR, \Map(S^1,V)) = \Map(\RR, LV).
 \]
 Dimensional reduction here means studying the two-dimensional physics as a one-dimensional system with a more complicated target, namely the loop space.\footnote{One can play this game whenever the spacetime manifold is product $X \times Y$ or a fiber bundle.
-Sometimes the term {\it compactification} is used instead, with reduction reserved for fixing the fiberwise fields to be constant.}
+Sometimes the term {\it compactification} is used instead, with reduction reserved for fixing the fiberwise fields to be constant---for a discussion of compactification within the setting of factorization algebras see Section~\ref{s:compact}.}
 There is, in this case, a kind of dual process that we call {\it chiralization},
 that turns a one-dimensional physical system (mechanics) into a holomorphic field theory.
 We will now describe this relationship in the language of fields and Lagrangians.
@@ -1346,14 +1358,12 @@ We interpret $\sum_{k \in \ZZ} \phi_k(r)$ as smooth map from $\RR$ to the formal
 At the level of action functionals, 
 we can integrate $S_{2d}(\phi)$ over the angular coordinate to obtain the following formal sum of one-dimensional action functionals
 \beqn
-S_{1d}\left( \ldots, \phi_{-1}, \phi_0 , \phi_1, \ldots \right) = \sum_{k\in \ZZ} \int  \phi_{-k} \,\d \phi_{k} + k\, \phi_k \, \phi_{-k} \, \d t .
+S_{red}\left( \ldots, \phi_{-1}, \phi_0 , \phi_1, \ldots \right) = \sum_{k\in \ZZ} \int  \phi_{-k} \,\d \phi_{k} + k\, \phi_k \, \phi_{-k} \, \d t .
 \eeqn 
-\owen{The $H$ got dropped. Should we reintroduct it?}
-\brian{It's still there...}
 Notice that the $k=0$ summand is just the Lagrangian of ordinary mechanics into $V$ with zero Hamiltonian. 
 In general, we find mechanics into the symplectic vector space $LV$, where the symplectic structure uses the residue pairing in addition to the symplectic form on $V$, with a nontrivial Hamiltonian that encodes the $U(1)$-symmetry arising from rotating $LV$ in the natural way.
 
-\owen{A person might object that this isn't so well-defined analytically. Should we emphasize that it is rather formal, a kind of heuristic?}
+%\owen{A person might object that this isn't so well-defined analytically. Should we emphasize that it is rather formal, a kind of heuristic?}
 
 \subsection{Algebras in higher dimensions }
 \label{s:alghigh}
@@ -1508,7 +1518,7 @@ This cocycle has total cohomological degree $+2$ as an element in the Lie algebr
 There is a particularly nice model for this dg Lie algebra as an $L_\infty$ \textit{algebra} that we use in \cite{GWkm}.
 An $L_\infty$ algebra is a generalization of a dg Lie algebra;
 it is a graded vector space $L$ equipped with a countable collection of ``higher brackets'' $[-]_k \colon L^{\otimes k} \to L$ that satisfy a system of equations generalizing the Jacobi identity.
-For an overview (and an actual definition!) we recommend \owen{add citations}.
+For an overview (and an actual definition!) we recommend \cite{LV}.
 In our setting the usual bracket (the 2-bracket) of $\fg^\bullet_d$ is unchanged but there is now a nontrivial $d$-bracket defined by~$\theta_{\rm FHK}$.
 %They dubbed these the {\em higher Kac-Moody algebras}, 
 %as they specialize to the affine Lie algebras when~$d =1$.
@@ -1541,7 +1551,7 @@ Associative algebras arise in quantum mechanics, we have argued, because the spa
 If we organize the observables (or operators) by when they happen in time,
 it corresponds to writing them left-to-right as products in an algebra.
 A natural question to ask then is what kind of higher algebraic structure captures how observables behave for theories in higher dimensions?
-The shortest answer is ``factorization algebras,'' and we will describe and explore this notion in \S~\ref{sec fact alg},
+The shortest answer is ``factorization algebras,'' and we will describe and explore this notion in Section~\ref{sec: fact alg}
 but there are nice answers for two special classes of theories that we will develop now:
 \begin{itemize}
 \item For a topological field theory on $\RR^d$ (which we'll define in a moment),
@@ -1573,7 +1583,7 @@ We expect this correspondence to bear rich fruit.
 
 There is an explicit model for an algebra over the cohomology of the $E_d$-operad called a $P_d$-algebra.
 Essentially, these are graded commutative algebras with a Poisson bracket of cohomological degree $-d+1$.
-In \cite{CostelloScheimbauer} a parallel model for the cohomology of the holomorphic $\PDisc_d$ colored operad was proposed, 
+In \cite{CosScheim} a parallel model for the cohomology of the holomorphic $\PDisc_d$ colored operad was proposed, 
 though axioms were not written down.
 In recent work, similar models to that one have appeared,
 using the nomenclature of $\lambda$-brackets \cite{BGKWY,GKW},
@@ -1589,7 +1599,7 @@ We want to describe the algebraic structures that appear in $d$-dimensional topo
 as a model for holomorphic field theories.
 It will be helpful to use the language of operads, which are an efficient and powerful tool for defining and studying algebraic structures,
 so we will gloss the key ideas of operads briefly and then turn to describing the operads relevant to TFTs.
-A more extensive discussion can be found in \cite{CG1}, with \cite{ES} studying the topological setting in an elegant way.
+A more extensive discussion can be found in \cite{CG1}, with \cite{EllSaf} studying the topological setting in an elegant way.
 
 An associative algebra is, by definition, a vector space $A$ with a linear map $\mu: A\otimes A \to A$ satisfying that the linear map $\mu \circ (\id \otimes \mu): A^{\otimes 3} \to A$ equals the linear map $\mu \circ (\mu \otimes \id)$.
 (Let's ignore the other data and conditions for the moment.)
@@ -1774,7 +1784,7 @@ There is a setting where a precise version of this statement was proven, by Elli
 
 \begin{thm}[\cite{EllSaf}]
 \label{thm: EllSaf}
-Let $\cT$ be a classical field theory on $\RR^d$ in the sense of~\cite{CosBook},
+Let $\cT$ be a classical field theory on $\RR^d$
 and let its observables $\Obs_\cT$ be constructed following~\cite{CG2}.
 
 If the theory $\cT$ satisfies 
@@ -1795,7 +1805,7 @@ This theorem applies to many well-known examples from physics:
 \item The Chern-Simons gauge theory of flat $G$-bundles on an oriented 3-manifold yields an $E_3$ algebra, which encodes the quantum group $U_\hbar \fg$ under a version of Koszul duality. 
 (The quantization was constructed, essentially, by Axelrod-Singer \cite{AxeSing1,AxeSing2} and Kontsevich \cite{KonECM} but articulated in this setting by Costello~\cite{CosBook}.) 
 \item The Rozansky-Witten theory of maps from an oriented 3-manifold into a complex manifold yields an $E_3$ algebra. (The quantization was constructed by Chan, Leung, and Li~\cite{ChanLeungLi}.)
-\item The Kapustin-Witten gauge theory for oriented 4-manifolds yields an $E_4$ algebra, related to deforming functions on the coadjoint quotient stack~$\fg^*/G$, (The quantization was constructed in~\cite{EGW}.)
+\item The Kapustin-Witten gauge theory for oriented 4-manifolds yields an $E_4$ algebra, related to deforming functions on the coadjoint quotient stack~$\fg^*/G$. (The quantization was constructed in~\cite{EGW}.)
 \end{itemize}
 It applies to other examples of topological AKSZ theories, such as BF theories and the Poisson $\sigma$-model.
 In all these examples, the underlying elliptic complex appearing in the field theory is a version of the de Rham complex,
@@ -1920,7 +1930,6 @@ and in that case, the composition $\mu \circ_i \nu$ is given by embedding an out
 (Composition is not defined if the radii do not match.)
 \end{dfn}
 
-\owen{Improve!}
 An algebra $A$ over this cooperad means that for each radius~$r$, 
 there is a dg vector space $A(r)$, and for any list of radii $r_1,\ldots, r_n, R$,
 there is a cochain map
@@ -2083,8 +2092,8 @@ Let
 denote the complexification of the Lie algebra~$\ft$ of translations.
 Let $\ft_{\zbar}$ denote the subalgebra spanned by all the~$\partial/\partial \zbar_i$.
 
-\begin{thm}[\cite{CG1},\owen{precise location}]
-Let $\cT$ be a classical field theory on $\CC^d$ in the sense of~\cite{CosBook},
+\begin{thm}[see Chapter 5 of \cite{CG1}]
+Let $\cT$ be a classical field theory on $\CC^d$,
 and let its observables be constructed following~\cite{CG2}.
 If the theory satisfies 
 \begin{enumerate}
@@ -2098,56 +2107,56 @@ This result is analogous to Elliott and Safronov's, although it predated (and in
 It applies to the theories that are the focus of this survey.
 One can mimic the version of Witten descent for the topological case to produce observables from local observables.
 
-\subsection{Operator product expansion and holomorphic Poisson algebras}
+\begin{itemize}
+\item ??
+\end{itemize}
 
-We remark on a simple consequence of this toolkit that may nonetheless be useful:
-one can view a topological field theory on $\RR^{2d}$ as a special kind of holomorphic field theory on~$\CC^{d}$.
-This situation has been exploited to good effect in the $d=1$ case,
-where people sometimes present an $E_2$-algebra as a dg vertex algebra with extra data and special properties \owen{citations? discussion of applications?}.
-
-The essential idea is simple.
-On a complex manifold $X$, there is a cochain map
-\[
-\Omega^\bu(X) \to \Omega^{0,\bu}(X)
-\]
-where one quotients by the dg ideal of Dolbeault $(p,q)$-forms where $p \geq 1$.
-If we consider the complex manifold $\PDisc_d(r_1,\ldots,r_n|R)$, 
-we get a map from its de Rham complex --- which only cares about the topology of that configuration space --- to its Dolbeault complex --- which is sensitive to its complex geometry.
-Hence an algebra over the cooperad $\Omega^\bu(\PDisc_d)$ forgets to an algebra over the cooperad~$\Omega^{0,\bu}(\PDisc_d)$.
-Moreover, it is straightforward (if one is comfortable with operads and higher categories) to show that 
-\begin{enumerate}
-\item algebras over the dg operad $C_\bu(\PDisc_d)$ are equivalent to algebras over the dg cooperad~$\Omega^\bu(\PDisc_d)$, as $\infty$-categories, and
-\item $E_{2d}$-algebras are equivalent to the algebras over $C_\bu(\PDisc_d)$ such that an inclusion of a polydisc is always a quasi-isomorphism (the ``locally constant'' algebras).
-\end{enumerate}
-The second item holds because any configuration space of polydiscs is weakly equivalent, as a topological space, to the analogous configuration space of discs.
-Thus we have sketched the following result.
-
-\begin{thm}
-There is a forgetful functor
-\[
-\Alg_{E_{2d}} \to  \Alg_{\PDisc_2}.
-\]
-\end{thm}
-
-The primary interest for us is the following consequence.
-
-\begin{cor}
-The observables of a topological field theory on $\RR^{2d}$ determine an algebra over the polydiscs cooperad~$\Omega^{0,\bu}(\PDisc_d)$.
-\end{cor}
-
-In Section~\ref{???} we will examine another relationship --- generalizing the compactification/chiralization on $\CC$ --- that yields an $E_d$ algebra from a $\PDisc_d$-algebra.
-\brian{This is probably a trivializable PDisc algebra by degree reasons?}
-
-\brian{Maybe a better thing to say after this theorem is a `recognition' result.
-That is, given a holomorphic PDisc$_{d}$ algebra, when is it equivalent to a algebra over $E_{2d}$ (in the essential image of the functor you wrote)?
-Among possibly smaller things, this should require that the $\del_{\zbar}$'s are homotoped.}
+%\subsection{Operator product expansion and holomorphic Poisson algebras}
+%
+%We remark on a simple consequence of this toolkit that may nonetheless be useful:
+%one can view a topological field theory on $\RR^{2d}$ as a special kind of holomorphic field theory on~$\CC^{d}$.
+%This situation has been exploited to good effect in the $d=1$ case,
+%where people sometimes present an $E_2$-algebra as a dg vertex algebra with extra data and special properties \owen{citations? discussion of applications?}.
+%
+%The essential idea is simple.
+%On a complex manifold $X$, there is a cochain map
+%\[
+%\Omega^\bu(X) \to \Omega^{0,\bu}(X)
+%\]
+%where one quotients by the dg ideal of Dolbeault $(p,q)$-forms where $p \geq 1$.
+%If we consider the complex manifold $\PDisc_d(r_1,\ldots,r_n|R)$, 
+%we get a map from its de Rham complex --- which only cares about the topology of that configuration space --- to its Dolbeault complex --- which is sensitive to its complex geometry.
+%Hence an algebra over the cooperad $\Omega^\bu(\PDisc_d)$ forgets to an algebra over the cooperad~$\Omega^{0,\bu}(\PDisc_d)$.
+%Moreover, it is straightforward (if one is comfortable with operads and higher categories) to show that 
+%\begin{enumerate}
+%\item algebras over the dg operad $C_\bu(\PDisc_d)$ are equivalent to algebras over the dg cooperad~$\Omega^\bu(\PDisc_d)$, as $\infty$-categories, and
+%\item $E_{2d}$-algebras are equivalent to the algebras over $C_\bu(\PDisc_d)$ such that an inclusion of a polydisc is always a quasi-isomorphism (the ``locally constant'' algebras).
+%\end{enumerate}
+%The second item holds because any configuration space of polydiscs is weakly equivalent, as a topological space, to the analogous configuration space of discs.
+%Thus we have sketched the following result.
+%
+%\begin{thm}
+%There is a forgetful functor
+%\[
+%\Alg_{E_{2d}} \to  \Alg_{\PDisc_2}.
+%\]
+%\end{thm}
+%
+%The primary interest for us is the following consequence.
+%
+%\begin{cor}
+%The observables of a topological field theory on $\RR^{2d}$ determine an algebra over the polydiscs cooperad~$\Omega^{0,\bu}(\PDisc_d)$.
+%\end{cor}
+%
+%In Section~\ref{???} we will examine another relationship --- generalizing the compactification/chiralization on $\CC$ --- that yields an $E_d$ algebra from a $\PDisc_d$-algebra.
+%\brian{This is probably a trivializable PDisc algebra by degree reasons?}
+%
+%\brian{Maybe a better thing to say after this theorem is a `recognition' result.
+%That is, given a holomorphic PDisc$_{d}$ algebra, when is it equivalent to a algebra over $E_{2d}$ (in the essential image of the functor you wrote)?
+%Among possibly smaller things, this should require that the $\del_{\zbar}$'s are homotoped.}
 
 \section{Factorization algebras and holomorphic field theories}
 \label{sec: fact alg}
-
-\owen{Some of what's below is borrowed and scarcely modified from the books, so we probably should do more revision so it's not plagiarism!}
-
-\owen{My main concerns are (1) to mention working on arbitrary complex manifolds and not just $\CC^d$, (2) to mention Beilinson-Drinfeld's approach, and (3) to explain chiralization/reduction for $d > 1$.}
 
 A key idea for us is that much of the content in field theories --- both classical and quantum --- is captured by factorization algebras.
 We will introduce that concept now, in the style that sheaves are defined, so first we describe {\em pre}\/factorization algebras and then impose a local-to-global condition to characterize factorization algebras.
@@ -2173,7 +2182,7 @@ Kevin Costello and the first author developed a version that works well for a br
 These approaches share a common spirit but have important technical differences.
 A detailed comparison between the versions for locally constant factorization algebras exists \owen{good refs?},
 but a detailed comparison between the Beilinson-Drinfeld and Costello-Gwilliam version is currently open.
-(See, however, section \owen{fill out } of \cite{HenKap} for important steps in that direction.)
+(See, however, the last section of \cite{HenKap} for important steps in that direction.)
 \end{rmk}
 
 \subsection{The essential idea of a prefactorization algebra}
@@ -2404,6 +2413,7 @@ where one simultaneously generalizes the circle to an arbitrary closed manifold 
 \og{Discuss twist along circle by automorphism of algebra. Forward ref to example later.}
 
 \subsection{How factorization algebras appear in QFT}
+\label{s:factinqft}
 
 Factorization algebras on $\RR^n$ and $E_n$ algebras should be closely related,
 as can be seen by drawing pictures of the configurations of discs that control operations.
@@ -2446,7 +2456,8 @@ This theorem allows one to interpret quantization of field theories---on manifol
 In fact, in \cite{GLL,GLX} it is shown how BV quantization for one-dimensional quantum field theories connects with the ordinary theory of deformation quantization. 
 
 This theorem is also a key connection between field theories and higher algebras.
-\owen{I feel like I should say a little more, but not a lot more. I've commented out some old versions of this.}
+Indeed, a the value of a locally constant factorization algebra on a $d$-disk has the structure of a $\op{Disk}_d$-algebra.
+The value of a holomorphic factorization algebra on a complex $d$-dimensional polydisk has the structure of a $\op{PDisk}_d$-algebra.
 
 %In \cite{CG1}, there are several examples of this formalism in action:
 %\begin{itemize}
@@ -2567,7 +2578,7 @@ but these connections with functorial TFTs raise the question of producing funct
 %\owen{Not sure what to put here, honestly. Maybe it should be removed.}
 %
 
-\subsection{Compactification and conformal blocks}
+\subsection{Compactification and conformal blocks}\label{s:compact}
 
 Factorization algebras yield interesting information when their global sections are computed,
 much as sheaf cohomology is a rich source of invariants and information.
@@ -2653,11 +2664,6 @@ In \cite{SWchar}, it is shown how an important invariant called the \textit{supe
 \section{Renormalization \& anomalies: constructing examples}
 \label{sec: renorm}
 
-\owen{We discussed having the following:
-\begin{itemize}
-\item Explain what this means in terms of Theorem 3.9 (existence of polydiscs algebras)
-\end{itemize}}
-
 In practice, quantum field theories are typically constructed using regularization and renormalization,
 by starting with an action functional that defines a classical field theory and then finding a way to extract sensible answers from the yoga of Feynman diagrams (which naively produce divergent integrals).
 One can apply similar techniques to produce holomorphic quantum field theories, and the higher algebraic structures associated to them.
@@ -2692,7 +2698,7 @@ For topological quantum field theories, like Chern-Simons theory,
 life is quite a bit simpler: Axelrod-Singer and Kontsevich developed a a very simple regularization method that removes all divergences.
 For these theories, the putative divergences always arise from distributional issues along the diagonals of the product space $M^k$.
 On the Fulton-MacPherson compactification of the configuration space of $k$ points in $M$ (i.e., takes the real blow-up along the diagonals),
-the integrand admits a {\em smooth} extension and the integrals become well-defined.\owen{Citations!}
+the integrand admits a {\em smooth} extension and the integrals become well-defined.
 
 These results guarantee the existence of factorization algebras for topological field theories like Chern-Simons theory or the Poisson $\sigma$-model or the topological B-model by the main result (Theorem~\ref{main}) of \cite{CG2}.
 Thus these theories produce $E_d$ algebras by Theorem~\ref{thm: EllSaf} and Atiyah-Segal-style TFTs by Corollary~\ref{cor: EllSaf}.
@@ -2706,14 +2712,15 @@ When applied to Dolbeault complexes arising in Kodaira-Spencer (or BCOV) theory,
 he and Li found some remarkable simplifications and good behavior \cite{CLbcov}.
 In \cite{LiVertex} Li showed, by clever analysis, that holomorphic field theories in complex dimension one (i.e., chiral conformal field theories) are finite to all orders in perturbation theory; 
 this result was later extended to arbitrary Riemann surfaces in \cite{LiZhou}.
-Following up (cf. his thesis \cite{Wthesis} and its offshoot \cite{Wrenorm}), Williams laid a systematic mathematical foundations:
+Following up, the second author laid out systematic mathematical foundations:
 \begin{itemize}
 \item he established key analytic results about holomorphic renormalization, 
 showing that it is highly manageable, with no counterterms to 1-loop; and
-\item characterized the one-loop anomalies  (i.e., obstructions to BV quantization).
+\item characterized the one-loop anomalies  (i.e., obstructions to BV quantization),
 \end{itemize}
+see  \cite{Wthesis,Wrenorm}.
 These apply to all holomorphic theories on~$\CC^n$,
-but the techniques typically extend to more general complex manifolds.
+but some of the techniques should extend to more general complex manifolds.
 
 In the last few years,
 there has a been a buzz of recent activity on the renormalization of holomorphic field theories.
@@ -2727,7 +2734,7 @@ Recently, Minghao Wang has extended this analysis to show that holomorphic field
 In other words, both topological and holomorphic field theories are completely free of the divergences present in typical quantum field theories!
 We briefly recall the approach to this regulation scheme.
 
-\subsection{No divergences}
+\subsection{No divergences: Wang's approach}
 
 We will allow graphs with finitely many vertices and edges, 
 but also leaves (also known as hair or half-edges).\footnote{That is, a vertex may have, in addition to edges connecting it to other vertices, some incident edges that do not connect to another vertex. 
@@ -2762,7 +2769,7 @@ The putative integrals become divergent, which is reflected by the non-compactne
 
 For holomorphic field theories, however, something remarkable happens.
 
-\begin{thm}[Wang, \owen{precise citations}]
+\begin{thm}[\cite{Wang}]
 Let $\cE$ be the space of fields underlying a holomorphic field theory on $\C^n$.
 For every graph~$\gamma$, the differential form $w_{\gamma}$ has a natural smooth extension $\til {w_\gamma}$ to a compactification $\til{\op{Schw}(\gamma)}$ of Schwinger space.
 In particular, the composite
@@ -2773,8 +2780,8 @@ is a continuous linear functional on $\cE_c^{L(\gamma)}$ and shows the desired w
 \end{thm}
 
 In other words, divergences do not appear when constructing the perturbative quantization of {\em any} holomorphic field theory on~$\CC^d$.
-(Similar results hold for topological-holomorphic theories~\cite{WWthf}.)
-
+(Similar results hold for topological-holomorphic theories~\cite{WangWilliams}.)
+Thus, using the quantization of holomorphic field theories 
 \subsection{Anomalies that obstruct quantization}
 
 The discussion so far concerned the analytic issues that are present when trying to make the path integral precise.
@@ -2785,7 +2792,7 @@ In gauge theory, for instance, the perturbative renormalization might not be gau
 Specifically, the gauge variation of a particular Feynman graph integral may be nonzero---this leads to an anomaly in the quantum theory.
 In topological theories, it is known that these sort of anomalies are absent.
 \owen{I am confused by this comment. Aren't there TFTs with anomalies of some sort?}
-For holomorphic theories, however, anomalies are present.\footnote{Anomalies in holomorphic field theory are related to, but distinct from, anomalies well-known to physicists, such as ``chiral anomalies'' in theories of Weyl fermions.}
+For holomorphic theories, however, anomalies are present.
 (Within the context of Costello's formalism for perturbative QFT,
 these anomalies arise as obstructions to solving a Maurer-Cartan equation known as the quantum master equation.)
 
@@ -3063,7 +3070,7 @@ We will postpone saying anything precise till we have some terminology in place.
 %\cT_{A} (N_c, N_f, N_{\rm mes},W) = \cT\left(G = \SU(N_c) \, , \, V = (\CC^{N_c})^{\oplus N_f} \, , \, Z = \CC^{\oplus N_{\rm mes}} \, , \, W\right) .
 %\]
 
-There will be two holomorphic theories on $\CC^2$. 
+The proposed duality involves two holomorphic theories on $\CC^2$. 
 We call one side {\em electric} and the other {\em magnetic}.
 These turn out to be the twists of the original electric and magnetic supersymmetric theories of the famous Seiberg duality, 
 which motivates our terminology.
@@ -3161,6 +3168,64 @@ These ideas are extensively used in the program of twisted holography, which is 
 (The interested reader might track the papers that cite those we have mentioned.)
 Eager's suggestion was a natural variation on this theme but it (seems to) involve physical ideas and methods that have not (yet) played a large role in Costello's program.
 \end{rmk}
+
+\subsection{A remark relating to homological projective duality}
+
+A standard maneuver used in physics is compactification:
+given a field theory $\cT$ in $n$ dimensions, one takes compact $n-k$-manifold $N$ and produces a field theory $\cT_N$ in $k$ dimensions by studying $\cT$ on manifolds of the form $N \times \Sigma$, where $\Sigma$ is $k$-dimensional.
+One then considers the push forward of the theory along the obvious map $N \times \Sigma \to \Sigma$, to obtain an effective theory along $\Sigma$.
+A close cousin is dimensional reduction, where one restricts to solutions of the classical field theory that are constant along $N$.
+
+We consider a holomorphic theory defined on $\C^\times \times \C^\times$ and the pushforward along the map $\rho: \CC^\times \times \CC^\times \to \RR_{>0} \times \RR_{>0}$ that sends $(z_1,z_2)$ to $(|z_1|, |z_2|)$.
+In other words, this is the $T^2$ compactification of the holomorphic theory.
+For a holomorphic factorization algebra $\cF$, one can extract from the pushforward $\rho_* \cF$ a locally constant factorization algebra on $\RR_{> 0}^2 \cong \RR^2$, hence an $E_2$-algebra.
+We now apply this result in the context of holomorphic QCD and see what Seiberg duality would imply.
+
+Let's first consider the electric side, 
+which can be seen as two-dimensional holomorphic BF theory to a complex two-dimensional $\beta\gamma$ system.
+The $T^2$ compactification of the $\beta\gamma$ system with target $\C^{NF}$ is the topological B-model theory whose target is the formal double loop space $L^2\C^{NF}$. 
+The algebra of functions of this target space is $\cO(\C^{NF}) ((z))((w))$, 
+where $z,w$ are formal loop parameters that we imagine as describing the winding of the two circles we have compactified. 
+The dimensional reduction simply picks out the constant modes along each circle, so we find a linear topological B-model with target $\C^{NF}$.
+Similarly, the dimensional reduction of holomorphic BF theory is topological BF theory (which is a stacky version of the B-model whose target is the classifying space $BGL(N)$).
+In sum, the dimensional reduction of the electric holomorphic QCD is the topological B-model whose target is the stack $\C^{NF} / GL(N)$.
+As a derived mapping space, the moduli of solutions is given by
+\beqn
+{\rm Map}\left(\RR^2, T^*[1] \C^{NF} / GL(N)\right) .
+\eeqn
+The factorization algebra of observables obtained from reduction encodes the $E_2$ algebra of (holomorphic) polyvector fields on the stack~$\C^{NF} / GL(N)$. 
+
+On the magnetic side the reduction is similar, except this time we must take into account the superpotential. 
+What results is a Landau--Ginzburg B-model whose target is the stack
+\beqn
+\C^{(F-N)F} / GL(F-N) \times \C^{F^2} .
+\eeqn
+The first factor comes from the reduction of the dual quarks coupled to the dual gauge theory, and the second factor comes from the reduction of the mesons. 
+The potential of the Landau--Ginzburg model is given by the same expression $\check{W}$ as in~\eqref{eqn:checkW}.
+
+Holomorphic Seiberg duality then predicts an equivalence of two-dimensional topological field theories,
+or at least of $E_2$-algebras.
+
+\begin{conj}
+There is an equivalence of the following $E_2$ algebras:
+\begin{itemize} 
+\item (electric) the $E_2$ algebra of polyvector fields on the stack $\C^{NF} / GL(N)$, and 
+\item (magnetic) the $E_2$ algebra that results from deforming the $E_2$ algebra of polyvector fields on the stack $\C^{(F-N)F} / GL(F-N) \times \C^{F^2}$ by the differential $\{\check{W},-\}$ where $\{-,-\}$ is the Schouten bracket.
+\end{itemize}
+\end{conj}
+
+%\begin{conj}
+%There is an equivalence between $\cT_{\sfE}(F,N)_2$ and $\cT_{\sfM}(F,N)_2$, 
+%the compactifications of the electric and magnetic holomorphic QCD theories.
+%\end{conj}
+
+This conjectured equivalence resembles Hori-Tong dualities \cite{HoriTong, Hori, others}.
+(In those papers, it is often said that Hori-Tong dualities are like Seiberg dualities!)
+We hope that insights from the study of these dualities --- such as the deep work on homological projective duality \cite{Kuznetsov, Thomas, Segal, others} ---- might apply here, and also feed back towards holomorphic Seiberg duality.
+For instance, in this mathematical work, 
+one sees different choices of GIT quotients associated to the same stack yielding equivalent derived categories (and cousins),
+and these quotients only know about certain pieces of the stack,
+an issue we have flagged in our comparison of the moduli stack and the moduli space.
 
 \printbibliography
 
