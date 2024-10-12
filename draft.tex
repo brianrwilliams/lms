@@ -165,9 +165,8 @@ as well as fellow travelers like derived geometry, appear.
 
 A community has formed, involving both mathematicians and physicists, to explore and exploit these relationships,
 and it continues to grow as there is a lot to explore here.
-Examples of efforts in this direction include \cite{PTVV}, \cite{FHK,HenKap}, \cite{CosWG2,CosYangian,CosTwistor}, \cite{CLbcov, LiVertex}, \cite{CGholography,BGKWY}, \cite{CostelloPaquette}, and \cite{BBBDN}, 
+Examples of efforts in this direction include \cite{PTVV}, \cite{FHK,HenKap}, \cite{CLbcov, LiVertex}, \cite{CGholography,BGKWY}, \cite{CostelloPaquette}, and \cite{BBBDN}, 
 where our own background and interests (and unfortunately, our ignorance) have shaped this list.
-\brian{Maybe add more...}
 
 The material below focuses on connections with this work,
 and the examples from physics have a perturbative flavor.
@@ -246,7 +245,11 @@ we offer it as a small gift in gratitude for all he shared with us.
 
 \subsection{Acknowledgements}
 
-\owen{To thank: Kevin Costello, Si Li, Davide Gaiotto, Ed Segal, Chris Elliott, Pavel Safronov, Kapranov, Hennion, Matt Szczesny, Richard Eager, Ingmar Saberi, Johannes Walcher, Jie Zhou, Minghao Wang, Nik Rozenblyum, Natalie Paquette, Nik Garner}
+This survey attempts to summarize the efforts and insights of a large body of researchers.
+So much of our understanding is shaped by conversations and interactions with them,
+and we thank them for their generosity with ideas and examples.
+We owe particular thanks to Kevin Costello, Richard Eager, Chris Elliott, Davide Gaiotto, Nik Garner, Vasily Gorbounov, Zhengping Gui, Benjamin Hennion, Mikhail Kapranov, Si Li,  Natalie Paquette, Nik Rozenblyum,  Ingmar Saberi,  Pavel Safronov,  Matt Szczesny, Ed Segal,  Johannes Walcher, Minghao Wang, and Jie Zhou.
+\owen{Kasia Budzik? Kulp?}
 
 \section{Holomorphic field theories}
 \label{sec: HFT}
@@ -1110,7 +1113,7 @@ This class of questions appears throughout mathematics,
 and it has played a key role in geometric representation theory and the theory of $D$-modules, where $D$ denotes a ring of differential operators.
 After all, for any manifold $M$, the algebra of differential operators $D_X$ is a natural deformation quantization of functions on $T^* M$.
 Hence, for any $G$-manifold $M$, it is natural to ask whether there is a representation $\fg \to D_M$ deforming the canonical Poisson representation.
-In this spirit, we will search for analogues of the kind of mathematics that has grown out of results by Beilinson-Bernstein \owen{cite}, Kashiwara \owen{cite}, and others.
+In this spirit, we will search for analogues of the kind of mathematics that has grown out of results by Beilinson-Bernstein \cite{BB}, Brylinski-Kashiwara \cite{BryKash}, Kostant \cite{Kostant} and others.
 
 \begin{rmk}
 We have only spoken of symplectic manifolds, and emphasized vector spaces,
@@ -1569,8 +1572,8 @@ As a particularly illuminating example, we will explore the $d=1$ case rather cl
 We will also discuss the polydiscs algebras for which the higher Kac-Moody algebras are a Lie-algebraic shadow.
 
 \begin{rmk}
-In the $d=1$ case there is a lovely exploration of how the highly developed theory of vertex algebras relates to this perspective in the pair of papers by Bruegmann \cite{}.
-For a discussion of how conformal nets --- an alternative formalism for chiral CFT --- relates to our perspective, see \cite{Henriques}.
+In the $d=1$ case there is a lovely exploration of how the highly developed theory of vertex algebras relates to this perspective in the pair of papers by Bruegmann \cite{Bruegmann1,Bruegmann2}.
+For a discussion of how conformal nets --- an alternative formalism for chiral CFT --- relates to our perspective, see~\cite{Henriques, BPS}.
 \end{rmk}
 
 Before jumping into the main story, we mention a motivation for talking about $E_d$- and $\PDisc_d$-algebras in parallel.
@@ -1617,10 +1620,9 @@ For instance, given $\mu : V^{\otimes m} \to V$ and $\nu: V^{\otimes m} \to V$, 
 \[
 \begin{array}{cccc}
 \nu \circ_i \mu: & V^{\otimes m+n-1} & \to & V\\
-& v_1 \otimes \cdots \otimes v_{m+n-1} & \mapsto & \nu(v_1 \otimes \cdots \otimes \mu(v_i, \ldots, v_m), v_{m+1}, \ldots, v_{m+n-1})
+& v_1 \otimes \cdots \otimes v_{m+n-1} & \mapsto & \nu(v_1 \, \ldots, \mu(v_i, \ldots, v_m), v_{m+1}, \ldots, v_{m+n-1})
 \end{array}
 \]
-\owen{finish the formula! make it agree with conventional formulas}
 where $i$ can run over any index between 1 and $n$.
 We call this collection of data the {\em endomorphism operad of $V$}, denote $\End_V$.
 It consists of 
@@ -1678,7 +1680,7 @@ When one allows multiple objects, one works with {\em colored operads} or, as an
 
 \begin{rmk}
 For motivational introductions, we recommend \cite{StashAMS} and \cite{Val12}.
-For systematic development of the theory, one might start with \cite{LodVal}, \owen{others}
+For systematic development of the theory, one might start with \cite{LodVal,Fresse,LurieHA}.
 Operads now have an extensive literature, and there is a body of deep results (such as Koszul duality) with far-reaching consequences throughout mathematics.
 \end{rmk}
 
@@ -1954,10 +1956,15 @@ In particular, a holomorphic version of Witten descent gives a useful method for
 \subsubsection{Vertex algebras from the $d=1$ case}
 
 In the case $d=1$, it is possible to relate polydiscs algebras to vertex algebras.
-More precisely, when the polydisc algebra has a nice action of the rotation group~$U(1)$,
-one can extract a vertex algebra: 
-see Chapter 5 of~\cite{CG1} for a detailed treatment and examples like the free $\beta\gamma$ system and the Kac-Moody vertex algebras.
-Here we will analyze the cohomology of the cooperad and what kind of information it encodes, with a view towards motivating the relationship to vertex algebras.
+More precisely, there is a functor from a class of 1-polydiscs algebras to vertex algebras,
+developed in Chapter 5 of~\cite{CG1}.
+In essence, a polydisc algebra is in this class if it has a nice action of the rotation group~$U(1)$,
+so that one can extract ``modes'' (or Fourier components) from it.
+Examples like the free $\beta\gamma$ system and the Kac-Moody vertex algebras are analyzed in~\cite{CG1}.
+
+Here we will analyze the cohomology of the cooperad and what kind of information it encodes, 
+with a view towards motivating the relationship to vertex algebras.
+The takeaway from the discussion below is that one can read off the modes $a_{(n)}$ that assemble into the vertex operator $Y(a,z)$ using a $1$-polydiscs algebra.
 
 It is easiest to work with extremal values of the radii.
 We take the output radius to be $R = \infty$,
@@ -2027,8 +2034,12 @@ guarantees that we have
 \[
 \int_{|z| = r} \alpha(a,b)\, f(z) \d z = \sum_{n=-\infty}^{N-1} c_{-n-1} a_{(n)} b.
 \]
+Thus we have worked out the modes $a_{(n)}$, as promised.
 
-\owen{I think I should swap the location of $a$ and $b$ to match VOA conventions. I want to explain that taking the extremal radii means we cannot compose, which leads to the complicated VOA formulas.}
+This construction also gives insight into some challenges with the formalism of vertex algebras,
+such as the fact that one cannot simply compose vertex operators but must describe a 3-point product and track the geometry between the insertion points $0$, $z$, and $w$.
+For instance, to obtain the modes, we took the outgoing radius to be infinite,
+so it cannot be inserted into any finite radius disk.
 
 \subsubsection{Examples related to vertex algebras} 
 
@@ -2105,9 +2116,18 @@ This result is analogous to Elliott and Safronov's, although it predated (and in
 It applies to the theories that are the focus of this survey.
 One can mimic the version of Witten descent for the topological case to produce observables from local observables.
 
+A number of examples from Section~\ref{sec: ex of theories} have been developed in this framework, 
+analogous to the list of examples after Theorem~\ref{thm: EllSaf}:
 \begin{itemize}
-\item ??
+\item The curved $\beta\gamma$ system for a Riemann surface into a complex manifold~$X$ was constructed in \cite{CosWG2}, and then \cite{GGW} demonstrates in detail how the vertex algebra of {\it chiral differential operators} of $X$ is recovered.
+\item In \cite{Wthesis} these methods were extended to holomorphic $\sigma$-models from $\CC^d$ to a complex manifold $X$, 
+yielding $d$-polydics algebras of chiral differential operators on~$X$.
+\item Costello and Li quantized BCOV theory, yielding a 3-polydiscs algebra for holomorphic gravity the Calabi-Yau 3-fold~$\CC^3$~\cite{CLbcov}.
+\owen{Please correct this ... I know there are subtleties here.}
+\item The holomorphic twists of 4-dimensional supersymmetric Yang-Mills theories are constructed and analyzed in~\cite{EGW}.
 \end{itemize}
+A number of examples of topological-holomorphic theories have also been constructed, and these yield polydiscs algebras.
+A highlight is Costello's discovery of a theory on $\CC \times \RR^2$ that encodes the Yangian, an infinite-dimensional quantum group~\cite{CosYangian}.
 
 %\subsection{Operator product expansion and holomorphic Poisson algebras}
 %
@@ -2178,7 +2198,7 @@ for questions in algebraic topology.
 Motivated by these efforts (and benefiting from conversations as those works were in progress), 
 Kevin Costello and the first author developed a version that works well for a broad class of quantum field theories and for more differential-geometric settings~\cite{CG1,CG2}.
 These approaches share a common spirit but have important technical differences.
-A detailed comparison between the versions for locally constant factorization algebras exists~\owen{KSW},
+A detailed comparison between the versions for locally constant factorization algebras exists~\cite{KSW},
 but a detailed comparison between the Beilinson-Drinfeld and Costello-Gwilliam version is currently open.
 (See, however, the last section of \cite{HenKap} for important steps in that direction.)
 \end{rmk}
@@ -2409,7 +2429,23 @@ for any Weiss cover of~$S^1$.
 This theorem tells us that factorization homology can be seen as a generalization of Hochschild homology,
 where one simultaneously generalizes the circle to an arbitrary closed manifold and an algebra to a factorization algebra.
 
-\owen{Discuss twist along circle by automorphism of algebra. Forward ref to example later.}
+There is a variant on this result that plays a role in Section~\ref{s:compact} below.
+Recall that a locally constant sheaf on $S^1$ may have monodromy: 
+starting with a section on a small interval around the circle and then continuing it around the circle (by local constancy),
+it may not match,
+i.e., it may not extend to a global section.
+Instead, transporting values around the circle produces an automorphism of the stalk at a point, known as monodromy.
+Similarly, a locally constant factorization algebra $\cF$ on $S^1$ restricts to a locally constant factorization algebra on $S^1 - \{p\} \cong \RR$,
+so it corresponds to an associative algebra $A$.
+But in transporting elements of $A$ around the circle using this factorization algebra on $S^1$,
+we may find there is an algebra automorphism $\sigma$ appearing as monodromy.
+Then
+\[
+\int_{S^1} \cF = \cF (S^1) \simeq {\rm Hoch}_\bu(A, A_\sigma)
+\]
+where $A_\sigma$ denotes $A$ viewed a bimodule where $A$ acts from the left by multiplication and from the right by multiplication twisted by~$\sigma$.
+\owen{What do you think? Feel free to revise/tidy.}
+
 
 \subsection{How factorization algebras appear in QFT}
 \label{s:factinqft}
@@ -2577,7 +2613,8 @@ but these connections with functorial TFTs raise the question of producing funct
 %\owen{Not sure what to put here, honestly. Maybe it should be removed.}
 %
 
-\subsection{Compactification and conformal blocks}\label{s:compact}
+\subsection{Compactification and conformal blocks}
+\label{s:compact}
 
 Factorization algebras yield interesting information when their global sections are computed,
 much as sheaf cohomology is a rich source of invariants and information.
@@ -2727,7 +2764,7 @@ Budzik, Gaiotto, Kulp, Wu, and Yu developed a strategy for proving that in a hol
 certain graphs (called Laman graphs) do not produce divergences~\cite{BGKWY}.
 The key idea is to combine the heat kernel analysis with the sort of compactifications that are used in the theory of configuration spaces.
 
-Recently, Minghao Wang has extended this analysis to show that holomorphic field theories on $\C^n$ admit a regularization scheme that is divergence-free to \textit{all} orders in perturbation theory \cite{Wang}.
+Recently, Minghao Wang has extended this analysis to show that holomorphic field theories on $\C^n$ admit a regularization scheme that is divergence-free to \textit{all} orders in perturbation theory~\cite{Wang}.
 In other words, both topological and holomorphic field theories are completely free of the divergences present in typical quantum field theories!
 We briefly recall the approach to this regulation scheme.
 
