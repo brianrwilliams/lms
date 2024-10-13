@@ -91,11 +91,11 @@
 
 \begin{abstract}
 Aimed at complex geometers and representation theorists, this survey explores higher dimensional analogues of the rich interplay between Riemann surfaces, Virasoro and Kac-Moody Lie algebras, and conformal blocks.
-We introduce a rich source of examples from physics --- field theories that are holomorphic in nature, such as holomorphic Chern-Simons theory --- and interpret them as (derived) moduli spaces in complex geometry;
+We introduce a panoply of examples from physics --- field theories that are holomorphic in nature, such as holomorphic Chern-Simons theory --- and interpret them as (derived) moduli spaces in complex geometry;
 no comfort with physics is presumed.
 We then describe frameworks for quantizing such moduli spaces, 
 offering a systematic generalization of vertex algebras and conformal blocks via factorization algebras,
-and we explain how holomorphic field theories provide examples of these higher algebraic structures.
+and we explain how holomorphic field theories generate examples of these higher algebraic structures.
 We finish by describing how the conjecture of Seiberg duality predicts a surprising relationship between holomorphic gauge theories on algebraic surfaces and how it suggests analogues of the Hori-Tong dualities already studied by algebraic geometers.
 \end{abstract}
 
@@ -175,7 +175,7 @@ as well as fellow travelers like derived geometry, appear.
 
 A community has formed, involving both mathematicians and physicists, to explore and exploit these relationships,
 and it continues to grow as there is a lot to explore here.
-Examples of efforts in this direction include \cite{PTVV}, \cite{FHK,HenKap}, \cite{CLbcov, LiVertex}, \cite{CGholography,BGKWY}, \cite{CostelloPaquette}, and \cite{BBBDN}, 
+Examples of efforts in this direction include \cite{PTVV}, \cite{FHK,HenKap}, \cite{CLbcov, LiVertex}, \cite{CGholography,BGKWY}, \cite{CostelloPaquette}, \cite{BBBDN}, and \cite{AlfonsiYoungHC},
 where our own background and interests (and unfortunately, our ignorance) have shaped this list.
 
 The material below focuses on connections with this work,
@@ -233,20 +233,19 @@ It is a kind of enhancement of Weyl's invariant theory and has close connections
 \subsection{About Manin and his influence}
 
 Yuri Manin was a pioneer into this intellectual region where field theory, complex geometry, and homotopical algebra meet,
-and his work --- beyond the beautiful results --- also gestured at rich possibilities for novel and powerful forms of geometry and physics and algebra,
-summoning these possibilities towards their current unfolding today into derived geometry and operadic structures in a broad sense.
-We quote \cite{ManFrob} in our epigraph, which synthesizes stacks and operads and Frobenius structures into a beautiful and coherent view on mirror symmetry.
-His \cite{ManGauge} is rich with deep reformulations of supersymmetric field theory that connect it to complex geometry,
-and it is a source of many inspirations;
-we are also quite fond of \cite{BeiMan, ManNewDim} from roughly the same era.
-Anyone interested in mathematics and physics and, especially, their relationship will delight in~\cite{ManMP}.
+and his work --- beyond the beautiful results --- also gestured at rich possibilities for novel and powerful forms of geometry and physics and algebra.
+His writing summoned these possibilities out the realm of dreams and towards their current unfolding today into derived geometry and higher operadic structures.
+To whit, our epigraph comes from \cite{ManFrob}, which synthesizes stacks and operads and Frobenius structures into a beautiful and coherent view on mirror symmetry.
+But we could equally well have quoted his \cite{ManGauge}, which is rich with deep reformulations of supersymmetric field theory that connect it to complex geometry,
+or his \cite{BeiMan, ManNewDim} from roughly the same era.
+Anyone interested in mathematics and physics, and especially their relationship, will delight in~\cite{ManMP}.
 
 Beyond his writing, however, we have also benefited throughout our careers from the attitudes and atmosphere that his persona modeled and spread among mathematicians:
 a generosity with ideas but also poetry and literature, an exquisite care and sensitivity to organizing and explaining mathematics (and much else),
 and a kindness in conversation, where he brought his whole attention to you.
 While a graduate student at Northwestern, 
 OG had the unbelievable luck to overlap with Manin and thus to take several courses and have many conversations with him, 
-getting to witness the personification of the Platonic idea of mathematician as intellectual.
+getting to witness his personification of the Platonic idea of mathematician as intellectual in the broadest sense.
 We both spent extensive time, for example, at the Max Planck Institute for Mathematics,
 which is suffused with his spirit.
 We wish we had the chance to discuss the ideas from this survey with Manin;
@@ -258,8 +257,7 @@ we offer it as a small gift in gratitude for all he shared with us.
 This survey attempts to summarize the efforts and insights of a large body of researchers.
 So much of our understanding is shaped by conversations and interactions with them,
 and we thank them for their generosity with ideas and examples.
-We owe particular thanks to Kevin Costello, Richard Eager, Chris Elliott, Davide Gaiotto, Nik Garner, Vasily Gorbounov, Zhengping Gui, Benjamin Hennion, Mikhail Kapranov, Si Li,  Natalie Paquette, Nik Rozenblyum,  Ingmar Saberi,  Pavel Safronov,  Matt Szczesny, Ed Segal,  Johannes Walcher, Minghao Wang, and Jie Zhou.
-\owen{Kasia Budzik? Kulp?}
+We owe particular thanks to Kasia Budzik, Dylan Butson, Kevin Costello, Richard Eager, Chris Elliott, Davide Gaiotto, Nik Garner, Vasily Gorbounov, Zhengping Gui, Benjamin Hennion, Mikhail Kapranov, Justin Kulp, Si Li,  Natalie Paquette, Surya Raghavendran, Nick Rozenblyum,  Ingmar Saberi,  Pavel Safronov,  Matt Szczesny, Ed Segal,  Johannes Walcher, Minghao Wang, Jingxiang Wu, Philsang Yoo, and Jie Zhou.
 
 \section{Holomorphic field theories}
 \label{sec: HFT}
@@ -2151,8 +2149,7 @@ analogous to the list of examples after Theorem~\ref{thm: EllSaf}:
 \item The curved $\beta\gamma$ system for a Riemann surface into a complex manifold~$X$ was constructed in \cite{CosWG2}, and then \cite{GGW} demonstrates in detail how the vertex algebra of {\it chiral differential operators} of $X$ is recovered.
 \item In \cite{Wthesis} these methods were extended to holomorphic $\sigma$-models from $\CC^d$ to a complex manifold $X$, 
 yielding $d$-polydics algebras of chiral differential operators on~$X$.
-\item Costello and Li quantized BCOV theory, yielding a 3-polydiscs algebra for holomorphic gravity the Calabi-Yau 3-fold~$\CC^3$~\cite{CLbcov}.
-\owen{Please correct this ... I know there are subtleties here.}
+\item Costello and Li quantized BCOV theory, yielding a 3-polydiscs algebra for holomorphic gravity on the Calabi-Yau 3-fold~$\CC^3$~\cite{CLbcovOC}.
 \item The holomorphic twists of 4-dimensional supersymmetric Yang-Mills theories are constructed and analyzed in~\cite{EGW}.
 \end{itemize}
 A number of examples of topological-holomorphic theories have also been constructed, and these yield polydiscs algebras.
@@ -2473,7 +2470,7 @@ Then
 \int_{S^1} \cF = \cF (S^1) \simeq {\rm Hoch}_\bu(A, A_\sigma)
 \]
 where $A_\sigma$ denotes $A$ viewed a bimodule where $A$ acts from the left by multiplication and from the right by multiplication twisted by~$\sigma$.
-\owen{What do you think? Feel free to revise/tidy.}
+%\owen{What do you think? Feel free to revise/tidy.}
 
 
 \subsection{How factorization algebras appear in QFT}
