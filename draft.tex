@@ -89,6 +89,16 @@
 
 \epigraph{The mathematical language of classical physics is based upon real numbers \dots. The mathematical language of quantum physics is based upon complex numbers, and it would be natural to expect that the complex analytic and the algebraic geometry should replace the differential geometry of the classical period.}{Yuri Manin from the introduction of {\it Frobenius Manifolds, Quantum Cohomology, and Moduli Spaces}}
 
+\begin{abstract}
+Aimed at complex geometers and representation theorists, this survey explores higher dimensional analogues of the rich interplay between Riemann surfaces, Virasoro and Kac-Moody Lie algebras, and conformal blocks.
+We introduce a rich source of examples from physics --- field theories that are holomorphic in nature, such as holomorphic Chern-Simons theory --- and interpret them as (derived) moduli spaces in complex geometry;
+no comfort with physics is presumed.
+We then describe frameworks for quantizing such moduli spaces, 
+offering a systematic generalization of vertex algebras and conformal blocks via factorization algebras,
+and we explain how holomorphic field theories provide examples of these higher algebraic structures.
+We finish by describing how the conjecture of Seiberg duality predicts a surprising relationship between holomorphic gauge theories on algebraic surfaces and how it suggests analogues of the Hori-Tong dualities already studied by algebraic geometers.
+\end{abstract}
+
 \tableofcontents
 
 
@@ -1753,18 +1763,24 @@ To illustrate the idea, we take $d=2$ and draw a point in the configuration spac
 \begin{center}
   \begin{tikzpicture}
    \draw[semithick] (0,0) circle (2.5);
-   \draw[semithick] (0,0) circle (0.75);
+   \draw[semithick] (-0.5,0) circle (1);
    \draw[semithick] (1,1) circle (0.5);
-   \fill (0,0) circle (0.05) node [below right] {$0$};
-   \fill (1,1) circle (0.05) node [below right] {$p$};
+   \fill (-0.5,0) circle (0.05) node [below right] {$p$};
+   \fill (1,1) circle (0.05) node [below right] {$q$};
 \end{tikzpicture}
 \end{center}
-where there is a disc centered at the origin with larger radius and a disc centered at a point~$p$ with smaller radius.
+where the outermost disc is the unit disc,
+the input disc centered at the point~$p$ has larger radius, 
+and the input disc centered at the point~$q$ has smaller radius.
+By varying the locations of $p$ and $q$ and by varying the radii of the inner circles,
+we move through~$\Disc_2(2)$.
+%A bit of thought reveals that $\Disc_2(2)$ is homotopy equivalent to~$S^1$.
+
 This picture clearly resembles the ``pair of pants" product from two-dimensional topological field theories, but pressed flat.
 To a physicist, this picture encodes a way of multiplying an operator with support near 0 by an operator with support near $p$ to get an operator with support near the origin (although the support is larger);
 they use the term {\em operator product expansion} when they express this multiplication in formulas.
 
-This operad was invented by algebraic topologists to capture the rich structure of the $d$-fold based loop space $\Omega^d X$ of a pointed space $(X,x)$.
+This operad was invented by algebraic topologists to capture the rich algebraic structure of the $d$-fold based loop space $\Omega^d X$ of a pointed space $(X,x)$.
 (The usual homotopy group $\pi_d(X)$ is a shadow of this richer structure.)
 Thus there is a deep reservoir of tools and results for studying algebras over the little discs operads in algebraic topology.
 
@@ -1975,7 +1991,7 @@ so that one can extract ``modes'' (or Fourier components) from it.
 Examples like the free $\beta\gamma$ system and the Kac-Moody vertex algebras are analyzed in~\cite{CG1}.
 
 Here we will analyze the cohomology of the cooperad and what kind of information it encodes, 
-with a view towards motivating the relationship to vertex algebras.
+aimed at relating it to vertex algebras.
 The takeaway from the discussion below is that one can read off the modes $a_{(n)}$ that assemble into the vertex operator $Y(a,z)$ using a $1$-polydiscs algebra.
 
 It is easiest to work with extremal values of the radii.
@@ -2052,6 +2068,7 @@ This construction also gives insight into some challenges with the formalism of 
 such as the fact that one cannot simply compose vertex operators but must describe a 3-point product and track the geometry between the insertion points $0$, $z$, and $w$.
 For instance, to obtain the modes, we took the outgoing radius to be infinite,
 so it cannot be inserted into any finite radius disk.
+Nonetheless, the associativity of composition in $\PDisc_1$ casts the shadow of the Cousin property or Borcherds product in vertex algebras.
 
 \subsubsection{Examples related to vertex algebras} 
 
