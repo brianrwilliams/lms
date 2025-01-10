@@ -3,8 +3,6 @@
 \usepackage{macros}
 \usepackage{epigraph}
 
-\setlength\epigraphwidth{.8\textwidth}
-
 \addbibresource{survey.bib}
 
 \usepackage{setspace}
@@ -20,6 +18,25 @@
 \date{\today}
 \title{Holomorphic field theories and higher algebra}
 
+\def\g{{\mathfrak g}}
+\def\U{{\rm U}}
+\def\mc{\mathcal}
+\def\mcol{\, | \,}
+\def\ot{\otimes}
+\def\Disj{\operatorname{Disj}}
+\def\Open{\operatorname{Open}}
+\def\Vect{\operatorname{Vect}}
+\def\jou{{\mathtt{j}}}
+\def\bgamma{{\mathbf{\gamma}}}
+\def\bbeta{{\mathbf{\beta}}}
+\def\CDO{{\cC\cD}}
+\def\SU{{\rm SU}}
+\def\sfa{\mathsf{a}}
+\def\del{\partial}
+\def\til{\Tilde}
+\def\Sol{\text{Sol}}
+\def\Spec{\text{Spec}}
+\def\C{{\mathbb{C}}}
 
 \DeclareMathOperator{\Schw}{Schw}
 
@@ -28,6 +45,41 @@
 
 \def\brian#1{{\textcolor{blue!75!red}{BW: {#1}}}}
 \def\owen#1{{\textcolor{red!50!black}{OG: {#1}}}}
+
+%%% TIKZ STUFF
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{trees}
+\usetikzlibrary{matrix,arrows}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc,through}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{pgffor}
+
+%%Feynman diagrams
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\tikzset{
+	% >=stealth', %%  Uncomment for more conventional arrows
+    vector/.style={decorate, decoration={snake}, draw},
+	provector/.style={decorate, decoration={snake,amplitude=2.5pt}, draw},
+	antivector/.style={decorate, decoration={snake,amplitude=-2.5pt}, draw},
+    fermion/.style={draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{>}}}},
+    fermionbar/.style={draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{<}}}},
+    fermionnoarrow/.style={draw=black},
+    gluon/.style={decorate, draw=black,
+        decoration={coil,amplitude=4pt, segment length=5pt}},
+    scalar/.style={dashed,draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{>}}}},
+    scalarbar/.style={dashed,draw=black, postaction={decorate},
+        dwecoration={markings,mark=at position .55 with {\arrow[draw=black]{<}}}},
+    scalarnoarrow/.style={dashed,draw=black},
+    electron/.style={draw=black, postaction={decorate}/,
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{>}}}},
+	bigvector/.style={decorate, decoration={snake,amplitude=4pt}, draw},
+}
 
 \begin{document}
 
@@ -72,9 +124,13 @@ which lives on a Calabi-Yau 3-fold~$X$ and involves the moduli space $\RR\Bun_G(
 We do not assume the reader is versed in derived geometry and will offer motivations, glosses, and references throughout the survey.)
 
 As a more mundane example, let $\RR\Hol(X,Y)$ denote the derived moduli space of holomorphic maps from some complex manifold $X$ to another complex manifold $Y$.
-For $Y = V$ a complex vector space, this ``derived'' enhancement is simply the entire  cohomology $H^*(X, \cO) \otimes V$, and not just the global functions $H^0(X,\cO) \otimes V$.
-There are holomorphic theories whose derived moduli spaces are encoded by cohomology groups of holomorphic vector bundles.
-(A physicist might view them as analogs of scalar field theories.)
+(For $Y = V$ a complex vector space, a ``derived'' enhancement includes the higher dimensional  cohomology $H^*(X, \cO) \otimes V$.)
+In derived geometry one can take a ``shifted cotangent bundle'' $T^*[-1] \RR\Hol(X,V)$,
+and this derived moduli space encodes solutions to
+a field theory known as the $\beta\gamma$ system with target~$V$.\footnote{The name is silly: it is due to the original notation people used.}
+Every question one asks about the classical physics of the $\beta\gamma$ theory translates into a question about this moduli space.
+Other classes of examples are afforded by holomorphic variants of the AKSZ $\sigma$-models (such as the Poisson $\sigma$-model that appears in Kontsevich's construction of deformation quantization); 
+the relevant moduli space being the derived mapping space between complex manifolds. 
 
 A physical motivation comes from supersymmetric field theories, 
 which (loosely speaking) are theories on $\RR^n$ whose symmetries include not only the isometries of $\RR^n$, but an extension to a super Lie group known as a super Poincar\'e group.
@@ -87,17 +143,17 @@ even when they do not admit twists to TFTs \cite{CosSUSY}.
 As an example, four-dimensional minimally supersymmetric Yang-Mills theory admits no topological twist, 
 but it does admit a twist to holomorphic field theory whose moduli space is described, in part, by the moduli space of holomorphic $G$-bundles~$\RR \Bun_G(X)$. 
 
-It is natural to wonder how the myriad tools and computations deployed on a supersymmetric theory carry over to this holomorphic twist 
+It is natural to wonder how the myriad tools and computations deployed on a supersymmetric theory carry over to this twist 
 and, conversely, whether information can flow back from a holomorphically twisted theory to the original supersymmetric theory, 
-much as TFTs have enriched physicists' understanding of supersymmetric theories.
+much as TFTs have enriched the understanding of supersymmetric theories.
 In short, a holomorphic twist contains the ``holomorphic sector'' of the untwisted theory just as a topological twist contains its ``topological sector.''
 To aid translation between mathematics and physics, 
 it may be helpful to know that the role of derived geometry on the mathematical side is mirrored by the use of the BRST/BV formalism on the physics side;
 they are closely related and serve similar purposes.
 
-As a final motivational remark, we note that in one complex dimension (i.e., working on Riemann surfaces), 
+As a final motivational remark, we note in one complex dimension (i.e., working on Riemann surfaces), 
 holomorphic field theories appear as chiral conformal field theories (CFTs) on Riemann surfaces. 
-The study of CFTs --- whose manifestations in mathematics include vertex algebras, affine Lie algebras, nonabelian theta functions, and loop groups --- have had a strong impact in mathematics,
+The study of CFTs--- whose manifestations in mathematics include vertex algebras, affine Lie algebras, and loop groups --- have had a strong impact in mathematics,
 so it is natural to explore higher-dimensional analogs.
 So far, most mathematical effort in this direction has focused on (essentially) classical aspects of gauge theory,
 but the quantum aspects are profoundly interesting.
@@ -109,7 +165,7 @@ Over the last few decades there has been a vigorous dialogue between complex geo
 around topics like mirror symmetry, enumerative algebraic geometry, moduli of Calabi-Yau manifolds, the geometric Langlands program, and integrable systems, among others.
 Covering all these topics would be difficult.
 Our survey's focus will be narrow:
-it is upon higher dimensional versions of the relationship between complex geometry and algebraic structures like Lie algebras, Poisson algebras, and vertex algebras.
+it is upon higher dimensional versions of the relationship between geometry and algebraic structures like Lie algebras, Poisson algebras, and vertex algebras.
 We will emphasize analogies to TFTs (such as the Gerstenhaber algebras appearing in mirror symmetry) and CFTs (such as the affine Lie algebras relating to moduli of $G$-bundles on Riemann surfaces),
 but our primary interest is on complex manifolds above dimension one.
 Experience suggests that higher dimensions require higher algebra,
@@ -118,7 +174,7 @@ Thus differential graded (dg) algebras and categories,
 as well as fellow travelers like derived geometry, appear.
 
 A community has formed, involving both mathematicians and physicists, to explore and exploit these relationships,
-and it continues to grow as there is a lot to explore.
+and it continues to grow as there is a lot to explore here.
 Examples of efforts in this direction include \cite{PTVV}, \cite{FHK,HenKap}, \cite{CLbcov, LiVertex}, \cite{CGholography,BGKWY}, \cite{CostelloPaquette}, \cite{BBBDN}, and \cite{AlfonsiYoungHC},
 where our own background and interests (and unfortunately, our ignorance) have shaped this list.
 
@@ -185,13 +241,12 @@ or his \cite{BeiMan, ManNewDim} from roughly the same era.
 Anyone interested in mathematics and physics, and especially their relationship, will delight in~\cite{ManMP}.
 
 Beyond his writing, however, we have also benefited throughout our careers from the attitudes and atmosphere that his persona modeled and spread among mathematicians:
-a generosity with mathematical ideas but also the sharing of poetry and literature, 
-an exquisite care and sensitivity to organizing and explaining mathematics (and much else),
+a generosity with ideas but also poetry and literature, an exquisite care and sensitivity to organizing and explaining mathematics (and much else),
 and a kindness in conversation, where he brought his whole attention to you.
 While a graduate student at Northwestern, 
 OG had the unbelievable luck to overlap with Manin and thus to take several courses and have many conversations with him, 
 getting to witness his personification of the Platonic idea of mathematician as intellectual in the broadest sense.
-We also both spent extensive time, for example, at the Max Planck Institute for Mathematics,
+We both spent extensive time, for example, at the Max Planck Institute for Mathematics,
 which is suffused with his spirit.
 We wish we had the chance to discuss the ideas from this survey with Manin;
 we offer it as a small gift in gratitude for all he shared with us.
@@ -212,37 +267,20 @@ The Max Planck Institute for Mathematics has hosted both O.G. and B.W. throughou
 \section{Holomorphic field theories}
 \label{sec: HFT}
 
-We begin by explaining the basic framework of classical field theory, with a few examples.
-For a mathematician, the key point might be that physics suggests certain systems of equations are particularly important and studies their spaces of solutions, 
-often unearthing aspects that might not catch a mathematician's eye.
-In other words, physics can be a source of interesting moduli spaces.
-
-We then offer a quick overview of derived geometry, aiming to motivate and not to give a systematic treatment.
-For this survey, comfort with basic homological algebra and sheaf cohomology will suffice, 
-so we will explain how our terminology relates to those notions.
-In
-
-
-\subsection{A first pass}
+We begin by sketching what a classical field theory is, somewhat impressionistically, and then offer some concrete examples.
 
 In physics, a classical field theory is usually described in terms of a few pieces of data:
 \begin{itemize}
 \item a manifold $M$ that plays the role of ``spacetime,''
-\item a space of ``fields,'' typically the sections of some fiber bundle $F \to M$ or connections on a principal bundle on $M$, and
-\item a system of partial differential equations (PDE) for the fields, known as the ``equations of motion.''
+\item a space of fields, such as sections of some fiber bundle $F \to M$ or connections on a principal bundle on $M$, and
+\item a system of partial differential equations (PDE) for the fields, known as the equations of motion.
 \end{itemize}
 These equations of motion are variational: 
-the solutions to these PDE are the critical points, in a sense, of some function,
-called an ``action functional.''
-(Variational PDE are often called Euler-Lagrange equations.)
+they are the Euler-Lagrange equations of an action functional on the space of fields,
+so that solutions to these PDE are the critical points, in a sense, of some function.
 In practice an action functional is a formal expression, 
 written as an integral over $M$ of some polydifferential operator on the fields that takes values in densities of~$M$.
-
 A few examples will illuminate this sketch.
-We begin by giving two examples that depend on Riemannian geometry, 
-then give an example of a topological field theory,
-and finally give an example of a holomorphic field theory.
-All the equations that show up are well-known to geometers.
 
 \begin{eg}[Massless scalar field theory]
 \label{eg: massless scalar}
@@ -275,7 +313,7 @@ Its equation of motion is the nonlinear PDE
 Thus this scalar field theory has a more complicated, nonlinear moduli space of solutions.
 \end{eg}
 
-We now describe an example of a theory whose space of solutions is a moduli space of interest in geometric topology: character varieties.
+We now describe an example of a theory whose space of solutions is a moduli space of interest in geometric topology.
 
 \begin{eg}[Chern-Simons theory]
 Pick a compact Lie group $G$ and equip it with an invariant metric,
@@ -395,6 +433,370 @@ but for a detailed development, see \cite{Steffens23, Steffens24}.
 In Section~\ref{sec: pert dfn} we offer a sharp definition well-suited to perturbative field theory 
 (i.e., studying formal deformations of a fixed solution to the equations of motion),
 which we will use to produce examples of higher algebras.
+
+\subsection{More examples}
+\label{sec: ex of theories}
+
+In this section we describe several examples of holomorphic field theories,
+in the style we used for holomorphic Chern-Simons theory.
+Our aim here is to give a sense of how take physical ideas and find holomorphic analogs.
+
+In traditional physics there are a few basic types of field theories, 
+and they can be assembled into combinations,
+of which the Standard Model offers a nice example.
+The basic types are\footnote{For the experts, we remark that we focus above on the field content that motivates or characterizes, and mostly ignore (just for the moment!) issues like gauge transformations and the associated ghost fields.}
+\begin{itemize}
+\item {\em Scalar} field theories where the fields are maps from $M$ to a vector space $V$, or natural generalizations like taking sections of a vector bundle $V \to M$. The Higgs boson appears as part of a scalar field theory.
+\item {\em Fermionic} field theories where the fields are maps from $M$ to an {\em odd} vector space (in the sense of supermathematics), typically a section of a spinor bundle. Such theories are often used to describe matter, such as electron fields.
+\item $\sigma$-{\em models} where the fields are maps from $M$ into a manifold~$X$. (One can view these as nonlinear generalizations of scalar field theories.)
+\item {\em Gauge} field theories where the fields are connections on a principal $G$-bundle over $M$, with $G$ a Lie group. The Yang--Mills theories for the electroweak and strong forces are examples.
+\item {\em Gravity} theories where the fields are metrics on $M$, or something that similarly controls the geometry of $M$. Einstein's theory is a paradigmatic example.
+\end{itemize}
+The Standard Model involves the first three types,
+and the different fields interact in intricate ways.\footnote{For instance, the scalar and fermionic fields are sections of associated bundles to the principal bundle appearing in the gauge theory.}
+
+There are holomorphic versions of all these basic types, 
+and we now spell out some simple examples.\footnote{See \cite{DonThom} for a pioneering and illuminating discussion of how to find such analogs. See Nekrasov's thesis \cite{NekThesis} for a master physicist's view on holomorphic field theories, before he  reconfigured our understanding of much of gauge theory.}
+To give the readers --- possibly a mixed audience of mathematicians and physicists --- some feel for the examples, 
+we describe them in several ways: 
+in terms of PDE and action functionals but also as moduli spaces.
+We do not offer a thorough justification of the dictionary, for which see \cite{CosSUSY} for a wonderful and motivating exposition,
+and see \cite{AlfonsiYoung} and \cite{Steffens23} for recent work on this topic.
+
+For an example that mixes several types, see Section~\ref{sec: seiberg}
+where we discuss a holomorphic analog of quantum chromodynamics (QCD), the theory that governs the strong force and quarks.
+
+A motivation for us to explore holomorphic field theories is that physical insights and conjectures, such as Seiberg duality, translate into surprising predictions in the holomorphic setting,
+which is typically more accessible for mathematics.
+(One might also hope that progress in the holomorphic setting then feeds back useful insights to physics.)
+
+\subsubsection{Holomorphic scalar field theories}
+
+We met the standard example of a scalar field theory in Example~\ref{eg: massless scalar},
+where the field $\phi$ a smooth real-valued function on a manifold $M$
+and the equation of motion is $\Delta \phi = 0$,
+so that the moduli space of solutions is the space of harmonic functions on~$M$.
+
+A natural analogue is to have the field be a complex-valued function $\gamma$ on a complex manifold $M$ with an equation of motion $\dbar \gamma = 0$,
+so that the moduli space of solutions is the space of holomorphic functions on~$M$.
+
+Notice that we are shifting from a second-order differential operator $\Delta$ to first-order differential operators $\dbar$.
+Reworking a theory to express its equations of motion using first-order operators is sometimes called the first-order formalism.
+
+We will start with $M$ being a Riemann surface for simplicity.
+Consider the action functional
+\beqn
+\label{eqn: 1d betagamma}
+\int \beta \wedge \dbar \gamma
+\eeqn
+where $\beta$ is a $(1,0)$-form on $M$.%\footnote{It can be viewed as a Lagrange multiplier for the field $\del \Bar{\gamma}$, 
+%which we now think about as having its own degrees of freedom. 
+%\owen{I don't understand this use of the term Lagrange multiplier. Let's discuss!}}
+Note that this action functional also imposes the equation of motion $\dbar \beta = 0$,
+so that $\beta$ should be a holomorphic $1$-form.
+
+It should seem reasonable to view two solutions $\beta_1$ and $\beta_2$ as equivalent if they differ by a $\dbar$-exact term.
+If one imposes this equivalence relation (a kind of ``gauge symmetry''),
+then one is on the path towards setting up the theory in the Batalin-Vilkovisky formalism.
+
+Derived geometry is the mathematical version of BV formalism.
+From this point of view, the moduli space of solutions for this $\beta\gamma$-system is the shifted cotangent bundle
+\[
+T^*[-1] \Map_\dbar(M,\CC) = \RR\Gamma(M,\cO) \times \RR\Gamma(M,\Omega^1_{hol}),
+\]
+where $\Omega^1_{hol}$ is the sheaf of holomorphic one-forms.
+
+\begin{rmk}
+It is possible to directly relate the usual massless scalar field theory to this $\beta\gamma$-system as follows.
+
+When $M$ is two-dimensional, oriented and Riemannian,
+we can view $M$ as equipped with a complex structure.
+Every complex-valued harmonic function then decomposes as a sum of a holomorphic and anti-holomorphic function. 
+That is, if we complexify the scalar field $\phi$, 
+we can view it as a pair of fields $\gamma$ and $\Bar{\gamma}$,
+where the equation of motion of $\gamma$ is $\dbar \gamma = 0$ and the equation of motion is $\partial \Bar{\gamma} = 0$.
+These components are sometimes called the chiral and anti-chiral ``sectors.'' 
+
+The $\beta\gamma$-system also plays a role in superstring theory as the free field theory underlying bosonic ghosts corresponding to worldsheet supersymmetry~\cite[Chapter 3]{Polchinski}.
+There is likewise a complex-conjugate $\Bar{\beta}\Bar{\gamma}$-system encoding the antichiral sector of the free boson.
+To recover the full boson, one must couple the chiral and anti-chiral sectors.
+See \cite{Kapustin:2005pt,GGW} for more details.~\hfill$\Diamond$
+\end{rmk}
+
+This example admits a natural generalization to an arbitrary complex manifold.
+The input data is a complex manifold $X$ of arbitrary complex dimension $n$, 
+together with a holomorphic vector bundle $V$ on~$X$.
+(Above we took this bundle to be trivial.)
+Each field of the theory consists of a pair $(\gamma,\beta)$ where 
+\[
+\gamma \in \Gamma(X,V) \quad\text{and}\quad \beta \in \Omega^{n,n-1}(X,V^*) .
+\]
+The action functional is 
+\[
+\int_X \beta \wedge \dbar \gamma
+\]
+and the equations of motion are
+\[
+\dbar \gamma = 0 = \dbar \beta.
+\]
+Solutions consist of a holomorphic function $\gamma$ and a holomorphic $(n,n-1)$-form.
+We again suggest to identify solutions to the second equation $\dbar \beta = 0$ that differ by a $\dbar$-exact form.
+
+\subsubsection{Holomorphic fermions}
+
+It is straightforward to modify the example above to allow holomorphic {\it super} vector bundles,
+i.e., holomorphic $\ZZ/2$-graded vector bundles.
+
+For example, given a holomorphic vector bundle $V$ on a complex $n$-fold~$X$,
+let $\Pi V$ denote the parity-reversed vector bundle,
+i.e., we now give $V$ an odd grading.
+There is a $bc$ system that is the fermionic analog of the $\beta\gamma$ system.
+The fields of the theory consist of a pair $(c,b)$ where 
+\[
+c \in \Gamma(X,\Pi V) \quad\text{and}\quad b \in \Omega^{n,n-1}(X,\Pi V^*) .
+\]
+Thus, $b$ and $c$ are fermionic fields.
+The action functional is 
+\[
+\int_X b \wedge \dbar c,
+\]
+and the equations of motion are
+\[
+\dbar c = 0 = \dbar c.
+\]
+We again suggest to identify solutions to the equation $\dbar c = 0$ that differ by a $\dbar$-exact form.
+
+There is another class of fermionic theories that is quite interesting as they are more fundamental than the previous example.
+Let $X$ be a complex $n$-fold and $L \to X$ a line bundle on $X$ such that
+\begin{itemize}
+\item $n \equiv 1 \mod 4$ (i.e., $n=4k+1$ for some $k$) and
+\item $L$ is a square root of the canonical bundle $L^{\otimes 2} \cong K_X$.
+\end{itemize}
+A field is a section
+\[
+\psi \in \Omega^{0,2k}(X,\Pi L),
+\]
+and the action functional is
+\[ 
+\int_X \psi \wedge \dbar \psi .
+\]
+The equation of motion for this system is simply $\dbar \psi = 0$.
+To study the quantization of this system, it is necessary to identify solutions that differ by $\dbar$-exact terms (and identifying identifications that differ by $\dbar$-exact terms, etc.).
+
+From the point of view of derived geometry, the cochain complex
+\[
+\Omega^{0,\bullet}(X, \Pi L)[2k]
+\]
+presents a derived super stack that should be viewed as the moduli of solutions for this theory.
+
+\subsubsection{Holomorphic $\sigma$-models}
+
+A $\sigma$-model is a field theory whose space of fields contains a mapping space $\Map(M,N)$.
+When $N = \RR$, this mapping space simply becomes functions and so the $\sigma$-model reduces to a scalar field theory.
+
+There is a natural generalization of the $\beta\gamma$ system to a $\sigma$-model.
+Let $M$ be a complex $d$-manifold and let $N$ be a complex $n$-manifold.
+The fields are a pair $(\gamma, \beta)$ where
+\[
+\gamma \in \Map(M,N) \quad\text{and}\quad \beta \in \Omega^{n,n-1}(M,\gamma^* T^*_N) .
+\]
+Note that $\dbar \gamma$ lives in $\Omega^{0,1}(M, \gamma^* T_N)$, 
+a section of the pullback of the tangent bundle of the target.
+The action functional is 
+\[
+\int_X \beta \wedge \dbar \gamma,
+\]
+where we use the canonical evaluation pairing between the pullback of the tangent and cotangent bundles of the target.
+The equations of motion are
+\[
+\dbar \gamma = 0 = \dbar \beta,
+\]
+so that solutions consist of a holomorphic map $\gamma: M \to N$ and a holomorphic section $\beta$ of the pullback tangent bundle.
+As usual, we suggest to identify solutions to the equation $\dbar \beta = 0$ that differ by a $\dbar$-exact form.
+
+From derived geometry point of view, the moduli space of solutions for this $\beta\gamma$-system is the shifted cotangent bundle
+\[
+T^*[-1] \Map_\dbar(M,N) ,
+\]
+where $\Map_\dbar(M,N)$ is the derived stack of holomorphic maps $M \to N$.
+This is a natural space to study in complex geometry.
+
+\subsubsection{Holomorphic gauge theories}
+\label{sec: hol BF dfn}
+
+We have already met holomorphic Chern--Simons theory, which is defined on Calabi--Yau three-folds.
+There is a another class of holomorphic gauge theories 
+defined on any complex manifold, with no restriction on dimension 
+and without the need for a Calabi--Yau structure. 
+
+Let $X$ be a complex manifold of complex dimension~$n$.
+Fix a complex Lie group $G$ and an invariant symmetric bilinear form $\langle-,-\rangle$ on its Lie algebra~$\fg$.
+Fix a holomorphic principal $G$-bundle $P \to X$.
+The fields consist of pairs $(A,B)$ where 
+\[
+A \in \Omega^{0,1}(X, \fg_P)
+\] 
+where $\fg_P$ is the adjoint bundle of $P$ and
+\beqn
+B \in \Omega^{n,n-2}(X, \fg_P^*) ,
+\eeqn
+where $\fg_P^*$ is the coadjoint bundle of $P$. 
+The action functional is 
+\beqn
+S(A,B) = \int_X \langle B \wedge F_A \rangle
+\eeqn
+where $F_A$ is the curvature of the connection $A$.
+The equations of motion are
+\begin{align*}
+F_A^{0,2} = \dbar A + \frac12 [A,A] & = 0 \\
+ \dbar B + [A,B] & = 0.
+\end{align*}
+A solution to the first equation provides a new $\dbar$-connection 
+\[
+\dbar_A = \dbar_P + [A,-] 
+\]
+on $P$.
+A solution to the second equation is a $\dbar_A$-flat $(n,n-2)$-form-valued section of the coadjoint bundle.
+This theory is often called {\em holomorphic BF theory}, due to the integrand of the action functional.
+
+\begin{rmk}
+Notice that this action functional resembles the $\beta\gamma$ system, 
+with $A$ playing the role of $\gamma$ and $B$ playing the role of $\beta$.
+One also recognizes this action functional as a holomorphic analog of topological $BF$ theory. 
+\end{rmk}
+
+It is natural to view two connections as equivalent if they are related by a gauge transformation
+and to identify $B$-solutions that are related by a $\dbar_A$-exact term.
+From the point of view of derived geometry,
+we thus see holomorphic BF theory as describing the moduli space
+\[
+T^*[-1] \Bun_G(X),
+\]
+if we run over all principal bundles.
+
+\begin{rmk}
+Holomorphic BF theory exhibits some interesting properties at the quantum level,
+at least perturbatively.
+For example, in \cite[\S3.2]{BGKWWY} it is shown that on $X = \C^2$ 
+the perturbative quantization of holomorphic BF theory is almost a topological field theory. 
+More precisely, to first-order in perturbation theory, 
+the divergence-free component of the stress tensor is rendered cohomologically trivial at one-loop in perturbation theory.
+In other words, the quantum theory appears to be totally ``invariant'' under divergence-free vector fields,
+although not all vector fields (as in the case of a TFT).
+\end{rmk}
+
+It is possible to formulate holomorphic versions of higher abelian gauge theories,
+associated to moduli spaces of holomorphic $k$-gerbes with connection, see \cite{SWtensor,BWfive}.
+
+\subsubsection{Interlude on holomorphic field theories as chiral sectors}
+
+Every holomorphic theory we have introduced so far has a ``kinetic term'' (the quadratic term in the action functional) that only involves $\dbar$.
+Thus the linearized equations of motion always have the form $\dbar \phi = 0$,
+so that they manifestly relate to holomorphic functions (or sections).
+There are, however, holomorphic theories with a different flavor.
+
+\begin{comment}
+A typical scalar field theory is the free boson which exists on any Riemannian manifold $\Sigma$.
+Its action functional is simply $\int_\Sigma \phi \triangle \phi$ where $\phi$ is a smooth function on $\Sigma$.
+We saved this example for last since its holomorphic analog is a bit more elusive than the previous examples.
+\end{comment}
+
+We start with complex dimension~$1$.
+The usual scalar field theory can be written as 
+\[
+\int_{\Sigma} \phi \wedge \del \dbar \phi, 
+\]
+where $\Sigma$ is a Riemann surface.
+Using integration by parts, one can use instead the action functional
+\[
+\int_{\Sigma} \partial \phi \wedge \dbar \phi.
+\]
+This theory is not holomorphic, but we can force it to be holomorphic by demanding that $\dbar \phi = 0$.
+Importantly, this constraint is \textit{not} an equation of motion.
+When we impose this constraint, we can rewrite the action functional in terms of the $(1,0)$-form $\alpha \in \Omega^{1,0}(\Sigma)$ as
+\beqn\label{eqn:scalar1}
+\int_\Sigma \alpha \wedge \dbar (\del^{-1} \alpha) ,
+\eeqn
+where $\alpha$ plays the role of $\partial \phi$.
+In this theory the kinetic term is the whole action,
+and it has a rather different flavor from the examples we have seen so far.\footnote{This action functional is a precursor to the ``holomorphic gravity'' theory we meet next, 
+known as Kodaira--Spencer theory.}
+One might call this the {\em chiral sector} of the free scalar theory,
+as it consists of the complex-valued scalar fields satisfying a ``chiral'' constraint.
+
+There is a higher-dimensional analog of the chiral sector of the scalar field.
+Let $X$ be a complex manifold of dimension $2n+1$, i.e., odd.
+The fields are the $(n+1,n)$-forms $\alpha \in \Omega^{n+1,n}(X)$ that satisfy the constraint
+\beqn
+\del \alpha = 0.
+\eeqn
+(When $n=0$ and $X$ is simply a Riemann surface, 
+this constraint is automatic.)
+The action functional is $\int_X \alpha \dbar(\del^{-1} \alpha)$, the same as~\eqref{eqn:scalar1}.
+Generally, this theory is the holomorphic part of a higher-form scalar theory, with action
+\beqn
+\int_X \|C\|^2 \op{dvol} = \int_X \d C \wedge \star \d C , 
+\eeqn
+where $C \in \Omega^{2n+1}(X)$.
+For more details we refer to~\cite{GRW_WZW}.
+
+The reader may (and should) be concerned with the apparent ``non-local'' form of the action functional in \eqref{eqn:scalar1}.
+This can be made rigorous by cohomologically resolving the condition that $\alpha$ be $\del$-closed, rather than strictly imposing the constraint~\cite{CLbcov}.
+
+\subsubsection{Holomorphic ``gravity''}
+
+Any theory of gravity involves, in part, metric structure on a given manifold,
+so that solutions to the equations of motion produce metrics satisfying a PDE. 
+For a perturbative gravity theory,
+one studies deformations of some metric structure on a manifold.
+There is a holomorphic avatar of this situation: deformations of complex structure. 
+The first appearance of such a theory was motivated by topological string theory and involves complex structures on Calabi--Yau threefolds~\cite{BCOV}.
+It is known \textit{Kodaira--Spencer gravity} or the Kodaira-Spencer field theory,
+due to its relationship with deformation of complex structures.\footnote{Kodaira and Spencer's work was an important initial clue in the relationship between deformation theory and dg Lie algebras.}
+It has been pursued mathematically by Costello and Li as an approach to the quantum higher genus $B$-model, starting with \cite{CLbcov} and continuing in a series of papers.
+In these works, Costello and Li also provide a generalization of the theory that makes sense in any complex dimension; 
+here we focus just on the most familiar three-dimensional version.
+%The fields consist of pairs $(\mu, \eta)$ where
+%\begin{align*}
+%\mu & \in \Omega^{0,1}(X, \T_X) \\
+%\nu & \in \Omega^{0,n-2}(X, K_X \otimes \T^*_X) .
+%\end{align*}
+%The action functional is
+%\beqn
+%\int_X \left(\eta \dbar \mu + \frac12 \eta [\mu,\mu]\right)
+%\eeqn
+%where $[\mu, \mu] \in \Omega^{0,2} (X, \T_X)$ stands for the Lie bracket of holomorphic vector fields extended to the Dolbeault valued sections of $\T_X$ in the natural way.
+
+%In complex dimension $3$ there is a related theory, called Kodaira--Spencer theory, which only consists of the field $\mu$ describing the complex structure in the above example.
+Let $X$ be a complex threefold equipped with a Calabi--Yau structure; we denote by $\Omega$ the holomorphic volume form.
+The primary field of Kodaira-Spencer theory is 
+\beqn
+\mu \in \Omega^{0,1}(X,\T_X),
+\eeqn 
+a $(0,1)$-form  on $X$ with values in the holomorphic tangent bundle~$\T_X$.
+A constraint is imposed on these sections:
+we assume that $\mu$ preserve the holomorphic volume form $\Omega$, meaning 
+\[
+{\rm div}_\Omega(\mu) = 0,
+\]
+i.e., its divergence vanishes.
+In short, the fields are divergence-free vector fields.
+The classical equation of motion is 
+\beqn
+\dbar \mu + \frac12 [\mu,\mu]_{SN} = 0 ,
+\eeqn
+where $[-,-]_{SN}$ denotes here the Schouten--Nijenhuis bracket.\footnote{On vector fields, $[-,-]_{SN}$ is simply the Lie bracket, and it is the natural multilinear extension to polyvector fields.}
+The reader might recognize this equation as the Maurer--Cartan equation controlling deformations of complex structure $\dbar\rightsquigarrow \dbar + \mu$.
+Formulating the action functional to obtain this equation of motion is a little involved, 
+and we refer to \cite{CLbcov} for a systematic discussion.
+
+\begin{rmk}
+The kinetic term of this theory has the form
+\[
+\int_X \Omega \wedge \left[\Omega \vee \left(\frac12 \mu\, \dbar \del^{-1} \mu\right) \right]
+\]
+and hence resembles the chiral sector of the scalar, which we just discussed in the preceding example.
+\end{rmk}
 
 \subsection{Perturbative field theory as derived deformation theory}
 \label{sec: pert dfn}
@@ -2894,371 +3296,6 @@ There is an equivalence of $E_2$ algebras between
 This conjectured equivalence resembles Hori-Tong dualities.
 Note that it is often said that Hori-Tong dualities are like Seiberg dualities!
 We hope that insights from the study of these dualities --- such as the deep work on homological projective duality \cite{KuzHPD, ThomasHPD, Perry} --- might apply here, and also feed back towards holomorphic Seiberg duality.
-
-
-\section*{Appendix: A zoo of holomorphic field theories}
-\label{sec: ex of theories}
-
-In this section we describe several examples of holomorphic field theories,
-in the style we used for holomorphic Chern-Simons theory.
-Our aim here is to give a sense of how take physical ideas and find holomorphic analogs.
-
-In traditional physics there are a few basic types of field theories, 
-and they can be assembled into combinations,
-of which the Standard Model offers a nice example.
-The basic types are\footnote{For the experts, we remark that we focus above on the field content that motivates or characterizes, and mostly ignore (just for the moment!) issues like gauge transformations and the associated ghost fields.}
-\begin{itemize}
-\item {\em Scalar} field theories where the fields are maps from $M$ to a vector space $V$, or natural generalizations like taking sections of a vector bundle $V \to M$. The Higgs boson appears as part of a scalar field theory.
-\item {\em Fermionic} field theories where the fields are maps from $M$ to an {\em odd} vector space (in the sense of supermathematics), typically a section of a spinor bundle. Such theories are often used to describe matter, such as electron fields.
-\item $\sigma$-{\em models} where the fields are maps from $M$ into a manifold~$X$. (One can view these as nonlinear generalizations of scalar field theories.)
-\item {\em Gauge} field theories where the fields are connections on a principal $G$-bundle over $M$, with $G$ a Lie group. The Yang--Mills theories for the electroweak and strong forces are examples.
-\item {\em Gravity} theories where the fields are metrics on $M$, or something that similarly controls the geometry of $M$. Einstein's theory is a paradigmatic example.
-\end{itemize}
-The Standard Model involves the first three types,
-and the different fields interact in intricate ways.\footnote{For instance, the scalar and fermionic fields are sections of associated bundles to the principal bundle appearing in the gauge theory.}
-
-There are holomorphic versions of all these basic types, 
-and we now spell out some simple examples.\footnote{See \cite{DonThom} for a pioneering and illuminating discussion of how to find such analogs. See Nekrasov's thesis \cite{NekThesis} for a master physicist's view on holomorphic field theories, before he  reconfigured our understanding of much of gauge theory.}
-To give the readers --- possibly a mixed audience of mathematicians and physicists --- some feel for the examples, 
-we describe them in several ways: 
-in terms of PDE and action functionals but also as moduli spaces.
-We do not offer a thorough justification of the dictionary, for which see \cite{CosSUSY} for a wonderful and motivating exposition,
-and see \cite{AlfonsiYoung} and \cite{Steffens23} for recent work on this topic.
-
-For an example that mixes several types, see Section~\ref{sec: seiberg}
-where we discuss a holomorphic analog of quantum chromodynamics (QCD), the theory that governs the strong force and quarks.
-
-A motivation for us to explore holomorphic field theories is that physical insights and conjectures, such as Seiberg duality, translate into surprising predictions in the holomorphic setting,
-which is typically more accessible for mathematics.
-(One might also hope that progress in the holomorphic setting then feeds back useful insights to physics.)
-
-\subsubsection{Holomorphic scalar field theories}
-
-We met the standard example of a scalar field theory in Example~\ref{eg: massless scalar},
-where the field $\phi$ a smooth real-valued function on a manifold $M$
-and the equation of motion is $\Delta \phi = 0$,
-so that the moduli space of solutions is the space of harmonic functions on~$M$.
-
-A natural analogue is to have the field be a complex-valued function $\gamma$ on a complex manifold $M$ with an equation of motion $\dbar \gamma = 0$,
-so that the moduli space of solutions is the space of holomorphic functions on~$M$.
-
-Notice that we are shifting from a second-order differential operator $\Delta$ to first-order differential operators $\dbar$.
-Reworking a theory to express its equations of motion using first-order operators is sometimes called the first-order formalism.
-
-We will start with $M$ being a Riemann surface for simplicity.
-Consider the action functional
-\beqn
-\label{eqn: 1d betagamma}
-\int \beta \wedge \dbar \gamma
-\eeqn
-where $\beta$ is a $(1,0)$-form on $M$.%\footnote{It can be viewed as a Lagrange multiplier for the field $\del \Bar{\gamma}$, 
-%which we now think about as having its own degrees of freedom. 
-%\owen{I don't understand this use of the term Lagrange multiplier. Let's discuss!}}
-Note that this action functional also imposes the equation of motion $\dbar \beta = 0$,
-so that $\beta$ should be a holomorphic $1$-form.
-
-It should seem reasonable to view two solutions $\beta_1$ and $\beta_2$ as equivalent if they differ by a $\dbar$-exact term.
-If one imposes this equivalence relation (a kind of ``gauge symmetry''),
-then one is on the path towards setting up the theory in the Batalin-Vilkovisky formalism.
-
-Derived geometry is the mathematical version of BV formalism.
-From this point of view, the moduli space of solutions for this $\beta\gamma$-system is the shifted cotangent bundle
-\[
-T^*[-1] \Map_\dbar(M,\CC) = \RR\Gamma(M,\cO) \times \RR\Gamma(M,\Omega^1_{hol}),
-\]
-where $\Omega^1_{hol}$ is the sheaf of holomorphic one-forms.
-
-\begin{rmk}
-It is possible to directly relate the usual massless scalar field theory to this $\beta\gamma$-system as follows.
-
-When $M$ is two-dimensional, oriented and Riemannian,
-we can view $M$ as equipped with a complex structure.
-Every complex-valued harmonic function then decomposes as a sum of a holomorphic and anti-holomorphic function. 
-That is, if we complexify the scalar field $\phi$, 
-we can view it as a pair of fields $\gamma$ and $\Bar{\gamma}$,
-where the equation of motion of $\gamma$ is $\dbar \gamma = 0$ and the equation of motion is $\partial \Bar{\gamma} = 0$.
-These components are sometimes called the chiral and anti-chiral ``sectors.'' 
-
-The $\beta\gamma$-system also plays a role in superstring theory as the free field theory underlying bosonic ghosts corresponding to worldsheet supersymmetry~\cite[Chapter 3]{Polchinski}.
-There is likewise a complex-conjugate $\Bar{\beta}\Bar{\gamma}$-system encoding the antichiral sector of the free boson.
-To recover the full boson, one must couple the chiral and anti-chiral sectors.
-See \cite{Kapustin:2005pt,GGW} for more details.~\hfill$\Diamond$
-\end{rmk}
-
-This example admits a natural generalization to an arbitrary complex manifold.
-The input data is a complex manifold $X$ of arbitrary complex dimension $n$, 
-together with a holomorphic vector bundle $V$ on~$X$.
-(Above we took this bundle to be trivial.)
-Each field of the theory consists of a pair $(\gamma,\beta)$ where 
-\[
-\gamma \in \Gamma(X,V) \quad\text{and}\quad \beta \in \Omega^{n,n-1}(X,V^*) .
-\]
-The action functional is 
-\[
-\int_X \beta \wedge \dbar \gamma
-\]
-and the equations of motion are
-\[
-\dbar \gamma = 0 = \dbar \beta.
-\]
-Solutions consist of a holomorphic function $\gamma$ and a holomorphic $(n,n-1)$-form.
-We again suggest to identify solutions to the second equation $\dbar \beta = 0$ that differ by a $\dbar$-exact form.
-
-\subsubsection{Holomorphic fermions}
-
-It is straightforward to modify the example above to allow holomorphic {\it super} vector bundles,
-i.e., holomorphic $\ZZ/2$-graded vector bundles.
-
-For example, given a holomorphic vector bundle $V$ on a complex $n$-fold~$X$,
-let $\Pi V$ denote the parity-reversed vector bundle,
-i.e., we now give $V$ an odd grading.
-There is a $bc$ system that is the fermionic analog of the $\beta\gamma$ system.
-The fields of the theory consist of a pair $(c,b)$ where 
-\[
-c \in \Gamma(X,\Pi V) \quad\text{and}\quad b \in \Omega^{n,n-1}(X,\Pi V^*) .
-\]
-Thus, $b$ and $c$ are fermionic fields.
-The action functional is 
-\[
-\int_X b \wedge \dbar c,
-\]
-and the equations of motion are
-\[
-\dbar c = 0 = \dbar c.
-\]
-We again suggest to identify solutions to the equation $\dbar c = 0$ that differ by a $\dbar$-exact form.
-
-There is another class of fermionic theories that is quite interesting as they are more fundamental than the previous example.
-Let $X$ be a complex $n$-fold and $L \to X$ a line bundle on $X$ such that
-\begin{itemize}
-\item $n \equiv 1 \mod 4$ (i.e., $n=4k+1$ for some $k$) and
-\item $L$ is a square root of the canonical bundle $L^{\otimes 2} \cong K_X$.
-\end{itemize}
-A field is a section
-\[
-\psi \in \Omega^{0,2k}(X,\Pi L),
-\]
-and the action functional is
-\[ 
-\int_X \psi \wedge \dbar \psi .
-\]
-The equation of motion for this system is simply $\dbar \psi = 0$.
-To study the quantization of this system, it is necessary to identify solutions that differ by $\dbar$-exact terms (and identifying identifications that differ by $\dbar$-exact terms, etc.).
-
-From the point of view of derived geometry, the cochain complex
-\[
-\Omega^{0,\bullet}(X, \Pi L)[2k]
-\]
-presents a derived super stack that should be viewed as the moduli of solutions for this theory.
-
-\subsubsection{Holomorphic $\sigma$-models}
-
-A $\sigma$-model is a field theory whose space of fields contains a mapping space $\Map(M,N)$.
-When $N = \RR$, this mapping space simply becomes functions and so the $\sigma$-model reduces to a scalar field theory.
-
-There is a natural generalization of the $\beta\gamma$ system to a $\sigma$-model.
-Let $M$ be a complex $d$-manifold and let $N$ be a complex $n$-manifold.
-The fields are a pair $(\gamma, \beta)$ where
-\[
-\gamma \in \Map(M,N) \quad\text{and}\quad \beta \in \Omega^{n,n-1}(M,\gamma^* T^*_N) .
-\]
-Note that $\dbar \gamma$ lives in $\Omega^{0,1}(M, \gamma^* T_N)$, 
-a section of the pullback of the tangent bundle of the target.
-The action functional is 
-\[
-\int_X \beta \wedge \dbar \gamma,
-\]
-where we use the canonical evaluation pairing between the pullback of the tangent and cotangent bundles of the target.
-The equations of motion are
-\[
-\dbar \gamma = 0 = \dbar \beta,
-\]
-so that solutions consist of a holomorphic map $\gamma: M \to N$ and a holomorphic section $\beta$ of the pullback tangent bundle.
-As usual, we suggest to identify solutions to the equation $\dbar \beta = 0$ that differ by a $\dbar$-exact form.
-
-From derived geometry point of view, the moduli space of solutions for this $\beta\gamma$-system is the shifted cotangent bundle
-\[
-T^*[-1] \Map_\dbar(M,N) ,
-\]
-where $\Map_\dbar(M,N)$ is the derived stack of holomorphic maps $M \to N$.
-This is a natural space to study in complex geometry.
-
-\subsubsection{Holomorphic gauge theories}
-\label{sec: hol BF dfn}
-
-We have already met holomorphic Chern--Simons theory, which is defined on Calabi--Yau three-folds.
-There is a another class of holomorphic gauge theories 
-defined on any complex manifold, with no restriction on dimension 
-and without the need for a Calabi--Yau structure. 
-
-Let $X$ be a complex manifold of complex dimension~$n$.
-Fix a complex Lie group $G$ and an invariant symmetric bilinear form $\langle-,-\rangle$ on its Lie algebra~$\fg$.
-Fix a holomorphic principal $G$-bundle $P \to X$.
-The fields consist of pairs $(A,B)$ where 
-\[
-A \in \Omega^{0,1}(X, \fg_P)
-\] 
-where $\fg_P$ is the adjoint bundle of $P$ and
-\beqn
-B \in \Omega^{n,n-2}(X, \fg_P^*) ,
-\eeqn
-where $\fg_P^*$ is the coadjoint bundle of $P$. 
-The action functional is 
-\beqn
-S(A,B) = \int_X \langle B \wedge F_A \rangle
-\eeqn
-where $F_A$ is the curvature of the connection $A$.
-The equations of motion are
-\begin{align*}
-F_A^{0,2} = \dbar A + \frac12 [A,A] & = 0 \\
- \dbar B + [A,B] & = 0.
-\end{align*}
-A solution to the first equation provides a new $\dbar$-connection 
-\[
-\dbar_A = \dbar_P + [A,-] 
-\]
-on $P$.
-A solution to the second equation is a $\dbar_A$-flat $(n,n-2)$-form-valued section of the coadjoint bundle.
-This theory is often called {\em holomorphic BF theory}, due to the integrand of the action functional.
-
-\begin{rmk}
-Notice that this action functional resembles the $\beta\gamma$ system, 
-with $A$ playing the role of $\gamma$ and $B$ playing the role of $\beta$.
-One also recognizes this action functional as a holomorphic analog of topological $BF$ theory. 
-\end{rmk}
-
-It is natural to view two connections as equivalent if they are related by a gauge transformation
-and to identify $B$-solutions that are related by a $\dbar_A$-exact term.
-From the point of view of derived geometry,
-we thus see holomorphic BF theory as describing the moduli space
-\[
-T^*[-1] \Bun_G(X),
-\]
-if we run over all principal bundles.
-
-\begin{rmk}
-Holomorphic BF theory exhibits some interesting properties at the quantum level,
-at least perturbatively.
-For example, in \cite[\S3.2]{BGKWWY} it is shown that on $X = \C^2$ 
-the perturbative quantization of holomorphic BF theory is almost a topological field theory. 
-More precisely, to first-order in perturbation theory, 
-the divergence-free component of the stress tensor is rendered cohomologically trivial at one-loop in perturbation theory.
-In other words, the quantum theory appears to be totally ``invariant'' under divergence-free vector fields,
-although not all vector fields (as in the case of a TFT).
-\end{rmk}
-
-It is possible to formulate holomorphic versions of higher abelian gauge theories,
-associated to moduli spaces of holomorphic $k$-gerbes with connection, see \cite{SWtensor,BWfive}.
-
-\subsubsection{Interlude on holomorphic field theories as chiral sectors}
-
-Every holomorphic theory we have introduced so far has a ``kinetic term'' (the quadratic term in the action functional) that only involves $\dbar$.
-Thus the linearized equations of motion always have the form $\dbar \phi = 0$,
-so that they manifestly relate to holomorphic functions (or sections).
-There are, however, holomorphic theories with a different flavor.
-
-\begin{comment}
-A typical scalar field theory is the free boson which exists on any Riemannian manifold $\Sigma$.
-Its action functional is simply $\int_\Sigma \phi \triangle \phi$ where $\phi$ is a smooth function on $\Sigma$.
-We saved this example for last since its holomorphic analog is a bit more elusive than the previous examples.
-\end{comment}
-
-We start with complex dimension~$1$.
-The usual scalar field theory can be written as 
-\[
-\int_{\Sigma} \phi \wedge \del \dbar \phi, 
-\]
-where $\Sigma$ is a Riemann surface.
-Using integration by parts, one can use instead the action functional
-\[
-\int_{\Sigma} \partial \phi \wedge \dbar \phi.
-\]
-This theory is not holomorphic, but we can force it to be holomorphic by demanding that $\dbar \phi = 0$.
-Importantly, this constraint is \textit{not} an equation of motion.
-When we impose this constraint, we can rewrite the action functional in terms of the $(1,0)$-form $\alpha \in \Omega^{1,0}(\Sigma)$ as
-\beqn\label{eqn:scalar1}
-\int_\Sigma \alpha \wedge \dbar (\del^{-1} \alpha) ,
-\eeqn
-where $\alpha$ plays the role of $\partial \phi$.
-In this theory the kinetic term is the whole action,
-and it has a rather different flavor from the examples we have seen so far.\footnote{This action functional is a precursor to the ``holomorphic gravity'' theory we meet next, 
-known as Kodaira--Spencer theory.}
-One might call this the {\em chiral sector} of the free scalar theory,
-as it consists of the complex-valued scalar fields satisfying a ``chiral'' constraint.
-
-There is a higher-dimensional analog of the chiral sector of the scalar field.
-Let $X$ be a complex manifold of dimension $2n+1$, i.e., odd.
-The fields are the $(n+1,n)$-forms $\alpha \in \Omega^{n+1,n}(X)$ that satisfy the constraint
-\beqn
-\del \alpha = 0.
-\eeqn
-(When $n=0$ and $X$ is simply a Riemann surface, 
-this constraint is automatic.)
-The action functional is $\int_X \alpha \dbar(\del^{-1} \alpha)$, the same as~\eqref{eqn:scalar1}.
-Generally, this theory is the holomorphic part of a higher-form scalar theory, with action
-\beqn
-\int_X \|C\|^2 \op{dvol} = \int_X \d C \wedge \star \d C , 
-\eeqn
-where $C \in \Omega^{2n+1}(X)$.
-For more details we refer to~\cite{GRW_WZW}.
-
-The reader may (and should) be concerned with the apparent ``non-local'' form of the action functional in \eqref{eqn:scalar1}.
-This can be made rigorous by cohomologically resolving the condition that $\alpha$ be $\del$-closed, rather than strictly imposing the constraint~\cite{CLbcov}.
-
-\subsubsection{Holomorphic ``gravity''}
-
-Any theory of gravity involves, in part, metric structure on a given manifold,
-so that solutions to the equations of motion produce metrics satisfying a PDE. 
-For a perturbative gravity theory,
-one studies deformations of some metric structure on a manifold.
-There is a holomorphic avatar of this situation: deformations of complex structure. 
-The first appearance of such a theory was motivated by topological string theory and involves complex structures on Calabi--Yau threefolds~\cite{BCOV}.
-It is known \textit{Kodaira--Spencer gravity} or the Kodaira-Spencer field theory,
-due to its relationship with deformation of complex structures.\footnote{Kodaira and Spencer's work was an important initial clue in the relationship between deformation theory and dg Lie algebras.}
-It has been pursued mathematically by Costello and Li as an approach to the quantum higher genus $B$-model, starting with \cite{CLbcov} and continuing in a series of papers.
-In these works, Costello and Li also provide a generalization of the theory that makes sense in any complex dimension; 
-here we focus just on the most familiar three-dimensional version.
-%The fields consist of pairs $(\mu, \eta)$ where
-%\begin{align*}
-%\mu & \in \Omega^{0,1}(X, \T_X) \\
-%\nu & \in \Omega^{0,n-2}(X, K_X \otimes \T^*_X) .
-%\end{align*}
-%The action functional is
-%\beqn
-%\int_X \left(\eta \dbar \mu + \frac12 \eta [\mu,\mu]\right)
-%\eeqn
-%where $[\mu, \mu] \in \Omega^{0,2} (X, \T_X)$ stands for the Lie bracket of holomorphic vector fields extended to the Dolbeault valued sections of $\T_X$ in the natural way.
-
-%In complex dimension $3$ there is a related theory, called Kodaira--Spencer theory, which only consists of the field $\mu$ describing the complex structure in the above example.
-Let $X$ be a complex threefold equipped with a Calabi--Yau structure; we denote by $\Omega$ the holomorphic volume form.
-The primary field of Kodaira-Spencer theory is 
-\beqn
-\mu \in \Omega^{0,1}(X,\T_X),
-\eeqn 
-a $(0,1)$-form  on $X$ with values in the holomorphic tangent bundle~$\T_X$.
-A constraint is imposed on these sections:
-we assume that $\mu$ preserve the holomorphic volume form $\Omega$, meaning 
-\[
-{\rm div}_\Omega(\mu) = 0,
-\]
-i.e., its divergence vanishes.
-In short, the fields are divergence-free vector fields.
-The classical equation of motion is 
-\beqn
-\dbar \mu + \frac12 [\mu,\mu]_{SN} = 0 ,
-\eeqn
-where $[-,-]_{SN}$ denotes here the Schouten--Nijenhuis bracket.\footnote{On vector fields, $[-,-]_{SN}$ is simply the Lie bracket, and it is the natural multilinear extension to polyvector fields.}
-The reader might recognize this equation as the Maurer--Cartan equation controlling deformations of complex structure $\dbar\rightsquigarrow \dbar + \mu$.
-Formulating the action functional to obtain this equation of motion is a little involved, 
-and we refer to \cite{CLbcov} for a systematic discussion.
-
-\begin{rmk}
-The kinetic term of this theory has the form
-\[
-\int_X \Omega \wedge \left[\Omega \vee \left(\frac12 \mu\, \dbar \del^{-1} \mu\right) \right]
-\]
-and hence resembles the chiral sector of the scalar, which we just discussed in the preceding example.
-\end{rmk}
 
 \printbibliography
 
