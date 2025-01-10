@@ -13,7 +13,7 @@
 \usepackage{parskip}
 \setlength{\parindent}{18pt}
 \setlength{\parindent}{0cm}
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 
 
 \author{Owen Gwilliam and Brian R. Williams}
@@ -249,6 +249,10 @@ All the equations that show up are well-known to geometers.
 Let $M$ be a smooth manifold and equip it with a Riemannian metric~$g$.
 Let $\Delta_g$ denote the associated Laplace-Beltrami operator, 
 and let $\d{\rm vol}_g$ denote the associated volume form.
+In the case $M = \RR^n$ with the Euclidean inner product, the Laplace-Beltrami operator is the differential operator
+\[
+\Delta = \frac{\partial^2}{\partial x_1^2} + \cdots + \frac{\partial^2}{\partial x_n^2}.
+\]
 Let the space of fields be the smooth functions $C^\infty(M)$.
 A smooth function $\phi$ is called, in physics, a {\em scalar} field.
 The action functional
@@ -389,6 +393,11 @@ which is here the moduli stack of holomorphic principal $G$-bundles whose underl
 For a systematic introduction to classical field theory, 
 in a style amenable to a complex geometer,
 we suggest \cite{DeligneFreed}.
+In the appendix we describe many more examples of holomorphic field theories and describe their spaces of solutions using the language of derived geometry, which we discuss next.
+
+\subsection{A dose of derived geometry}
+\label{sec: DAG}
+
 Recently there is an effort to revisit field theory with insights from derived geometry.
 See \cite{AlfonsiYoung} for motivation and overview, 
 but for a detailed development, see \cite{Steffens23, Steffens24}.
