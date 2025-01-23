@@ -422,7 +422,7 @@ This linear setting generalizes in two directions:
 Both of these generalizations pass back to linear algebra in natural ways:
 \begin{itemize}
 \item at a point on a manifold or variety, the tangent space offers the best linear approximation to the space at that point (where it makes sense), and
-\item given a (ochain complex $(V,d)$, any cohomology group $H_k(V)$ is a vector space encoding essential information about the complex.
+\item given a cochain complex $(V,d)$, any cohomology group $H_k(V)$ is a vector space encoding essential information about the complex.
 \end{itemize} 
 As a first pass at derived geometry, one might say that it seeks a common generalization of nonlinear geometry and homological algebra.
 With slightly more precision, one might ask for a notion of space such that each point has a tangent {\em complex}, i.e., the linearization of a point yields a cochain complex.
@@ -461,7 +461,7 @@ and we will emphasize the first style of describing a space.
 Recall that the $n$-dimensional vector space $V = \CC^n$ determines a complex variety $\AA^n$ called an affine space.
 All the essential information is encoded in its algebra of functions
 \[
-\Gamma(\AA^n, \cO) = \Sym(V^*) = \CC[x_1,\ldots, x_n],
+\Gamma(\AA^n, \cO) = \CC[x_1,\ldots, x_n] = \Sym(V^*)
 \]
 a polynomial ring in $n$ generators, where the generators form a basis for the dual vector space $V^*$ to~$V$.
 We can view $\AA^n$ as a ringed space whose underlying topological space is $\CC^n$ with the Zariski topology
@@ -492,31 +492,32 @@ Similarly, we could pick an integer $k$ and consider the graded vector bundle $V
 In particular, $V[1]$ is in degree~$-1$.)
 But we can also talk about the total space of a vector bundle $V \to X$ as a complex variety in its own right.
 In derived geometry, we can view this graded vector bundle $V[k] \to X$ as a derived space.
-Its graded algebra of functions is 
+Its graded algebra of functions is (by definition)
 \[
 \Gamma(X,\Sym_{\cO_X}(\cV^*[-k])) = \bigoplus_{n \geq 0} \Gamma(X, \Sym^n_{\cO_X}(\cV^*[-k]))
 \] 
-where $V^*$ is the dual vector bundle, $\cV^*$ denotes the sheaf of sections of this vector bundle, and the symmetric powers involve the Koszul sign rule.
-That is, if $k$ is odd, then 
-\[
-\Sym^n(W[k]) \cong (\Lambda^n W)[kn]
-\]
-for $W$ concentrated in degree~0.
+where $V^*$ is the dual vector bundle, $\cV^*$ denotes the sheaf of sections of this vector bundle, and the symmetric powers again involve the Koszul sign rule.
+%That is, if $k$ is odd, then 
+%\[
+%\Sym^n(W[k]) \cong (\Lambda^n W)[kn]
+%\]
+%for $W$ concentrated in degree~0.
 Notice that when $k = 0$, we recover the usual ring of functions for the total space of~$V \to X$.
 
-This class of examples appears often in our paper.
+This class of examples appears often throughout this paper.
 In particular, we often work with $T[k]X$, the total space of the shifted tangent bundle $TX[k] \to X$ of a complex variety~$X$,
 or with $T^*[k]X$, the total space of the shifted cotangent bundle of a complex variety~$X$.
 
 These shifted cotangent bundles admit natural {\em shifted} symplectic structures,
 just as the unshifted cotangent bundle $T^*X$ has a natural symplectic structure.
-The symplectic form is exactly the same, locally of the form
+The symplectic form on $T^*[k] X$ is given by exactly the same formula, locally
 \[
 \omega = \sum_j \d p_j \wedge \d x_j,
 \]
 where the $x_j$ are coordinates on $X$ and the $p_j = \partial/\partial x_j$ are the associated coordinates for cotangent direction.
-Here the $p_j$ have cohomological degree $-k$ [CHECK], so $\omega$ is a 2-form (in the de Rham complex of $T^*[k]X$) of cohomological degree~$-k$.
-(Note that the cohomological degree need not coincide with the form degree.)
+The difference with the standard case is that now the $p_j$ carry cohomological degree $k$, so $\omega$ is a 2-form (in the de Rham complex of $T^*[k]X$) of cohomological degree~$k$.
+(Note that in a derived setting cohomological degree need not coincide with form degree.)
+One says that $T^* [k] X$ is a $k$-shifted symplectic space.
 Implicit in this discussion is the fact that one can construct a de Rham complex with dg commutative algebra\footnote{The 1-forms are built by taking the derived functor of K\"ahler differentials, and the rest follows the usual process (e.g., take exterior powers over the dg commutative algebra, using the derived tensor product). The de Rham complex will be bigraded, with a form grading and a cohomological grading.}
 and that many maneuvers and definitions carry over {\it mutatis mutandis}.
 
@@ -539,7 +540,7 @@ In algebraic geometry, if we have two schemes mapping to another scheme
 \[
 \Spec(A) \to \Spec(C) \leftarrow \Spec(B),
 \]
-then the fiber product is
+then the fiber product, or intersection, is
 \[
 \Spec(A) \times_{\Spec(C)} \Spec(B) = \Spec(A \otimes_C B).
 \]
@@ -551,12 +552,12 @@ H^0(A \otimes_C^{\LL} B) = A \otimes_C B
 \]
 but there are sometimes ``derived corrections'' in negative cohomological degrees.
 
-For example, given a {\em non}\/regular sequence of irreducible [????] polynomials $(f_1,\ldots,f_k) \in \CC[x_1,\ldots,x_n]$, 
+For example, given a {\em non}\/regular sequence of irreducible [????] polynomials $\mathbf{f} = (f_1,\ldots,f_k) \in \CC[x_1,\ldots,x_n]$, 
 then the underived intersection of the hypersurfaces $V_j = \{f_j = 0\}$ is some quite singular subvariety $X$ of $\AA^n$.
 A resolution of its algebra $\CC[X]$ over the polynomials is very complicated.
-By contrast the derived intersection is encoded by the Koszul complex determined by the $f$s,
+By contrast the derived intersection is encoded by the Koszul complex determined by the sequence $\mathbf{f}$,
 which is a very simple cochain complex (in fact, a semi-free dg commutative algebra). 
-It remembers information about the hypersurfaces (and hence the $f$s), whereas the underived intersection only knows about the ideal generated by the~$f$s.
+It remembers information about the hypersurfaces (and hence $\mathbf{f}$), whereas the underived intersection only knows about the ideal generated by~$\mathbf{f}$.
 In this sense it is a ``smarter'' or less ``forgetful'' limit.
 KOSZUL HOMOLOGY?
 
@@ -641,6 +642,9 @@ A {\em holomorphic local Lie algebra} on a complex manifold $X$ is
 \end{itemize}
 This data is required to endow $(\cV^{hol}, Q^{hol}, [\cdot,\cdot])$ with the structure of a sheaf of dg Lie algebras.
 \end{dfn}
+
+In quantum field theory, it is essential that the operator $Q^{hol}$ be elliptic.
+We will not explicitly mention any consequences of ellipticity in this note, so we will not emphasize this condition.
 
 Here is a quick example, as motivation.
 Let $X$ be a Calabi-Yau 3-fold equipped with a holomorphic principal $G$-bundle $P \to X$.
