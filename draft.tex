@@ -35,7 +35,7 @@
 
 \maketitle
 
-\epigraph{The mathematical language of classical physics is based upon real numbers \dots. The mathematical language of quantum physics is based upon complex numbers, and it would be natural to expect that the complex analytic and the algebraic geometry should replace the differential geometry of the classical period.}{Yuri Manin from the introduction of {\it Frobenius Manifolds, Quantum Cohomology, and Moduli Spaces}}
+\epigraph{The mathematical language of classical physics is based upon real numbers \dots. The mathematical language of quantum physics is based upon complex numbers, and it would be natural to expect that the complex analytic and the algebraic geometry should replace the differential geometry of the classical period.}{Yuri Manin from the introduction of {\it Frobenius Manifolds,\\ Quantum Cohomology, and Moduli Spaces}}
 
 \begin{abstract}
 Aimed at complex geometers and representation theorists, this survey explores higher dimensional analogues of the rich interplay between Riemann surfaces, Virasoro and Kac-Moody Lie algebras, and conformal blocks.
@@ -220,7 +220,9 @@ In other words, physics can be a source of interesting moduli spaces.
 We then offer a quick overview of derived geometry, aiming to motivate and not to give a systematic treatment.
 For this survey, comfort with basic homological algebra and sheaf cohomology will suffice, 
 so we will explain how our terminology relates to those notions.
-In
+In Section~\ref{sec: pert dfn} we offer a sharp definition well-suited to perturbative field theory 
+(i.e., studying formal deformations of a fixed solution to the equations of motion),
+which we will use to produce examples of higher algebras.
 
 
 \subsection{A first pass}
@@ -393,17 +395,216 @@ which is here the moduli stack of holomorphic principal $G$-bundles whose underl
 For a systematic introduction to classical field theory, 
 in a style amenable to a complex geometer,
 we suggest \cite{DeligneFreed}.
-In the appendix we describe many more examples of holomorphic field theories and describe their spaces of solutions using the language of derived geometry, which we discuss next.
+In the appendix (see Section~\ref{sec: ex of theories}) we describe many more examples of holomorphic field theories and describe their spaces of solutions using the language of derived geometry, which we discuss next.
+
+\begin{rmk}
+Recently there is a substantial effort to revisit field theory with insights from derived geometry.
+See \cite{AlfonsiYoung} for motivation and overview, 
+but for a detailed development, see \cite{Steffens23, Steffens24}.
+\end{rmk}
 
 \subsection{A dose of derived geometry}
 \label{sec: DAG}
 
-Recently there is an effort to revisit field theory with insights from derived geometry.
-See \cite{AlfonsiYoung} for motivation and overview, 
-but for a detailed development, see \cite{Steffens23, Steffens24}.
-In Section~\ref{sec: pert dfn} we offer a sharp definition well-suited to perturbative field theory 
-(i.e., studying formal deformations of a fixed solution to the equations of motion),
-which we will use to produce examples of higher algebras.
+Derived geometry is a sophisticated subject but the motivations and first steps are surprisingly simple,
+as we now attempt to explain.
+In this paper we only need the reader to understand the rough outline of derived geometry to follow our discussion,
+but there are several, much more substantial expositions now available.
+(For algebraic geometers consider \cite{TV, Lurie}; for symplectic or Poisson geometers consider \cite{PTVV, Safronov}; for differential geometers consider \cite{Joyce, Carchedi, Steffens}; and for representation theorists consider \cite{BZNad, GaiRoz, Raskin}.)
+
+Before saying anything technical, we indicate how derived geometry generalizes more familiar topics.
+The starting place is the theory of vector spaces, which is very concrete and provides a rich source of both geometric intuitions and algebraic tools.
+This linear setting generalizes in two directions:
+\begin{itemize}
+\item the geometry of nonlinear spaces, whether in the style of algebraic geometry or in the style of differential geometry, and
+\item homological algebra, or differential graded vector spaces (and modules, sheaves, and so on).
+\end{itemize} 
+Both of these generalizations pass back to linear algebra in natural ways:
+\begin{itemize}
+\item at a point on a manifold or variety, the tangent space offers the best linear approximation to the space at that point (where it makes sense), and
+\item given a (ochain complex $(V,d)$, any cohomology group $H_k(V)$ is a vector space encoding essential information about the complex.
+\end{itemize} 
+As a first pass at derived geometry, one might say that it seeks a common generalization of nonlinear geometry and homological algebra.
+With slightly more precision, one might ask for a notion of space such that each point has a tangent {\em complex}, i.e., the linearization of a point yields a cochain complex.
+
+Note that there will be different versions of derived geometry, depending on the kind of nonlinear geometry concerned: 
+there is derived algebraic geometry, derived differential geometry, derived symplectic geometry, and so on.
+A desideratum of derived geometry is then that 
+\begin{itemize}
+\item an ordinary scheme or manifold (or whatever class of underived space) should provide an example of a derived space, and
+\item any cochain complex should provide an example of a derived space.
+\end{itemize}
+That is, derived geometry contains both the domains it seeks to generalize.
+
+There is an interesting subtlety here: quasi-isomorphic cochain complexes should present the same derived space, just as they present the ``same'' object in homological algebra.
+This requirement means that the true home for homological algebra is the derived category,
+obtained by localizing cochain complexes at quasi-isomorphisms.
+Similarly, the true home of derived geometry is also typically presented somewhat indirectly,
+with different descriptions provided of the same derived space.
+To do this carefully requires the theory of $\infty$-categories (or related tools like model categories).
+We will not dwell on this aspect of the subject,
+but we hope the comparison with the derived category gives a sense of the issues involved.
+(It also explains the terminology: it is the same use of ``derived'' for category and for geometry.)
+
+To present a derived space, two approaches are used and they mimic familiar methods for manifolds or schemes:
+\begin{itemize}
+\item a topological space equipped with a structure sheaf, here a sheaf of dg commutative algebras, or
+\item a functor of points, i.e., as a moduli space.
+\end{itemize}
+The devil is in the details of pinning down, for example, what kind of sheaves appear as structure sheaves or what the source and target categories appear for the functor of points,
+but let us postpone dealing with the devil and discuss a few examples used in this paper.
+We will use complex algebraic geometry as our model for nonlinear spaces, for simplicity,
+and we will emphasize the first style of describing a space.
+
+\subsubsection{Derived baby steps}
+
+Recall that the $n$-dimensional vector space $V = \CC^n$ determines a complex variety $\AA^n$ called an affine space.
+All the essential information is encoded in its algebra of functions
+\[
+\Gamma(\AA^n, \cO) = \Sym(V^*) = \CC[x_1,\ldots, x_n],
+\]
+a polynomial ring in $n$ generators, where the generators form a basis for the dual vector space $V^*$ to~$V$.
+We can view $\AA^n$ as a ringed space whose underlying topological space is $\CC^n$ with the Zariski topology
+and whose structure sheaf is obtained by localizing the polynomial ring accordingly.
+In derived geometry, a $\ZZ$-graded vector space 
+\[
+V = ( \ldots, V^{-1}, V^0, V^1, \ldots)
+\]
+should likewise present a derived space.
+(We assume $V$ has finite total dimension, for simplicity.) 
+The essential information is encoded in its graded algebra of functions
+\[
+\Sym(V^*) = \bigoplus_{n \geq 0} \Sym^n(V^*)
+\]
+where $V^*$ is the dual graded vector space with $(V^*)^k = (V^{-k})^*$ and where the symmetric powers involve the Koszul sign rule.
+That is, if $k$ is odd, then the $n$th symmetric power $\Sym^n(V^k)$ is concentrated in degree~$nk$ 
+but it is isomorphic to the $n$th exterior power of the {\em un}\/graded vector space~$V^k$.
+In other words, $\Sym(V^*)$ is a graded-commutative version of a polynomial ring.
+One can view this derived ``affine space'' as a ringed space whose underlying topological space is $V^0$ with the Zariski topology 
+and whose structure sheaf is obtained by localizing $\Sym(V^*)$ accordingly.
+
+Let's complicate this example a little.
+
+Let $X$ be a smooth complex variety, and let $V \to X$ be an algebraic vector bundle.
+It can be viewed as a family of complex vector spaces parametrized by~$X$.
+Similarly, we could pick an integer $k$ and consider the graded vector bundle $V[k] \to X$ whose fiber $V[k]_x$ at a point $x \in X$ is the shift by $k$ by the fiber $V_x$.
+(For us, $V[k]$ is placed in degree $-k$ so that $V[k]^m = V^{k+m}$. 
+In particular, $V[1]$ is in degree~$-1$.)
+But we can also talk about the total space of a vector bundle $V \to X$ as a complex variety in its own right.
+In derived geometry, we can view this graded vector bundle $V[k] \to X$ as a derived space.
+Its graded algebra of functions is 
+\[
+\Gamma(X,\Sym_{\cO_X}(\cV^*[-k])) = \bigoplus_{n \geq 0} \Gamma(X, \Sym^n_{\cO_X}(\cV^*[-k]))
+\] 
+where $V^*$ is the dual vector bundle, $\cV^*$ denotes the sheaf of sections of this vector bundle, and the symmetric powers involve the Koszul sign rule.
+That is, if $k$ is odd, then 
+\[
+\Sym^n(W[k]) \cong (\Lambda^n W)[kn]
+\]
+for $W$ concentrated in degree~0.
+Notice that when $k = 0$, we recover the usual ring of functions for the total space of~$V \to X$.
+
+This class of examples appears often in our paper.
+In particular, we often work with $T[k]X$, the total space of the shifted tangent bundle $TX[k] \to X$ of a complex variety~$X$,
+or with $T^*[k]X$, the total space of the shifted cotangent bundle of a complex variety~$X$.
+
+These shifted cotangent bundles admit natural {\em shifted} symplectic structures,
+just as the unshifted cotangent bundle $T^*X$ has a natural symplectic structure.
+The symplectic form is exactly the same, locally of the form
+\[
+\omega = \sum_j \d p_j \wedge \d x_j,
+\]
+where the $x_j$ are coordinates on $X$ and the $p_j = \partial/\partial x_j$ are the associated coordinates for cotangent direction.
+Here the $p_j$ have cohomological degree $-k$ [CHECK], so $\omega$ is a 2-form (in the de Rham complex of $T^*[k]X$) of cohomological degree~$-k$.
+(Note that the cohomological degree need not coincide with the form degree.)
+Implicit in this discussion is the fact that one can construct a de Rham complex with dg commutative algebra\footnote{The 1-forms are built by taking the derived functor of K\"ahler differentials, and the rest follows the usual process (e.g., take exterior powers over the dg commutative algebra, using the derived tensor product). The de Rham complex will be bigraded, with a form grading and a cohomological grading.}
+and that many maneuvers and definitions carry over {\it mutatis mutandis}.
+
+So far we have only worked with graded-commutative algebras,
+as a stepping stone in the derived direction.
+Let's now see something fully derived.
+
+\subsubsection{Derived intersections and stacky quotients}
+
+Algebraic geometry has already experienced a vast extension of the notion of space via {\it stacks}.
+These appeared, in essence, to provide a more pliable and informative approach to taking a quotient of a scheme (or algebraic space) by a group action,
+and this framework is the appropriate place for studying important moduli spaces, like moduli of algebraic curves or vector bundles.
+From a rather abstract point of view, we replace the category of schemes by a bigger category where the colimits (a quotient is an example of a colimit) remember more information.
+Derived geometry arises by asking for a (yet) bigger category where the {\it limits} remember more information.
+The key geometric example of a limit is the intersection of two subvarieties in an ambient variety (i.e., the fiber product);
+derived geometry changes what the intersection is.
+
+The essential idea is very simple.
+In algebraic geometry, if we have two schemes mapping to another scheme
+\[
+\Spec(A) \to \Spec(C) \leftarrow \Spec(B),
+\]
+then the fiber product is
+\[
+\Spec(A) \times_{\Spec(C)} \Spec(B) = \Spec(A \otimes_C B).
+\]
+Derived algebraic geometry says that the derived fiber product should be encoded by the derived tensor product~$A \otimes_C^{\LL} B$ instead.
+(This insight was first sharply articulated by Serre~\cite{}.)
+Thus the underlying underived intersection is encoded in 
+\[
+H^0(A \otimes_C^{\LL} B) = A \otimes_C B
+\]
+but there are sometimes ``derived corrections'' in negative cohomological degrees.
+
+For example, given a {\em non}\/regular sequence of irreducible [????] polynomials $(f_1,\ldots,f_k) \in \CC[x_1,\ldots,x_n]$, 
+then the underived intersection of the hypersurfaces $V_j = \{f_j = 0\}$ is some quite singular subvariety $X$ of $\AA^n$.
+A resolution of its algebra $\CC[X]$ over the polynomials is very complicated.
+By contrast the derived intersection is encoded by the Koszul complex determined by the $f$s,
+which is a very simple cochain complex (in fact, a semi-free dg commutative algebra). 
+It remembers information about the hypersurfaces (and hence the $f$s), whereas the underived intersection only knows about the ideal generated by the~$f$s.
+In this sense it is a ``smarter'' or less ``forgetful'' limit.
+KOSZUL HOMOLOGY?
+
+Notice that such derived tensor products will naturally produce dg commutative algebras concentrated in nonpositive degrees,
+as they have the nature of resolutions.
+We thus generalize commutative algebras $\CAlg$ by nonpositively graded dg commutative algebras~$\CAlg^{\dg}_{\leq 0}$, rather than the bigger category of all dg commutative algebras~$\CAlg^{\dg}$.
+The category of derived affine schemes is defined, then, as the category of nonpositively graded dg commutative algebras, up to quasi-isomorphism.\footnote{In fact, one works with the $\infty$-category, which is not just the localization at quasi-isomorphisms, but remembers how quasi-isomorphisms relate up to homotopy, etc.}
+Each derived affine scheme $\dSpec(A)$ has a truncation to an affine scheme, which is $\Spec(H^0(A))$.
+A derived scheme can be understood as ringed space patched together from derived affine schemes.\footnote{Up to some subtleties, one can think of derived manifolds in terms of manifolds equipped with structure sheaves that are nonpositively graded dg commutative algebras built from $C^\infty$-modules.}
+
+Derived stacks then arise from derived schemes by intelligently taking quotients and, more generally, colimits.
+Recall that a scheme in algebraic geometry has a functor of points valued in $\Sets$ while a stack has a functor of points valued in $\Gpds$, 
+the category of groupoids.\footnote{Every equivalence relation determines a groupoid where the relation gives the morphisms. This groupoid knows a lot more than the underlying quotient set, which is known as the ``connected components'' of this groupoid. In this way, groupoids offer a refinement of traditional quotients.}
+More accurately we work with groupoids localized at Morita equivalence ({\it cf.} quasi-isomorphism of cochain complexes and the derived category).
+In derived geometry we push farther and work with topological spaces up to weak homotopy equivalences (or simplicial sets up to weak homotopy equivalence),
+which remembers more;
+every topological space has an underlying fundamental groupoid.
+Thus the nature of derived geometry is indicated by the (co)domains of the functors of points:
+\[
+\begin{tikzcd}[column sep=large]
+\CAlg^{\dg}_{\leq 0} \arrow[dd, bend right=40, "H^0"'] \arrow[rr, "\text{derived stack}"] & & \Spaces \arrow[d, bend left=40, "\Pi_{\leq 1}"]\\
+&& \Gpds \arrow[d, bend left=40,  "\pi_0"] \arrow[u, hook]\\
+\CAlg \arrow[uu, hook] \arrow[rr, "\text{scheme}" near end] \arrow[urr, "\text{stack}"] && \Sets \arrow[u, hook]
+\end{tikzcd}
+\]
+(This diagram is purloined from the wonderful (and short!) ``What is derived algebraic geometry?''~\cite{VezAMS}.)
+A derived stack admits a truncation to an ordinary stack by restricting the domain category and mapping down to groupoids as the codomain category.
+
+To ``derive'' a notion from traditional geometry, one typically needs to recast it using the functor of points and then ponder how its features might generalize to derived affine schemes and~$\Spaces$.
+By now many such notions have received such a treatment, including analytic geometry~\cite{} and Poisson geometry~\cite{}.
+
+\subsubsection{On deriving classical field theory}
+
+The basic ingredients of classical field theory are a ``spacetime'' manifold $M$, the ``fields'' given by sections of some fiber bundle $E \to M$, and a system of PDE on the fields known as the ``equations of motion.''
+The essential goal is to describe the space of solutions to these equations of motion.
+All these features admit derived versions: one can replace the manifold $M$ by a derived space $\MM$ of some kind and the fiber bundle by a map of derived spaces $\EE \to \MM$ and the fields by sections thereof.
+The theory of differential equations admits a generalization too (perhaps most cleanly by using the perspective of $D$-modules and its outgrowths).
+In practice, as we'll see in this paper, many of the moduli spaces are variants of spaces already studied by geometers.
+In fact, they are often ``derived enhancements'' of well-known moduli spaces: we work with a derived stack whose truncation is a stack already known.
+For example, holomorphic Chern-Simons theory is best viewed as studying the derived enhancement of the moduli space of $G$-bundles on a Calabi-Yau 3-fold~$M$, where $G$ is a reductive complex algebraic group.
+
+There is an important feature that we have not discussed so far:
+the equations of motion arise from ``variational calculus.''
+Loosely speaking, these equations identify the critical points of some function on the space of fields.
+When approached from a derived perspective, 
+the space of solutions typically obtains a natural $-1$-shifted symplectic structure.\footnote{The derived critical locus of a function $f$ on an ordinary smooth variety $X$ is the derived intersection inside $T^*X$ of the graph of $\d f$ and the zero section. The structure sheaf can be modeled by functions $\cO(T^*[-1]X)$ equipped with a differential determined by~$f$. The shifted symplectic structure on $T^*[-1]X$ carries over to this derived critical locus.}
+Hence derived field theories lead to $-1$-shifted symplectic derived stacks,
+and we have examples like $T^*[-1]\Bun_G(M)$ or~$T^*[-1] \RR\Map(M,X)$.
 
 \subsection{Perturbative field theory as derived deformation theory}
 \label{sec: pert dfn}
@@ -541,6 +742,8 @@ Such definitions can be found in~\cite{CG2}.
 
 This section offers a bridge from theories of physical interest to holomorphic field theories,
 and hence may be of particular interest to physicists.
+Those without a strong interest in physical examples can skip this section without issue.
+
 In his work on Donaldson invariants of four-manifolds, Witten introduced the idea of a topological twist of a supersymmetric field theory \cite{WittenTwist}.
 The topological twist of a supersymmetric field theory (when it exists) can be attacked mathematically using the path integral.
 A key feature, however, of topological field theories is that they are amenable to a functorial paradigm.
