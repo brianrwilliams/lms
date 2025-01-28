@@ -69,7 +69,8 @@ and one might hope that the quantization of this moduli space is equally interes
 A well-known example is holomorphic Chern-Simons theory,
 which lives on a Calabi-Yau 3-fold~$X$ and involves the moduli space $\RR\Bun_G(X)$ of holomorphic principal $G$-bundles on~$X$.
 (We add the prefix $\RR$ because it is best to use the {\em derived} moduli space.
-We do not assume the reader is versed in derived geometry and will offer motivations, glosses, and references throughout the survey.)
+We do not assume the reader is versed in derived geometry and will offer motivations, glosses, and references throughout the survey.
+See Section~\ref{sec: DAG} for a start.)
 
 As a more mundane example, let $\RR\Hol(X,Y)$ denote the derived moduli space of holomorphic maps from some complex manifold $X$ to another complex manifold $Y$.
 For $Y = V$ a complex vector space, this ``derived'' enhancement is simply the entire  cohomology $H^*(X, \cO) \otimes V$, and not just the global functions $H^0(X,\cO) \otimes V$.
@@ -234,9 +235,10 @@ In physics, a classical field theory is usually described in terms of a few piec
 \item a system of partial differential equations (PDE) for the fields, known as the ``equations of motion.''
 \end{itemize}
 These equations of motion are variational: 
-the solutions to these PDE are the critical points, in a sense, of some function,
-called an ``action functional.''
-(Variational PDE are often called Euler-Lagrange equations.)
+the solutions to these PDE are the critical points of some function on the space of fields,
+called an ``action functional,''
+and such PDE are often called Euler-Lagrange equations.
+(One must take a little care in interpreting the claim of taking critical points.)
 In practice an action functional is a formal expression, 
 written as an integral over $M$ of some polydifferential operator on the fields that takes values in densities of~$M$.
 
@@ -261,7 +263,7 @@ The action functional
 \[
 S(\phi) = \int_M \phi \Delta_g \phi \, \d{\rm vol}_g
 \]
-corresponds to the equation of motion $\Delta_g \phi = 0$. 
+yields the equation of motion $\Delta_g \phi = 0$. 
 Thus this scalar field theory has the moduli space of {\em harmonic functions} as its space of solutions.
 \end{eg}
 
@@ -300,11 +302,14 @@ which can be expressed equivalently as the Maurer-Cartan equation
 \d A + \frac{1}{2} [A,A] = 0.
 \]
 These equations arise as the Euler-Lagrange equation for the action functional
+\[
+S(A) = \int_M CS(A)
+\]
+where $CS$ denotes the Chern-Simons form
 \beqn
 \label{eqn:CS}
-CS(A) = \frac12 \kappa(A, \d A) + \frac16 \kappa(A, [A,A]),
+CS(A) = \frac12 \kappa(A, \d A) + \frac16 \kappa(A, [A,A]).
 \eeqn
-the integral of a Chern-Simons form.
 Hence this theory is known as {\em Chern-Simons theory}.\footnote{Note that $M$ needs to be an oriented 3-manifold for this action functional to make sense.
 The equation of motion exists for a principal bundle on any manifold of any dimension,
 but it is only variational for oriented 3-manifolds.}
@@ -410,9 +415,9 @@ Derived geometry is a sophisticated subject but the motivations and first steps 
 as we now attempt to explain.
 In this paper we only need the reader to understand the rough outline of derived geometry to follow our discussion,
 but there are several, much more substantial expositions now available.
-(For algebraic geometers consider \cite{TV, Lurie}; for symplectic or Poisson geometers consider \cite{PTVV, Safronov}; for differential geometers consider \cite{Joyce, Carchedi, Steffens}; and for representation theorists consider \cite{BZNad, GaiRoz, Raskin}.)
+(For algebraic geometers consider \cite{Toen,PridEug}; for symplectic or Poisson geometers consider \cite{PTVV, Safronov}; for differential geometers consider \cite{Joyce}; and for representation theorists consider \cite{BZNad, GaiRoz, Raskin}.)
 
-Before saying anything technical, we indicate how derived geometry generalizes more familiar topics.
+Before saying anything technical, we indicate how derived geometry generalizes more familiar bits of mathematics.
 The starting place is the theory of vector spaces, which is very concrete and provides a rich source of both geometric intuitions and algebraic tools.
 This linear setting generalizes in two directions:
 \begin{itemize}
@@ -545,21 +550,19 @@ then the fiber product, or intersection, is
 \Spec(A) \times_{\Spec(C)} \Spec(B) = \Spec(A \otimes_C B).
 \]
 Derived algebraic geometry says that the derived fiber product should be encoded by the derived tensor product~$A \otimes_C^{\LL} B$ instead.
-(This insight was first sharply articulated by Serre~\cite{}.)
 Thus the underlying underived intersection is encoded in 
 \[
 H^0(A \otimes_C^{\LL} B) = A \otimes_C B
 \]
 but there are sometimes ``derived corrections'' in negative cohomological degrees.
 
-For example, given a {\em non}\/regular sequence of irreducible [????] polynomials $\mathbf{f} = (f_1,\ldots,f_k) \in \CC[x_1,\ldots,x_n]$, 
+For example, given a {\em non}\/regular sequence of irreducible polynomials $\mathbf{f} = (f_1,\ldots,f_k) \in \CC[x_1,\ldots,x_n]$, 
 then the underived intersection of the hypersurfaces $V_j = \{f_j = 0\}$ is some quite singular subvariety $X$ of $\AA^n$.
 A resolution of its algebra $\CC[X]$ over the polynomials is very complicated.
 By contrast the derived intersection is encoded by the Koszul complex determined by the sequence $\mathbf{f}$,
 which is a very simple cochain complex (in fact, a semi-free dg commutative algebra). 
 It remembers information about the hypersurfaces (and hence $\mathbf{f}$), whereas the underived intersection only knows about the ideal generated by~$\mathbf{f}$.
 In this sense it is a ``smarter'' or less ``forgetful'' limit.
-KOSZUL HOMOLOGY?
 
 Notice that such derived tensor products will naturally produce dg commutative algebras concentrated in nonpositive degrees,
 as they have the nature of resolutions.
@@ -3134,7 +3137,7 @@ The Standard Model involves the first three types,
 and the different fields interact in intricate ways.\footnote{For instance, the scalar and fermionic fields are sections of associated bundles to the principal bundle appearing in the gauge theory.}
 
 There are holomorphic versions of all these basic types, 
-and we now spell out some simple examples.\footnote{See \cite{DonThom} for a pioneering and illuminating discussion of how to find such analogs. See Nekrasov's thesis \cite{NekThesis} for a master physicist's view on holomorphic field theories, before he  reconfigured our understanding of much of gauge theory.}
+and we now spell out some simple examples.\footnote{See \cite{DonThom} for a pioneering and illuminating discussion of how to find such analogs, by mathematicians. See Nekrasov's thesis \cite{NekThesis} for a master physicist's view on holomorphic field theories, before he  reconfigured our understanding of much of gauge theory.}
 To give the readers --- possibly a mixed audience of mathematicians and physicists --- some feel for the examples, 
 we describe them in several ways: 
 in terms of PDE and action functionals but also as moduli spaces.
