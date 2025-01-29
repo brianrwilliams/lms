@@ -426,15 +426,27 @@ This linear setting generalizes in two directions:
 \end{itemize} 
 Both of these generalizations pass back to linear algebra in natural ways:
 \begin{itemize}
-\item at a point on a manifold or variety, the tangent space offers the best linear approximation to the space at that point (where it makes sense), and
-\item given a cochain complex $(V,d)$, any cohomology group $H_k(V)$ is a vector space encoding essential information about the complex.
+\item at a point $x$ on a manifold $M$ (or variety), the tangent space $T_xM$ offers the best linear approximation to the space at that point (where it makes sense), and
+\item given a cochain complex $(V,d)$, a cohomology group $H^0(V)$ is a vector space encoding essential information about the complex.
 \end{itemize} 
 As a first pass at derived geometry, one might say that it seeks a common generalization of nonlinear geometry and homological algebra.
-With slightly more precision, one might ask for a notion of space such that each point has a tangent {\em complex}, i.e., the linearization of a point yields a cochain complex.
-
+With slightly more precision, one might ask for a notion of derived space $M$ such that
+\begin{itemize} 
+\item each point $x$ in $M$ has a tangent {\em complex} $\TT_x M$, i.e., the linearization of a point yields a cochain complex, and
+\item $M$ should have a truncation $\tau(M)$ to an ordinary space.
+\end{itemize}
 Note that there will be different versions of derived geometry, depending on the kind of nonlinear geometry concerned: 
 there is derived algebraic geometry, derived differential geometry, derived symplectic geometry, and so on.
-A desideratum of derived geometry is then that 
+
+\begin{center}
+\begin{tikzcd}
+&\text{linear algebra} \arrow[squiggly, dr] \arrow[squiggly, dl] &\\
+\text{homological algebra} \arrow[squiggly, dr] \arrow[ur, bend left, "H^0"] &&\text{nonlinear geometry}\arrow[squiggly, dl] \arrow[ul, bend right, "\rm{T}"']\\
+&\text{derived geometry} \arrow[ul, bend left, "\TT"] \arrow[ur, bend right, "\tau"']&
+\end{tikzcd}
+\end{center}
+
+A related desideratum of derived geometry is that 
 \begin{itemize}
 \item an ordinary scheme or manifold (or whatever class of underived space) should provide an example of a derived space, and
 \item any cochain complex should provide an example of a derived space.
@@ -586,11 +598,11 @@ Thus the nature of derived geometry is indicated by the (co)domains of the funct
 \CAlg \arrow[uu, hook] \arrow[rr, "\text{scheme}" near end] \arrow[urr, "\text{stack}"] && \Sets \arrow[u, hook]
 \end{tikzcd}
 \]
-(This diagram is purloined from the wonderful (and short!) ``What is derived algebraic geometry?''~\cite{VezAMS}.)
+(This diagram is purloined from Vezzosi's wonderful (and short!) ``What is \dots a derived stack?''~\cite{VezAMS}.)
 A derived stack admits a truncation to an ordinary stack by restricting the domain category and mapping down to groupoids as the codomain category.
 
 To ``derive'' a notion from traditional geometry, one typically needs to recast it using the functor of points and then ponder how its features might generalize to derived affine schemes and~$\Spaces$.
-By now many such notions have received such a treatment, including analytic geometry~\cite{} and Poisson geometry~\cite{}.
+By now many such notions have received such a treatment, including analytic geometry~\cite{Porta} and Poisson geometry~\cite{CPTVV}.
 
 \subsubsection{On deriving classical field theory}
 
@@ -599,14 +611,14 @@ The essential goal is to describe the space of solutions to these equations of m
 All these features admit derived versions: one can replace the manifold $M$ by a derived space $\MM$ of some kind and the fiber bundle by a map of derived spaces $\EE \to \MM$ and the fields by sections thereof.
 The theory of differential equations admits a generalization too (perhaps most cleanly by using the perspective of $D$-modules and its outgrowths).
 In practice, as we'll see in this paper, many of the moduli spaces are variants of spaces already studied by geometers.
-In fact, they are often ``derived enhancements'' of well-known moduli spaces: we work with a derived stack whose truncation is a stack already known.
+In fact, they are often ``derived enhancements'' of well-known moduli spaces: we work with a derived stack whose truncation is a stack already known.\footnote{In \cite{STV} a number of important moduli spaces, like moduli of stable maps of curves or moduli of perfect complexes, receive derived enhancements.}
 For example, holomorphic Chern-Simons theory is best viewed as studying the derived enhancement of the moduli space of $G$-bundles on a Calabi-Yau 3-fold~$M$, where $G$ is a reductive complex algebraic group.
 
 There is an important feature that we have not discussed so far:
 the equations of motion arise from ``variational calculus.''
 Loosely speaking, these equations identify the critical points of some function on the space of fields.
 When approached from a derived perspective, 
-the space of solutions typically obtains a natural $-1$-shifted symplectic structure.\footnote{The derived critical locus of a function $f$ on an ordinary smooth variety $X$ is the derived intersection inside $T^*X$ of the graph of $\d f$ and the zero section. The structure sheaf can be modeled by functions $\cO(T^*[-1]X)$ equipped with a differential determined by~$f$. The shifted symplectic structure on $T^*[-1]X$ carries over to this derived critical locus.}
+the space of solutions typically obtains a natural $-1$-shifted symplectic structure.\footnote{The derived critical locus of a function $f$ on an ordinary smooth variety $X$ is the derived intersection inside $T^*X$ of the graph of $\d f$ and the zero section. The structure sheaf can be modeled by functions $\cO(T^*[-1]X)$ equipped with a differential determined by~$f$. The shifted symplectic structure on $T^*[-1]X$ carries over to this derived critical locus. See \cite{VezdCrit} for more discussion.}
 Hence derived field theories lead to $-1$-shifted symplectic derived stacks,
 and we have examples like $T^*[-1]\Bun_G(M)$ or~$T^*[-1] \RR\Map(M,X)$.
 
